@@ -10,7 +10,8 @@ export interface ThemeConfig {
 }
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
-  base: '/vitepress-theme-sakura/',
+  title: 'MKStoler1024\'s Blog',
+  base: '/',
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
     // 字体支持
@@ -32,13 +33,12 @@ export default defineConfigWithTheme<ThemeConfig>({
     }
   },
   themeConfig: {
-    name: 'flaribbit',
-    cover: '/vitepress-theme-sakura/60651947_p0.jpg',
+    name: 'MKStoler1024',
+    motto: '掠过浮霞光影，最后能赢下生活的，还是我们。',
+    hello: '您好，主管。',
+    cover: 'https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN',
     social: [
-      { icon: 'fa-github', url: 'https://github.com' },
-      { icon: 'fa-twitter', url: 'https://twitter.com' },
-      { icon: 'fa-weibo', url: 'https://weibo.com' },
-    ],
-    waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
+      { icon: 'fa-github', url: 'https://github.com/mkstoler1024' },
+    ]
   }
 })
