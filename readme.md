@@ -1,174 +1,136 @@
-# vitepress-theme-sakura
+<!--markdownlint-disable MD028 MD033 MD036 MD041-->
 
-[![npm](https://img.shields.io/npm/v/vitepress-theme-sakura?logo=npm)](https://www.npmjs.com/package/vitepress-theme-sakura)
-[![Build](https://github.com/flaribbit/vitepress-theme-sakura/actions/workflows/build.yml/badge.svg)](https://github.com/flaribbit/vitepress-theme-sakura/actions)
+<div align="right">
 
-可爱又轻量的二次元博客主题！大概是隔壁wp主题的移植吧
+<img width="150" height="150" align="right" style="float: right; margin: 0 10px 0 0;" alt="Avatar" src="https://avatars.githubusercontent.com/u/158786854?v=4">
 
-[在线预览](https://flaribbit.github.io/vitepress-theme-sakura/)
+# MKStoler1024's README
 
-![preview](./preview.webp)
+![README 浏览量](https://komarev.com/ghpvc/?username=MKStoler1024&color=red)
 
-## 快速开始
+> 掠过浮霞光影，最后能赢下生活的，还是我们。
 
-安装依赖，推荐使用 pnpm 包管理器，如果没有的话根据自己的情况把命令中的 `pnpm` 换成 `npm` 或者 `yarn`。
+</div>
 
-```
-pnpm add vitepress vitepress-theme-sakura sass
-```
+<div align="center">
 
-创建配置文件
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=B24B46&center=true&width=435&lines=Learn+not+and+know+not.+;Don't+give+up+and+don't+give+in.+;Hang+on+to+your+dreams.)](https://git.io/typing-svg)
 
-`.vitepress/config.ts`
-```ts
-import { type ThemeConfig } from 'vitepress-theme-sakura/.vitepress/config'
-import { defineConfigWithTheme } from 'vitepress'
-import fixKatex from 'vitepress-theme-sakura/.vitepress/fix-katex'
-export default defineConfigWithTheme<ThemeConfig>({
-  lang: 'zh-CN',
-  title: 'xxx的小站',
-  head: [
-    // 字体支持
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Serif+SC' }],
-    // waline
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/@waline/client@1.5.4/dist/Waline.min.js' }],
-    // katex
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
-  ],
-  markdown: {
-    theme: 'github-light',
-    lineNumbers: true,
-    config: md => { md.use(fixKatex) },
-  },
-  themeConfig: {
-    // ...
-  }
-})
-```
+</div>
 
-其中 `themeConfig` 里面的内容就是要手动填写的主题配置。
+> [!TIP]
+> 
+> 我是随机在国内上线的，所以你可能并不能联系到我。
+>
+> 出于众所周知的原因，QQ 很有可能吞掉你的消息。所以如确有要事，请直接由 [电子邮箱](mailto:qsgz2023ji5ban@edicdn.eu.org) 或者通过本仓库 Discussion 联系我！
 
-`.vitepress/theme/index.ts`
-```ts
-import { type EnhanceAppContext } from 'vitepress'
-// @ts-ignore
-import Layout from 'vitepress-theme-sakura'
+<div align="center">
 
-export default {
-  Layout,
-  NotFound: () => 'custom 404', // <- this is a Vue 3 functional component
-  enhanceApp({ app, router, siteData }: EnhanceAppContext) {
-    // app is the Vue 3 app instance from `createApp()`. router is VitePress'
-    // custom router. `siteData`` is a `ref`` of current site-level metadata.
-  }
-}
-```
+## ⭐ 广告位 ⭐
 
-然后创建 `posts` 目录，编写 markdown 文件保存到 `posts` 目录中。
+**✨ 优秀开源项目友情推荐 ✨ - [想投放自己的？](https://github.com/MKStoler1024/MKStoler1024/issues "Just Do It!")**
 
-执行 `vitepress dev` 命令，以开发模式预览效果；
+<img width="150" height="150" align="right" style="float: right; margin: 0 10px 0 0;" alt="Avatar" src="https://github.com/ClassIsland/ClassIsland/raw/master/ClassIsland/Assets/AppLogo_AppLogo.svg">
 
-执行 `vitepress build` 命令，构建用于发布的网页文件，输出到 `.vitepress/dist` 目录中。
+### [ClassIsland](https://github.com/ClassIsland/ClassIsland)
 
-## 主题配置
+🏫🧑‍🏫 只需要这一个软件，你就能有一个「充实」的课堂。 🧑‍🏫🏫
+<br>
+[前往 ClassIsland Releases 获取一个！](https://github.com/ClassIsland/ClassIsland/releases)
+<br>
+✨ ClassIsland 是一款专为班级大屏设计的工具，可以显示天气、倒计时、时间、上下课提醒。
+<br>
+亦可以用 **丰富的插件和自动化** 做到更多复杂的功能。**还有主题呢！**
+<br>
+#### | [🌐 网站](https://classisland.tech/) | [📚 文档](https://docs.classisland.tech/zh-cn/latest/) | [💬 官方频道](https://qm.qq.com/q/4NsDQKiAuQ) | [🗳 新功能投票](https://github.com/ClassIsland/ClassIsland/issues) |
 
-```ts
-export interface ThemeConfig {
-  name?: string, // 名字，用于显示文章作者等
-  cover?: string, // 首页封面图
-  hello?: string, // 首页问候语
-  motto?: string, // 首页签名
-  social?: { icon: string, url: string }[], // 联系方式
-  waline?: string, // waline 评论系统服务端地址
-}
-```
+<img src="https://github.com/user-attachments/assets/a815dd7d-8343-4da5-aee4-3f754aa297e4" alt="ClassIsland 广告位头图"><br>
 
-代码块主题配置，参见 [shiki 主题](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes)
-```ts
-export type Theme =
-  | 'css-variables'
-  | 'dark-plus'
-  | 'dracula-soft'
-  | 'dracula'
-  | 'github-dark-dimmed'
-  | 'github-dark'
-  | 'github-light'
-  | 'hc_light'
-  | 'light-plus'
-  | 'material-darker'
-  | 'material-default'
-  | 'material-lighter'
-  | 'material-ocean'
-  | 'material-palenight'
-  | 'min-dark'
-  | 'min-light'
-  | 'monokai'
-  | 'nord'
-  | 'one-dark-pro'
-  | 'poimandres'
-  | 'rose-pine-dawn'
-  | 'rose-pine-moon'
-  | 'rose-pine'
-  | 'slack-dark'
-  | 'slack-ochin'
-  | 'solarized-dark'
-  | 'solarized-light'
-  | 'vitesse-dark'
-  | 'vitesse-light'
-```
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/ClassIsland/ClassIsland)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/ClassIsland/ClassIsland/latest)
+![GitHub contributors from allcontributors.org](https://img.shields.io/github/all-contributors/ClassIsland/ClassIsland)
+![GitHub Created At](https://img.shields.io/github/created-at/ClassIsland/ClassIsland)
+![GitHub last commit](https://img.shields.io/github/last-commit/ClassIsland/ClassIsland)
+![GitHub Release Date](https://img.shields.io/github/release-date-pre/ClassIsland/ClassIsland)
+![GitHub language count](https://img.shields.io/github/languages/count/ClassIsland/ClassIsland)
+![GitHub top language](https://img.shields.io/github/languages/top/ClassIsland/ClassIsland)
+![GitHub branch status](https://img.shields.io/github/checks-status/ClassIsland/ClassIsland/dev)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ClassIsland/ClassIsland/total)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/ClassIsland/ClassIsland)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-closed/ClassIsland/ClassIsland)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr/ClassIsland/ClassIsland)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr-closed/ClassIsland/ClassIsland)
+![GitHub number of milestones](https://img.shields.io/github/milestones/all/ClassIsland/ClassIsland)
+![GitHub License](https://img.shields.io/github/license/ClassIsland/ClassIsland)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fclassisland.tech%2F)
+![GitHub Discussions](https://img.shields.io/github/discussions/ClassIsland/ClassIsland)
+![GitHub repo size](https://img.shields.io/github/repo-size/ClassIsland/ClassIsland)
+![GitHub followers](https://img.shields.io/github/followers/ClassIsland)
+![GitHub forks](https://img.shields.io/github/forks/ClassIsland/ClassIsland)
+![GitHub Repo stars](https://img.shields.io/github/stars/ClassIsland/ClassIsland)
+![GitHub watchers](https://img.shields.io/github/watchers/ClassIsland/ClassIsland)
+![GitHub Release](https://img.shields.io/github/v/release/ClassIsland/ClassIsland?include_prereleases)
 
-## 文章配置
-```md
----
-title: 标题
-date: 日期
-cover: 封面图
-tags: [标签1, 标签2]
----
+![All the contributors are the kawaiiest in the world](https://img.shields.io/badge/All%20the%20contributors-are%20the%20kawaiiest%20in%20the%20world-green)
 
-这里的文字会作为预览显示在文章列表中
+<br>
 
----
+<img width="150" height="150" align="right" style="float: right; margin: 0 10px 0 0;" alt="Avatar" src="https://github.com/Class-Widgets/Class-Widgets/blob/main/img%2FLogo.png">
 
-这里的文字点进文章才能看到
-```
+### [Class Widgets](https://github.com/ClassIsland/ClassIsland)
 
-## 功能
-- [x] 首页横幅
-- [x] 文章列表
-- [x] 文章样式
-- [x] waline 评论
-- [x] 文章导航
-- [x] 代码高亮
-- [x] 手机端适配
-- [x] 目录
-- [x] 目录锚点双向同步
-- [x] 标签页面
-- [x] latex 公式
-- [x] RSS
-- [ ] 页脚
-- [ ] 搜索
-- [ ] PWA
+🏫🧑‍🏫 啥？不会用高级语言？没事，备选方案在此。 🧑‍🏫🏫
+<br>
+拥有由Python编写的插件系统和插件广场……
+<br>
+以及通过 **自定义** 个性化你的 Class Widgets；
+<br>
+#### | [🌐 网站](https://classwidgets.rinlit.cn/) | [✨ Releases](https://github.com/Class-Widgets/Class-Widgets/releases)｜[📚 文档](https://www.yuque.com/rinlit/class-widgets_help)
 
-## 其他说明
-如你所见，这个博客主题完成度不是很高。
+![Banner](https://github.com/Class-Widgets/Class-Widgets/blob/main/img%2FBanner.png)
 
-我写这个主题的初衷有两个，一是为了学习前端，二是看到隔壁 wordpress 主题的性能太烂了，所以就想着移植一下。
+[![stars](https://img.shields.io/github/stars/Class-Widgets/Class-Widgets?label=Stars)](https://github.com/Class-Widgets/Class-Widgets)
+[![forks](https://img.shields.io/github/forks/Class-Widgets/Class-Widgets?label=Forks)](https://github.com/Class-Widgets/Class-Widgets)
+[![Watchers](https://img.shields.io/github/watchers/Class-Widgets/Class-Widgets?style=social)](https://github.com/Class-Widgets/Class-Widgets/watchers)
+[![Downloads](https://img.shields.io/github/downloads/Class-Widgets/Class-Widgets/total?style=social&label=Downloads&logo=github)](https://github.com/Class-Widgets/Class-Widgets/releases/latest)
+[![GitHub Issues](https://img.shields.io/github/issues-search/Class-Widgets/Class-Widgets?query=is%3Aopen&style=flat&logo=github&label=Issues&color=%233fb950)](https://github.com/Class-Widgets/Class-Widgets/issues)
+[![GitHub Discussions](https://img.shields.io/github/discussions/Class-Widgets/Class-Widgets?style=flat&logo=Github&label=Discussions)](https://github.com/Class-Widgets/Class-Widgets/discussions)
+[![Release](https://img.shields.io/github/v/release/Class-Widgets/Class-Widgets?style=flat&color=%233fb950&label=正式版)](https://github.com/Class-Widgets/Class-Widgets/releases/latest) 
+[![Beta](https://img.shields.io/github/v/release/Class-Widgets/Class-Widgets?include_prereleases&style=flat&label=测试版)](https://github.com/Class-Widgets/Class-Widgets/releases)
+[![Created At](https://img.shields.io/github/created-at/Class-Widgets/Class-Widgets)](https://github.com/Class-Widgets/Class-Widgets)
+[![Github Last Commit](https://img.shields.io/github/last-commit/Class-Widgets/Class-Widgets)](https://github.com/Class-Widgets/Class-Widgets/commits/main/)
+![Update Status](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E6%B4%BB%E8%B7%83-blue)
+[![GitHub Language Count](https://img.shields.io/github/languages/count/Class-Widgets/Class-Widgets)](https://github.com/Class-Widgets/Class-Widgets)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/Class-Widgets/Class-Widgets)](https://github.com/Class-Widgets/Class-Widgets)
+[![LICENSE](https://img.shields.io/badge/License-GPL--3.0-red.svg "LICENSE")](https://github.com/Class-Widgets/Class-Widgets/blob/main/LICENSE)
+[![QQ群](https://img.shields.io/badge/-QQ%E7%BE%A4%EF%BD%9C169200380-blue?style=flat&logo=QQ)](https://qm.qq.com/q/EuDtwzURQA)
+[![bilibili](https://img.shields.io/badge/-UP%E4%B8%BB%EF%BD%9CRinLit__233OuO-%23FB7299?style=flat&logo=bilibili)](https://space.bilibili.com/569522843)
+[![bilibili](https://img.shields.io/badge/-bilibili%E8%A7%86%E9%A2%91%EF%BD%9CBV1xwW9eyEGu-%23FB7299?style=flat&logo=bilibili)](https://www.bilibili.com/video/BV1xwW9eyEGu)
 
-如果你想安安静静写博客，需要体验友好、性能绝佳、扩展性出色的博客系统，推荐看一下 [Valaxy](https://valaxy.site/).
+</div>
 
-如果你希望学习自制博客所需要的前端技术，但目前是小白，那或许可以参考本项目代码。本项目代码质量不高，但毕竟也是小白写的，所以应该比较容易看懂。如果不是小白，则可以参考 [云猫猫的 Valaxy 仓库](https://github.com/YunYouJun/valaxy)。
+## 简介
 
-## 感谢
-- [wordpress-theme-sakura](https://github.com/mashirozx/sakura)
-- [hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun)
-- [vuejs/blog](https://github.com/vuejs/blog)
-- [wordpress-theme-Sakurairo](https://github.com/mirai-mamori/Sakurairo)
-- [xiaowai-api](https://api.ixiaowai.cn/)
+我原来的号被封了……QaQ，不要乱下载别人发的东西啊，即使是在影子系统里，千万别登录社交账号！
 
-## 不感谢
-- 某个关闭图床的网站
+**这是血的教训啊啊啊啊啊（超大声）இ௰இ**
+
+喜欢写些没啥用的小程序( •̀ ω •́ )y，大体上用的都是`Visual Basic 6.0`，少数用的是`Python`，这两个语言都是勉强能写出程序来的。
+
+额……唯一喜欢的体育运动是打羽毛球。现在在上高二，走大理。**可能是全校唯一一个电脑里除了META以外啥别的游戏都没有的人**。不吃谷，但是朋友...
+
+写不出程序来（需 GPT 辅助）的但是能修改（文字）能读懂一半语言的的有：*HTML,PHP,JS,Vue,TS,C++,C,C#*
+
+其他的连碰都不敢碰(っ °Д °;)っ比如 Golang……
+
+讲实在的，我真的！真的！！真的！！！~~没咋写过现代代码了！！！！~~ 好了开始写了（）
+
+[来这里监视施工进度！](https://github.com/ExamAware)
+
+## 我们推荐的电子教学辅助软件
+
+<div align="center">
+
+### [感谢 @Jursin 的整理！点我访问](https://github.com/Jursin/Awesome-Class-Softwares)
+
+</div>
