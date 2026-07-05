@@ -1,6 +1,6 @@
 ---
 title: 程序无法识别 Office/WPS 的 COM 接口失效/无法识别解决方案
-date: 2025-30-28
+date: 2025-03-28
 tags: [wps, ppt, c#]
 ---
 
