@@ -2,13 +2,14 @@
 
 <div align="center">
 
-## MKStoler1024's README
+# MKStoler1024's README
 
 ![README 浏览量](https://komarev.com/ghpvc/?username=MKStoler1024&color=red)
 
 > 掠过浮霞光影，最后能赢下生活的，还是我们。
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=B24B46&center=true&width=435&lines=Learn+not+and+know+not.+;Don't+give+up+and+don't+give+in.+;Hang+on+to+your+dreams.)](https://git.io/typing-svg)
+
 </div>
 
 > [!TIP]
@@ -17,8 +18,6 @@
 > 我是随机在国内上线的，所以你可能并不能联系到我。
 >
 > 出于众所周知的原因，QQ 很有可能吞掉你的消息。所以如确有要事，请直接由 [电子邮箱](mailto:qsgz2023ji5ban@edicdn.eu.org) 或者通过本仓库 Discussion 联系我！
-
-<div align="center">
 
 ## 简介
 
