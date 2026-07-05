@@ -2,14 +2,13 @@
 
 <div align="center">
 
-# MKStoler1024's README
+## MKStoler1024's README
 
 ![README 浏览量](https://komarev.com/ghpvc/?username=MKStoler1024&color=red)
 
 > 掠过浮霞光影，最后能赢下生活的，还是我们。
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=B24B46&center=true&width=435&lines=Learn+not+and+know+not.+;Don't+give+up+and+don't+give+in.+;Hang+on+to+your+dreams.)](https://git.io/typing-svg)
-
 </div>
 
 > [!TIP]
