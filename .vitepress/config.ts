@@ -35,10 +35,11 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     name: 'MKStoler1024',
     motto: '掠过浮霞光影，最后能赢下生活的，还是我们。',
-    hello: '您好，主管。',
+    hello: 'MKStoler1024\'s Blog',
     cover: 'https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN',
     social: [
       { icon: 'fa-github', url: 'https://github.com/mkstoler1024' },
+      { icon: 'fas fa-envelope', url: 'mailto:qsgz2023ji5ban@edicdn.eu.org' }
     ]
   }
 })
