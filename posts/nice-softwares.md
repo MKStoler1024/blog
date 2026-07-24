@@ -71,6 +71,10 @@ MutanaFavazza 针对希沃白板 3 (EasiNote 3) 因官方停止维护导致的�
 - [123云盘](https://www.123865.com/s/hMx0Vv-AjyWd?pwd=cWiE)
 - [萧然工作室的下载镜像](https://dl.xrgzs.top/%E6%99%BA%E8%83%BD%E7%99%BD%E6%9D%BF%E9%95%9C%E5%83%8F/seewo/!Files/%E5%B8%8C%E6%B2%83%E7%99%BD%E6%9D%BF3)
 
+## seevvo白板5一键安装器
+
+[Huang111盘](https://pan.huang1111.cn/s/we9aqIK)，密码：`1234`
+
 ## 360压缩国际版
 
 主要是干净啊，再加上那个狗屎查杀也能没了，误杀一堆东西（
