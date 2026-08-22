@@ -155,6 +155,7 @@ onUnmounted(() => {
 
   .title {
     font-size: 32px;
+    color: white;
   }
 
   .info {
