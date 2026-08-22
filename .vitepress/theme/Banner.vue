@@ -63,7 +63,7 @@ const cover = themeConfig.cover
   }
 
   .info {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--global-font);
     font-weight: bold;
     display: flex;
     flex-direction: column;

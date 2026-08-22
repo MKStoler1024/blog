@@ -31,6 +31,7 @@ const path = computed(() => route.path.replace(base, '').replace('index.html', '
 <style lang="scss">
 html {
   scroll-behavior: smooth;
+  --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --color-accent: #fe9600;
   --color-gray: #666;
@@ -40,6 +41,14 @@ html {
   --code-line-height: 24px;
   --code-font-family: monospace;
   --code-font-size: 15px;
+}
+
+html[data-font="serif"] {
+  --global-font: serif;
+}
+
+html[data-font="sans-serif"] {
+  --global-font: sans-serif;
 }
 
 body {

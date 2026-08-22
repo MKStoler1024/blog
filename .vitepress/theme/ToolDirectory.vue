@@ -81,7 +81,7 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     --accent: #c6534b;
     --line: #e6e1da;
     color: var(--ink);
-    font-family: "Noto Serif SC", serif;
+    font-family: var(--global-font);
 }
 
 .directory-toolbar {

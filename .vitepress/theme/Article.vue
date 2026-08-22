@@ -5,7 +5,7 @@
       <div class="info">{{ author }} · 更新于 {{ date }} · {{ view }} 次阅读</div>
     </div>
   </div>
-  <div class="article">
+  <div :class="['article', { 'without-banner': index < 0 }]">
     <Content class="content" />
     <div class="content nav">
       <span>
@@ -167,6 +167,10 @@ onUnmounted(() => {
   max-width: 800px;
   margin: auto;
 
+  &.without-banner {
+    padding-top: 64px;
+  }
+
   .content {
     margin: 0.5em;
   }
@@ -250,7 +254,73 @@ onUnmounted(() => {
       margin-left: 0.5em;
     }
   }
+
+  .navbox {
+    margin: 12px 0;
+
+    &:before {
+      flex-basis: 36px;
+    }
+
+    > .custom-block-title,
+    > p {
+      padding: 10px;
+    }
+  }
 }
+
+.navbox {
+    display: flex;
+    align-items: stretch;
+    margin: 12px 0;
+    padding: 0;
+    overflow: hidden;
+    background: #f9ffea;
+    border: 1px solid #dceebd;
+    border-left: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+
+    &:before {
+      content: "\f35d";
+      display: flex;
+      flex: 0 0 40px;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      background-color: #b9e66b;
+      color: #84b63c;
+      font-family: "Font Awesome 6 Free";
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    > .custom-block-title,
+    > p {
+      margin: 0;
+      padding: 12px;
+    }
+
+    > .custom-block-title {
+      padding-right: 0;
+    }
+
+    > p {
+      flex: 1;
+      min-width: 0;
+    }
+
+    a {
+      color: #4f8f3a;
+
+      &:after {
+        background-color: #84b63c;
+      }
+
+      &:hover {
+        color: #84b63c;
+      }
+    }
+  }
 
 .custom-block {
 

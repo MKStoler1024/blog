@@ -17,7 +17,7 @@
 > 
 > 我是随机在国内上线的，所以你可能并不能联系到我。
 >
-> 出于众所周知的原因，QQ 很有可能吞掉你的消息。所以如确有要事，请直接由 [电子邮箱](mailto:qsgz2023ji5ban@edicdn.eu.org) 或者通过本仓库 Discussion 联系我！
+> 出于众所周知的原因，QQ 很有可能吞掉你的消息。所以如确有要事，请直接由 [电子邮箱](mailto:sanwuchengqun@outlook.com) 或者通过本仓库 Discussion 联系我！
 
 ## 简介
 

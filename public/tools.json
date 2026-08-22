@@ -55,6 +55,20 @@
                 "name": "DutyForPutisland",
                 "description": "值日安排自动发送",
                 "url": "https://forum.smart-teach.cn/d/2557"
+            },
+            {
+                "name": "MornheIsland",
+                "description": "ClassIsland 第三方集控",
+                "url": "https://forum.smart-teach.cn/d/2267"
+            },
+            {
+                "name": "RSS 获取器",
+                "url": "https://forum.smart-teach.cn/d/1424"
+            },
+            {
+                "name": "IslandCaller",
+                "description": "ClassIsland 点名器",
+                "url": "https://forum.smart-teach.cn/d/1336"
             }
         ]
     },
@@ -106,6 +120,15 @@
                 "name": "ClassHub",
                 "url": "https://forum.smart-teach.cn/d/2495",
                 "archived": true
+            },
+            {
+                "name": "Class-Widgets-1_plus",
+                "description": "Class Widgets 1 修复版",
+                "url": "https://forum.smart-teach.cn/d/1367"
+            },
+            {
+                "name": "Island",
+                "url": "https://forum.smart-teach.cn/d/2283/9"
             }
         ]
     },
@@ -146,7 +169,8 @@
             {
                 "name": "Aether",
                 "description": "综合教育软件修改方案",
-                "url": "https://forum.smart-teach.cn/d/1972"
+                "url": "https://forum.smart-teach.cn/d/1972",
+                "archived": true
             },
             {
                 "name": "SeevvoDownloader",
@@ -177,6 +201,16 @@
                 "name": "SeewoMCUController",
                 "description": "希沃 MCU 控制工具",
                 "url": "https://forum.smart-teach.cn/d/1063"
+            },
+            {
+                "name": "希沃侧边栏替代品",
+                "url": "https://forum.smart-teach.cn/d/1503",
+                "archived": true
+            },
+            {
+                "name": "Fuck-EasiNote5",
+                "description": "希沃白板音频替换",
+                "url": "https://forum.smart-teach.cn/d/1240"
             }
         ]
     },
@@ -240,6 +274,16 @@
             {
                 "name": "Ink Canvas Better",
                 "url": "https://forum.smart-teach.cn/d/552"
+            },
+            {
+                "name": "FluttiBoard",
+                "url": "https://forum.smart-teach.cn/d/1196",
+                "archived": true
+            },
+            {
+                "name": "InkCanvasForClass Native",
+                "url": "https://forum.smart-teach.cn/d/236",
+                "archived": true
             }
         ]
     },
@@ -318,6 +362,21 @@
                 "name": "listem-mia",
                 "description": "广东英语听说 Part B 三问练习平台",
                 "url": "https://forum.smart-teach.cn/d/1284"
+            },
+            {
+                "name": "FlyEduDownloader",
+                "description": "飞翔教学资源助手",
+                "url": "https://forum.smart-teach.cn/d/120"
+            },
+            {
+                "name": "Lanqiao_embedded_provincial",
+                "description": "蓝桥杯嵌入式省赛模板构建",
+                "url": "https://forum.smart-teach.cn/d/1358/9"
+            },
+            {
+                "name": "High School Study Bundle",
+                "description": "高中物化生学习大礼包",
+                "url": "https://forum.smart-teach.cn/d/2158"
             }
         ]
     },
@@ -392,6 +451,26 @@
                 "name": "ExCaller",
                 "description": "随机点名",
                 "url": "https://forum.smart-teach.cn/d/204"
+            },
+            {
+                "name": "Random_Choice_Plus_3",
+                "description": "智能点名助手",
+                "url": "https://forum.smart-teach.cn/d/1208"
+            },
+            {
+                "name": "EasiVote",
+                "description": "投票软件",
+                "url": "https://forum.smart-teach.cn/d/1358/6"
+            },
+            {
+                "name": "CyreneNameRoller",
+                "description": "课堂随机点名",
+                "url": "https://forum.smart-teach.cn/d/2338"
+            },
+            {
+                "name": "RandomName",
+                "description": "命令行随机抽取",
+                "url": "https://forum.smart-teach.cn/d/2247"
             }
         ]
     },
@@ -442,6 +521,21 @@
                 "name": "duty_reminder",
                 "description": "值日提醒软件",
                 "url": "https://forum.smart-teach.cn/d/1896"
+            },
+            {
+                "name": "SeatingPlanPicker",
+                "description": "座位表抽取器",
+                "url": "https://forum.smart-teach.cn/d/1358/7"
+            },
+            {
+                "name": "德育评价管理系统",
+                "url": "https://forum.smart-teach.cn/d/2398",
+                "archived": true
+            },
+            {
+                "name": "ClassManager",
+                "url": "https://forum.smart-teach.cn/d/1133",
+                "archived": true
             }
         ]
     },
@@ -451,7 +545,7 @@
             {
                 "name": "ClassSun",
                 "description": "桌面悬浮球",
-                "url": null
+                "url": "https://forum.smart-teach.cn/d/1645"
             },
             {
                 "name": "DiffiTouch",
@@ -492,6 +586,12 @@
                 "name": "Lock Screen for Class",
                 "description": "锁屏软件",
                 "url": "https://forum.smart-teach.cn/d/2037",
+                "archived": true
+            },
+            {
+                "name": "管控 Class",
+                "description": "管控与自动化",
+                "url": "https://forum.smart-teach.cn/d/397",
                 "archived": true
             },
             {
@@ -668,6 +768,17 @@
                 "url": "https://forum.smart-teach.cn/d/603"
             },
             {
+                "name": "作业展板",
+                "description": "从 QQ 群自动获取",
+                "url": "https://forum.smart-teach.cn/d/2137",
+                "archived": true
+            },
+            {
+                "name": "Classworks",
+                "description": "修改版",
+                "url": "https://forum.smart-teach.cn/d/1665"
+            },
+            {
                 "name": "导航站",
                 "url": "https://forum.smart-teach.cn/d/801"
             },
@@ -691,6 +802,10 @@
                 "archived": true
             },
             {
+                "name": "ClassGameMaster",
+                "url": "https://forum.smart-teach.cn/d/1292"
+            },
+            {
                 "name": "Rainmeter 天气皮肤",
                 "url": "https://forum.smart-teach.cn/d/589"
             },
@@ -702,6 +817,11 @@
                 "name": "Education Clock",
                 "description": "桌面信息看板",
                 "url": "https://forum.smart-teach.cn/d/619"
+            },
+            {
+                "name": "班级桌面背景系统",
+                "url": "https://forum.smart-teach.cn/d/2079",
+                "archived": true
             }
         ]
     },
@@ -725,6 +845,27 @@
             {
                 "name": "智教联盟论坛搜索修复",
                 "url": "https://forum.smart-teach.cn/d/1128"
+            },
+            {
+                "name": "智教联盟安卓念雪版",
+                "url": "https://forum.smart-teach.cn/d/134",
+                "archived": true
+            },
+            {
+                "name": "StarForum",
+                "description": "修改版",
+                "url": "https://forum.smart-teach.cn/d/781/43"
+            },
+            {
+                "name": "SmartTeachCN",
+                "description": "移动端 App",
+                "url": "https://forum.smart-teach.cn/d/781",
+                "archived": true
+            },
+            {
+                "name": "STCN 安卓 App",
+                "url": "https://forum.smart-teach.cn/d/1125",
+                "archived": true
             },
             {
                 "name": "SMS Code Sync",
@@ -822,6 +963,34 @@
             {
                 "name": "mairotator",
                 "url": "https://forum.smart-teach.cn/d/2609"
+            },
+            {
+                "name": "哈希计算器",
+                "url": "https://forum.smart-teach.cn/d/1358"
+            },
+            {
+                "name": "LXMusicHelper",
+                "description": "第三方平台跳转 LXMusic 工具",
+                "url": "https://forum.smart-teach.cn/d/1358/5"
+            },
+            {
+                "name": "BSMS",
+                "description": "北京地铁可视化地图",
+                "url": "https://forum.smart-teach.cn/d/1182"
+            },
+            {
+                "name": "feishu-opencode-bridge",
+                "description": "飞书-OpenCode 桥接服务",
+                "url": "https://forum.smart-teach.cn/d/1546"
+            },
+            {
+                "name": "Github 仓库信息获取器",
+                "url": "https://forum.smart-teach.cn/d/1247"
+            },
+            {
+                "name": "白板迁移工具",
+                "url": "https://forum.smart-teach.cn/d/1358/2",
+                "archived": true
             }
         ]
     }

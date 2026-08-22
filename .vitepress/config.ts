@@ -1,4 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
+import container from 'markdown-it-container'
 import fixKatex from './fix-katex'
 export interface ThemeConfig {
   name?: string,
@@ -29,6 +30,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     theme: 'github-light',
     lineNumbers: true,
     config: md => {
+      md.use(container, 'navbox')
       md.use(fixKatex)
     }
   },
