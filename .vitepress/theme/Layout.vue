@@ -3,7 +3,7 @@
   <aside />
   <main>
     <ToTop />
-    <CommentsButton />
+    <CommentsButton v-if="isArticle" />
     <template v-if="path === ''">
       <Banner />
       <BlogList :posts="posts" />
@@ -27,6 +27,7 @@ import { data as posts } from '../posts.data'
 const base = useData().site.value.base
 const route = useRoute()
 const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
+const isArticle = computed(() => posts.some(post => post.href === path.value))
 
 </script>
 
