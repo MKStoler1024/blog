@@ -290,9 +290,10 @@ onUnmounted(() => {
 
   .navbox {
     margin: 12px 0;
+    grid-template-columns: 36px minmax(0, 1fr);
 
     &:before {
-      flex-basis: 36px;
+      min-height: 44px;
     }
 
     > .custom-block-title,
@@ -303,8 +304,8 @@ onUnmounted(() => {
 }
 
 .navbox {
-    display: flex;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
     margin: 12px 0;
     padding: 0;
     overflow: hidden;
@@ -316,10 +317,12 @@ onUnmounted(() => {
     &:before {
       content: "\f35d";
       display: flex;
-      flex: 0 0 40px;
       align-items: center;
       justify-content: center;
+      align-self: stretch;
       min-height: 48px;
+      grid-row: 1 / -1;
+      grid-column: 1;
       background-color: #b9e66b;
       color: #84b63c;
       font-family: "Font Awesome 6 Free";
@@ -330,16 +333,16 @@ onUnmounted(() => {
     > .custom-block-title,
     > p {
       margin: 0;
-      padding: 12px;
+      grid-column: 2;
+      padding: 12px 12px 0;
     }
 
     > .custom-block-title {
       padding-right: 0;
     }
 
-    > p {
-      flex: 1;
-      min-width: 0;
+    > :last-child {
+      padding-bottom: 12px;
     }
 
     a {
