@@ -82,6 +82,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   markdown: {
     theme: 'github-light',
     lineNumbers: true,
+    breaks: true,
     config: md => {
       md.inline.ruler.before('link', 'upl-image-preview', uplImagePreview)
       md.inline.ruler.before('link', 'ruby-annotation', rubyAnnotation)

@@ -244,6 +244,10 @@ onUnmounted(() => {
     border-left: 4px solid var(--color-accent);
     color: #815000;
     background: #fff8e8;
+
+    p {
+      margin: 0.35em 0;
+    }
   }
 
   table {
