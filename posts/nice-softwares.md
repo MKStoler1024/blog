@@ -64,16 +64,16 @@ Office Tool Plus是一款Office部署工具，可以安装、卸载、激活Offi
 
 MutanaFavazza 针对希沃白板 3 (EasiNote 3) 因官方停止维护导致的激活难题，开发了EN3Cracker，该工具可以绕过激活验证，使您能够继续使用希沃白板 3。
 
-[GitHub Release](https://github.com/MutanaFavazza/EN3Cracker/releases)
+[GitHub Release](https://github.com/HuskeyDev/EN3Cracker/releases)
 
 欸~注意到官网也没有办法下载EN3了，所以再放上个下载链接吧：
 
 - [123云盘](https://www.123865.com/s/hMx0Vv-AjyWd?pwd=cWiE)
 - [萧然工作室的下载镜像](https://dl.xrgzs.top/%E6%99%BA%E8%83%BD%E7%99%BD%E6%9D%BF%E9%95%9C%E5%83%8F/seewo/!Files/%E5%B8%8C%E6%B2%83%E7%99%BD%E6%9D%BF3)
 
-## seevvo白板5一键安装器
+## SEEVVO全家桶一剑下崽弃
 
-[Huang111盘](https://pan.huang1111.cn/s/we9aqIK)，密码：`1234`
+[蓝奏云](https://wwbrf.lanzoul.com/i4rXK3j22vve)，密码：`0828`
 
 ## 360压缩国际版
 
@@ -86,12 +86,6 @@ MutanaFavazza 针对希沃白板 3 (EasiNote 3) 因官方停止维护导致的�
 欸，这本来转自[吾爱破解](https://www.52pojie.cn/thread-2078006-1-1.html)的帖子，然后在STCN上审核挂了
 
 [蓝奏云](https://wxjyxlwmh.lanzouv.com/b00mpzdiqb) 提取码&解压码：`52pj`
-
-## Adobe全家桶
-
-收集于Makitoid，来自俄罗斯大神monkrus
-
-[123 云盘](https://1812028925.share.123pan.cn/123pan/jnHrVv-2DGGv?notoken=1) 提取码：`Yg8L`
 
 ## 激活 Office/Windows 脚本
 
