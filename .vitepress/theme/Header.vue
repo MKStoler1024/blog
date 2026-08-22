@@ -95,8 +95,10 @@ onMounted(() => {
 })
 
 const applyTheme = (mode: ThemeMode) => {
-  document.documentElement.dataset.theme = mode === 'auto' ? (systemDark.value ? 'dark' : 'light') : mode
+  const theme = mode === 'auto' ? (systemDark.value ? 'dark' : 'light') : mode
+  document.documentElement.dataset.theme = theme
   localStorage.setItem('theme-mode', mode)
+  window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }))
 }
 
 onMounted(() => {

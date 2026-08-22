@@ -21,7 +21,7 @@
         </a>
       </span>
     </div>
-    <Waline v-if="index != -1" ref="waline" />
+    <Giscus v-if="index != -1" :key="route.path" />
     <TOC :data="data.page.value.headers" :active="active" />
   </div>
 </template>
@@ -36,7 +36,7 @@ import { useData, useRoute } from 'vitepress'
 import { onMounted, onUnmounted, ref, reactive, watch, nextTick } from 'vue'
 import { data as posts } from '../posts.data'
 import { throttleAndDebounce } from './utils'
-import Waline from './Waline.vue'
+import Giscus from './Giscus.vue'
 import TOC from './TOC.vue'
 
 const data = useData()
@@ -48,7 +48,6 @@ const date = ref('')
 const view = ref(0)
 const cover = ref('')
 const active = ref(0)
-const waline = ref<InstanceType<typeof Waline>>()
 const nav = reactive([
   { href: '', text: '', show: true },
   { href: '', text: '', show: true },
@@ -61,7 +60,6 @@ const update = () => {
   title.value = data.page.value.title
   cover.value = `background-image: url(${data.page.value.frontmatter.cover || data.theme.value.cover})`
   date.value = new Date(data.page.value.lastUpdated || posts[index.value].create).toLocaleDateString('sv-SE')
-  waline.value?.update()
   let ival = index.value
   if (ival - 1 >= 0) {
     nav[0].href = base + posts[ival - 1].href
