@@ -2,10 +2,13 @@
   <header ref="headerElement" @focusout="handleFocusOut">
     <span class="brand"></span>
     <span class="container">
-      <span class="menu">
+      <button class="menu-toggle" type="button" aria-label="打开导航菜单" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <span class="menu" :class="{ open: menuOpen }">
         <ul>
-          <li v-for="m in menu">
-            <a :href="base + m.url">
+          <li v-for="m in menu" :key="m.url">
+            <a :href="base + m.url" @click="menuOpen = false">
               <span>
                 <i :class="['fa', m.icon]"></i>
                 {{ m.name }}
@@ -64,6 +67,7 @@ import { useData } from 'vitepress'
 import { data as posts } from '../posts.data'
 const base = useData().site.value.base
 const headerElement = ref<HTMLElement>()
+const menuOpen = ref(false)
 type FontMode = 'default' | 'serif' | 'sans-serif'
 const fontMode = ref<FontMode>('default')
 const fontOpen = ref(false)
@@ -157,6 +161,16 @@ header {
     position: absolute;
     left: 50%;
     translate: -50%;
+  }
+
+  .menu-toggle {
+    display: none;
+    border: 0;
+    padding: 8px;
+    color: var(--color-gray);
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
   }
 
   .other {
@@ -301,6 +315,64 @@ header {
 
     &:hover {
       color: var(--color-accent);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    height: 56px;
+
+    .container {
+      left: 8px;
+      translate: none;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .menu {
+      position: absolute;
+      top: 48px;
+      left: 0;
+      display: none;
+      width: min(220px, calc(100vw - 16px));
+      padding: 8px;
+      background: rgba(255, 255, 255, .98);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .16);
+
+      &.open {
+        display: block;
+      }
+
+      li {
+        display: block;
+        margin: 0;
+      }
+
+      a {
+        display: block;
+        padding: 10px 8px;
+      }
+    }
+
+    .other {
+      gap: 8px;
+      padding-right: 8px;
+    }
+
+    button.font-toggle,
+    button.search {
+      padding: 8px 4px;
+      font-size: 14px;
+    }
+
+    .search-panel,
+    .font-panel {
+      top: 44px;
+      right: -4px;
     }
   }
 }

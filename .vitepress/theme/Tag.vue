@@ -34,6 +34,7 @@ onMounted(() => {
 <style lang="scss">
 .tag {
   margin-top: 64px;
+  padding: 0 12px;
 
   .item {
     display: inline-block;

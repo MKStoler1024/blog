@@ -37,10 +37,7 @@
 
 ::: navbox
 各种教学软件可以前往 [Awesome IWB](https://aiwb.smart-teach.cn/) 寻找。
-
 如果希望找一个社区聊天，考虑 [智教联盟论坛](https://forum.smart-teach.cn/)。
-
 需要一个~~不定期更新~~的数字界报道？为什么不去看看 [OhMyIWB](https://ohmyiwb.mm666.qzz.io/) 呢？
-
 以及，强烈推荐一下这个“课表”软件：[ClassIsland](https://www.classisland.tech/)。可不止是课表哦
 :::

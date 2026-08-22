@@ -82,6 +82,7 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     --line: #e6e1da;
     color: var(--ink);
     font-family: var(--global-font);
+    padding: 0 12px;
 }
 
 .directory-toolbar {
@@ -263,14 +264,45 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
         align-items: stretch;
         flex-direction: column;
         gap: .55rem;
+        margin-top: 1rem;
     }
 
     .result-count {
         text-align: right;
     }
 
+    .category-tabs {
+        flex-wrap: nowrap;
+        margin-right: -12px;
+        padding-right: 12px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    .category-tabs button {
+        flex: 0 0 auto;
+        min-height: 40px;
+    }
+
     .tool-grid {
         grid-template-columns: 1fr;
+    }
+
+    .directory-section {
+        margin: 1.5rem 0;
+    }
+
+    .tool-copy strong,
+    .tool-copy span {
+        white-space: normal;
+    }
+
+    .status {
+        flex: 0 0 auto;
+    }
+
+    .empty {
+        padding: 2rem 1rem;
     }
 }
 </style>

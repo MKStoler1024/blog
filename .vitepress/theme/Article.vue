@@ -284,7 +284,22 @@ onUnmounted(() => {
 }
 
 @media (max-width: 800px) {
+  .article {
+    padding-right: 12px;
+    padding-left: 12px;
+
+    &.without-banner {
+      padding-top: 56px;
+    }
+
+    .content {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
   .abanner {
+    margin-top: 56px;
     height: 200px;
 
     .titlebox {
