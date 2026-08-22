@@ -17,6 +17,7 @@
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "markdown-it-container": "^4.0.0",
+    "markdown-it-github-alerts": "^1.0.1",
     "vitepress-theme-sakura": "^0.5.1"
   },
   "devDependencies": {

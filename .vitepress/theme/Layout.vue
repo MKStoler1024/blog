@@ -31,6 +31,7 @@ const path = computed(() => route.path.replace(base, '').replace('index.html', '
 <style lang="scss">
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--color-accent) transparent;
   --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --color-accent: #fe9600;
@@ -71,14 +72,21 @@ img {
   max-width: 100%;
 }
 
+img.upl-image-preview {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 1rem auto;
+}
+
 hr {
   border: none;
   border-bottom: 1px dashed var(--color-border);
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {

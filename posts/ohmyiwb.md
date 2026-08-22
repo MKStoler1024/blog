@@ -6,6 +6,14 @@ tags: [OhMyIWB]
 
 以下内容为对 OhMyIWB 的摘录，更多内容请前往 [OhMyIWB](https://ohmyiwb.mm666.qzz.io/) 查看。
 
+欢迎加入 → 哦我的唉达布溜比的高级职员 OICQ 用户组
+地址位于 1101778139
+
+- 在这里您可以：
+  - 收看最新 OhMyIWB 推送
+  - 灌水，灌很多的水
+  - 找错别字
+
 ---
 
 # 5/11 SR 2.3.12 更新
@@ -1017,3 +1025,823 @@ MacroMeng 说他灵感枯竭了
 ![cat](https://http.cat/403.jpg)
 ![cat](https://http.cat/402.jpg)
 ![cat](https://http.cat/502.jpg)
+
+---
+
+# 07/24 Vol.53 Windows 怎么这么坏，，，
+
+Windows 系统的日常使用中充满了各种令人 *无奈* 的交互与逻辑设计。以下盘点那些让人血压升高的系统体验。
+
+1. Win32暗色模式闪光弹。系统开启深色模式后，部分老旧 Win32 程序弹出的对话框依然保持纯白背景，在暗色环境下极其刺眼。
+
+2. 任务管理器反被卡死。遇到程序无响应时，打开任务管理器准备结束进程，结果任务管理器自身也陷入未响应状态。
+
+3. Win11文件关联设置繁琐。Win11 修改默认应用时，需要针对每一个具体的文件扩展名逐一进行设置，不能一次性关联整个应用。
+
+4. 控制面板半退休状态。传统的控制面板依然存在，大量设置项被迁移到新版设置应用中，两者功能割裂，用户寻找特定选项时经常在两个界面间来回跳转。
+
+5. N代UI同堂。系统界面混杂了 Win32、UWP、WinUI 3 以及 Fluent Design 等多种设计语言，视觉风格极不统一。
+
+6. Windows更新盲盒与巨无霸。更新过程充满不确定性，重启后的等待时间无法预测，累积更新包的体积经常逼近甚至超过系统初始安装包的容量。
+
+7. WinUI3音量控件加载延迟。在低配置电脑上，点击任务栏音量图标，基于 WinUI 3 重构的音量控件需要耗费数秒才能读取并显示当前音量数据。
+
+8. 自家安全软件重叠。系统自带 Defender 的同时，微软又推出微软电脑管家，两款工具功能重叠，增加系统资源占用。
+
+9. 科技以换皮为本。文件管理器等组件使用 WinUI 3 重构界面，底层逻辑与性能未同步优化，仅停留在视觉更换层面。
+
+10. Sysprep 封装要求苛刻。使用系统自带的 Sysprep 工具封装镜像时，必须手动卸载所有现代应用扩展壳，并且需要等待系统联网完成所有更新和软件安装后才能继续。
+
+11. Defender拦截策略迷幻。Windows Defender 对真正的流氓软件往往放行，频繁误杀开发工具、游戏补丁等正经软件，拦截逻辑令人费解。
+
+感谢 @"yizhilanzhu"#221  的投稿（骗你的他是 OMI 作者之一）， ~~微软听到没有赶紧改正~~ 我已给我的树莓派 5 转投 Ubuntu 26 LTS / KDE Plasma（
+
+> **题外话** 欢迎各位加入 *冇得医狐狸 PC 汉医堂* QQ 群聊 <1081482408>，一个由劳资历雪野狐建立的……汉医堂（
+> 你说得对但是冇的医狐狸 PC 汉医堂是一个互帮互助一起解决电脑问题，还可以随时会诊解决疑难杂症的交流群
+
+---
+
+# 07/25 Vol.54 快照 - Opus 5 发布了？！
+
+可恶的 A\ 他们发布了 Opus 5！哦天哪我无疑是想用的但是我没钱，，，
+
+据许多开发者测试，Opus 5 「*简直就是下一代 Fable 6*」。它能用比 Fable 5 少一半的价格实现比 Fable 5 还好的效果。如果你有幸试用了 Opus 5，不妨分享交流一下， ~~再分我点 Token~~
+
+> 整合者按：此时还没有发布DeepSeek v4 flash新版本。
+
+---
+
+# 07/26 Vol.55 我对 AI 生成文案的看法……
+
+不知道为什么，以前逛论坛，没觉得有多少帖子是 AI 写的。但现在已经有许多一眼就能看出来是 AI 生成的帖文，也有很多疑似是 AI 但也带点活人感的文章。不评判它们写的有多好，但是我相信大家也厌烦了那种 *最直白最显而易见……* 的 **豆包式文风** 和其他不管什么但读起来就是很 *恶心人* 让人没有读下去的欲望的文章。此处的文章是指所有帖文，包括什么招人测试、项目介绍之类的。
+
+但是，这里的意思显而易见的不是说要封杀所有 AI 稿。这样论坛的 `AI 生成` Tag 就没有存在的意义了，但是我还是要批判某些文章，因为：
+
+1. 有的甚至给了你 Tag 你都不标，~~你这样可是违法的~~ （仅指文章，我对 AI 图厌恶程度还没那么高）
+2. 一定要审查 AI 稿，别无脑 Ctrl CV 就发了。虽然我在论坛还没发现明显的幻觉现象，不过俗话说得好， *圈小神人神，圈大神人多* ，神人跳出来是迟早的事。而且，即使你看了一遍没有幻觉，最好也不要一股脑地就发出去，第一是论坛的坛规也是很重要的一点，第二是 **三思而后行 | L(ook) (B)efore (Y)ou (L)eap** 这句古老的言语还是有教育意义的（这里不是 Python 的世界，(E)asier to (A)sk for (F)orgiveness than (P)ermission 是错误的）
+3. 给点风格提示词吧。上次 OhMyIWB Thinklog 1 已经发了一些比较好用的提示词，某些 AI 网站（像 Qwen 国际站）也有默认的对话风格可以选择（我没用过国外的 AI（还是那句话，谁送我点 Token）），至少不会这么恶心。说起来，Vol.53 就是我用 AI 生成的，如果你发现了可以点个流汗黄豆（x
+
+这里，Thinklog 提到的几点建议仍然适用。
+
+> - **鉴于新的模型不说人话，为何不用老模型？** 像 Claude 3 / Gemini 2.5 Pro 这些模型都是被验证了文风很好的模型，有条件自然可以用。（当然别用 GPT。）此外，虽然 DeepSeek 常被认作是「文科生」，但鉴于它幻觉率确实是居高不下，我也不推荐你用 DeepSeek 写文档。毕竟有用户质问你「为什么它不工作」而你又不能指责它没看文档这就尴尬了对吧。
+> - **一定要告诉你的模型配图。** 既然是使用手册，那么配图自然是极好的。我说白了，即使你是（科普）书作家，不配图你的书肯定也卖不出去几本，特别有名的除外。（没错我就这么说了。）图只能是你自己截图了，最好还是你自己插入图，除非你的模型多模态很强，知道你软件截图在说的是什么。
+> - **不行就上风格提示词。** 这里要注意：虽然风格提示词本意是好的，但仍有几率你的模型读了之后胡言乱语不知道在说什么，而且你的 Token 用量也会暴涨。这里感谢 [再谈 LLM 辅助写作 - 少数派](https://sspai.com/post/110102) 这篇文章，包括风格提示词在内的许多东西都是直接或间接取材于此。如果你需要更多解决方案，可以看文末的 **扩展阅读**。
+
+如果你感兴趣，可以去看看 Thinklog 那一篇提到的扩展阅读。 *这里是 OMI，~~欢↗迎↘下↝次↘光↗临-~~ 抵制 AI Slop 从我做起*
+
+---
+
+# 07/28 Vol.56 技巧 - 班上大屏（可能）中毒了，怎么办？
+
+> **警告** 本文作者并非专业领域的安全研究人士，所提供的所有意见仅供参考。
+
+是的，事情并非一帆风顺。有时候换了一个新班级，看到大屏垃圾软件遍地，如果你不是激进派直接重装系统，那就可能留下后患——病毒的潜伏，这就不好办了。
+
+那么，遇到这种情况要怎么办呢？以下是一些建议。
+
+## 判断
+
+- 如果能打开杀毒软件：
+  全盘查杀即可。不过如果你的杀毒软件是火绒/ Windows Defender 的话，那么它的杀毒能力可能不足以发现一些新型病毒。不过使用 360 内核的杀毒软件在连接到互联网（启用云查杀）时还是很有用的。
+- 如果不能（如火绒、360 运行无法显示窗口等）：
+  这倒简单，大概率是中病毒了，不然怎么会打不开呢😰。
+- 一些迹象：
+  - 电脑 *异常的* 卡顿或频繁卡加载甚至时不时 BSOD
+  - 某些窗口频繁自己弹出（排除自动化软件所致）
+  - 陌生的异常文件出现（可能是隐藏文件）
+  - 伪装的文件夹、EXE 伪装的其他文件
+  - ……
+
+## 杀毒
+
+如果你的杀毒软件还能打开，并且已经确定中毒，建议使用能力最强的软件全盘查杀。重启前可以检查启动文件夹、注册表等地方是否有陌生的自启动脚本。
+
+重启后不放心可以再杀一遍，确保大屏没有更多病毒。
+
+如果杀毒软件打不开了，那么情况可能更严重。如果大屏有 **本地的** 360 急救箱或类似物，可以尝试使用这些工具杀毒——但要注意可能会有副作用导致某些驱动无法正常工作。
+
+诶这时候你可能要说，MM 我的 USB 里面有强有力的杀毒工具，我要把它进行一个插入吗？不不不，你不应该把你的 USB 进行一个插入。某些病毒可能会侵入你的 USB，并且通过它传播——你肯定不希望你的个人电脑也因此遇难对吧。那么这时要怎么办呢？我相信作为一名合格的折腾电脑的人员，你的 USB 应该不仅仅是个 USB，它还是个 PE 盘。这时候，如果你十分的懒并且有充足的时间和经验，你可以进行一个 PE 的启动——但要小心一定要以最快的速度启动 PE，防止电脑本体启动污染 USB。这之后，你就可以拿 USB 里的妙妙工具进行一个毒的杀了。包括上面说的 360 急救箱等等工具都是十分有用的东西，建议各位 USB 常备一个。
+
+## 事后处置
+
+电脑中毒了，这无疑是让人愤怒的。但是如果不进行一个查的排，日后可能会继续感染，仿佛你流感季不打疫苗一般（？）。这时候你就需要排查了。
+
+中毒无非这几种途径：
+
+- 本机
+  - 运行了神秘脚本
+  - 启动了神秘 EXE
+- 外部
+  - 别的班级感染了通过网络导致你班也感染了
+  - 老牧师老师的 USB 中毒了
+  - ……
+
+本机原因其实比较好处置，使用一个强大的杀毒软件即可解决。火绒适合拦截各种不妙的程序和网页（拦截银狐是很有用的），360 主动被动也都很好。当然，如果学校经常被打，建议备个 360，虽然恶心可能比较恶心，但你不能质疑它的杀毒能力。
+
+但外部原因就不好排查了：
+
+如果因为网络原因，可以尝试配置防火墙工具，但仍然不能根除威胁。如果你有能力 ~~（和手段）~~ ，自己一个一个班级排查也不是不行，但是如果这种病毒会通过网络传播，一种很不好的情况就是几乎全校的电脑已经被轰炸了。这种情况还是找教技部领导报告情况，让专人处理吧——当然很大一种可能是全校重装系统，你可能要备份好重要文件（最好还是进 PE 备份）。
+
+老师 USB 中毒也一样，首先，很难知道是哪个 ~~老牧师~~ 老师的 USB，再考虑到老师们可能还有很多个（还可能都被感染了）USB，除非你有极强的 *人脉* ，否则单独处置这种事件会是极难的。如果你能找班主任说明情况，让他与各个任课老师沟通，可能能一定程度上解决问题，但是话又说回来了，老师不一定在意你，同时也可能有许多设备被感染，这种情况也很难处置……如果你有过实战经验，可以跟帖给我看看 ~~（我是小资历（~~
+
+## 预防
+
+预防病毒感染肯定是更简单的，这里也提出几点建议：
+
+- 给火绒的各项防护打开。火绒杀毒能力不是很好，但是针对这种东西还是很有用的。
+- 解决同学。很多时候中毒都是因为你同学作威作福，有能力建议与老师沟通根除后患。
+- 威胁大的话该上的上——比如 360。这里就看你个人取舍，愿不愿意拿性能占用和更安全的环境了。 
+
+最后，这篇文章肯定有不足之处，希望各位一同交流。该写的都写了，那么——
+
+这里是 OMI，欢↗迎↘下↝次↘光↗临-
+
+不过，下面也有一段有意思的用户的话，摘录在此：
+
+> @"MacrosMeng"#p25856 如果大屏有 本地的 360 急救箱或类似物
+
+没有的话可以在病毒电脑上[下载 360 急救箱](https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip)。
+
+当然，你大概率会遇到各种问题，包括打不开上面的链接等。
+
+这时请检查 hosts 文件和高级安全 Windows Defender 防火墙，确保没有任何拦截的规则。
+
+1. 检查 hosts 文件
+
+ 运行下方命令查看并编辑 hosts 文件：
+
+ ```bash
+powershell -c Start-Process -FilePath notepad -ArgumentList "$env:windir\System32\drivers\etc\hosts" -Verb RunAs
+```
+
+ 如果 hosts 文件内有任何屏蔽 360 网站的内容，如：
+
+ ```plaintext
+127.0.0.1 weishi.360.cn
+127.0.0.1 sd.360.cn
+127.0.0.1 www.360.cn
+```
+
+ 请删除，并使用 `ipconfig /flushdns` 命令刷新 DNS 缓存。
+
+2. 检查高级安全 Windows Defender 防火墙
+
+ 运行 `wf.msc` 打开高级安全 Windows Defender 防火墙。
+
+ 单击左侧列表中的 `出站规则` 查看所有出站规则。
+
+ 翻一遍出站规则中是否有任何阻止出站规则（规则前面有 🚫 禁止图标的）
+
+ 如果有阻止连接到 360 网站的，直接删除。
+
+ 懒的话用下方命令全部删除所有阻止出站规则也可以：
+
+ ```bash
+powershell -c "Start-Process powershell -Verb RunAs -ArgumentList '-c Remove-NetFirewallRule -Action Block -Direction Outbound'"
+```
+
+这时候再尝试从上方链接下载 360 急救箱。
+
+如果有另外一台电脑和一块有 PE 系统的 U 盘，也可以在 U 盘的 PE 系统里查杀。请提前在另一台电脑上下载 [360 系统急救箱 WinPE 版](https://down.360safe.com/SuperKillerWinPE.zip)。然后**关闭大屏系统**，插上 U 盘，使用外接键盘进入 PE 系统。
+
+> [!CAUTION]
+> 在开机时插入 U 盘很危险！
+> 大屏系统此时已感染病毒，开机时插入 U 盘，U 盘内的文件可能随时被感染。
+> 如果一定要通过病毒系统重启到 PE 环境（没有外接键盘的情况下），请一定记得在 PE 系统内查杀 U 盘的所有文件。
+
+重启到 PE 环境内，你需要使用360 系统急救箱 WinPE 版查杀系统。
+
+再重启到病毒系统内，下载 [360 安全卫士极速版](https://dl.360scdn.com/setupbeta_jisu.exe)并安装，安装完记得去给安全卫士主程序改个名（把 `360Safe.exe` 改成任意其它名字，不然可能会被应用控制阻止）。
+
+当然，清除病毒最稳妥的方式永远是重装系统。不过在重装完后，也记得查杀非系统盘内的所有文件，防止病毒复发。
+
+---
+
+# 07/31 Vol.57 技巧 - （不要做）AAA 银狐批发
+
+现在，大家搜索时应该大部分都用的是 Bing —— 因为国内几家搜索引擎就没几个做得好的。但是渐渐的，广告厂家也发现了这个现象，于是时过境迁，Bing 国内版（原版）的广告变得多了起来 —— 不是 BD 那样的 HYW 百家号之类的垃圾信息，而是一种更具有威胁性的网站 —— 木马网站。
+
+这种网站伪装成正常软件的（如 WPS、火绒等家常软件）官网，却投放着加毒的安装包。这些安装包大部分都是一种叫「银狐」的病毒家族包装的 —— 一旦得到运行，你的电脑就变成了「肉鸡」，不仅个人信息会泄露，还有诸多问题，如导致 CPU / RAM 占用异常高等。大屏上感染了这种病毒也会对日常教学乃至全校的信息安全造成巨大影响。
+
+**停！MM 你讲了这么多，要如何阻止银狐的入侵呢？** ~~wq 你谁啊~~ 好的别急马上讲。
+
+## 预防
+
+俗话说得好啊（并不是俗话）预防比治疗是更重要的，所以在日常生活中学会辨别银狐病毒网站是上网安全中十分重要的一环。~~（当然你还得教会你班那帮爱动大屏嘉豪，这就得动用你的智慧了）~~以下是一些简短的说明：
+
+- 是的，国内搜索引擎也就 Bing 做得好点了。所以换搜索引擎不现实，除非你胆大到敢在学校用 [数据删除] —— 那我敬你是条汉子。用咕噜咕噜搜出来的结果（可能？）还算干净，不过鉴于这个方案不是那么可行，我们还是着手优化 Bing 本身的体验。
+  - 使用支持 MV2 规范的浏览器并用上诸如 uBO 之类的广告拦截器 —— ~~Google Chrome 太坏了，居然弃用 MV2 改用 MV3~~ 你可以启用 uBO 自带的规则，再搭配上一些外置的拦截器，如 [VirusDetector](https://github.com/Lolitide/VirusDetector)，这样就能有一个（相对）干净的搜索结果页了。
+  - 学会辨别软件官网 —— 比如 SW 的官网是 `seewo.com`、火绒的官网是 `huorong.cn`、WPS 国内版则是 `wps.cn`，养成习惯后直接输入也没关系。特别注意那些 URI 带着 `-pc` `app-` 等前后缀的网站（如 `[数据删除]-pc.cn`），这种网站需要特别小心，除非你从 **官方** 的渠道了解到这就是官网，不然有可能就是个钓鱼网站。
+  - 看清详细信息 —— 你可以拉到网页底部，看看备案号和它的「公司介绍」「论坛社区」之类的相关链接等是否胡言乱语或者压根就没有跳转（比如 `[数据删除]-pc.cn`）。还有就是如果是大公司出的 App，有没有带味儿特冲的 Vibe 特征，如蓝紫渐变、Emoji 泛滥、乱绘 SVG 等。如果它同时中了这几条特征，那一般就是木马没跑了。
+    - ~~这里也特别提醒各位开发者对自己软件官网用心点，别弄得跟个病毒网站一样~~
+- 下软件也可以从 Microsoft Store 下的（）。只要小心辨别开发者名字是否与真实的提供方一致，毕竟某些搬运工可能在软件里夹带私货，这也不好说。
+- 能用网页版/三方客户端也可以用的（）。比如比力必利，使用 [数据删除] 这类应用或直接看网页不比你下下来一个又大又臃肿的官方客户端强？
+- 安好杀毒软件了。学校其实网络环境是很复杂的，我家长的学校就被入侵过两次，每次都全校重装了系统 —— 这固然是恐怖的，你大概也不想这种情况发生。如果你的学校已经有被入侵的前科，那还是小心一点好，安装并优化好的 360 安全极速版也没有那么不堪（不过 UI 确实不咋好，但话又说回来，弄好了杀毒软件你有多少次打开过它的主界面呢对吧）。火绒也能一定程度上在打开一些神秘网站时阻止你，但是它的主防没那么强。这方面就看你取舍了。
+
+## 鉴别与杀毒
+
+~~这都不知道，罚你去看上期 OMI~~ 好吧还有更多，银狐其实是有专杀工具的，而且还一举一大堆：
+
+- [火绒家](https://down5.huorong.cn/tools/Hrkill-SilverFox.exe)
+- [深信服家](https://download.sangfor.com.cn/download/product/edr/antivirus_tool/sfakiller_x64.exe)
+- [西电大家](https://hz.xidian.edu.cn/info/2747/35144.htm)
+- [启明星辰家](https://www.venustech.com.cn/new_type/zlxz/20250522/28575.html) 注：此网站在作者处似乎无法正常访问……
+- ……
+
+## 不知道
+
+不知道
+
+## FAQs
+
+*Q: 为什么 OMI 更新频率最近貌似有点低？*
+**A: ~~因为我懒，你想你可以写（真诚）~~ 本来就没说这是日更，再加上 MacrosMeng 这个老啥子豆包越来越懒了，写的越来越长了，当然就日更不了了（）**
+
+~~OMI 招人中，我们真的很需要你！.jpg~~ ~~有人记得这个梗吗~~
+
+---
+
+# 08/02 Vol.58 技巧-在大屏上 *欣赏* 音乐，有什么途径？
+
+> 本期的很多内容并不适合在论坛上展示，要观看完整内容，请至 [OMI Website](https://ohmyiwb.mm666.qzz.io)。
+
+## *~~比较~~正规的* 途径
+
+诶我还会骗你不成？你自己知道你的神秘哈基米音乐从哪里听的。（
+
+以下是一些国内合法的正规音乐平台，提供 PC 客户端。可惜的是它们绝大多数都有层出不穷的 VIP 而且受限于中国本地法律法规都需要手机号进行登录……而你在学校不怎么能摸得到手机……
+
+- TME
+  - 酷狗音乐
+    - 无 Linux 端 :(
+  - 酷我音乐
+    - 无 Linux 端 :(
+  - QQ 音乐
+    - 多端支持 👍！
+- 网易云音乐
+  - 无 Linux 端，只有 Linux 特供网页版
+    - ~~神秘 Web 技术~~
+- 汽水音乐
+  - 无 Linux 端 :(
+
+## 比较灰色的途径
+
+额，你爱用不用（？）
+
+- SPlayer
+  - 虽然本体是用的网易云的 API，但是鉴于 API 也并不是……额……合法？而且软件内部也提供自动解灰功能（来自波点音乐等源），所以我把它放这儿来了。
+  - Splayer Next 同理。
+- LX Music
+  - 你需要自备「API」，一份来自外部的 JS 脚本，因为软件本身不具备直接从各家源播放的功能，取而代之的为了避免风险社区编写这种「源」来在此软件内播放音乐。
+    - 做得好的源可以播放各家的「母带」「HiRes」级别的音乐，不过我说白了大多数都是 AI 超上来的……
+    - → `guoyue2010/lxmusic-` `Macrohard0001/lx-ikun-music-sources`
+
+---
+
+# 08/03 Vol.59 技巧-换个字体！
+
+老生常谈：*微软雅黑* 太™的丑了。虽然你可能跟我一样是懒癌晚期患者，懒得更换字体，不过本期教程将会分成两个部分，告诉你更换字体的方法，以及——如何合成一个你最喜欢的字体。
+
+## 更换字体
+
+这个相信大家都很熟悉了。
+
+- Windows
+  - NoMeiryoUI: 老牌 Windows 更换字体软件，但是面对最新的 Windows 11 可能出现部分界面仍是微软雅黑的现象。这是因为阿三程序员硬编码了字体而不是以前使用注册表字体，所以某些状态会失效。
+  - 替换法: 这个比较硬核：你需要先准备一个要用的字体，把它的所有元数据换成同微软雅黑的。然后进 PE 替换，这样好处是可以覆盖所有场景，坏处是别人写好的微软雅黑体到了你这儿就变自定义字体了，不具备普适性。
+- Linux
+  - 各家 DE 都有替换字体的方法，不再赘述——去设置里面找找就行。
+- Android
+  - （？）虽然但是我还是写一下，你可以用 zFont 3 这款工具来更换绝大多数安卓系统的字体——不过似乎没有针对未 Root 的类 AOSP 系统方法。
+
+## 合成字体
+
+有时候你找不到心仪的字体，比如你喜欢霞鹜晰黑 CL 的旧字形，又不是很喜欢它的类 Arial 的西文——这该怎么办？
+
+~~别以为我会给你详细的步骤，前人已经替我做过了！~~这里有一篇野生的[详细教程](https://zhuanlan.zhihu.com/p/617260598)，你可以遵照它使用 FontForge 合成一个字体：比如我就用 LXGW XiHei CL + Google Sans [Text | Flex] 制作了两款字体，[Senryoku Sans 和 Shensouiwa Sans](https://pan.huang1111.cn/s/NkQkQt1)。它们有着 Google 制作的观感很好的西文、还有中文旧字型的古典风格。非常好。（之所以不用 Shanggu Sans 当作基底，是因为它是基于思源黑体制作的，继承了异常高行高这一特征，导致我测试时完全无法适配移动端显示，所以换用了另一个旧字型字体。）
+
+其实我还制作了 Nesarac Sans / Genbugan Sans，基于 Google Sans [Text | Flex] + MiSans，但由于 MiSans 许可条款无法分享 `:(`。
+
+~~又水一篇。~~
+
+---
+
+# 08/07 Vol.60 太好了，六十大寿！（）附上一些问题求助和碎碎念
+今天也是成功的迎来了 OhMyIWB 的六十大寿，**可喜可贺啊**（（（
+
+~~好了本期 OhMyIWB 到此结束~~
+
+诶肯定不会这么短， ~~我 MM 会卖你生瓜蛋子？~~ 剩下的内容是一些求助类东西，如果你觉得你 ~~和你的 AI~~ 很牛逼可以来看看。
+
+主因是我树莓派网卡一直出问题，经过与冇得医群友的交流后判断为网卡炸了，毕竟树莓派 5 确实是有网卡问题。于是便买了一块外置网卡，但是这个网卡必须得装驱动——有意思的来了，它虽然提供了 Linux 下可用的驱动并且也是通用的 DEB 包，但根据它的 PDF 指示走时出现问题了，驱动 make 死活是 make 不出来，AI 说是 Ubuntu 26.04 的 Linux 7.0 内核太新了一些头文件变化导致编译不出来。但是我懒得重装 Ubuntu 24 （再加上 Plasma 5 不管是 X11 还是 Wayland 都有一些奇奇怪怪的问题，Plasma 6 仅 Wayland 居然没有，而我也不想用 Gnome（））所以要么换网卡要么买根离谱长的网线直连路由器。想问问有没有人有更多解决办法……下面附上一些可能有用的信息（）
+
+```bash
+           `.:/ossyyyysso/:.                macrosmeng@mmpi
+        .:oyyyyyyyyyyyyyyyyyyo:`            ---------------
+      -oyyyyyyyodMMyyyyyyyysyyyyo-          OS: Kubuntu 26.04 LTS (Resolute Raccoon) aarch64
+    -syyyyyyyyyydMMyoyyyydmMMyyyyys-        Host: Raspberry Pi 5 Model B Rev 1.0
+   oyyysdMysyyyydMMMMMMMMMMMMMyyyyyyyo      Kernel: Linux 7.0.0-1014-raspi
+ `oyyyydMMMMysyysoooooodMMMMyyyyyyyyyo`     Uptime: 1 hour, 4 mins
+ oyyyyyydMMMMyyyyyyyyyyyysdMMysssssyyyo     Packages: 2615 (dpkg), 2 (flatpak), 11 (snap)
+-yyyyyyyydMysyyyyyyyyyyyyyysdMMMMMysyyy-    Shell: bash 5.3.9
+oyyyysoodMyyyyyyyyyyyyyyyyyyydMMMMysyyyo    Display (K22ZHT): 1920x1080 in 21", 75 Hz [External]
+yyysdMMMMMyyyyyyyyyyyyyyyyyyysosyyyyyyyy    DE: KDE Plasma 6.6.5
+yyysdMMMMMyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy    WM: KWin (Wayland)
+oyyyyysosdyyyyyyyyyyyyyyyyyyydMMMMysyyyo    WM Theme: Breeze 微风
+-yyyyyyyydMysyyyyyyyyyyyyyysdMMMMMysyyy-    Theme: Breeze (DarkM) [Qt], Breeze-Dark [GTK2], Breeze [GTK3]
+ oyyyyyydMMMysyyyyyyyyyyysdMMyoyyyoyyyo     Icons: Tela-circle-ubuntu-dark [Qt], Tela-circle-ubuntu-dark [GTK2/3/4]
+ `oyyyydMMMysyyyoooooodMMMMyoyyyyyyyyo      Font: Migler Sans Text (10pt, Medium) [Qt], Migler Sans Text (10pt) [GTK2/3/4]
+   oyyysyyoyyyysdMMMMMMMMMMMyyyyyyyyo       Cursor: breeze (24px)
+    -syyyyyyyyydMMMysyyydMMMysyyyys-        Terminal: konsole 25.12.3
+      -oyyyyyyydMMyyyyyyysosyyyyo-          CPU: BCM2712 (4) @ 2.40 GHz
+        ./oyyyyyyyyyyyyyyyyyyo/.            GPU: Broadcom bcm2712-vc6 [Integrated]
+           `.:/oosyyyysso/:.`               Memory: 3.11 GiB / 7.74 GiB (40%)
+                                            Swap: 0 B / 1024.00 MiB (0%)
+                                            Disk (/): 19.53 GiB / 116.60 GiB (17%) - ext4
+                                            Local IP (wlan0): 192.168.5.37/24
+                                            Locale: zh_CN.UTF-8
+```
+
+> **BTW**: 我怀疑 Fastfetch 把所有 KDE Plasma + Ubuntu 识别成了 Kubuntu，但是我明明是 Ubuntu Raspi 专版 + KDE 手动安装……
+
+网卡是 Comfast CF-940AX (AX3000) 。如果你能提供帮助我会非常感谢的（（（ 因为我本人技术力拉完了所以才在这里随便写写文字了事的（）
+
+好了下一部分，写作这部分时，我正在下载 `Qwen3-4B-Instruct-2507-Q4_K_M` 作为御用错别字检查模型使用。（）如果你是第一天读 OhMyIWB 可能不知道这个概念，去翻翻 Tl.2 和以前的楼就行了（（（
+
+好了各位再见（（（（（（（（？
+
+---
+
+11:30 PM 附加：我真[数据删除]了[数据删除]，这模型我试了几个版本，试到某个 Q2 的才加载进去，[数据删除]之前那几个全[数据删除]加载不进去给我爆内存了，我[数据删除]。然后呢这玩意你知道它速度如何吗，[数据删除]0.3 tps，bsgm[数据删除]0.3 ??? 你[数据删除]叫我怎么用。
+
+> 数据删除为脏话。
+
+各位有没有更轻量的小模型推荐。
+
+---
+
+同样祝贺 OMI on STCN Forum 主帖浏览量超过 10k！~~曾经永远无法企及的高度……~~ 感谢各位支持
+
+---
+
+# 08/08 Vol.61 草尼姆的网络，以及一些调查，还有该死的 AI 模型的皮豆会……
+
+最新战报，我们正在购买一根十分抽象的网线让我的树莓派正常使用网络。关于更多网络有关讨论请去上一期。
+
+另外就是一些调查：现在看 OhMyIWB 的 QQ 水友多不多，有点的话就考虑开个群正好也就宣传宣传了（）感觉论坛上和 Q 群遇到的人基本上不会是同一批（）
+
+~~我们需要更多的宣传方式~~
+
+还有，上期说的这个模型战报不是出来了吗，达到了惊人的 0.5 tps，于是呢现在我下载了一个 `Qwen 3 0.6b` 进行测试。问题是什么，下载下来的模型文件是 `Safetensor` 格式的，根据我查找的信息很明显我需要把它转换成 `gguf` 格式才能在 `llama.cpp` 中使用。但是转换就需要一个 Python 环境，下载依赖再运行自带的转换脚本，于是我就卡在了装依赖这一步……可喜可贺，这期仍然没有 AI 找茬，各位有兴趣就来一场别样的 ~~睡衣登山大赛~~ 找错别字大赛吧。
+
+各位晚安，等我好消息（）
+
+---
+
+更新：心态炸了，wcnmd pytorch.org，下个 transformer 为什么下那么久啊……
+
+---
+
+顺带一提，Thinklog 排期排 2 期了，我统计了一下每期 Thinklog 算上标点空格等也有个 3000 多字，这下好了，你 MM 写稿 要写废了（）
+
+- **3** AI 不仅没有帮助人们明辨是非，反而让「造神」的现象越来越普遍了……
+- **4** Token 真的需要一个翻译吗？
+
+---
+
+# 08/10 Vol.62 Qwen 3.8 貌似有点强⁉
+
+~~水一篇先~~ 。
+
+Qwen 3.8 Max 正式版出了也有一段时间了，隔壁有名的 Arena AI 也放榜了。综合榜它排到了第 6（基米 3 Max 在 14），前端榜则排到了第 4（基米在第二，不过神秘鲸鱼 ~~极速版~~ 则来到了第 8 还 ~~贼便宜~~ 骗你的要涨价了）。虽然不知道是跑分王还是真有实力，但这种事情只有试试才知道了；但值得注意的是这玩意儿的 API 貌似不咋稳定，刚出来时候我在 Qwen.ai 使用还有用量过高而无法使用现象，只能切回 3.7 Max。
+
+~~今日无 D 各位继续等鲸鱼出 4 Pro 吧~~
+
+---
+
+# 08/13 Vol.63 如何在 ColorOS 系统上使用第三方安装器（免root）
+~~你们一月一更王一只懒朱又上线了说是~~
+## 动机
+是这样的，原来 ColorOS 的系统自带安装器断网是可以安装一些系统不让你安装的东西。但升级到 ColorOS 16 之后，对于一些软件断网法也没法用系统自带的安装器安装上去。于是——
+**我不用系统安装器啦，JOJO！** 
+折腾了一番之后，发现如果要完美替换系统自带安装器，必须要刷入root模块（shizuku 授权后无法正常安装）。于是我自己捣鼓出了一个不是很完美的法子来实现在ColorOS上实现使用第三方安装器**且这个方案是基于 Cross Profile Test App （后面简称CTS），如果没有安装 .apks 之类的特殊需求，只需安装 Cross Profile Test App 即可**
+
+## 已知副作用
+
+1. 设置中部分页面会回退到原生样式（关闭系统优化副作用）
+2. 验证码自动填充有几率失效（启用CTS副作用）
+3. 后台调度有概率挂掉（指昨天开的软件进程第2天还在）
+4. 如果你在下面的步骤中没有关闭系统优化，有概率系统重启卡第二屏
+
+以上这些基于本人经验和网友评论 
+
+MKStoler也发了一份[他自己使用后的反馈](https://forum.smart-teach.cn/d/2619-ohmyiwbwai-chuan-1shi-yong-cross-profile-test-appke-neng-cun-zai-de-wen-ti)可以作为参考
+
+
+
+**如果你了解风险后仍想继续操作的话那就开始吧（**
+
+## 准备软件
+
+Cross Profile Test App （需下载匹配你系统安卓版本的版本） 
+[InstallerX Revived](https://github.com/wxxsfxyzm/InstallerX-Revived)
+
+## 操作流程
+
+1.  进入关于本机-连点7下版本号，打开开发者选项，找到“关闭系统优化”（或“关闭权限监控”）并打开（如没有找到，请将系统语言切换至英文后找到“Disable system optimization”开启后再切换回中文）
+2. 安装 CTS，打开后点击中间的**Open Settings**按钮，应用会闪退，同时安装器回退到原生样式
+2. 然后打开 InstallerX Revived 选择无授权模式安装
+3. 然后你就获得了一个需要点两下安装的第三方安装器（所以说不完美）
+
+___
+
+~~然后这期OMI就水完了~~ 
+题外话：本人为了写这篇公交坐反了说是😰
+
+---
+
+# 08/13 Vol.64 我也要做哈布！
+
+> 本篇原文来自 https://howtomakehub.pages.dev/，作者 @Yukino_fox ，基于 CC-BY-SA 4.0 获得许可，使用 DeepSeek 网页版整合到了一个页面并优化了措辞。
+
+> 这几天主要作者 MM 在外不能正常更新所以随便写点东西。
+
+# HowToMakeHub 搭建指南
+
+## 什么是 Hub
+
+Hub 是一个托管在 GitHub 上的图片仓库，配合 [koishi-plugin-hub-pusl](https://github.com) 插件使用，可以实现：
+
+- **Push**：在 QQ 群内发送命令 + 图片，Bot 自动上传图片到 Hub 仓库并创建 Pull Request
+- **Pull**：在 QQ 群内发送命令，Bot 从 Hub 仓库随机拉取一张图片发送到群内
+
+### Hub 的优势
+
+1. **审核机制**：图片通过 PR 提交，仓库管理员审核后才合并，确保内容合规
+2. **去重**：同文件名的图片会被拒绝推送，避免重复
+3. **历史记录**：所有图片的提交历史都在 GitHub 上可追溯
+4. **无重复拉取**：Bot 按群记录已发送的图片，避免重复发送同一张图
+
+### 工作流程
+
+```
+群友发送: nwtf-push 请输入文本 [图片]
+        ↓
+    Bot 下载图片
+        ↓
+    检查上游仓库是否已存在同名文件 → 有则拒绝
+        ↓
+    检查 Token 用户下是否有 Fork → 没有则自动 Fork
+        ↓
+    同步 Fork 到上游最新
+        ↓
+    在 Fork 上创建分支并上传图片
+        ↓
+    从 Fork 向上游创建跨仓库 PR
+        ↓
+    管理员审核 PR → 合并
+        ↓
+    群友可通过 nwtf-pull 拉取到这张图片
+```
+
+### 仓库结构
+
+一个标准的 Hub 仓库结构如下：
+
+```
+your-hub-repo/
+├── images/
+│   ├── 可爱小猫.png
+│   ├── 风景照.jpg
+│   └── ...
+└── README.md
+```
+
+所有图片存放在 `images/` 目录下，文件名即图片标题。
+
+---
+
+## 插件使用
+
+`koishi-plugin-hub-pusl` 是一个 Koishi 插件，用于在 QQ 群内推送图片到 Hub 仓库并创建 PR，或随机拉取图片到群内。
+
+### 安装
+
+将插件目录复制到 Koishi 项目的 `external/` 下：
+
+```bash
+cp -r /path/to/HubPuslBot /path/to/koishi/external/koishi-plugin-hub-pusl
+cd /path/to/koishi
+npm install ./external/koishi-plugin-hub-pusl
+```
+
+或者使用 `npm pack` 打包后安装：
+
+```bash
+cd /path/to/HubPuslBot
+npm pack
+cd /path/to/koishi
+npm install /path/to/HubPuslBot/koishi-plugin-hub-pusl-0.1.0.tgz
+```
+
+### 配置
+
+| 配置项 | 必填 | 默认值 | 说明 |
+|--------|------|--------|------|
+| `commandPrefix` | 是 | `nwtf` | 命令前缀，命令为 `{prefix}-push` 和 `{prefix}-pull` |
+| `githubToken` | 是 | - | GitHub Personal Access Token，需要 `repo` 权限 |
+| `githubRepo` | 是 | - | 上游仓库，格式：`owner/repo` |
+| `baseBranch` | 否 | `main` | PR 目标分支 |
+| `githubMirror` | 否 | `""` | 镜像前缀，用于 pull 下载图片，例如 `https://gh-proxy.org/` |
+| `allowedGroups` | 否 | `[]` | 允许使用的群号列表，为空则允许所有群 |
+| `adminUsers` | 否 | `[]` | 允许 push 的用户 QQ 号，为空则允许所有人 |
+| `imageDir` | 否 | `images` | 图片在仓库中的目录 |
+| `maxFileSize` | 否 | `20` | 最大允许图片大小（MB） |
+| `historyPath` | 否 | `./hub-pusl-history.json` | 群拉取记录文件路径 |
+
+#### 配置示例
+
+```yaml
+plugins:
+  hub-pusl:
+    commandPrefix: nwtf
+    githubToken: ghp_xxxxxxxxxxxx
+    githubRepo: NoWayToFix/NWTFhub
+    baseBranch: main
+    githubMirror: 'https://gh-proxy.org/'
+    allowedGroups:
+      - '123456789'
+    adminUsers:
+      - '987654321'
+    imageDir: images
+    maxFileSize: 20
+```
+
+### 命令
+
+#### push
+
+```
+nwtf-push <标题> [附带图片]
+```
+
+将图片推送到 Hub 仓库并创建 PR。
+
+- 标题会成为文件名（例如 `可爱小猫` → `可爱小猫.png`）
+- 图片可以随命令发送，也可以引用一条带图片的消息
+- 同名文件会被拒绝，需要更换标题
+- Bot 会自动 Fork 上游仓库，在 Fork 上创建分支并上传，然后创建跨仓库 PR
+
+示例：
+
+```
+nwtf-push 可爱小猫 [发送一张猫的图片]
+```
+
+Bot 返回：
+
+```
+图片已推送，PR：https://github.com/NoWayToFix/NWTFhub/pull/1
+```
+
+#### pull
+
+```
+nwtf-pull
+```
+
+从 Hub 仓库随机拉取一张图片发送到群内。
+
+- 不会重复发送已发过的图片
+- 所有图片都发过后，自动重置记录循环
+- 先发送文件名（例如 `可爱小猫.png`），再发送图片
+
+---
+
+## hub-web 搭建教程
+
+本教程将带你使用 [HubWeb-template](https://github.com) 模板仓库，通过 Fork 快速搭建一个 hub-web 画廊网站。
+
+### 前置条件
+
+- Node.js 18+
+- 一个已创建好的 Hub 仓库（参考上方「创建你的 Hub」）
+- 一个 GitHub 账号
+
+### 我们提倡 hub 和 hub-web 分开
+
+> Hub（图片仓库）和 hub-web（画廊网站）应该是 **两个独立的 GitHub 仓库**。
+
+- **Hub 仓库**（如 `NoWayToFix/NWTFhub`）：纯图片存储，Bot 操作的对象
+- **hub-web**（如 `NoWayToFix/NWTFhub-web`）：画廊网站，展示图片
+
+不要把 web 代码放进 Hub 仓库，也不要把图片放进 web 仓库。
+
+**为什么要分开？**
+
+- **职责分离**：Hub 只管图片，web 只管展示
+- **部署灵活**：web 部署到 Cloudflare Pages / Vercel，Hub 保持在 GitHub
+- **审核不受影响**：Bot 创建的 PR 在 Hub 仓库中审核，web 不参与
+- **独立迭代**：改网站样式不需要动 Hub，加图片不需要动 web
+
+### 步骤 1：Fork 模板仓库
+
+1. 打开 [HubWeb-template](https://github.com)
+2. 点击右上角的 Fork 按钮
+3. 在弹出页面中，Owner 选择你的 GitHub 账号，Repository name 填写你的 hub-web 仓库名（例如 `NWTFhub-web`）
+4. 点击 Create fork
+
+Fork 完成后，你会得到一个属于自己的 hub-web 仓库，例如 `your-username/NWTFhub-web`。
+
+### 步骤 2：配置 Hub 仓库地址
+
+进入你 Fork 后的仓库，编辑 `package.json`，找到 `getphotos` 脚本：
+
+```json
+"getphotos": "shx rm -rf temp_repo public/imgs && (git clone --depth 1 https://github.com/YOUR-USERNAME/YOUR-HUB-REPO temp_repo && shx mkdir -p public/imgs && shx cp -r temp_repo/images/* public/imgs/ && shx rm -rf temp_repo) || shx mkdir -p public/imgs"
+```
+
+将 `YOUR-USERNAME/YOUR-HUB-REPO` 替换为你的 Hub 仓库地址，例如 `NoWayToFix/NWTFhub`。
+
+提交修改：
+
+```bash
+git add package.json
+git commit -m "config: update hub repo address"
+git push
+```
+
+### 步骤 3：本地运行
+
+克隆你 Fork 后的仓库到本地：
+
+```bash
+git clone https://github.com/your-username/NWTFhub-web.git
+cd NWTFhub-web
+```
+
+安装依赖：
+
+```bash
+npm install
+```
+
+启动开发服务器：
+
+```bash
+npm run dev
+```
+
+打开浏览器访问 `http://localhost:5173`，你应该能看到瀑布流画廊。如果 Hub 仓库里已经有图片，它们会被自动拉取并展示出来。
+
+---
+
+本来以为 yizhilanzhu 昨日更新的，怎么冲一天去了（（（
+这样的话标题就请敬爱的 op 改成两篇标题并存吧（
+
+---
+
+## OMI News - **GitHub 突发大规模跨服务故障，现在仍有余波**
+
+全球知名代码托管平台 GitHub 于北京时间8月17日晚间起发生一次波及多个核心服务的大规模性能故障，涉及 API 请求、Actions、Issues、Pull Requests、Webhooks、Pages 及 Git 操作等多个功能。
+
+### 事件经过
+
+**8月17日 21:40** —— GitHub 首次发布通告，称正在调查部分服务性能受影响的情况。
+
+随后多个服务陆续报出性能下降：
+
+* **21:41**：API Requests 出现性能下降
+* **21:42**：Actions 出现性能下降
+* **21:44**：Webhooks 出现性能下降
+* **21:45**：Pull Requests、Issues 等多个服务约 20% 请求报错
+* **21:46**：Issues 出现性能下降
+* **21:58**：Pull Requests 出现性能下降
+
+**22:04** —— 官方通报，网页与 API 流量错误率约 20%，归档下载及原始仓库内容下载错误率约 50%，正在就根本原因开展调查。
+
+**22:24** —— 除上述影响外，SAML/OIDC 身份验证、SCIM、Team Sync 等服务亦受影响。
+
+此后故障范围进一步扩大：
+
+* **22:31**：Copilot 可用性下降
+* **22:45**：Pull Requests 可用性下降
+* **22:49**：Issues 可用性下降
+* **22:54**：Actions 可用性下降
+* **22:58**：Pull Requests 可用性下降（网页/API 错误率约 20%，归档及原始内容约 50%）
+* **23:01**：Webhooks 可用性下降
+* **23:10**：API Requests 可用性下降
+* **23:21**：Pages 出现性能下降
+* **23:40**：Git 操作出现性能下降
+* **23:42**：Webhooks 出现性能下降
+
+**8月18日 00:16** —— 官方通报仍在执行缓解措施，影响面仍未完全收窄。
+
+**多次接近恢复又反复**：**00:36** 官方表示已定位到问题组件并采取纠正措施，出现明显恢复迹象，但错误率仍略微偏高；**00:59** 官方宣布 API Requests、Actions、Git 操作、Issues、Pages、Pull Requests、Webhooks 等的性能下降已得到缓解，处于监控阶段。
+
+但恢复后仍有反复：
+
+* **01:30**：Git 操作再次出现性能下降
+* **01:34**：官方确认已定位问题组件并采取纠正措施，但多个服务仍有残余影响，正继续处理
+* **01:36**：Issues 再次出现性能下降
+* **02:11**：**再次定位到问题：** 已定位到问题组件并采取纠正措施，但仍存在以零星身份验证（authentication）失败形式出现的残余影响，正继续应用额外缓解措施并调查剩余影响。
+
+
+* **02:23**：Git 操作此前遭受的性能下降已得到缓解，正持续监控以确认稳定。
+* **02:48**：API Requests 出现可用性下降，正继续调查。
+* **03:01**：API Requests 已恢复正常运行。
+* **03:13**：仍在继续调查零星的身份验证失败，已**部分禁用认证令牌重试**并观测到改善，全面应用前持续监控影响。
+
+目前，截止到北京时间 2026年8月18日凌晨3点13分，GitHub尚未完全恢复，有关情况请关注其他人起床之后的报道。
+
+## 08/17 Vol.65 这个可不兴断啊——Hurricane Electric (HE AS 6939) 与 Cloudflare (AS 13335) 断开对等互联
+
+[AWARNING]本条OMI可能存在较为强烈的时效性问题。文章写于2026年8月18日凌晨1点55分。[/AWARNING]
+
+来自知名社区 [LINUXDO](https://linux.do/t/topic/2768471) 的文章。
+
+[经检查](https://www.peeringdb.com/net/291)，确实已经没有Cloudflare的公共对等交换点了。
+
+[upl-image-preview uuid=ba196e75-92a9-4a3e-94db-40f1a0f17cb9 url=https://forum.smart-teach.cn/assets/files/2026-08-17/1786989526-846880-image.png alt={TEXT?}]
+
+据网络基础设施监测信息，互联网一级骨干网络运营商 Hurricane Electric（AS 6939）与云计算/CDN服务商 Cloudflare（AS 13335）被发现断开对等互联（Peering）关系。
+
+**所谓"对等互联"**，是指两个网络实体通过中间设施进行双向的免费流量交换，通常能提升访问速度和可达性。
+
+断开后，Hurricane Electric 的客户若想访问 Cloudflare 的网络，HE 需向 Cloudflare 支付费用，或通过第三方（中转）网络完成连接，而这通常会降低连接质量。
+
+Cloudflare以其多项免费的服务出名，包括一定程度的免费CDN和DDoS保护及其他多项服务。 而HE在托管界名声赫赫，其 ip transit 服务（即为数据中心以及各个ASN网络（可以理解为高级自托管）提供网络）便宜大碗，提供极佳的 ipv6 互联性，网络中立，以及全网络巨型帧支持。
+
+目前断联原因尚不明确，双方暂未发布官方声明。有分析认为，这可能是临时的配置问题，也可能是商业争议所致。
+
+业内人士指出，若这两大网络实体长期保持断联，对于互联网的可达性与开放性而言，或是一个坏消息。
+
+---
+
+# 08/20 Vol.66 不想 root？来看看这些免 root 玩机工具
+
+## 说在前面
+
+说起安卓玩机，那就不得不提 root，但自国内品牌接连收紧解锁 bootloader 权限后，root 的难度被猛地拔高，但不 root 就真的没有办法玩机了吗？显然不是，安卓留下的一些特性也可以让我们愉快玩机，本期 OMI 就将介绍一些免 root 的高级权限管理工具和基于他们开发的一些软件。
+
+## 高级权限管理工具
+
+### Shizuku
+
+[upl-image-preview uuid=1bab4f0a-799c-4fe0-b857-5960256ed0fa url=https://forum.smart-teach.cn/assets/files/2026-08-20/1787194829-211793-1bab4f0a-799c-4fe0-b857-5960256ed0fa.png alt={TEXT?}]
+Shizuku 是基于安卓 adb 权限的权限管理器，当他通过无线调试（限安卓 11 及以上版本）或有线 adb 授权后，可以将 adb 权限共享给授权后的 App，以让这些 App 拥有 adb 权限。不过也有其局限性，就是国内厂商很多时候会限制 adb 权限，需要你自行手动将 adb 权限监控关闭。
+
+### Dhizuku
+
+[upl-image-preview uuid=2024ae25-2e7f-4551-b653-c7eabb58d53c url=https://forum.smart-teach.cn/assets/files/2026-08-20/1787194844-140337-2024ae25-2e7f-4551-b653-c7eabb58d53c.png alt={TEXT?}]
+
+Dhizuku 基于安卓的企业管理功能 Device owner，需要通过 adb 激活，授权之后同样能分享 Device owner 权限给授权的应用，但需要注意，在激活 Dhizuku 时，设备上不能存在任何账号，且 OPPO 对授权 Device owner 的软件有特殊签名要求，具体激活步骤请看其 repo 的[此Discussion](https://github.com/iamr0s/Dhizuku/discussions/16)。
+~~所以以本人建议刚拿到新机的时候就激活，否则到时候查账号应用有你受的。~~
+
+## 相关软件
+
+### 1.黑阀
+
+[upl-image-preview uuid=ce0ccc7d-21e3-4887-9267-ad474952d6f9 url=https://forum.smart-teach.cn/assets/files/2026-08-20/1787194861-223802-ce0ccc7d-21e3-4887-9267-ad474952d6f9.png alt={TEXT?}]
+
+黑阀基于 adb 权限，能有效防止应用在后台运行，且可以设置激进，允许同步等。
+**请谨慎黑阀软件（特别是没有接入第三方推送服务的软件），否则容易导致如消息收不到之类的各种问题。**
+
+### OwnDroid 
+
+[upl-image-preview uuid=35bf8a00-e9e6-46bf-ba8f-555195001c06 url=https://forum.smart-teach.cn/assets/files/2026-08-20/1787194874-133329-35bf8a00-e9e6-46bf-ba8f-555195001c06.png alt={TEXT?}]
+
+
+OwnDroid 是一款基于 Device Owner的设备管理器，可以进行一些对系统设置的高级修改（如禁用部分系统功能），支持 Dhizuku 授权或 adb 授权 Device Owner。
+
+### 清浊
+
+[upl-image-preview uuid=cfb46902-01dc-4c9c-97df-cca1d496e81e url=https://forum.smart-teach.cn/assets/files/2026-08-20/1787194885-828659-cfb46902-01dc-4c9c-97df-cca1d496e81e.png alt={TEXT?}]
+
+
+清浊是一款快速清理手机存储空间的软件，授权 adb 权限后可以进行更加深入的系统清理，支持自建清理规则
+还可以到规则工坊下载他人做好的规则。
+
+### App Ops
+
+[upl-image-preview uuid=a91de5fe-7c6d-40fc-90d3-39f65ece2e3a url=https://forum.smart-teach.cn/assets/files/2026-08-20/1787194896-880513-a91de5fe-7c6d-40fc-90d3-39f65ece2e3a.png alt={TEXT?}]
+
+这是一款第三方的权限修改器，通过 adb 授权后可以强制授予/忽略某个应用的权限，也可以更改应用的后台限制。
+
+---
+
+**剩下碍于篇幅就不细讲了，希望大家能愉快的免root玩机（**
+
+---
+
+# 08/21 Vol.67 软件 - Motrix Turbo 开放 Beta
+
+很难想象 Motrix v1 已经是几年前的软件了。作为一个下载器，它的表现十分不错，而几天前 Motrix Turbo 开始开发与发布 Beta 版 —— 下面是官方的描述：
+
+> Motrix 是一款界面简洁、功能丰富的桌面下载管理器，可处理 HTTP、FTP、BitTorrent 和磁力链接（Magnet）等多种下载任务。
+> 
+> Motrix Turbo 是 Motrix 的 v2 版本。它保留了 v1 简洁易用的特点，并使用 Electron、React 和 TypeScript 重新开发。下载内核与界面相互独立；浏览器扩展和命令行工具通过开放协议 MDXP（Motrix Download eXchange Protocol，采用 JSON-RPC 2.0）与应用通信，插件则在独立的沙箱中运行。
+
+> 不要把它和 Motrix Next 弄混了，Next 是一个社区 Fork，不过最近它们也在讨论更换名字和 Logo 等方面的事宜。
+
+官方 GitHub: https://github.com/agalwood/Motrix

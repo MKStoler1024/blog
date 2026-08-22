@@ -369,6 +369,51 @@ onUnmounted(() => {
   font-weight: bold;
 }
 
+.markdown-alert {
+  margin: 1rem 0;
+  padding: 0.1rem 1rem;
+  border-left: 0.25rem solid;
+  color: var(--color-text);
+  background: #f6f8fa;
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+}
+
+.markdown-alert > p:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-alert-note {
+  border-color: #0969da;
+  background: #ddf4ff;
+}
+
+.markdown-alert-tip {
+  border-color: #1a7f37;
+  background: #dafbe1;
+}
+
+.markdown-alert-important {
+  border-color: #8250df;
+  background: #fbefff;
+}
+
+.markdown-alert-warning {
+  border-color: #9a6700;
+  background: #fff8c5;
+}
+
+.markdown-alert-caution {
+  border-color: #cf222e;
+  background: #ffebe9;
+}
+
 // inline code
 code {
   font-size: var(--code-font-size);
