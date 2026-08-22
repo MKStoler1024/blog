@@ -98,6 +98,11 @@ const cover = themeConfig.cover
   }
 }
 
+html[data-theme="dark"] .banner .wave1,
+html[data-theme="dark"] .banner .wave2 {
+  filter: invert(.92);
+}
+
 @media (max-width: 720px) {
   .banner {
     .info {

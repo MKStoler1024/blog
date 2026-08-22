@@ -57,6 +57,10 @@
           <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
         </div>
       </span>
+      <button class="theme-toggle" type="button" :aria-label="`当前${themeModeLabel}，点击切换主题模式`" @click="toggleTheme">
+        <i :class="['fa', themeIcon]" aria-hidden="true"></i>
+        <span class="theme-label">{{ themeModeLabel }}</span>
+      </button>
     </span>
   </header>
 </template>
@@ -68,6 +72,11 @@ import { data as posts } from '../posts.data'
 const base = useData().site.value.base
 const headerElement = ref<HTMLElement>()
 const menuOpen = ref(false)
+type ThemeMode = 'auto' | 'dark' | 'light'
+const themeMode = ref<ThemeMode>('auto')
+const systemDark = ref(false)
+const themeModeLabel = computed(() => themeMode.value === 'auto' ? '跟随系统' : themeMode.value === 'dark' ? '暗色' : '亮色')
+const themeIcon = computed(() => themeMode.value === 'auto' ? 'fa-adjust' : themeMode.value === 'dark' ? 'fa-moon' : 'fa-sun')
 type FontMode = 'default' | 'serif' | 'sans-serif'
 const fontMode = ref<FontMode>('default')
 const fontOpen = ref(false)
@@ -84,6 +93,33 @@ onMounted(() => {
   }
   applyFontMode(fontMode.value)
 })
+
+const applyTheme = (mode: ThemeMode) => {
+  document.documentElement.dataset.theme = mode === 'auto' ? (systemDark.value ? 'dark' : 'light') : mode
+  localStorage.setItem('theme-mode', mode)
+}
+
+onMounted(() => {
+  const savedMode = localStorage.getItem('theme-mode')
+  if (savedMode === 'dark' || savedMode === 'light' || savedMode === 'auto') {
+    themeMode.value = savedMode
+  }
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  systemDark.value = mediaQuery.matches
+  applyTheme(themeMode.value)
+  mediaQuery.addEventListener('change', handleSystemThemeChange)
+  window.addEventListener('beforeunload', () => mediaQuery.removeEventListener('change', handleSystemThemeChange), { once: true })
+})
+
+const toggleTheme = () => {
+  themeMode.value = themeMode.value === 'auto' ? 'dark' : themeMode.value === 'dark' ? 'light' : 'auto'
+  applyTheme(themeMode.value)
+}
+
+const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+  systemDark.value = event.matches
+  if (themeMode.value === 'auto') applyTheme(themeMode.value)
+}
 watch(fontMode, applyFontMode)
 
 const searchOpen = ref(false)
@@ -259,6 +295,22 @@ header {
     }
   }
 
+  button.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 0;
+    padding: 0;
+    color: var(--color-gray);
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
   .font-panel {
     position: absolute;
     top: 32px;
@@ -364,9 +416,14 @@ header {
     }
 
     button.font-toggle,
-    button.search {
+    button.search,
+    button.theme-toggle {
       padding: 8px 4px;
       font-size: 14px;
+    }
+
+    .theme-label {
+      display: none;
     }
 
     .search-panel,
