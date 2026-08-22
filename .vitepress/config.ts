@@ -29,6 +29,31 @@ const uplImagePreview = (state: any, silent: boolean) => {
   return true
 }
 
+const rubyAnnotation = (state: any, silent: boolean) => {
+  const source = state.src.slice(state.pos)
+  const match = source.match(/^\[([^\]\n]+)\]\{([^{}\n]+)\}/)
+  if (!match) return false
+
+  if (!silent) {
+    const annotation = state.push('annotation_open', 'span', 1)
+    annotation.attrSet('class', 'markdown-annotation')
+    annotation.attrSet('tabindex', '0')
+    state.push('annotation_base_open', 'span', 1)
+    const baseTokens: any[] = []
+    state.md.inline.parse(match[1], state.md, state.env, baseTokens)
+    state.tokens.push(...baseTokens)
+    state.push('annotation_base_close', 'span', -1)
+    state.push('annotation_text_open', 'span', 1).attrSet('class', 'annotation-tooltip')
+    const annotationTokens: any[] = []
+    state.md.inline.parse(match[2], state.md, state.env, annotationTokens)
+    state.tokens.push(...annotationTokens)
+    state.push('annotation_text_close', 'span', -1)
+    state.push('annotation_close', 'span', -1)
+  }
+  state.pos += match[0].length
+  return true
+}
+
 export interface ThemeConfig {
   name?: string,
   cover?: string,
@@ -59,6 +84,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     lineNumbers: true,
     config: md => {
       md.inline.ruler.before('link', 'upl-image-preview', uplImagePreview)
+      md.inline.ruler.before('link', 'ruby-annotation', rubyAnnotation)
       md.use(container, 'navbox')
       md.use(githubAlerts)
       md.use(fixKatex)

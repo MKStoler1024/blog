@@ -237,6 +237,38 @@ onUnmounted(() => {
     line-height: 1.5em;
   }
 
+  blockquote {
+    margin: 1rem 0;
+    padding: 0.1rem 1rem;
+    border-left: 4px solid var(--color-accent);
+    color: #815000;
+    background: #fff8e8;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  th {
+    background: #fff3d6;
+  }
+
+  img {
+    height: auto;
+    margin: 1rem auto;
+  }
+
   li {
     margin-block-end: 0.3em;
   }
@@ -371,8 +403,9 @@ onUnmounted(() => {
 
 .markdown-alert {
   margin: 1rem 0;
-  padding: 0.1rem 1rem;
-  border-left: 0.25rem solid;
+  padding: 0.6rem 1rem;
+  border-left: 0.4rem solid;
+  border-radius: 3px;
   color: var(--color-text);
   background: #f6f8fa;
 }
@@ -386,32 +419,87 @@ onUnmounted(() => {
 }
 
 .markdown-alert > p:last-child {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0 0.2rem;
 }
 
 .markdown-alert-note {
   border-color: #0969da;
-  background: #ddf4ff;
+  background: #e5f3ff;
 }
 
 .markdown-alert-tip {
   border-color: #1a7f37;
-  background: #dafbe1;
+  background: #e3f8e8;
 }
 
 .markdown-alert-important {
   border-color: #8250df;
-  background: #fbefff;
+  background: #f5edff;
 }
 
 .markdown-alert-warning {
   border-color: #9a6700;
-  background: #fff8c5;
+  background: #fff3bf;
 }
 
 .markdown-alert-caution {
   border-color: #cf222e;
-  background: #ffebe9;
+  background: #ffebe7;
+}
+
+.markdown-annotation {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: #b86600;
+  font-weight: 600;
+  text-decoration: underline dotted var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+
+  .annotation-tooltip {
+    position: absolute;
+    z-index: 2;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    display: none;
+    width: max-content;
+    max-width: min(320px, 80vw);
+    padding: 6px 9px;
+    transform: translateX(-50%);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text);
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    font-size: 0.85em;
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    pointer-events: auto;
+    text-decoration: none;
+    font-weight: normal;
+
+    a {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 6px;
+  }
+
+  &:hover .annotation-tooltip,
+  &:focus .annotation-tooltip,
+  &:focus-within .annotation-tooltip {
+    display: block;
+  }
 }
 
 // inline code
