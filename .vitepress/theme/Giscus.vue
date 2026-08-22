@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="giscus-container"></div>
+  <div id="comments" ref="container" class="giscus-container"></div>
 </template>
 
 <script setup lang="ts">

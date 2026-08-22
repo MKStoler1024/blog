@@ -122,6 +122,7 @@ const handleSystemThemeChange = (event: MediaQueryListEvent) => {
   systemDark.value = event.matches
   if (themeMode.value === 'auto') applyTheme(themeMode.value)
 }
+
 watch(fontMode, applyFontMode)
 
 const searchOpen = ref(false)

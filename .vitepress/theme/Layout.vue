@@ -3,6 +3,7 @@
   <aside />
   <main>
     <ToTop />
+    <CommentsButton />
     <template v-if="path === ''">
       <Banner />
       <BlogList :posts="posts" />
@@ -19,6 +20,7 @@ import Article from './Article.vue'
 import BlogList from './BlogList.vue'
 import Tag from './Tag.vue'
 import ToTop from './ToTop.vue'
+import CommentsButton from './CommentsButton.vue'
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 import { data as posts } from '../posts.data'
