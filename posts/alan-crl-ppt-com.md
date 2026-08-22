@@ -10,13 +10,13 @@ tags: [wps, ppt, c#]
 
 ## 转发者注明！
 
-由于无耻的 CSDN 把文章收费了，我在此转发一遍。
-
-原作者为 Alan-CRL。
+版权声明：本文原作者为 Alan-CRL，遵循 [CC 4.0 BY-SA](http://creativecommons.org/licenses/by-sa/4.0/) 版权协议，转载请附上[原文出处链接](https://blog.csdn.net/alan16356/article/details/143618256)和本声明。
 
 ## 前言
 
 主要的原因肯定是注册表错误了，但是操作过于复杂了。本篇文章讲述的是适用于大多数人的操作。
+
+智绘教Inkeys 20260102a 引入了 PPT 联动助手 3，**可以在 COM 损坏的情况下依旧可以正常联动**，并且兼容至 Microsoft PowerPoint 2007 和 Kingsoft WPS 2013 及以上版本，欢迎 **[下载体验](https://www.inkeys.top/download.html)**。[PPT 联动助手 3 详细介绍](https://www.inkeys.top/version/introduction/pptcom3.html)。
 
 现在先尝试使用管理员权限运行程序试试看能不能检测到 COM，如果确认任何权限都不行的话就可以开始继续往下看了。但是如果发现管理员权限就可以，并且 Office 无法在普通用户权限下运行，可以参考[这篇文章][Link 1]。
 
