@@ -44,6 +44,7 @@ html {
   --color-border: #d0d7de;
   --color-surface: #fff;
   --color-surface-muted: #f6f8fa;
+  --color-header: rgba(255, 255, 255, 0.9);
   --color-code-header: #f6f8fa;
   --color-shadow: rgba(0, 0, 0, 0.16);
   --code-line-height: 24px;
@@ -66,6 +67,7 @@ html[data-theme="dark"] {
   --color-border: #39434d;
   --color-surface: #20262c;
   --color-surface-muted: #252d34;
+  --color-header: rgba(32, 38, 44, 0.94);
   --color-code-header: #252d34;
   --color-accent: #ffb347;
   --color-shadow: rgba(0, 0, 0, 0.42);
@@ -229,7 +231,7 @@ html[data-theme="dark"] div[class*="language-"]:before {
 }
 
 html[data-theme="dark"] header {
-  background: rgba(21, 25, 29, 0.94);
+  background: #000;
 }
 
 html[data-theme="dark"] .search-panel,

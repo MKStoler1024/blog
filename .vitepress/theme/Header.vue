@@ -16,46 +16,67 @@
             </a>
           </li>
         </ul>
+        <span class="font-switcher">
+          <button class="font-toggle" type="button" aria-label="切换字体" :aria-expanded="fontOpen" @click="toggleFont">
+            <i class="fa fa-font" aria-hidden="true"></i>
+            切换字体
+          </button>
+          <div v-if="fontOpen" class="font-panel">
+            <label for="font-mode">字体</label>
+            <select id="font-mode" v-model="fontMode" aria-label="选择字体" @keydown.esc="fontOpen = false">
+              <option value="default">站点默认</option>
+              <option value="serif">serif</option>
+              <option value="sans-serif">sans-serif</option>
+            </select>
+          </div>
+        </span>
+        <span class="search-box">
+          <button class="search" type="button" aria-label="搜索文章" :aria-expanded="searchOpen" @click="toggleSearch">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            搜索
+          </button>
+          <div v-if="searchOpen" class="search-panel">
+            <input
+              ref="searchInput"
+              v-model="query"
+              type="search"
+              placeholder="搜索文章"
+              aria-label="搜索文章"
+              @keydown.esc="searchOpen = false"
+            />
+            <ul v-if="results.length" class="search-results">
+              <li v-for="post in results" :key="post.href">
+                <a :href="base + post.href" @click="searchOpen = false">
+                  {{ post.title }}
+                </a>
+              </li>
+            </ul>
+            <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
+          </div>
+        </span>
       </span>
     </span>
+    <TOC v-if="isArticle" :data="data.page.value.headers" embedded />
     <span class="other">
-      <span class="font-switcher">
+      <span class="font-switcher desktop-tool">
         <button class="font-toggle" type="button" aria-label="切换字体" :aria-expanded="fontOpen" @click="toggleFont">
           <i class="fa fa-font" aria-hidden="true"></i>
           切换字体
         </button>
         <div v-if="fontOpen" class="font-panel">
-          <label for="font-mode">字体</label>
-          <select id="font-mode" v-model="fontMode" aria-label="选择字体" @keydown.esc="fontOpen = false">
+          <label for="font-mode-desktop">字体</label>
+          <select id="font-mode-desktop" v-model="fontMode" aria-label="选择字体">
             <option value="default">站点默认</option>
             <option value="serif">serif</option>
             <option value="sans-serif">sans-serif</option>
           </select>
         </div>
       </span>
-      <span class="search-box">
+      <span class="search-box desktop-tool">
         <button class="search" type="button" aria-label="搜索文章" :aria-expanded="searchOpen" @click="toggleSearch">
           <i class="fa fa-search" aria-hidden="true"></i>
           搜索
         </button>
-        <div v-if="searchOpen" class="search-panel">
-          <input
-            ref="searchInput"
-            v-model="query"
-            type="search"
-            placeholder="搜索文章"
-            aria-label="搜索文章"
-            @keydown.esc="searchOpen = false"
-          />
-          <ul v-if="results.length" class="search-results">
-            <li v-for="post in results" :key="post.href">
-              <a :href="base + post.href" @click="searchOpen = false">
-                {{ post.title }}
-              </a>
-            </li>
-          </ul>
-          <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
-        </div>
       </span>
       <button class="theme-toggle" type="button" :aria-label="`当前${themeModeLabel}，点击切换主题模式`" @click="toggleTheme">
         <i :class="['fa', themeIcon]" aria-hidden="true"></i>
@@ -67,9 +88,12 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { useData } from 'vitepress'
+import { useData, useRoute } from 'vitepress'
 import { data as posts } from '../posts.data'
-const base = useData().site.value.base
+import TOC from './TOC.vue'
+const data = useData()
+const base = data.site.value.base
+const route = useRoute()
 const headerElement = ref<HTMLElement>()
 const menuOpen = ref(false)
 type ThemeMode = 'auto' | 'dark' | 'light'
@@ -165,6 +189,7 @@ const handleFocusOut = (event: FocusEvent) => {
   if (!nextTarget || !headerElement.value?.contains(nextTarget)) {
     searchOpen.value = false
     fontOpen.value = false
+    menuOpen.value = false
   }
 }
 
@@ -177,6 +202,7 @@ const menu: MenuItem[] = [
   { icon: 'fa-tag', name: '标签', url: 'tags/' },
   { icon: 'fa-leaf', name: '关于', url: 'readme.html' }
 ]
+const isArticle = computed(() => posts.some(post => post.href === route.path.replace(base, '')))
 </script>
 
 <style lang="scss">
@@ -188,7 +214,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.9);
+  background: #000;
   z-index: 100;
 
   .brand {
@@ -206,7 +232,7 @@ header {
     display: none;
     border: 0;
     padding: 8px;
-    color: var(--color-gray);
+    color: #c9d1d9;
     background: transparent;
     font: inherit;
     cursor: pointer;
@@ -218,6 +244,10 @@ header {
     align-items: center;
     gap: 12px;
     padding-right: 8px;
+
+    button {
+      color: #c9d1d9;
+    }
   }
 
   .search-box {
@@ -243,7 +273,7 @@ header {
     right: 0;
     width: min(320px, calc(100vw - 16px));
     padding: 10px;
-    background: white;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
   }
@@ -253,7 +283,7 @@ header {
     padding: 7px 8px;
     border: 1px solid var(--color-border);
     color: var(--color-text);
-    background: white;
+    background: var(--color-surface);
     font: inherit;
   }
 
@@ -323,7 +353,7 @@ header {
     gap: 8px;
     width: max-content;
     padding: 10px;
-    background: white;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
   }
@@ -334,7 +364,7 @@ header {
     border-radius: 4px;
     padding: 4px 6px;
     color: var(--color-gray);
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--color-surface-muted);
     font: inherit;
     cursor: pointer;
   }
@@ -352,6 +382,16 @@ header {
   }
 
   .menu {
+    .font-switcher,
+    button.search {
+      color: #c9d1d9;
+    }
+
+    .font-switcher,
+    .search-box {
+      display: none;
+    }
+
     ul {
       margin: 0;
       padding: 0;
@@ -361,6 +401,10 @@ header {
     li {
       margin: 0 12px;
       display: inline;
+    }
+
+    a {
+      color: #c9d1d9;
     }
   }
 
@@ -394,12 +438,49 @@ header {
       display: none;
       width: min(220px, calc(100vw - 16px));
       padding: 8px;
-      background: rgba(255, 255, 255, .98);
+      background: var(--color-surface);
       border: 1px solid var(--color-border);
       box-shadow: 0 4px 14px rgba(0, 0, 0, .16);
 
       &.open {
         display: block;
+      }
+
+      .font-switcher,
+      .search-box {
+        position: relative;
+        top: auto;
+        right: auto;
+      }
+
+      .font-switcher,
+      .search-box {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: block;
+        margin-top: 4px;
+      }
+
+      .font-toggle,
+      button.search {
+        display: block;
+        width: 100%;
+        padding: 10px 8px;
+        text-align: left;
+      }
+
+      .font-panel,
+      .search-panel {
+        position: static;
+        width: auto;
+        margin: 0 8px 6px;
+        box-shadow: none;
+      }
+
+      .search-panel input {
+        box-sizing: border-box;
+        width: 100%;
       }
 
       li {
@@ -418,8 +499,10 @@ header {
       padding-right: 8px;
     }
 
-    button.font-toggle,
-    button.search,
+    .other .desktop-tool {
+      display: none;
+    }
+
     button.theme-toggle {
       padding: 8px 4px;
       font-size: 14px;
