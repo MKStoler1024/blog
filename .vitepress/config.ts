@@ -4,6 +4,31 @@ import githubAlerts from 'markdown-it-github-alerts'
 import taskLists from 'markdown-it-task-lists'
 import fixKatex from './fix-katex'
 
+const stylesheetRace = (urls: string[]) => `
+  (() => {
+    const urls = ${JSON.stringify(urls)}
+    const links = urls.map(url => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.media = 'print'
+      link.href = url
+      document.head.appendChild(link)
+      return link
+    })
+    let settled = false
+    const finish = link => {
+      if (settled) return
+      settled = true
+      link.media = 'all'
+      links.filter(item => item !== link).forEach(item => item.remove())
+    }
+    links.forEach(link => {
+      link.onload = () => finish(link)
+      link.onerror = () => link.remove()
+    })
+  })()
+`
+
 const uplImagePreview = (state: any, silent: boolean) => {
   const source = state.src.slice(state.pos)
   const match = source.match(/^\[upl-image-preview\s+([^\]]+)\]/)
@@ -23,6 +48,8 @@ const uplImagePreview = (state: any, silent: boolean) => {
     token.attrSet('src', attributes.url)
     token.attrSet('alt', attributes.alt === '{TEXT?}' ? '' : attributes.alt || '')
     token.attrSet('class', 'upl-image-preview')
+    token.attrSet('loading', 'lazy')
+    token.attrSet('decoding', 'async')
     if (attributes.uuid) token.attrSet('data-uuid', attributes.uuid)
   }
   state.pos += match[0].length
@@ -77,14 +104,18 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
-    // 字体支持
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Serif+SC' }],
-    // katex
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css' }],
+    ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' }],
+    ['link', { rel: 'preconnect', href: 'https://s4.zstatic.net' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://google.fonts.ihwx.cn' }],
+    ['script', {}, stylesheetRace([
+      'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css',
+      'https://s4.zstatic.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css',
+    ])],
+    ['script', {}, stylesheetRace([
+      'https://fonts.googleapis.com/css?family=Noto+Serif+SC',
+      'https://google.fonts.ihwx.cn/css?family=Noto+Serif+SC',
+    ])],
   ],
   markdown: {
     theme: 'github-light',
@@ -101,12 +132,12 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   themeConfig: {
     name: 'MKStoler1024',
-    motto: '掠过浮霞光影，最后能赢下生活的，还是我们。',
+    motto: '浮霞掠影，归胜于人。',
     hello: 'MKStoler1024\'s Blog',
     cover: 'https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN',
     social: [
       { icon: 'fa-github', url: 'https://github.com/mkstoler1024' },
-      { icon: 'fas fa-envelope', url: 'mailto:qsgz2023ji5ban@edicdn.eu.org' }
+      { icon: 'fas fa-envelope', url: 'mailto:sanwuchengqun@outlook.com' }
     ]
   }
 })

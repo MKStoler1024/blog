@@ -25,7 +25,7 @@ tags: [wps, ppt, c#]
 #### 打开路径二
 
 打开 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers` 看看有没有相关程序，如果有则删除。  
-![在这里插入图片描述](/26082202.png)
+![在这里插入图片描述](/26082202.webp)
 
 #### 最后
 

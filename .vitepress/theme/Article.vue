@@ -119,15 +119,30 @@ const updateKatex = () => {
     ],
   })
 }
+const loadKatex = () => {
+  if (typeof renderMathInElement !== 'undefined') {
+    updateKatex()
+    return
+  }
+  const stylesheet = document.createElement('link')
+  stylesheet.rel = 'stylesheet'
+  stylesheet.href = 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css'
+  document.head.appendChild(stylesheet)
+
+  const katexScript = document.createElement('script')
+  katexScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js'
+  katexScript.onload = () => {
+    const autoRenderScript = document.createElement('script')
+    autoRenderScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js'
+    autoRenderScript.onload = updateKatex
+    document.head.appendChild(autoRenderScript)
+  }
+  document.head.appendChild(katexScript)
+}
 onMounted(() => {
   setActiveLink()
   window.addEventListener('scroll', onScroll)
-  let el = document.querySelector<HTMLScriptElement>('script[src*="auto-render"]')
-  if (el && typeof renderMathInElement === 'undefined') {
-    el.addEventListener('load', updateKatex, { once: true })
-  } else {
-    updateKatex()
-  }
+  loadKatex()
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)

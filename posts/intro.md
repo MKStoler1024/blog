@@ -5,8 +5,6 @@ tags: [示范, Markdown, 主题]
 cover: https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1600&q=80
 ---
 
-# 站点适配与特殊语法示范
-
 这是一个用于检查主题渲染效果的示范页面。它把本站目前支持的扩展语法集中放在一起，方便在修改主题或升级依赖后快速确认页面仍然正常。
 
 ---
