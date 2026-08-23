@@ -214,7 +214,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #000;
+  background: var(--color-surface);
   z-index: 100;
 
   .brand {
@@ -232,7 +232,7 @@ header {
     display: none;
     border: 0;
     padding: 8px;
-    color: #c9d1d9;
+    color: var(--color-gray);
     background: transparent;
     font: inherit;
     cursor: pointer;
@@ -246,7 +246,7 @@ header {
     padding-right: 8px;
 
     button {
-      color: #c9d1d9;
+      color: var(--color-gray);
     }
   }
 
@@ -384,7 +384,7 @@ header {
   .menu {
     .font-switcher,
     button.search {
-      color: #c9d1d9;
+      color: var(--color-gray);
     }
 
     .font-switcher,
@@ -404,7 +404,7 @@ header {
     }
 
     a {
-      color: #c9d1d9;
+      color: var(--color-gray);
     }
   }
 

@@ -231,7 +231,7 @@ html[data-theme="dark"] div[class*="language-"]:before {
 }
 
 html[data-theme="dark"] header {
-  background: #000;
+  background: var(--color-surface);
 }
 
 html[data-theme="dark"] .search-panel,

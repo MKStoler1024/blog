@@ -166,7 +166,7 @@ onMounted(() => {
   right: 0;
   width: 220px;
   height: 64px;
-  background: #000;
+  background: var(--color-surface);
   border-left: 1px solid var(--color-border);
   pointer-events: none;
 
@@ -263,7 +263,7 @@ onMounted(() => {
     height: 56px;
     transform: none;
     background: var(--color-surface);
-    box-shadow: 0 2px 8px var(--color-shadow);
+    box-shadow: 0 3px 8px -5px var(--color-shadow);
 
     .toc-toggle {
       inset: 0;
@@ -304,7 +304,7 @@ onMounted(() => {
     border-left: 0;
 
     .toc-toggle {
-      color: #c9d1d9;
+      color: var(--color-gray);
     }
   }
 

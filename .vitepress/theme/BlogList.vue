@@ -79,7 +79,7 @@ const { posts, click = null } = defineProps<{
   }
 
   .title {
-    color: #333;
+    color: var(--color-text);
     font-size: 24px;
     margin: 20px 0;
     transition: color 0.2s ease-out;
