@@ -343,6 +343,22 @@ onUnmounted(() => {
       margin-right: 0;
       margin-left: 0;
     }
+
+    .markdown-annotation {
+      .annotation-tooltip {
+        position: static;
+        width: auto;
+        max-width: none;
+        margin-top: 0.35em;
+        transform: none;
+      }
+
+      &:hover .annotation-tooltip,
+      &:focus .annotation-tooltip,
+      &:focus-within .annotation-tooltip {
+        display: block;
+      }
+    }
   }
 
   .abanner {
