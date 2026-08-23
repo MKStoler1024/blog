@@ -129,15 +129,14 @@ function math_block(state, start, end, silent) {
     return false;
   }
 
-  // pos += 2;
+  pos += 2;
   firstLine = state.src.slice(pos, max);
 
   if (silent) {
     return true;
   }
   if (firstLine.trim().slice(-2) === "$$") {
-    // Single line expression
-    firstLine = firstLine.trim();
+    firstLine = firstLine.trim().slice(0, -2);
     found = true;
   }
 
@@ -158,7 +157,7 @@ function math_block(state, start, end, silent) {
 
     if (state.src.slice(pos, max).trim().slice(-2) === "$$") {
       lastPos = state.src.slice(0, max).lastIndexOf("$$") + 2;
-      lastLine = state.src.slice(pos, lastPos);
+      lastLine = state.src.slice(pos, lastPos - 2);
       found = true;
     }
   }
@@ -184,10 +183,10 @@ export default function (md) {
     return fixKatex(tokens[idx].content);
   };
   var blockRenderer = function (tokens, idx) {
-    return fixKatex(tokens[idx].content);
+    return "$$\n" + fixKatex(tokens[idx].content) + "\n$$";
   };
   md.inline.ruler.after("escape", "math_inline", math_inline);
-  md.block.ruler.after("blockquote", "math_block", math_block, {
+  md.block.ruler.before("paragraph", "math_block", math_block, {
     alt: ["paragraph", "reference", "blockquote", "list"],
   });
   md.renderer.rules.math_inline = inlineRenderer;

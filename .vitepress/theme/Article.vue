@@ -47,7 +47,7 @@ const author = data.theme.value.name
 const date = ref('')
 const view = ref(0)
 const cover = ref('')
-const active = ref(0)
+const active = ref('')
 const nav = reactive([
   { href: '', text: '', show: true },
   { href: '', text: '', show: true },
@@ -86,7 +86,10 @@ update()
 watch(route, update)
 
 const setActiveLink = () => {
-  const headers = data.page.value.headers
+  const headingElements = Array.from(document.querySelectorAll<HTMLElement>('.article .content h1, .article .content h2, .article .content h3, .article .content h4, .article .content h5, .article .content h6'))
+  const headers = headingElements.length
+    ? headingElements.map(element => ({ slug: element.id }))
+    : data.page.value.headers
   if (headers.length == 0) return
   for (let i = 0; i < headers.length; i++) {
     const el = document.getElementById(headers[i].slug)
@@ -94,14 +97,14 @@ const setActiveLink = () => {
     if (rect.top > 200) {
       let hash = ' '
       if (i > 0) {
-        active.value = i - 1
+        active.value = headers[i - 1].slug
         hash = '#' + headers[i - 1].slug
       }
       history.replaceState(null, document.title, hash)
       return
     }
   }
-  active.value = headers.length - 1
+  active.value = headers[headers.length - 1].slug
   history.replaceState(null, document.title, '#' + headers[headers.length - 1].slug)
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
@@ -119,9 +122,11 @@ const updateKatex = () => {
 onMounted(() => {
   setActiveLink()
   window.addEventListener('scroll', onScroll)
-  if (import.meta.env.DEV) {
-    let el = document.querySelector<HTMLScriptElement>('script[src*="auto-render"]')
-    if (el) el.onload = () => updateKatex()
+  let el = document.querySelector<HTMLScriptElement>('script[src*="auto-render"]')
+  if (el && typeof renderMathInElement === 'undefined') {
+    el.addEventListener('load', updateKatex, { once: true })
+  } else {
+    updateKatex()
   }
 })
 onUnmounted(() => {
