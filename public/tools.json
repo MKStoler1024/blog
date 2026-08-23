@@ -559,6 +559,11 @@
                 "productUrl": "https://star.cyrene.hk/products/cyrenes-compass"
             },
             {
+                "name": "Class Bar",
+                "description": "插件化悬浮球班辅与插件启动器，内置计时器插件",
+                "url": "https://forum.smart-teach.cn/d/2706-class-bar-gong-kai-ce-shi-cha-jian-hua-xuan-fu-qiu-ban-fu"
+            },
+            {
                 "name": "插件化班辅悬浮球",
                 "url": "https://forum.smart-teach.cn/d/2672",
                 "archived": true
