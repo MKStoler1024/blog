@@ -41,13 +41,14 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
         <div v-else-if="loadError" class="empty">工具目录加载失败，请检查 tools.json。</div>
         <template v-else>
             <div class="directory-toolbar">
-                <label class="search-box"><span aria-hidden="true">⌕</span><input v-model="query" type="search"
-                        placeholder="搜索软件名称或用途" /></label>
+                <label class="search-box"><i class="fa fa-search" aria-hidden="true"></i><input v-model="query" type="search"
+                        placeholder="搜索软件名称或用途" aria-label="搜索工具" /></label>
                 <span class="result-count">{{ visibleCount }} / {{ totalCount }} 项</span>
             </div>
-            <div class="category-tabs" role="tablist">
+            <div class="category-tabs" role="tablist" aria-label="工具分类">
                 <button v-for="name in sectionNames" :key="name" :class="{ active: activeSection === name }"
-                    type="button" @click="activeSection = name">{{ name }}</button>
+                    type="button" role="tab" :aria-selected="activeSection === name"
+                    @click="activeSection = name">{{ name }}</button>
             </div>
             <div v-if="visibleSections.length" class="directory-sections">
                 <section v-for="section in visibleSections" :key="section.name" class="directory-section">
@@ -56,12 +57,10 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
                             <template v-for="tool in section.tools" :key="tool.name">
                                 <a v-if="tool.url" class="tool-card" :class="{ archived: tool.archived }"
                                     :href="tool.url" target="_blank" rel="noreferrer">
-                                    <span class="tool-mark" aria-hidden="true">{{ tool.name.slice(0, 1).toUpperCase() }}</span>
                                     <span class="tool-copy"><strong>{{ tool.name }}</strong><span>{{ tool.description || '查看原帖' }}</span></span>
                                     <span v-if="tool.archived" class="status">已归档</span><span v-else class="arrow" aria-hidden="true">↗</span>
                                 </a>
                                 <button v-else class="tool-card unavailable" type="button" @click="handleMissingUrl(tool)">
-                                    <span class="tool-mark" aria-hidden="true">{{ tool.name.slice(0, 1).toUpperCase() }}</span>
                                     <span class="tool-copy"><strong>{{ tool.name }}</strong><span>{{ tool.description || '暂无地址' }}</span></span>
                                     <span class="status">暂无地址</span>
                                 </button>
@@ -76,20 +75,16 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
 <style scoped>
 .tool-directory {
-    --ink: #253238;
-    --muted: #718087;
-    --accent: #c6534b;
-    --line: #e6e1da;
-    color: var(--ink);
+    color: var(--color-text);
     font-family: var(--global-font);
-    padding: 0 12px;
+    margin: 1.5rem 0 2rem;
 }
 
 .directory-toolbar {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 1.5rem 0 1rem;
+    margin-bottom: 1rem;
 }
 
 .search-box {
@@ -97,15 +92,22 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     flex: 1;
     align-items: center;
     gap: .6rem;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: .65rem .85rem;
-    background: #fffdf9;
+    min-height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: .65rem .9rem;
+    background: var(--color-surface);
+    transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-.search-box span {
-    color: var(--accent);
-    font: 1.5rem/1 sans-serif;
+.search-box:focus-within {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 14%, transparent);
+}
+
+.search-box i {
+    color: var(--color-accent);
+    font-size: .95rem;
 }
 
 .search-box input {
@@ -113,12 +115,18 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     border: 0;
     outline: 0;
     background: transparent;
-    color: var(--ink);
+    color: var(--color-text);
     font: inherit;
 }
 
+.search-box input::placeholder {
+    color: var(--color-gray);
+    opacity: .8;
+}
+
 .result-count {
-    color: var(--muted);
+    flex: 0 0 auto;
+    color: var(--color-gray);
     white-space: nowrap;
     font-size: .85rem;
 }
@@ -126,71 +134,88 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 .category-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: .45rem;
-    margin-bottom: 2rem;
+    gap: .4rem;
+    margin-bottom: 1.75rem;
 }
 
 .category-tabs button {
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: .35rem .7rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: .4rem .7rem;
     background: transparent;
-    color: var(--muted);
+    color: var(--color-gray);
     cursor: pointer;
     font: inherit;
     font-size: .82rem;
+    transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 }
 
-.category-tabs button.active,
 .category-tabs button:hover {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: white;
+    color: var(--color-accent-strong);
+    background: var(--color-surface-muted);
+}
+
+.category-tabs button.active {
+    border-color: var(--color-accent);
+    color: var(--color-accent-strong);
+    background: var(--color-accent-soft);
+}
+
+.category-tabs button:focus-visible,
+.tool-card:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
+    outline-offset: 2px;
 }
 
 .directory-section {
-    margin: 2.25rem 0;
+    margin: 1.75rem 0 2rem;
+}
+
+.directory-section:last-child {
+    margin-bottom: .25rem;
 }
 
 .directory-section h2 {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: .55rem;
+    margin-top: 0;
     margin-bottom: .9rem;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: .45rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: .5rem;
+    color: var(--color-text);
+    font-size: 1.2rem;
 }
 
 .directory-section h2 small {
-    color: var(--muted);
+    color: var(--color-gray);
     font: .75rem sans-serif;
+    font-weight: normal;
 }
 
 .tool-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: .7rem;
+    gap: .65rem;
 }
 
 .tool-card {
-    position: relative;
     display: flex;
-    min-height: 74px;
+    min-height: 72px;
     align-items: center;
     gap: .7rem;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: .75rem .8rem;
-    background: #fffdf9;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    padding: .8rem;
+    background: var(--color-surface);
     color: inherit;
     text-decoration: none;
-    transition: border-color .18s, transform .18s, box-shadow .18s;
+    transition: border-color .2s ease, background-color .2s ease;
 }
 
 .tool-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 5px 16px #45352b12;
-    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    background: var(--color-surface-muted);
 }
 
 .tool-card.unavailable {
@@ -198,18 +223,7 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     cursor: pointer;
     text-align: left;
     font: inherit;
-}
-
-.tool-mark {
-    display: grid;
-    flex: 0 0 34px;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: #f2d9c9;
-    color: #a64740;
-    font: 700 .9rem sans-serif;
+    color: var(--color-text);
 }
 
 .tool-copy {
@@ -224,39 +238,47 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: .94rem;
+    color: var(--color-text);
+    font-size: .96rem;
 }
 
 .tool-copy span {
     overflow: hidden;
-    color: var(--muted);
+    color: var(--color-gray);
     font-size: .78rem;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .arrow {
-    color: var(--accent);
+    color: var(--color-accent);
     font: 1.1rem sans-serif;
 }
 
 .status {
-    border: 1px solid #d9c8c2;
-    border-radius: 3px;
-    padding: .15rem .3rem;
-    color: #9b8178;
+    border-radius: 4px;
+    padding: .15rem .35rem;
+    color: var(--color-gray);
+    background: var(--color-surface-muted);
     font-size: .68rem;
     white-space: nowrap;
 }
 
 .tool-card.archived {
-    opacity: .66;
+    background: var(--color-surface-muted);
+    opacity: .8;
+}
+
+.tool-card.archived:hover {
+    opacity: 1;
 }
 
 .empty {
-    padding: 3rem;
+    padding: 2rem 1rem;
     text-align: center;
-    color: var(--muted);
+    color: var(--color-gray);
+    border: 1px dashed var(--color-border);
+    border-radius: 6px;
 }
 
 @media (max-width: 640px) {
@@ -264,17 +286,15 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
         align-items: stretch;
         flex-direction: column;
         gap: .55rem;
-        margin-top: 1rem;
     }
 
     .result-count {
-        text-align: right;
+        align-self: flex-end;
     }
 
     .category-tabs {
         flex-wrap: nowrap;
-        margin-right: -12px;
-        padding-right: 12px;
+        padding-bottom: 6px;
         overflow-x: auto;
         scrollbar-width: thin;
     }
@@ -299,10 +319,6 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
     .status {
         flex: 0 0 auto;
-    }
-
-    .empty {
-        padding: 2rem 1rem;
     }
 }
 </style>

@@ -37,7 +37,9 @@ html {
   scrollbar-color: var(--color-accent) transparent;
   --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
-  --color-accent: #fe9600;
+  --color-accent: #0f9d9a;
+  --color-accent-strong: #087f7c;
+  --color-accent-soft: #e6fffb;
   --color-gray: #666;
   --color-text: #02111d;
   --color-background: #eee;
@@ -69,7 +71,9 @@ html[data-theme="dark"] {
   --color-surface-muted: #252d34;
   --color-header: rgba(32, 38, 44, 0.94);
   --color-code-header: #252d34;
-  --color-accent: #ffb347;
+  --color-accent: #2dd4bf;
+  --color-accent-strong: #14b8a6;
+  --color-accent-soft: #134e4a;
   --color-shadow: rgba(0, 0, 0, 0.42);
   color-scheme: dark;
 }
@@ -120,16 +124,16 @@ hr {
 }
 
 html[data-theme="dark"] .content blockquote {
-  color: #f1c27d;
-  background: #3a3021;
+  color: #99f6e4;
+  background: #134e4a;
 }
 
 html[data-theme="dark"] .content th {
-  background: #3a3021;
+  background: #134e4a;
 }
 
 html[data-theme="dark"] .navbox {
-  background: #263322;
+  background: #203326;
   border-color: #50633a;
 }
 
@@ -179,7 +183,7 @@ html[data-theme="dark"] .markdown-alert-caution .markdown-alert-title {
 }
 
 html[data-theme="dark"] .markdown-annotation {
-  color: #f0b35a;
+  color: #93c5fd;
 }
 
 html[data-theme="dark"] .markdown-annotation .annotation-tooltip {
@@ -249,22 +253,6 @@ html[data-theme="dark"] .bloglist .card {
 
 html[data-theme="dark"] .bloglist .title {
   color: var(--color-text);
-}
-
-html[data-theme="dark"] .tool-directory {
-  --ink: #e6edf3;
-  --muted: #aeb9c2;
-  --line: #39434d;
-}
-
-html[data-theme="dark"] .tool-directory .search-box,
-html[data-theme="dark"] .tool-directory .tool-card {
-  background: var(--color-surface);
-}
-
-html[data-theme="dark"] .tool-directory .tool-mark {
-  background: #4b382a;
-  color: #f1c27d;
 }
 
 html[data-theme="dark"] .not-found {

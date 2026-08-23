@@ -113,7 +113,7 @@ onMounted(() => {
 
     &:focus-within {
       border-color: var(--color-accent);
-      box-shadow: 0 0 0 3px rgba(254, 150, 0, 0.14);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 14%, transparent);
     }
   }
 

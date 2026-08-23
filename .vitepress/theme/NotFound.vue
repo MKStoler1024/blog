@@ -30,17 +30,17 @@ const goBack = () => history.back()
   min-height: calc(100vh - 64px);
   place-items: center;
   padding: 88px 16px 40px;
-  background: #fff;
+  background: var(--color-background);
 }
 
 .not-found-card {
   width: min(560px, 100%);
   padding: 40px 32px 36px;
-  border: 2px solid #ffd88a;
+  border: 2px solid color-mix(in srgb, var(--color-accent) 42%, var(--color-border));
   border-radius: 16px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 12px 30px rgba(178, 102, 0, 0.14);
+  background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--color-shadow) 80%, transparent);
 }
 
 .mascot {
@@ -51,10 +51,10 @@ const goBack = () => history.back()
   width: 128px;
   height: 82px;
   margin-bottom: 10px;
-  border: 4px solid #f3a51b;
+  border: 4px solid var(--color-accent);
   border-radius: 50% 50% 45% 45%;
-  color: #9a5d00;
-  background: #fff0c9;
+  color: var(--color-accent-strong);
+  background: var(--color-accent-soft);
   transform: rotate(-2deg);
 }
 
@@ -68,9 +68,9 @@ const goBack = () => history.back()
   top: -18px;
   width: 34px;
   height: 34px;
-  border: 4px solid #f3a51b;
+  border: 4px solid var(--color-accent);
   border-bottom: 0;
-  background: #fff0c9;
+  background: var(--color-accent-soft);
 }
 
 .ear.left {

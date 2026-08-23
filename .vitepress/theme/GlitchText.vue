@@ -24,7 +24,7 @@ const { text } = defineProps<{ text: string }>()
   &:before {
     @include glitch-common;
     left: -1px;
-    text-shadow: 1px 0 #ff3f1a;
+    text-shadow: 1px 0 #67e8f9;
   }
   &:after {
     @include glitch-common;
@@ -33,7 +33,7 @@ const { text } = defineProps<{ text: string }>()
   }
   &:hover {
     &:before {
-      text-shadow: 4px 0 #ff3f1a;
+      text-shadow: 4px 0 #67e8f9;
       animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
     }
     &:after {

@@ -204,7 +204,7 @@ onUnmounted(() => {
   color: var(--color-text);
 
   a {
-    color: #e58700;
+    color: var(--color-accent-strong);
     position: relative;
     transition: color 0.2s ease-out;
 
@@ -260,8 +260,8 @@ onUnmounted(() => {
     margin: 1rem 0;
     padding: 0.1rem 1rem;
     border-left: 4px solid var(--color-accent);
-    color: #815000;
-    background: #fff8e8;
+    color: var(--color-accent-strong);
+    background: var(--color-accent-soft);
 
     p {
       margin: 0.35em 0;
@@ -284,7 +284,7 @@ onUnmounted(() => {
   }
 
   th {
-    background: #fff3d6;
+    background: var(--color-accent-soft);
   }
 
   img {
@@ -542,7 +542,7 @@ onUnmounted(() => {
   position: relative;
   display: inline-block;
   cursor: help;
-  color: #b86600;
+  color: var(--color-accent-strong);
   font-weight: 600;
   text-decoration: underline dotted var(--color-accent);
   text-decoration-thickness: 2px;
@@ -599,11 +599,11 @@ onUnmounted(() => {
   border-radius: 4px;
   padding: 0.2em 0.4em;
   background-color: rgba(27, 31, 35, 0.05);
-  color: #b44b00;
+  color: var(--color-accent-strong);
 }
 
 html[data-theme="dark"] .content :not(pre) > code {
-  color: #ffb86c;
+  color: #99f6e4;
   background-color: #343b43;
   box-shadow: inset 0 0 0 1px #4b5661;
 }

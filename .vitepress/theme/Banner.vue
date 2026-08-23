@@ -39,8 +39,8 @@ const social = themeConfig.social || []
 
 .banner {
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 190, 92, 0.22), transparent 30%),
-    linear-gradient(135deg, #35191d 0%, #7b2925 42%, #d65c30 74%, #f3a34a 100%);
+    radial-gradient(circle at 50% 50%, rgba(45, 212, 191, 0.24), transparent 30%),
+    linear-gradient(135deg, #082f49 0%, #0f4c5c 42%, #087f7c 74%, #0891b2 100%);
   position: relative;
   overflow: hidden;
   height: 100vh;
@@ -57,18 +57,18 @@ const social = themeConfig.social || []
   }
 
   &::before {
-    background: radial-gradient(ellipse at 50% 100%, rgba(255, 220, 140, 0.25), transparent 58%);
+    background: radial-gradient(ellipse at 50% 100%, rgba(103, 232, 249, 0.25), transparent 58%);
   }
 
   &::after {
-    background: linear-gradient(180deg, transparent 58%, rgba(77, 28, 25, 0.62) 100%);
+    background: linear-gradient(180deg, transparent 58%, rgba(8, 47, 73, 0.68) 100%);
   }
 
   .grid {
     position: absolute;
     inset: 0;
     opacity: 0.28;
-    background-image: linear-gradient(rgba(255, 226, 149, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 226, 149, 0.15) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(153, 246, 228, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(153, 246, 228, 0.18) 1px, transparent 1px);
     background-size: 72px 72px;
     transform: perspective(500px) rotateX(58deg) scale(1.8) translateY(20%);
     transform-origin: center bottom;
@@ -82,8 +82,8 @@ const social = themeConfig.social || []
     left: 50%;
     top: 50%;
     border-radius: 50%;
-    border: 1px solid rgba(255, 226, 149, 0.35);
-    box-shadow: 0 0 36px rgba(255, 155, 55, 0.18), inset 0 0 36px rgba(255, 155, 55, 0.12);
+    border: 1px solid rgba(153, 246, 228, 0.4);
+    box-shadow: 0 0 36px rgba(45, 212, 191, 0.22), inset 0 0 36px rgba(34, 211, 238, 0.14);
     transform: translate(-50%, -50%) rotate(-24deg) scaleY(0.36);
     animation: orbit-turn 20s linear infinite;
   }
@@ -105,8 +105,8 @@ const social = themeConfig.social || []
     width: 6px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: #ffe29b;
-    box-shadow: 0 0 18px 5px rgba(255, 226, 149, 0.55);
+    background: #a5f3fc;
+    box-shadow: 0 0 18px 5px rgba(103, 232, 249, 0.6);
     animation: spark-pulse 4s ease-in-out infinite;
   }
 
@@ -186,35 +186,35 @@ html[data-theme="dark"] .banner .wave2 {
 
 html[data-theme="dark"] .banner {
   background:
-    radial-gradient(circle at 50% 45%, rgba(255, 141, 53, 0.12), transparent 32%),
-    linear-gradient(135deg, #120f18 0%, #29151d 45%, #54201f 75%, #8b3826 100%);
+    radial-gradient(circle at 50% 45%, rgba(45, 212, 191, 0.14), transparent 32%),
+    linear-gradient(135deg, #07151c 0%, #0b2f38 45%, #115e59 75%, #0e7490 100%);
 
   &::before {
-    background: radial-gradient(ellipse at 50% 100%, rgba(255, 137, 52, 0.16), transparent 58%);
+    background: radial-gradient(ellipse at 50% 100%, rgba(34, 211, 238, 0.18), transparent 58%);
   }
 
   &::after {
-    background: linear-gradient(180deg, rgba(9, 10, 18, 0.12), rgba(9, 10, 18, 0.78) 100%);
+    background: linear-gradient(180deg, rgba(9, 10, 18, 0.12), rgba(9, 10, 30, 0.8) 100%);
   }
 
   .grid {
     opacity: 0.38;
-    background-image: linear-gradient(rgba(255, 166, 72, 0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 166, 72, 0.22) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(94, 234, 212, 0.24) 1px, transparent 1px), linear-gradient(90deg, rgba(94, 234, 212, 0.24) 1px, transparent 1px);
   }
 
   .orbit {
-    border-color: rgba(255, 166, 72, 0.5);
-    box-shadow: 0 0 42px rgba(255, 104, 36, 0.26), inset 0 0 42px rgba(255, 104, 36, 0.16);
+    border-color: rgba(94, 234, 212, 0.55);
+    box-shadow: 0 0 42px rgba(20, 184, 166, 0.3), inset 0 0 42px rgba(34, 211, 238, 0.18);
   }
 
   .spark {
-    background: #fff0bd;
-    box-shadow: 0 0 22px 7px rgba(255, 142, 52, 0.7);
+    background: #ccfbf1;
+    box-shadow: 0 0 22px 7px rgba(45, 212, 191, 0.72);
   }
 
   .box {
     background-color: rgba(10, 10, 16, 0.68);
-    box-shadow: 0 0 28px rgba(255, 105, 38, 0.12);
+    box-shadow: 0 0 28px rgba(20, 184, 166, 0.16);
   }
 }
 
