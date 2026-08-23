@@ -272,8 +272,37 @@ onUnmounted(() => {
     margin: 1rem auto;
   }
 
+  ul,
+  ol {
+    margin: 1rem 0;
+    padding-left: 2em;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
   li {
     margin-block-end: 0.3em;
+  }
+
+  .contains-task-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .task-list-item {
+    list-style: none;
+  }
+
+  .task-list-item input[type="checkbox"] {
+    margin: 0 0.45em 0.15em 0;
+    accent-color: var(--color-accent);
+    vertical-align: middle;
   }
 }
 
@@ -439,6 +468,11 @@ onUnmounted(() => {
   font-weight: bold;
 }
 
+.markdown-alert-title .octicon {
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
 .markdown-alert > p:last-child {
   margin: 0.5rem 0 0.2rem;
 }
@@ -524,11 +558,18 @@ onUnmounted(() => {
 }
 
 // inline code
-code {
+.content :not(pre) > code {
   font-size: var(--code-font-size);
   border-radius: 4px;
   padding: 0.2em 0.4em;
   background-color: rgba(27, 31, 35, 0.05);
+  color: #b44b00;
+}
+
+html[data-theme="dark"] .content :not(pre) > code {
+  color: #ffb86c;
+  background-color: #343b43;
+  box-shadow: inset 0 0 0 1px #4b5661;
 }
 
 html {

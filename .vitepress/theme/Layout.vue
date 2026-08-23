@@ -156,8 +156,72 @@ html[data-theme="dark"] .markdown-alert-caution {
   background: #3d2527;
 }
 
+html[data-theme="dark"] .markdown-alert-note .markdown-alert-title {
+  color: #79c0ff;
+}
+
+html[data-theme="dark"] .markdown-alert-tip .markdown-alert-title {
+  color: #7ee787;
+}
+
+html[data-theme="dark"] .markdown-alert-important .markdown-alert-title {
+  color: #d2a8ff;
+}
+
+html[data-theme="dark"] .markdown-alert-warning .markdown-alert-title {
+  color: #e3b341;
+}
+
+html[data-theme="dark"] .markdown-alert-caution .markdown-alert-title {
+  color: #ff7b72;
+}
+
+html[data-theme="dark"] .markdown-annotation {
+  color: #f0b35a;
+}
+
+html[data-theme="dark"] .markdown-annotation .annotation-tooltip {
+  border-color: #596773;
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
 html[data-theme="dark"] div[class*="language-"] {
   background: var(--color-surface);
+}
+
+html[data-theme="dark"] div[class*="language-"] pre,
+html[data-theme="dark"] div[class*="language-"] code {
+  color: #e6edf3 !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#D73A49"] {
+  color: #ff7b72 !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#032F62"] {
+  color: #a5d6ff !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#6F42C1"] {
+  color: #d2a8ff !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#005CC5"] {
+  color: #79c0ff !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#22863A"] {
+  color: #7ee787 !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#E36209"] {
+  color: #ffa657 !important;
+}
+
+html[data-theme="dark"] div[class*="language-"] code span[style*="color:#24292E"] {
+  color: #c9d1d9 !important;
 }
 
 html[data-theme="dark"] div[class*="language-"]:before {

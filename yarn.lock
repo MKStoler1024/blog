@@ -843,6 +843,11 @@ markdown-it-github-alerts@^1.0.1:
   resolved "https://registry.npmmirror.com/markdown-it-github-alerts/-/markdown-it-github-alerts-1.0.1.tgz"
   integrity sha512-NNATF4QdoGI07hyCitoB2YqJ1YcNVCKT89ut2VtfFY9rkeFCXe/V2lOonKQLpJiq5DjiZZepf97BJx5xOjFIAw==
 
+markdown-it-task-lists@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmmirror.com/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz"
+  integrity sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==
+
 "markdown-it@>= 13.0.0":
   version "15.0.0"
   resolved "https://registry.npmmirror.com/markdown-it/-/markdown-it-15.0.0.tgz"

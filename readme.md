@@ -19,6 +19,8 @@
 >
 > 出于众所周知的原因，QQ 很有可能吞掉你的消息。所以如确有要事，请直接由 [电子邮箱](mailto:sanwuchengqun@outlook.com) 或者通过本仓库 Discussion 联系我！
 
+文章可以在 front matter 中使用 `cover` 字段自定义头图；未设置时会使用站点默认头图。
+
 ## 简介
 
 不错啊，熬过了高中开始熬大学了呢……

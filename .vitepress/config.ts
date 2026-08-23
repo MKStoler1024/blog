@@ -1,6 +1,7 @@
 import { defineConfigWithTheme } from 'vitepress'
 import container from 'markdown-it-container'
 import githubAlerts from 'markdown-it-github-alerts'
+import taskLists from 'markdown-it-task-lists'
 import fixKatex from './fix-katex'
 
 const uplImagePreview = (state: any, silent: boolean) => {
@@ -13,8 +14,7 @@ const uplImagePreview = (state: any, silent: boolean) => {
   for (const attribute of match[1].matchAll(attributePattern)) {
     attributes[attribute[1]] = attribute[2].replace(/^("|'|\{|)(.*?)("|'|\})$/, '$2')
   }
-
-  if (!attributes.url || !/^https?:\/\//i.test(attributes.url)) return false
+    if (!attributes.url || !/^https?:\/\//i.test(attributes.url)) return false
 
   if (!silent) {
     const token = state.push('image', 'img', 0)
@@ -94,6 +94,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       md.inline.ruler.before('link', 'ruby-annotation', rubyAnnotation)
       md.use(container, 'navbox')
       md.use(githubAlerts)
+      md.use(taskLists)
       md.use(fixKatex)
     }
   },
