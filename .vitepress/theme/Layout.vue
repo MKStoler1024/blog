@@ -78,6 +78,25 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
+.skeleton-block {
+  display: block;
+  border-radius: 4px;
+  background: linear-gradient(100deg, var(--color-surface-muted) 35%, var(--color-accent-soft) 50%, var(--color-surface-muted) 65%);
+  background-size: 300% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-block {
+    animation: none;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;

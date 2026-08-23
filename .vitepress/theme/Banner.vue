@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div :class="['banner', { 'article-banner': article }]">
     <div class="grid"></div>
     <div class="orbit orbit-one"></div>
     <div class="orbit orbit-two"></div>
@@ -7,7 +7,7 @@
     <div class="spark spark-two"></div>
     <div class="wave1"></div>
     <div class="wave2"></div>
-    <div class="info">
+    <div v-if="!article" class="info">
       <GlitchText :text="hello" />
       <span class="box">
         <p class="text">
@@ -22,12 +22,22 @@
         </div>
       </span>
     </div>
+    <div v-else class="article-banner-content">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import GlitchText from './GlitchText.vue'
+
+withDefaults(defineProps<{
+  article?: boolean
+}>(), {
+  article: false,
+})
+
 const themeConfig = useData().theme.value
 const hello = themeConfig.hello || 'Hello, sakura'
 const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
@@ -179,6 +189,20 @@ const social = themeConfig.social || []
   }
 }
 
+.banner.article-banner {
+  height: 400px;
+  margin-top: 64px;
+  align-items: flex-end;
+
+  .article-banner-content {
+    position: relative;
+    z-index: 1;
+    width: min(800px, 100%);
+    margin: 0 auto;
+    padding: 0 0.5em 20px;
+  }
+}
+
 html[data-theme="dark"] .banner .wave1,
 html[data-theme="dark"] .banner .wave2 {
   filter: invert(.92);
@@ -218,7 +242,7 @@ html[data-theme="dark"] .banner {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1100px) {
   .banner {
     .info {
       margin: 0 0.5em;
@@ -230,6 +254,17 @@ html[data-theme="dark"] .banner {
 
     .text {
       margin: 1em 0.5em;
+    }
+  }
+
+  .banner.article-banner {
+    height: auto;
+    min-height: 240px;
+    margin-top: 56px;
+
+    .article-banner-content {
+      padding: 32px 12px 28px;
+      box-sizing: border-box;
     }
   }
 }

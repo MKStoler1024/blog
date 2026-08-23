@@ -1,9 +1,10 @@
 <template>
   <div class="toc" :class="{ open, embedded }">
-    <button class="toc-toggle" type="button" :aria-expanded="open" aria-label="打开文章目录" @click="open = !open">
+    <span v-if="scanning" class="toc-skeleton skeleton-block" aria-label="正在加载文章目录" role="status"></span>
+    <button v-if="visibleData.length" class="toc-toggle" type="button" :aria-expanded="open" aria-label="打开文章目录" @click="open = !open">
       <span class="toc-progress">{{ activeIndex }} / {{ visibleData.length }} 段</span>
     </button>
-    <nav class="toc-panel" aria-label="文章目录">
+    <nav v-if="visibleData.length" class="toc-panel" aria-label="文章目录">
       <div class="toc-title">文章目录</div>
       <ol>
         <li v-for="h in visibleData" :key="h.slug" :class="['h' + h.level, { 'active': activeSlug === h.slug }]">
@@ -30,8 +31,10 @@ const props = withDefaults(defineProps<{
 const { embedded } = props
 const open = ref(false)
 const fallbackData = ref<TocItem[]>([])
+const scanning = ref(true)
 const visibleData = computed(() => fallbackData.value.length ? fallbackData.value : props.data)
 const activeSlug = ref(props.active)
+let contentObserver: MutationObserver | undefined
 const activeIndex = computed(() => {
   const index = visibleData.value.findIndex(item => item.slug === activeSlug.value)
   return index >= 0 ? index + 1 : visibleData.value.length ? 1 : 0
@@ -47,21 +50,34 @@ const updateActive = () => {
   activeSlug.value = headings[index > 0 ? index - 1 : index === 0 ? 0 : headings.length - 1].slug
 }
 
-onMounted(() => {
-  nextTick(() => {
-    fallbackData.value = Array.from(document.querySelectorAll<HTMLElement>('.article .content h1, .article .content h2, .article .content h3, .article .content h4, .article .content h5, .article .content h6'))
+const updateFallbackData = () => {
+  fallbackData.value = Array.from(document.querySelectorAll<HTMLElement>('.article .content h1, .article .content h2, .article .content h3, .article .content h4, .article .content h5, .article .content h6'))
       .map(element => ({
         level: Number(element.tagName.slice(1)),
         title: element.textContent?.replace(/\u200b/g, '').trim() || '',
         slug: element.id,
       }))
       .filter(header => header.slug && header.title)
-      updateActive()
-      window.addEventListener('scroll', updateActive, { passive: true })
+  updateActive()
+  scanning.value = false
+}
+
+onMounted(() => {
+  nextTick(() => {
+    updateFallbackData()
+    const content = document.querySelector('.article .content')
+    if (content) {
+      contentObserver = new MutationObserver(updateFallbackData)
+      contentObserver.observe(content, { childList: true, subtree: true })
+    }
+    window.addEventListener('scroll', updateActive, { passive: true })
   })
 })
 
-    onUnmounted(() => window.removeEventListener('scroll', updateActive))
+onUnmounted(() => {
+  contentObserver?.disconnect()
+  window.removeEventListener('scroll', updateActive)
+})
 </script>
 
 <style lang="scss">
@@ -180,77 +196,13 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 1280px) {
-  .toc {
-    position: fixed;
-    top: 64px;
-    left: max(8px, calc(50% - 400px));
-    z-index: 90;
-    width: auto;
-    height: auto;
-    transform: none;
-    pointer-events: none;
-
-    .toc-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4em;
-      border: 1px solid var(--color-border);
-      border-radius: 5px;
-      padding: 0.65em 0.85em;
-      color: var(--color-text);
-      background: var(--color-surface);
-      box-shadow: none;
-      font: inherit;
-      cursor: pointer;
-      pointer-events: auto;
-    }
-
-    .toc-toggle:hover,
-    &.open .toc-toggle {
-      color: var(--color-accent);
-      border-color: var(--color-accent);
-    }
-
-    .toc-panel {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: auto;
-      display: none;
-      width: min(320px, calc(100vw - 32px));
-      max-height: min(60vh, 480px);
-      overflow-y: auto;
-      padding: 12px 14px;
-      transform: none;
-      border: 1px solid var(--color-border);
-      border-radius: 5px;
-      background: var(--color-surface);
-      box-shadow: 0 5px 18px var(--color-shadow);
-      pointer-events: auto;
-    }
-
-    &.open .toc-panel {
-      display: block;
-    }
-
-    .toc-title {
-      margin-bottom: 0.5em;
-      padding-left: 12px;
-    }
-
-    .toc-panel {
-      border-left: 0;
-      padding-left: 0;
-    }
-
-    ol {
-      margin: 0;
-    }
-  }
+.toc-skeleton {
+  width: 112px;
+  height: 16px;
+  margin: 24px auto;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1100px) {
   .toc:not(.embedded) {
     display: none;
   }
@@ -308,11 +260,17 @@ onMounted(() => {
     }
   }
 
+  .toc.embedded .toc-skeleton {
+    margin: 20px auto;
+  }
+
   .toc .toc-toggle {
     position: absolute;
   }
 
   .toc .toc-panel {
+    position: absolute;
+    display: none;
     top: 56px;
     right: 0;
     left: 0;
@@ -321,6 +279,12 @@ onMounted(() => {
     max-height: calc(100vh - 72px);
     border-top: 1px solid var(--color-border);
     border-radius: 0;
+    background: var(--color-surface);
+    pointer-events: auto;
+  }
+
+  .toc.open .toc-panel {
+    display: block;
   }
 
 }

@@ -104,6 +104,8 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
+    ['meta', { name: 'referrer', content: 'strict-origin-when-cross-origin' }],
+    ['script', { defer: true, src: 'https://vercount.one/js' }],
     ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' }],
     ['link', { rel: 'preconnect', href: 'https://s4.zstatic.net' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],

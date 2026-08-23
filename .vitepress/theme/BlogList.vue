@@ -100,7 +100,7 @@ const { posts, click = null } = defineProps<{
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1100px) {
   .bloglist {
     .card {
       margin: 0;

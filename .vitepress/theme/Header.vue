@@ -56,7 +56,7 @@
         </span>
       </span>
     </span>
-    <TOC v-if="isArticle" :data="data.page.value.headers" embedded />
+    <TOC v-if="isArticle" :key="route.path" :data="data.page.value.headers" embedded />
     <span class="other">
       <span class="font-switcher desktop-tool">
         <button class="font-toggle" type="button" aria-label="切换字体" :aria-expanded="fontOpen" @click="toggleFont">
@@ -418,7 +418,7 @@ header {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1100px) {
   header {
     height: 56px;
 

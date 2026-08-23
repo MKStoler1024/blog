@@ -37,7 +37,24 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
 <template>
     <div class="tool-directory">
-        <div v-if="loading" class="empty">正在加载工具目录……</div>
+        <div v-if="loading" class="directory-skeleton" aria-label="正在加载工具目录" role="status">
+            <div class="skeleton-toolbar">
+                <span class="skeleton-search skeleton-block"></span>
+                <span class="skeleton-count skeleton-block"></span>
+            </div>
+            <div class="skeleton-tabs">
+                <span v-for="width in [42, 56, 68, 50]" :key="width" class="skeleton-block" :style="{ width: `${width}px` }"></span>
+            </div>
+            <section v-for="section in 2" :key="section" class="skeleton-section">
+                <span class="skeleton-heading skeleton-block"></span>
+                <div class="skeleton-grid">
+                    <div v-for="card in 4" :key="card" class="skeleton-card">
+                        <span class="skeleton-name skeleton-block"></span>
+                        <span class="skeleton-description skeleton-block"></span>
+                    </div>
+                </div>
+            </section>
+        </div>
         <div v-else-if="loadError" class="empty">工具目录加载失败，请检查 tools.json。</div>
         <template v-else>
             <div class="directory-toolbar">
@@ -281,6 +298,94 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     border-radius: 6px;
 }
 
+.directory-skeleton {
+    display: grid;
+    gap: 1rem;
+}
+
+.skeleton-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skeleton-search,
+.skeleton-count,
+.skeleton-tabs span,
+.skeleton-heading,
+.skeleton-card span {
+    display: block;
+}
+
+.skeleton-search {
+    height: 44px;
+    flex: 1;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+
+.skeleton-count {
+    width: 68px;
+    height: .85rem;
+    flex: 0 0 auto;
+    border-radius: 4px;
+}
+
+.skeleton-tabs {
+    display: flex;
+    gap: .4rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.skeleton-tabs span {
+    height: 30px;
+    border-radius: 5px;
+}
+
+.skeleton-section {
+    display: grid;
+    gap: .9rem;
+    margin-top: .75rem;
+}
+
+.skeleton-heading {
+    width: 28%;
+    height: 1.2rem;
+    border-radius: 4px;
+}
+
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: .65rem;
+}
+
+.skeleton-card {
+    display: grid;
+    gap: .6rem;
+    min-height: 72px;
+    align-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    padding: .8rem;
+    background: var(--color-surface);
+}
+
+.skeleton-card span {
+    height: .8rem;
+    border-radius: 3px;
+}
+
+.skeleton-card .skeleton-name {
+    width: 62%;
+    height: .95rem;
+}
+
+.skeleton-card .skeleton-description {
+    width: 86%;
+}
+
 @media (max-width: 640px) {
     .directory-toolbar {
         align-items: stretch;
@@ -305,6 +410,20 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     }
 
     .tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: .55rem;
+    }
+
+    .skeleton-count {
+        align-self: flex-end;
+    }
+
+    .skeleton-grid {
         grid-template-columns: 1fr;
     }
 

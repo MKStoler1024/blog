@@ -1,13 +1,29 @@
 <template>
-  <div class="abanner" :style="cover" v-if="index >= 0">
+  <div v-if="index >= 0 && customCover" class="abanner" :style="cover">
     <div class="titlebox">
-      <h1 class="title">{{ title }}</h1>
-      <div class="info">{{ author }} · 更新于 {{ date }} · {{ view }} 次阅读</div>
+      <h1 v-if="pageReady" class="title">{{ title }}</h1>
+      <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv" class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
+      <span v-else class="skeleton-block info-skeleton"></span>
     </div>
   </div>
+  <Banner v-else-if="index >= 0" article>
+    <div class="titlebox">
+      <h1 v-if="pageReady" class="title">{{ title }}</h1>
+      <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv" class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
+      <span v-else class="skeleton-block info-skeleton"></span>
+    </div>
+  </Banner>
   <div :class="['article', { 'without-banner': index < 0 }]">
-    <Content class="content" />
-    <div class="content nav">
+    <Content v-if="pageReady" class="content" />
+    <div v-else class="content article-skeleton" aria-label="正在加载文章正文" role="status">
+      <span class="skeleton-block skeleton-heading"></span>
+      <span v-for="width in ['100%', '94%', '97%', '76%']" :key="width" class="skeleton-block skeleton-line" :style="{ width }"></span>
+      <span class="skeleton-block skeleton-subheading"></span>
+      <span v-for="width in ['98%', '90%', '82%']" :key="`second-${width}`" class="skeleton-block skeleton-line" :style="{ width }"></span>
+    </div>
+    <div v-if="pageReady" class="content nav">
       <span>
         <a :href="nav[0].href" v-if="nav[0].show">
           <i class="fa fa-angle-left"></i>
@@ -21,8 +37,8 @@
         </a>
       </span>
     </div>
-    <Giscus v-if="index != -1" :key="route.path" />
-    <TOC :data="data.page.value.headers" :active="active" />
+    <Giscus v-if="index != -1 && pageReady" :key="route.path" />
+    <TOC v-if="index >= 0" :key="route.path" :data="data.page.value.headers" :active="active" />
   </div>
 </template>
 
@@ -33,11 +49,12 @@ declare const katex: any;
 
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
-import { onMounted, onUnmounted, ref, reactive, watch, nextTick } from 'vue'
+import { computed, onMounted, onUnmounted, ref, reactive, watch, nextTick } from 'vue'
 import { data as posts } from '../posts.data'
 import { throttleAndDebounce } from './utils'
 import Giscus from './Giscus.vue'
 import TOC from './TOC.vue'
+import Banner from './Banner.vue'
 
 const data = useData()
 const base = data.site.value.base
@@ -45,8 +62,8 @@ const route = useRoute()
 const title = ref('')
 const author = data.theme.value.name
 const date = ref('')
-const view = ref(0)
 const cover = ref('')
+const customCover = ref('')
 const active = ref('')
 const nav = reactive([
   { href: '', text: '', show: true },
@@ -54,11 +71,18 @@ const nav = reactive([
 ])
 
 const index = ref(0)
+const pageReady = computed(() => index.value < 0 || Boolean(title.value && data.page.value.relativePath))
 const update = () => {
+  title.value = ''
+  date.value = ''
+  active.value = ''
+  customCover.value = ''
+  cover.value = ''
   index.value = posts.findIndex(p => p.href == route.path.replace(base, ''))
   if (index.value == -1) return
   title.value = data.page.value.title
-  cover.value = `background-image: url(${data.page.value.frontmatter.cover || data.theme.value.cover})`
+  customCover.value = data.page.value.frontmatter.cover || ''
+  cover.value = customCover.value ? `background-image: url(${customCover.value})` : ''
   date.value = new Date(data.page.value.lastUpdated || posts[index.value].create).toLocaleDateString('sv-SE')
   let ival = index.value
   if (ival - 1 >= 0) {
@@ -83,29 +107,31 @@ const update = () => {
   }
 }
 update()
-watch(route, update)
+watch(() => route.path, () => {
+  update()
+  nextTick(setActiveLink)
+})
 
 const setActiveLink = () => {
-  const headingElements = Array.from(document.querySelectorAll<HTMLElement>('.article .content h1, .article .content h2, .article .content h3, .article .content h4, .article .content h5, .article .content h6'))
-  const headers = headingElements.length
-    ? headingElements.map(element => ({ slug: element.id }))
-    : data.page.value.headers
-  if (headers.length == 0) return
-  for (let i = 0; i < headers.length; i++) {
-    const el = document.getElementById(headers[i].slug)
-    const rect = el?.getBoundingClientRect()!
-    if (rect.top > 200) {
+  const headings = Array.from(document.querySelectorAll<HTMLElement>('.article .content h1, .article .content h2, .article .content h3, .article .content h4, .article .content h5, .article .content h6'))
+    .filter(element => element.id)
+  if (headings.length === 0) {
+    active.value = ''
+    return
+  }
+  for (let i = 0; i < headings.length; i++) {
+    if (headings[i].getBoundingClientRect().top > 200) {
       let hash = ' '
       if (i > 0) {
-        active.value = headers[i - 1].slug
-        hash = '#' + headers[i - 1].slug
+        active.value = headings[i - 1].id
+        hash = '#' + headings[i - 1].id
       }
       history.replaceState(null, document.title, hash)
       return
     }
   }
-  active.value = headers[headers.length - 1].slug
-  history.replaceState(null, document.title, '#' + headers[headers.length - 1].slug)
+  active.value = headings[headings.length - 1].id
+  history.replaceState(null, document.title, '#' + headings[headings.length - 1].id)
 }
 const onScroll = throttleAndDebounce(setActiveLink, 300)
 const updateKatex = () => {
@@ -171,13 +197,36 @@ onUnmounted(() => {
     color: white;
   }
 
-  .title {
-    font-size: 32px;
+}
+
+.abanner,
+.article-banner {
+  .titlebox {
     color: white;
+    text-shadow: 2px 2px 10px black;
+  }
+
+  .title {
+    margin-bottom: 0.5em;
+    color: white;
+    font-size: 32px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
   }
 
   .info {
     font-size: 14px;
+  }
+
+  .title-skeleton {
+    width: min(68%, 520px);
+    height: 42px;
+    margin-bottom: 16px;
+  }
+
+  .info-skeleton {
+    width: min(52%, 360px);
+    height: 16px;
   }
 }
 
@@ -326,11 +375,35 @@ onUnmounted(() => {
   }
 }
 
+.article-skeleton {
+  display: grid;
+  gap: 12px;
+  min-height: 420px;
+  align-content: start;
+  padding-top: 1rem;
+
+  .skeleton-heading {
+    width: min(58%, 420px);
+    height: 34px;
+    margin-bottom: 8px;
+  }
+
+  .skeleton-subheading {
+    width: min(42%, 300px);
+    height: 24px;
+    margin: 22px 0 4px;
+  }
+
+  .skeleton-line {
+    height: 15px;
+  }
+}
+
 .katex-display {
   overflow: auto hidden;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
   .article {
     padding-right: 12px;
     padding-left: 12px;
@@ -363,10 +436,28 @@ onUnmounted(() => {
 
   .abanner {
     margin-top: 56px;
-    height: 200px;
+    display: flex;
+    height: auto;
+    min-height: 240px;
+    align-items: flex-end;
 
     .titlebox {
-      margin-left: 0.5em;
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 12px 28px;
+      box-sizing: border-box;
+    }
+  }
+
+  .abanner,
+  .article-banner {
+    .title {
+      font-size: clamp(24px, 7vw, 30px);
+    }
+
+    .info {
+      line-height: 1.6;
     }
   }
 
