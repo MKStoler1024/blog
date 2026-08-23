@@ -62,8 +62,11 @@ onMounted(() => {
   .toc-panel {
     position: sticky;
     top: 80px;
+    max-height: calc(100vh - 104px);
+    overflow-y: auto;
     border-left: 1px solid var(--color-border);
     padding-left: 16px;
+    scrollbar-width: thin;
   }
 
   .toc-title {

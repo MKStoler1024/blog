@@ -65,6 +65,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
   title: 'MKStoler1024\'s Blog',
   base: '/',
+  ignoreDeadLinks: ['/feed.rss'],
   vite: {
     css: {
       preprocessorOptions: {
