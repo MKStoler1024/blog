@@ -77,6 +77,24 @@
           <i class="fa fa-search" aria-hidden="true"></i>
           搜索
         </button>
+        <div v-if="searchOpen" class="search-panel">
+          <input
+            ref="desktopSearchInput"
+            v-model="query"
+            type="search"
+            placeholder="搜索文章"
+            aria-label="搜索文章"
+            @keydown.esc="searchOpen = false"
+          />
+          <ul v-if="results.length" class="search-results">
+            <li v-for="post in results" :key="post.href">
+              <a :href="base + post.href" @click="searchOpen = false">
+                {{ post.title }}
+              </a>
+            </li>
+          </ul>
+          <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
+        </div>
       </span>
       <button class="theme-toggle" type="button" :aria-label="`当前${themeModeLabel}，点击切换主题模式`" @click="toggleTheme">
         <i :class="['fa', themeIcon]" aria-hidden="true"></i>
@@ -152,6 +170,7 @@ watch(fontMode, applyFontMode)
 const searchOpen = ref(false)
 const query = ref('')
 const searchInput = ref<HTMLInputElement>()
+const desktopSearchInput = ref<HTMLInputElement>()
 const results = computed(() => {
   const keyword = query.value.trim().toLowerCase()
   if (!keyword) return []
@@ -166,7 +185,12 @@ const toggleSearch = () => {
   searchOpen.value = !searchOpen.value
   fontOpen.value = false
   if (searchOpen.value) {
-    nextTick(() => searchInput.value?.focus())
+    nextTick(() => {
+      const input = window.matchMedia('(max-width: 1100px)').matches
+        ? searchInput.value
+        : desktopSearchInput.value
+      input?.focus()
+    })
   } else {
     query.value = ''
   }
