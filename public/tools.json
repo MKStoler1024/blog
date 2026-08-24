@@ -129,6 +129,11 @@
             {
                 "name": "Island",
                 "url": "https://forum.smart-teach.cn/d/2283/9"
+            },
+            {
+                "name": "Classtable · Yohaku",
+                "description": "移动端课程表",
+                "url": "https://forum.smart-teach.cn/d/2711"
             }
         ]
     },
@@ -571,7 +576,7 @@
             {
                 "name": "SingleStart",
                 "description": "防重复启动",
-                "url": "https://forum.smart-teach.cn/d/2572/18"
+                "url": "https://forum.smart-teach.cn/d/2713-singlestart-zhen-dui-bu-fen-lao-shi-shi-yong-xi-guan-jin-xing-hong-kong-you-hua-de-gong-ju"
             },
             {
                 "name": "EasyTouch",
@@ -596,8 +601,7 @@
             {
                 "name": "Lock Screen for Class",
                 "description": "锁屏软件",
-                "url": "https://forum.smart-teach.cn/d/2037",
-                "archived": true
+                "url": "https://forum.smart-teach.cn/d/2712"
             },
             {
                 "name": "管控 Class",

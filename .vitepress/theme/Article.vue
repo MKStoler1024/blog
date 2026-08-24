@@ -3,7 +3,8 @@
     <div class="titlebox">
       <h1 v-if="pageReady" class="title">{{ title }}</h1>
       <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
-      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv" class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv"
+          class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
       <span v-else class="skeleton-block info-skeleton"></span>
     </div>
   </div>
@@ -11,7 +12,8 @@
     <div class="titlebox">
       <h1 v-if="pageReady" class="title">{{ title }}</h1>
       <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
-      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv" class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv"
+          class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
       <span v-else class="skeleton-block info-skeleton"></span>
     </div>
   </Banner>
@@ -19,9 +21,11 @@
     <Content v-if="pageReady" class="content" />
     <div v-else class="content article-skeleton" aria-label="正在加载文章正文" role="status">
       <span class="skeleton-block skeleton-heading"></span>
-      <span v-for="width in ['100%', '94%', '97%', '76%']" :key="width" class="skeleton-block skeleton-line" :style="{ width }"></span>
+      <span v-for="width in ['100%', '94%', '97%', '76%']" :key="width" class="skeleton-block skeleton-line"
+        :style="{ width }"></span>
       <span class="skeleton-block skeleton-subheading"></span>
-      <span v-for="width in ['98%', '90%', '82%']" :key="`second-${width}`" class="skeleton-block skeleton-line" :style="{ width }"></span>
+      <span v-for="width in ['98%', '90%', '82%']" :key="`second-${width}`" class="skeleton-block skeleton-line"
+        :style="{ width }"></span>
     </div>
     <div v-if="pageReady" class="content nav">
       <span>
@@ -469,8 +473,8 @@ onUnmounted(() => {
       min-height: 44px;
     }
 
-    > .custom-block-title,
-    > p {
+    >.custom-block-title,
+    >p {
       padding: 10px;
     }
   }
@@ -479,57 +483,57 @@ onUnmounted(() => {
 .navbox {
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr);
-    margin: 12px 0;
-    padding: 0;
-    overflow: hidden;
-    background: #f9ffea;
-    border: 1px solid #dceebd;
-    border-left: 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  margin: 12px 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f9ffea;
+  border: 1px solid #dceebd;
+  border-left: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
 
-    &:before {
-      content: "\f35d";
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: stretch;
-      min-height: 48px;
-      grid-row: 1 / -1;
-      grid-column: 1;
-      background-color: #b9e66b;
+  &:before {
+    content: "\f35d";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    min-height: 48px;
+    grid-row: 1 / -1;
+    grid-column: 1;
+    background-color: #b9e66b;
+    color: #84b63c;
+    font-family: "Font Awesome 6 Free";
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  >.custom-block-title,
+  >p {
+    margin: 0;
+    grid-column: 2;
+    padding: 12px 12px 0;
+  }
+
+  >.custom-block-title {
+    padding-right: 0;
+  }
+
+  > :last-child {
+    padding-bottom: 12px;
+  }
+
+  a {
+    color: #4f8f3a;
+
+    &:after {
+      background-color: #84b63c;
+    }
+
+    &:hover {
       color: #84b63c;
-      font-family: "Font Awesome 6 Free";
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    > .custom-block-title,
-    > p {
-      margin: 0;
-      grid-column: 2;
-      padding: 12px 12px 0;
-    }
-
-    > .custom-block-title {
-      padding-right: 0;
-    }
-
-    > :last-child {
-      padding-bottom: 12px;
-    }
-
-    a {
-      color: #4f8f3a;
-
-      &:after {
-        background-color: #84b63c;
-      }
-
-      &:hover {
-        color: #84b63c;
-      }
     }
   }
+}
 
 .custom-block {
 
@@ -600,7 +604,7 @@ onUnmounted(() => {
   fill: currentColor;
 }
 
-.markdown-alert > p:last-child {
+.markdown-alert>p:last-child {
   margin: 0.5rem 0 0.2rem;
 }
 
@@ -685,7 +689,7 @@ onUnmounted(() => {
 }
 
 // inline code
-.content :not(pre) > code {
+.content :not(pre)>code {
   font-size: var(--code-font-size);
   border-radius: 4px;
   padding: 0.2em 0.4em;
@@ -693,7 +697,7 @@ onUnmounted(() => {
   color: var(--color-accent-strong);
 }
 
-html[data-theme="dark"] .content :not(pre) > code {
+html[data-theme="dark"] .content :not(pre)>code {
   color: #99f6e4;
   background-color: #343b43;
   box-shadow: inset 0 0 0 1px #4b5661;
