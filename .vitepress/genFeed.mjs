@@ -7,6 +7,10 @@ const url = `https://blog.vuejs.org`
 
 genFeed()
 
+const removePageControls = html => html
+  .replace(/<a\b[^>]*class="[^"]*\btotop\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')
+  .replace(/<button\b[^>]*class="[^"]*\bcomments-button\b[^"]*"[^>]*>[\s\S]*?<\/button>/gi, '')
+
 async function genFeed() {
   const siteData = await resolveSiteData('.')
   const posts = await postsData.load(true)
@@ -34,7 +38,7 @@ async function genFeed() {
       id: `${url}${post.href}`,
       link: `${url}${post.href}`,
       description: post.excerpt,
-      content: content[1],
+      content: removePageControls(content[1]),
       author: [
         {
           name: post.data.author,
