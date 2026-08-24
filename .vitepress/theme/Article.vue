@@ -688,6 +688,46 @@ onUnmounted(() => {
   }
 }
 
+.bilibili-video-card {
+  width: 100%;
+  margin: 1.75rem auto;
+  padding: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface-muted);
+  box-shadow: 0 8px 24px var(--color-shadow);
+  overflow: hidden;
+}
+
+.bilibili-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 6px;
+  background: var(--color-surface);
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .bilibili-video-card {
+    margin: 1.25rem auto;
+    padding: 3px;
+    border-radius: 8px;
+  }
+
+  .bilibili-video-wrapper {
+    border-radius: 5px;
+  }
+}
+
 // inline code
 .content :not(pre)>code {
   font-size: var(--code-font-size);

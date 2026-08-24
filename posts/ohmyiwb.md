@@ -1845,3 +1845,40 @@ OwnDroid 是一款基于 Device Owner的设备管理器，可以进行一些对�
 > 不要把它和 Motrix Next 弄混了，Next 是一个社区 Fork，不过最近它们也在讨论更换名字和 Logo 等方面的事宜。
 
 官方 GitHub: https://github.com/agalwood/Motrix
+
+--
+# 08/24 Vol.68 西达布溜 2 发布了！
+今天是 Class Widgets 2 周年，CW 2 发布了！以防你不知道，CW 是一款同 CI 一样的课表软件，使用 Python + RinUI（QML / Fluent Design 框架）构成。
+
+以下内容来自其官方 Readme：
+
+---
+
+## 概述
+Class Widgets 2 是新一代的电子化课程表展示工具，基于比前代更新的架构与设计语言重写。
+相比 [Class Widgets 1](https://github.com/Class-Widgets/Class-Widgets) ，本项目在设计、交互、功能等方面全面提升。
+
+### 开发文档
+
+欢迎开发者为 Class Widgets 2 开发插件！
+- [Class Widgets SDK](https://github.com/Class-Widgets/class-widgets-sdk)
+- [Class Widgets 插件模板v2](https://github.com/Class-Widgets/plugin-template-v2)
+
+## 社区
+
+![Q群](https://img.shields.io/badge/QQ%20%E7%BE%A41-1060640788-blue.svg?logo=qq&color=blue&style=for-the-badge)
+[进群！](https://qm.qq.com/cgi-bin/qm/qr?k=BXGtB7cDFM9CdfIcf9dfmxIWYh9noL6k&jump_from=webapi&authKey=wqfE+jZfLoO52DdVo2KBkVCrzgsxJX78cxx4vaRIHrOKo7tPp9VGsRTx4/kPUZuw)
+
+我们目前开通了
+[Discussions](https://github.com/orgs/Class-Widgets/discussions)、
+[QQ群](https://qm.qq.com/q/E7oAD4hNbW)。
+
+## 开源许可
+
+本项目基于 MIT 许可证授权开源，在 [LICENSE](https://github.com/RinLit-233-shiroko/Class-Widgets-2?tab=MIT-1-ov-file) 文件了解更多。
+
+---
+
+https://www.bilibili.com/video/BV1PS8v6QE8a
+
+在上面观看西达布溜 2 宣传片
