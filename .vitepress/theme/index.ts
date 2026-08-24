@@ -1,6 +1,7 @@
 import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'
 import ToolDirectory from './ToolDirectory.vue'
+import RssSubscribe from './RssSubscribe.vue'
 import { type EnhanceAppContext } from 'vitepress'
 
 const getPageUrl = () => `${window.location.origin}${window.location.pathname}${window.location.search}`
@@ -40,6 +41,7 @@ export default {
   Layout,
   enhanceApp({ app, router }: EnhanceAppContext) {
     app.component('ToolDirectory', ToolDirectory)
+    app.component('RssSubscribe', RssSubscribe)
     let syncedPageUrl = typeof window === 'undefined' ? '' : getPageUrl()
     router.onAfterRouteChange = () => {
       if (typeof window === 'undefined') return

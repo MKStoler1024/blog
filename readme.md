@@ -21,7 +21,7 @@
 
 文章可以在 front matter 中使用 `cover` 字段自定义头图；未设置时会使用站点默认头图。
 
-欢迎通过 [RSS 订阅](/feed.rss) 获取本站最新文章。
+<RssSubscribe />
 
 ## 简介
 

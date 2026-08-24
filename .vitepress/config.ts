@@ -81,6 +81,32 @@ const rubyAnnotation = (state: any, silent: boolean) => {
   return true
 }
 
+const bilibiliVideo = (state: any, startLine: number, endLine: number, silent: boolean) => {
+  const start = state.bMarks[startLine] + state.tShift[startLine]
+  const end = state.eMarks[startLine]
+
+  // Indented lines belong to code blocks and must not be converted.
+  if (state.sCount[startLine] - state.blkIndent >= 4) return false
+
+  const line = state.src.slice(start, end).trim()
+  const match = line.match(/^https?:\/\/(?:www\.)?bilibili\.com\/video\/(BV[0-9A-Za-z]+)(?:\/?(?:\?[^\s]*)?)?$/i)
+  if (!match) return false
+  if (silent) return true
+
+  let page = '1'
+  try {
+    const requestedPage = new URL(line).searchParams.get('p')
+    if (requestedPage && /^\d+$/.test(requestedPage)) page = requestedPage
+  } catch {}
+
+  const token = state.push('bilibili_video', 'div', 0)
+  token.block = true
+  token.map = [startLine, startLine + 1]
+  token.meta = { bvid: match[1], page }
+  state.line = startLine + 1
+  return true
+}
+
 export interface ThemeConfig {
   name?: string,
   cover?: string,
@@ -124,6 +150,12 @@ export default defineConfigWithTheme<ThemeConfig>({
     lineNumbers: true,
     breaks: true,
     config: md => {
+      md.block.ruler.before('paragraph', 'bilibili-video', bilibiliVideo)
+      md.renderer.rules.bilibili_video = (tokens, index) => {
+        const { bvid, page } = tokens[index].meta
+        const playerUrl = `https://player.bilibili.com/player.html?isOutside=true&bvid=${encodeURIComponent(bvid)}&p=${encodeURIComponent(page)}&high_quality=1&danmaku=0&autoplay=0&loop=0`
+        return `<div class="bilibili-video-card"><div class="bilibili-video-wrapper"><iframe src="${playerUrl}" title="哔哩哔哩视频 ${md.utils.escapeHtml(bvid)}" scrolling="no" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>\n`
+      }
       md.inline.ruler.before('link', 'upl-image-preview', uplImagePreview)
       md.inline.ruler.before('link', 'ruby-annotation', rubyAnnotation)
       md.use(container, 'navbox')
