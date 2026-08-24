@@ -1,6 +1,12 @@
 <template>
   <div class="rss-subscribe">
-    <a class="rss-subscribe-button" href="/feed.rss" aria-label="通过 RSS 订阅本站最新文章">
+    <a
+      class="rss-subscribe-button"
+      href="/feed.rss"
+      target="_blank"
+      rel="noopener"
+      aria-label="通过 RSS 订阅本站最新文章"
+    >
       <i class="fas fa-rss" aria-hidden="true"></i>
       <span>
         <strong>订阅 RSS</strong>
