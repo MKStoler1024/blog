@@ -297,7 +297,8 @@
         "tools": [
             {
                 "name": "在线卡西欧计算器",
-                "url": "https://forum.smart-teach.cn/d/2591"
+                "url": "https://forum.smart-teach.cn/d/2591",
+                "archived": true
             },
             {
                 "name": "作业帮家长版",
