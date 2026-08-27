@@ -24,8 +24,12 @@
       </button>
     </div>
 
-    <BlogList :posts="filteredPosts" />
-    <p v-if="!filteredPosts.length" class="empty">没有找到相关文章</p>
+    <Transition name="list" mode="out-in">
+      <div :key="filterKey">
+        <BlogList :posts="filteredPosts" />
+        <p v-if="!filteredPosts.length" class="empty">没有找到相关文章</p>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -49,6 +53,8 @@ const filteredPosts = computed(() => {
     return [post.title, ...(post.tags || []), excerpt].join(' ').toLowerCase().includes(keyword)
   })
 })
+
+const filterKey = computed(() => `${active.value ?? '*'}:${query.value.trim().toLowerCase()}`)
 
 const syncQuery = () => {
   const params = new URLSearchParams()
@@ -169,6 +175,28 @@ onMounted(() => {
     margin: 48px auto;
     color: var(--color-gray);
     text-align: center;
+  }
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.list-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .list-enter-active,
+  .list-leave-active {
+    transition: none;
   }
 }
 </style>

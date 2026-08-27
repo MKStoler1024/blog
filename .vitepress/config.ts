@@ -112,7 +112,6 @@ export interface ThemeConfig {
   cover?: string,
   hello?: string,
   motto?: string,
-  social?: { icon: string, url: string }[],
 }
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
@@ -169,9 +168,5 @@ export default defineConfigWithTheme<ThemeConfig>({
     motto: '浮霞掠影，归胜于人。',
     hello: 'MKStoler1024\'s Blog',
     cover: 'https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN',
-    social: [
-      { icon: 'fa-github', url: 'https://github.com/mkstoler1024' },
-      { icon: 'fas fa-envelope', url: 'mailto:sanwuchengqun@outlook.com' }
-    ]
   }
 })

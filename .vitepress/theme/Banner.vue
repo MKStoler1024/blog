@@ -9,18 +9,10 @@
     <div class="wave2"></div>
     <div v-if="!article" class="info">
       <GlitchText :text="hello" />
-      <span class="box">
-        <p class="text">
-          <i class="fa fa-quote-left"></i>
-          {{ motto }}
-          <i class="fa fa-quote-right"></i>
-        </p>
-        <div class="contact">
-          <a :href="s.url" v-for="s in social" aria-label="icon" target="_blank">
-            <i :class="['fab', s.icon]"></i>
-          </a>
-        </div>
-      </span>
+      <p class="motto">
+        <i class="fa fa-quote-left" aria-hidden="true"></i>
+        {{ motto }}
+      </p>
     </div>
     <div v-else class="article-banner-content">
       <slot />
@@ -41,7 +33,6 @@ withDefaults(defineProps<{
 const themeConfig = useData().theme.value
 const hello = themeConfig.hello || 'Hello, sakura'
 const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
-const social = themeConfig.social || []
 </script>
 
 <style lang="scss">
@@ -53,7 +44,7 @@ const social = themeConfig.social || []
     linear-gradient(135deg, #082f49 0%, #0f4c5c 42%, #087f7c 74%, #0891b2 100%);
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,37 +145,30 @@ const social = themeConfig.social || []
   .info {
     position: relative;
     z-index: 1;
+    width: min(860px, 100%);
+    margin: 0 auto;
+    padding: 0 24px;
     font-family: var(--global-font);
-    font-weight: bold;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
-  .box {
-    display: inline-block;
-    width: 600px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
-    margin-top: 16px;
-  }
+  .motto {
+    position: relative;
+    margin: 28px 0 0 8px;
+    padding-left: 18px;
+    border-left: 3px solid rgba(153, 246, 228, 0.7);
+    color: rgba(224, 242, 254, 0.92);
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 500;
 
-  .text {
-    text-align: center;
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  .contact {
-    display: flex;
-    justify-content: center;
-    font-size: 24px;
-    padding-bottom: 12px;
-
-    a {
-      color: white;
-      margin: 6px;
+    .fa-quote-left {
+      margin-right: 8px;
+      font-size: 14px;
+      vertical-align: 2px;
+      color: #67e8f9;
     }
   }
 }
@@ -235,25 +219,17 @@ html[data-theme="dark"] .banner {
     background: #ccfbf1;
     box-shadow: 0 0 22px 7px rgba(45, 212, 191, 0.72);
   }
-
-  .box {
-    background-color: rgba(10, 10, 16, 0.68);
-    box-shadow: 0 0 28px rgba(20, 184, 166, 0.16);
-  }
 }
 
 @media (max-width: 1100px) {
   .banner {
     .info {
-      margin: 0 0.5em;
+      padding: 0 16px;
     }
 
-    .box {
-      width: 100%;
-    }
-
-    .text {
-      margin: 1em 0.5em;
+    .motto {
+      font-size: 14px;
+      line-height: 1.7;
     }
   }
 

@@ -1,0 +1,21 @@
+{
+  "author": {
+    "name": "MKStoler1024",
+    "avatar": "",
+    "bio": "<p>一个正在学习 C# 的人机，擅长处理各种文档站，还总是惦记着那个 ExamSchedule。</p><p>本站基于 VitePress 构建，记录学习、折腾与生活日常。</p>",
+    "links": [
+      { "icon": "fa-brands fa-github", "text": "GitHub", "url": "https://github.com/mkstoler1024" },
+      { "icon": "fa-solid fa-envelope", "text": "邮箱", "url": "mailto:sanwuchengqun@outlook.com" }
+    ]
+  },
+  "notices": [
+    {
+      "title": "欢迎来到 MKStoler1024's Blog",
+      "content": "<p>本站文章会不定期更新，可使用右上角搜索或前往标签页筛选内容。</p>"
+    },
+    {
+      "title": "转载声明",
+      "content": "<p>转载文章均已注明出处，请遵守原作者的版权协议。</p>"
+    }
+  ]
+}

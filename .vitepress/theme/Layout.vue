@@ -4,12 +4,19 @@
   <main>
     <ToTop />
     <CommentsButton v-if="isArticle" />
-    <template v-if="path === ''">
-      <Banner />
-      <BlogList :posts="posts" />
-    </template>
-    <Tag v-else-if="path === 'tags/'" />
-    <Article v-else />
+    <Transition name="page" mode="out-in">
+      <div :key="path" class="page-wrap">
+        <template v-if="path === ''">
+          <Banner />
+          <div class="home-layout">
+            <BlogList :posts="posts" />
+            <Sidebar />
+          </div>
+        </template>
+        <Tag v-else-if="path === 'tags/'" />
+        <Article v-else />
+      </div>
+    </Transition>
   </main>
 </template>
 
@@ -18,6 +25,7 @@ import Header from './Header.vue'
 import Banner from './Banner.vue'
 import Article from './Article.vue'
 import BlogList from './BlogList.vue'
+import Sidebar from './Sidebar.vue'
 import Tag from './Tag.vue'
 import ToTop from './ToTop.vue'
 import CommentsButton from './CommentsButton.vue'
@@ -276,5 +284,64 @@ html[data-theme="dark"] .bloglist .title {
 
 html[data-theme="dark"] .not-found {
   color: var(--color-text);
+}
+
+.home-layout {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  padding-bottom: 48px;
+
+  .bloglist {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-layout {
+    max-width: 1280px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: start;
+
+    .sidebar {
+      order: 0;
+      margin-top: 24px;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .home-layout {
+    max-width: 1560px;
+  }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
 }
 </style>

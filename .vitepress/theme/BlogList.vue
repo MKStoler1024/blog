@@ -4,8 +4,8 @@
       <i class="fa-solid fa-book"></i> 文章列表
       <hr />
     </div>
-    <div class="card" v-for="p in posts">
-      <div class="image"></div>
+    <div class="card" v-for="p in posts" :key="p.href">
+      <div v-if="p.cover" class="image" :style="`background-image: url(&quot;${p.cover}&quot;)`"></div>
       <div class="info">
         <div class="date">
           <i class="fa fa-clock"></i>
@@ -82,6 +82,15 @@ const { posts, click = null } = defineProps<{
     }
   }
 
+  .image {
+    height: 170px;
+    margin: -24px -24px 16px;
+    border-radius: 10px 10px 0 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
   .title {
     color: var(--color-text);
     font-size: 24px;
@@ -146,18 +155,30 @@ const { posts, click = null } = defineProps<{
 
 @media (max-width: 1100px) {
   .bloglist {
+    .section {
+      margin: 0 12px 12px;
+    }
+
     .card {
-      margin: 0;
-      border-radius: 0;
-      box-shadow: none;
+      margin: 0 12px 12px;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 1px 20px -6px rgba(0, 0, 0, 0.5);
+      background: var(--color-surface);
 
       &:hover {
-        box-shadow: none;
+        box-shadow: 0 5px 10px 5px rgb(0, 0, 0, 0.2);
       }
     }
 
-    .section {
-      margin: 0 24px;
+    .image {
+      height: 140px;
+      margin: -16px -16px 14px;
+    }
+
+    .title {
+      font-size: 20px;
+      margin: 14px 0;
     }
   }
 }
