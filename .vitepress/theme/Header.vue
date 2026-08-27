@@ -9,7 +9,7 @@
       </a>
     </span>
     <span class="container">
-      <span class="menu" :class="{ open: menuOpen }">
+      <span class="menu" :class="{ open: menuOpen }" @click="closeMenuOnBackdrop">
         <ul>
           <li v-for="m in menu" :key="m.url">
             <a :href="base + m.url" :class="{ active: isActive(m.url) }" @click="menuOpen = false">
@@ -35,28 +35,22 @@
           </div>
         </span>
         <span class="search-box">
-          <button class="search" type="button" aria-label="搜索文章" :aria-expanded="searchOpen" @click="toggleSearch">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            搜索
-          </button>
-          <div v-if="searchOpen" class="search-panel">
-            <input
-              ref="searchInput"
-              v-model="query"
-              type="search"
-              placeholder="搜索文章"
-              aria-label="搜索文章"
-              @keydown.esc="searchOpen = false"
-            />
-            <ul v-if="results.length" class="search-results">
-              <li v-for="post in results" :key="post.href">
-                <a :href="base + post.href" @click="searchOpen = false">
-                  {{ post.title }}
-                </a>
-              </li>
-            </ul>
-            <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
-          </div>
+          <input
+            ref="menuSearchInput"
+            v-model="query"
+            type="search"
+            placeholder="搜索文章"
+            aria-label="搜索文章"
+            @keydown.esc="menuOpen = false"
+          />
+          <ul v-if="results.length" class="search-results">
+            <li v-for="post in results" :key="post.href">
+              <a :href="base + post.href" @click="menuOpen = false">
+                {{ post.title }}
+              </a>
+            </li>
+          </ul>
+          <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
         </span>
       </span>
     </span>
@@ -79,7 +73,7 @@
       <span class="search-box desktop-tool">
         <button class="search" type="button" aria-label="搜索文章" :aria-expanded="searchOpen" @click="toggleSearch">
           <i class="fa fa-search" aria-hidden="true"></i>
-          搜索
+          <span class="search-label">搜索</span>
           <kbd class="search-kbd">Ctrl&nbsp;K</kbd>
         </button>
         <div v-if="searchOpen" class="search-panel">
@@ -174,7 +168,7 @@ watch(fontMode, applyFontMode)
 
 const searchOpen = ref(false)
 const query = ref('')
-const searchInput = ref<HTMLInputElement>()
+const menuSearchInput = ref<HTMLInputElement>()
 const desktopSearchInput = ref<HTMLInputElement>()
 const results = computed(() => {
   const keyword = query.value.trim().toLowerCase()
@@ -186,16 +180,27 @@ const results = computed(() => {
   }).slice(0, 6)
 })
 
+const closeMenuOnBackdrop = (event: MouseEvent) => {
+  if ((event.target as HTMLElement).classList.contains('menu')) {
+    menuOpen.value = false
+  }
+}
+
+watch(menuOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+})
+
 const toggleSearch = () => {
-  searchOpen.value = !searchOpen.value
   fontOpen.value = false
+  if (window.matchMedia('(max-width: 1100px)').matches) {
+    menuOpen.value = true
+    searchOpen.value = false
+    nextTick(() => menuSearchInput.value?.focus())
+    return
+  }
+  searchOpen.value = !searchOpen.value
   if (searchOpen.value) {
-    nextTick(() => {
-      const input = window.matchMedia('(max-width: 1100px)').matches
-        ? searchInput.value
-        : desktopSearchInput.value
-      input?.focus()
-    })
+    nextTick(() => desktopSearchInput.value?.focus())
   } else {
     query.value = ''
   }
@@ -335,6 +340,25 @@ header {
     cursor: pointer;
 
     &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  .search-box.desktop-tool button.search {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface-muted);
+    color: var(--color-gray);
+    font-size: 14px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-accent);
       color: var(--color-accent);
     }
   }
@@ -513,7 +537,8 @@ header {
     height: 56px;
 
     .container {
-      left: 8px;
+      position: static;
+      left: auto;
       translate: none;
     }
 
@@ -533,26 +558,20 @@ header {
 
     .menu {
       position: absolute;
-      top: 48px;
+      top: 56px;
+      right: 0;
       left: 0;
+      height: calc(100vh - 56px);
+      height: calc(100dvh - 56px);
+      z-index: 80;
       display: none;
-      width: min(220px, calc(100vw - 16px));
-      padding: 8px;
-      background: var(--color-header);
-      -webkit-backdrop-filter: saturate(150%) blur(12px);
-      backdrop-filter: saturate(150%) blur(12px);
-      border: 1px solid var(--color-border);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, .16);
+      overflow-y: auto;
+      padding: 8px 16px 40px;
+      background: var(--color-surface);
 
       &.open {
         display: block;
-      }
-
-      .font-switcher,
-      .search-box {
-        position: relative;
-        top: auto;
-        right: auto;
+        animation: nav-screen-in 0.2s ease;
       }
 
       .font-switcher,
@@ -561,28 +580,44 @@ header {
         top: auto;
         right: auto;
         display: block;
-        margin-top: 4px;
+        margin-top: 8px;
       }
 
-      .font-toggle,
-      button.search {
+      .search-box input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px 16px;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        background: var(--color-surface-muted);
+        color: var(--color-text);
+        font: inherit;
+        font-size: 15px;
+
+        &:focus {
+          border-color: var(--color-accent);
+          outline: none;
+        }
+      }
+
+      .search-results a {
+        padding: 10px 4px;
+        font-size: 15px;
+      }
+
+      .font-toggle {
         display: block;
         width: 100%;
-        padding: 10px 8px;
+        padding: 12px 8px;
         text-align: left;
+        font-size: 15px;
       }
 
-      .font-panel,
-      .search-panel {
+      .font-panel {
         position: static;
         width: auto;
         margin: 0 8px 6px;
         box-shadow: none;
-      }
-
-      .search-panel input {
-        box-sizing: border-box;
-        width: 100%;
       }
 
       li {
@@ -590,9 +625,13 @@ header {
         margin: 0;
       }
 
+      li + li {
+        border-top: 1px solid var(--color-border);
+      }
+
       a {
         display: block;
-        padding: 10px 8px;
+        padding: 12px 8px;
       }
     }
 
@@ -601,7 +640,23 @@ header {
       padding-right: 8px;
     }
 
-    .other .desktop-tool {
+    .other .font-switcher.desktop-tool {
+      display: none;
+    }
+
+    .other .search-box.desktop-tool button.search {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+    }
+
+    .other .search-box.desktop-tool .search-label,
+    .other .search-box.desktop-tool .search-kbd {
       display: none;
     }
 
@@ -619,6 +674,17 @@ header {
       top: 44px;
       right: -4px;
     }
+  }
+}
+
+@keyframes nav-screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>

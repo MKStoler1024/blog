@@ -247,16 +247,31 @@ onUnmounted(() => {
   }
 
   .toc.embedded {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
     display: block;
-    top: 0;
-    right: 56px;
-    left: 56px;
+    flex: 1;
+    min-width: 0;
     width: auto;
     height: 56px;
     border-left: 0;
+    background: transparent;
 
     .toc-toggle {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 0 8px;
+      border: 0;
+      background: transparent;
       color: var(--color-gray);
+      font-size: 14px;
+      pointer-events: auto;
     }
   }
 
