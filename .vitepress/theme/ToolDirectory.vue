@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 
-type Tool = { name: string, description?: string, url: string | null, archived?: boolean }
+type Tool = { name: string, description?: string, url: string | null, productUrl?: string, archived?: boolean }
 type Section = { name: string, tools: Tool[] }
 
 const query = ref('')
@@ -72,15 +72,21 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
                     <h2>{{ section.name }} <small>{{ section.tools.length }}</small></h2>
                     <div class="tool-grid">
                             <template v-for="tool in section.tools" :key="tool.name">
-                                <a v-if="tool.url" class="tool-card" :class="{ archived: tool.archived }"
-                                    :href="tool.url" target="_blank" rel="noreferrer">
-                                    <span class="tool-copy"><strong>{{ tool.name }}</strong><span>{{ tool.description || '查看原帖' }}</span></span>
-                                    <span v-if="tool.archived" class="status">已归档</span><span v-else class="arrow" aria-hidden="true">↗</span>
-                                </a>
-                                <button v-else class="tool-card unavailable" type="button" @click="handleMissingUrl(tool)">
-                                    <span class="tool-copy"><strong>{{ tool.name }}</strong><span>{{ tool.description || '暂无地址' }}</span></span>
-                                    <span class="status">暂无地址</span>
-                                </button>
+                                <div class="tool-card" :class="{ archived: tool.archived, unavailable: !tool.url }">
+                                    <a v-if="tool.url" class="tool-copy" :href="tool.url" target="_blank" rel="noreferrer">
+                                        <strong>{{ tool.name }}</strong><span>{{ tool.description || '查看原帖' }}</span>
+                                    </a>
+                                    <button v-else class="tool-copy" type="button" @click="handleMissingUrl(tool)">
+                                        <strong>{{ tool.name }}</strong><span>{{ tool.description || '暂无地址' }}</span>
+                                    </button>
+                                    <span class="tool-side">
+                                        <a v-if="tool.productUrl" class="project-link" :href="tool.productUrl" target="_blank"
+                                            rel="noreferrer" title="项目地址">项目地址</a>
+                                        <span v-if="tool.archived" class="status">已归档</span>
+                                        <span v-else-if="!tool.url" class="status">暂无地址</span>
+                                        <span v-else class="arrow" aria-hidden="true">↗</span>
+                                    </span>
+                                </div>
                             </template>
                     </div>
                 </section>
@@ -179,7 +185,8 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 }
 
 .category-tabs button:focus-visible,
-.tool-card:focus-visible {
+.tool-card .tool-copy:focus-visible,
+.project-link:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
     outline-offset: 2px;
 }
@@ -226,7 +233,6 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     padding: .8rem;
     background: var(--color-surface);
     color: inherit;
-    text-decoration: none;
     transition: border-color .2s ease, background-color .2s ease;
 }
 
@@ -236,11 +242,7 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 }
 
 .tool-card.unavailable {
-    width: 100%;
-    cursor: pointer;
-    text-align: left;
-    font: inherit;
-    color: var(--color-text);
+    cursor: default;
 }
 
 .tool-copy {
@@ -249,6 +251,14 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     flex: 1;
     flex-direction: column;
     gap: .2rem;
+    border: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    text-align: left;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .tool-copy strong {
@@ -265,6 +275,32 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     font-size: .78rem;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.tool-side {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: .5rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    border-radius: 4px;
+    padding: .15rem .45rem;
+    color: var(--color-accent-strong);
+    background: var(--color-accent-soft);
+    font-size: .7rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: border-color .2s ease, background-color .2s ease;
+}
+
+.project-link:hover {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
 }
 
 .arrow {
@@ -411,6 +447,10 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
     .tool-grid {
         grid-template-columns: 1fr;
+    }
+
+    .tool-card {
+        flex-wrap: wrap;
     }
 
     .skeleton-toolbar {
