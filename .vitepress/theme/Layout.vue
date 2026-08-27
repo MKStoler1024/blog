@@ -54,7 +54,7 @@ html {
   --color-border: #d0d7de;
   --color-surface: #fff;
   --color-surface-muted: #f6f8fa;
-  --color-header: rgba(255, 255, 255, 0.9);
+  --color-header: rgba(255, 255, 255, 0.72);
   --color-code-header: #f6f8fa;
   --color-shadow: rgba(0, 0, 0, 0.16);
   --code-line-height: 24px;
@@ -77,7 +77,7 @@ html[data-theme="dark"] {
   --color-border: #39434d;
   --color-surface: #20262c;
   --color-surface-muted: #252d34;
-  --color-header: rgba(32, 38, 44, 0.94);
+  --color-header: rgba(32, 38, 44, 0.78);
   --color-code-header: #252d34;
   --color-accent: #2dd4bf;
   --color-accent-strong: #14b8a6;
@@ -261,15 +261,12 @@ html[data-theme="dark"] div[class*="language-"]:before {
   background: var(--color-code-header);
 }
 
-html[data-theme="dark"] header {
-  background: var(--color-surface);
-}
+/* header 背景已在 Header.vue 中通过 --color-header + backdrop-filter 实现毛玻璃 */
 
 html[data-theme="dark"] .search-panel,
 html[data-theme="dark"] .font-panel,
 html[data-theme="dark"] .font-panel select,
-html[data-theme="dark"] .search-panel input,
-html[data-theme="dark"] .menu {
+html[data-theme="dark"] .search-panel input {
   color: var(--color-text);
   background: var(--color-surface);
 }

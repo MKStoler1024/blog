@@ -1,14 +1,18 @@
 <template>
   <header ref="headerElement" @focusout="handleFocusOut">
-    <span class="brand"></span>
-    <span class="container">
+    <span class="header-left">
       <button class="menu-toggle" type="button" aria-label="打开导航菜单" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
+      <a class="brand" :href="base" aria-label="返回首页">
+        <span class="brand-name">{{ siteTitle }}</span>
+      </a>
+    </span>
+    <span class="container">
       <span class="menu" :class="{ open: menuOpen }">
         <ul>
           <li v-for="m in menu" :key="m.url">
-            <a :href="base + m.url" @click="menuOpen = false">
+            <a :href="base + m.url" :class="{ active: isActive(m.url) }" @click="menuOpen = false">
               <span>
                 <i :class="['fa', m.icon]"></i>
                 {{ m.name }}
@@ -76,6 +80,7 @@
         <button class="search" type="button" aria-label="搜索文章" :aria-expanded="searchOpen" @click="toggleSearch">
           <i class="fa fa-search" aria-hidden="true"></i>
           搜索
+          <kbd class="search-kbd">Ctrl&nbsp;K</kbd>
         </button>
         <div v-if="searchOpen" class="search-panel">
           <input
@@ -217,8 +222,17 @@ const handleFocusOut = (event: FocusEvent) => {
   }
 }
 
+const handleGlobalKeydown = (event: KeyboardEvent) => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+    event.preventDefault()
+    toggleSearch()
+  }
+}
+
 onMounted(() => document.addEventListener('pointerdown', closePopovers))
+onMounted(() => document.addEventListener('keydown', handleGlobalKeydown))
 onUnmounted(() => document.removeEventListener('pointerdown', closePopovers))
+onUnmounted(() => document.removeEventListener('keydown', handleGlobalKeydown))
 
 interface MenuItem { icon: string, name: string, url: string }
 const menu: MenuItem[] = [
@@ -227,6 +241,12 @@ const menu: MenuItem[] = [
   { icon: 'fa-leaf', name: '关于', url: 'readme.html' }
 ]
 const isArticle = computed(() => posts.some(post => post.href === route.path.replace(base, '')))
+const siteTitle = data.site.value.title
+const currentPath = computed(() => route.path.replace(base, '').replace('index.html', ''))
+const isActive = (url: string) => {
+  if (url === '') return currentPath.value === ''
+  return currentPath.value.startsWith(url)
+}
 </script>
 
 <style lang="scss">
@@ -238,12 +258,40 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--color-surface);
+  background: var(--color-header);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  backdrop-filter: saturate(150%) blur(12px);
+  box-shadow: 0 2px 8px var(--color-shadow);
   z-index: 100;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    padding-left: 8px;
+  }
 
   .brand {
-    justify-self: left;
-    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 4px;
+    color: var(--color-text);
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+
+    .brand-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      color: var(--color-accent);
+    }
   }
 
   .container {
@@ -393,6 +441,19 @@ header {
     cursor: pointer;
   }
 
+  .search-kbd {
+    margin-left: 6px;
+    padding: 1px 5px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: var(--color-surface-muted);
+    color: var(--color-gray);
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.6;
+    vertical-align: middle;
+  }
+
   .sr-only {
     position: absolute;
     width: 1px;
@@ -429,6 +490,11 @@ header {
 
     a {
       color: var(--color-gray);
+
+      &.active {
+        color: var(--color-accent);
+        font-weight: 600;
+      }
     }
   }
 
@@ -451,8 +517,18 @@ header {
       translate: none;
     }
 
-    .menu-toggle {
-      display: block;
+    .header-left {
+      .menu-toggle {
+        display: block;
+      }
+
+      .brand {
+        font-size: 15px;
+      }
+    }
+
+    .search-kbd {
+      display: none;
     }
 
     .menu {
@@ -462,7 +538,9 @@ header {
       display: none;
       width: min(220px, calc(100vw - 16px));
       padding: 8px;
-      background: var(--color-surface);
+      background: var(--color-header);
+      -webkit-backdrop-filter: saturate(150%) blur(12px);
+      backdrop-filter: saturate(150%) blur(12px);
       border: 1px solid var(--color-border);
       box-shadow: 0 4px 14px rgba(0, 0, 0, .16);
 
