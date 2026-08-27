@@ -10,6 +10,9 @@
         <div class="date">
           <i class="fa fa-clock"></i>
           发布于 {{ new Date(p.create).toLocaleDateString('sv-SE') }}
+          <template v-if="p.readingTime">
+            · <i class="fa fa-hourglass-half"></i> {{ p.words }} 字 · 约 {{ p.readingTime }} 分钟
+          </template>
         </div>
         <a :href="base + p.href">
           <div class="title">{{ p.title }}</div>

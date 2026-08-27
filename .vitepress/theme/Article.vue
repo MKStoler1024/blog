@@ -3,7 +3,7 @@
     <div class="titlebox">
       <h1 v-if="pageReady" class="title">{{ title }}</h1>
       <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
-      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv"
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }}{{ readingInfo }} · <span id="busuanzi_container_page_pv"
           class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
       <span v-else class="skeleton-block info-skeleton"></span>
     </div>
@@ -12,7 +12,7 @@
     <div class="titlebox">
       <h1 v-if="pageReady" class="title">{{ title }}</h1>
       <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
-      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }} · <span id="busuanzi_container_page_pv"
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }}{{ readingInfo }} · <span id="busuanzi_container_page_pv"
           class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
       <span v-else class="skeleton-block info-skeleton"></span>
     </div>
@@ -75,6 +75,11 @@ const nav = reactive([
 ])
 
 const index = ref(0)
+const currentPost = computed(() => (index.value >= 0 ? posts[index.value] : undefined))
+const readingInfo = computed(() => {
+  const post = currentPost.value
+  return post?.readingTime ? ` · ${post.words} 字 · 约 ${post.readingTime} 分钟` : ''
+})
 const pageReady = computed(() => index.value < 0 || Boolean(title.value && data.page.value.relativePath))
 const update = () => {
   title.value = ''

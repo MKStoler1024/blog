@@ -6,5 +6,7 @@ export interface PostData {
     tags?: string[],
     cover?: string,
     excerpt: string,
+    words?: number,
+    readingTime?: number,
 }
 export declare const data: PostData[]
