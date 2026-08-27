@@ -75,6 +75,7 @@ const { posts, click = null } = defineProps<{
     border-radius: 10px;
     box-shadow: 0 1px 20px -6px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.3s ease;
+    break-inside: avoid;
 
     &:hover {
       box-shadow: 0 5px 10px 5px rgb(0, 0, 0, 0.2);
@@ -92,14 +93,54 @@ const { posts, click = null } = defineProps<{
     }
   }
 
-  .tags a {
-    margin-right: 8px;
-    color: var(--color-gray);
-    transition: color 0.2s ease-out;
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
 
-    &:hover {
-      color: var(--color-accent);
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+      border-radius: 4px;
+      padding: 0.15rem 0.45rem;
+      color: var(--color-accent-strong);
+      background: var(--color-accent-soft);
+      font-size: 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        border-color: var(--color-accent);
+        background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+      }
     }
+  }
+}
+
+@media (min-width: 1200px) {
+  .bloglist {
+    max-width: 1200px;
+    columns: 2;
+    column-gap: 24px;
+
+    .section {
+      column-span: all;
+    }
+
+    .card {
+      margin: 0 0 24px;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .bloglist {
+    max-width: 1560px;
+    columns: 3;
   }
 }
 
