@@ -111,7 +111,7 @@ export interface ThemeConfig {
   name?: string,
   cover?: string,
   hello?: string,
-  motto?: string,
+  motto?: string | string[],
 }
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
@@ -166,7 +166,11 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   themeConfig: {
     name: 'MKStoler1024',
-    motto: '浮霞掠影，归胜于人。',
+    motto: [
+      '浮霞掠影，归胜于人。',
+      '岁月不居，时节如流。',
+      '博观而约取，厚积而薄发。',
+    ],
     hello: 'MKStoler1024\'s Blog',
     cover: 'https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN',
   }

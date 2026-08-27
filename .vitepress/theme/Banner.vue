@@ -17,7 +17,7 @@
       <GlitchText :text="hello" />
       <p class="motto">
         <i class="fa fa-quote-left" aria-hidden="true"></i>
-        {{ motto }}
+        <span class="motto-text">{{ typeText }}</span><span class="caret" aria-hidden="true"></span>
       </p>
     </div>
     <div v-else class="article-banner-content">
@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import GlitchText from './GlitchText.vue'
 
@@ -38,7 +39,56 @@ withDefaults(defineProps<{
 
 const themeConfig = useData().theme.value
 const hello = themeConfig.hello || 'Hello, sakura'
-const motto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
+// 支持单个字符串或字符串数组，多条时逐条打字轮播
+const rawMotto = themeConfig.motto || 'You got to put the past behind you before you can move on.'
+const mottos = (Array.isArray(rawMotto) ? rawMotto : [rawMotto]).filter(Boolean)
+
+// 打字机状态
+const typeText = ref('')
+let mottoIndex = 0
+let typing = true
+let timer: number | undefined
+
+const TYPE_SPEED = 130   // 打字速度 ms/字
+const DELETE_SPEED = 60  // 删除速度 ms/字
+const HOLD_DELAY = 2600  // 打完一句后的停留 ms
+const SWITCH_DELAY = 350 // 删空后切换到下一条的间隔 ms
+
+const tick = () => {
+  const current = mottos[mottoIndex % mottos.length] || ''
+  if (typing) {
+    if (typeText.value.length < current.length) {
+      typeText.value = current.slice(0, typeText.value.length + 1)
+      timer = window.setTimeout(tick, TYPE_SPEED)
+    } else {
+      typing = false
+      timer = window.setTimeout(tick, HOLD_DELAY)
+    }
+  } else {
+    if (typeText.value.length > 0) {
+      typeText.value = current.slice(0, typeText.value.length - 1)
+      timer = window.setTimeout(tick, DELETE_SPEED)
+    } else {
+      mottoIndex += 1
+      typing = true
+      timer = window.setTimeout(tick, SWITCH_DELAY)
+    }
+  }
+}
+
+onMounted(() => {
+  if (!mottos.length) return
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // 偏好减少动效时直接展示第一条，不做打字动画
+    typeText.value = mottos[0] || ''
+    return
+  }
+  timer = window.setTimeout(tick, 600)
+})
+
+onUnmounted(() => {
+  if (timer !== undefined) window.clearTimeout(timer)
+})
 </script>
 
 <style lang="scss">
@@ -262,6 +312,7 @@ const motto = themeConfig.motto || 'You got to put the past behind you before yo
   font-size: 17px;
   line-height: 1.8;
   font-weight: 500;
+  min-height: 1.8em; // 打字过程中保持行高，避免布局跳动
 
   .fa-quote-left {
     margin-right: 8px;
@@ -269,6 +320,27 @@ const motto = themeConfig.motto || 'You got to put the past behind you before yo
     vertical-align: 2px;
     color: var(--banner-quote);
   }
+
+  .motto-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  // 打字光标
+  .caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 3px;
+    vertical-align: -3px;
+    background: var(--banner-text);
+    animation: caret-blink 1.1s step-end infinite;
+  }
+}
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .banner.article-banner {
@@ -384,7 +456,8 @@ html[data-theme="dark"] .banner {
   .banner .stars,
   .banner .moon,
   .banner .shooting-star,
-  .banner .nebula {
+  .banner .nebula,
+  .banner .caret {
     animation: none;
   }
 }
