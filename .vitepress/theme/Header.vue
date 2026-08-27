@@ -76,7 +76,16 @@
           <span class="search-label">搜索</span>
           <kbd class="search-kbd">Ctrl&nbsp;K</kbd>
         </button>
-        <div v-if="searchOpen" class="search-panel">
+      </span>
+      <button class="theme-toggle" type="button" :aria-label="`当前${themeModeLabel}，点击切换主题模式`" @click="toggleTheme">
+        <i :class="['fa', themeIcon]" aria-hidden="true"></i>
+        <span class="theme-label">{{ themeModeLabel }}</span>
+      </button>
+    </span>
+    <div v-if="searchOpen" class="search-overlay" @click.self="searchOpen = false">
+      <div class="search-dialog">
+        <div class="search-dialog-input">
+          <i class="fa fa-search" aria-hidden="true"></i>
           <input
             ref="desktopSearchInput"
             v-model="query"
@@ -85,21 +94,17 @@
             aria-label="搜索文章"
             @keydown.esc="searchOpen = false"
           />
-          <ul v-if="results.length" class="search-results">
-            <li v-for="post in results" :key="post.href">
-              <a :href="base + post.href" @click="searchOpen = false">
-                {{ post.title }}
-              </a>
-            </li>
-          </ul>
-          <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
         </div>
-      </span>
-      <button class="theme-toggle" type="button" :aria-label="`当前${themeModeLabel}，点击切换主题模式`" @click="toggleTheme">
-        <i :class="['fa', themeIcon]" aria-hidden="true"></i>
-        <span class="theme-label">{{ themeModeLabel }}</span>
-      </button>
-    </span>
+        <ul v-if="results.length" class="search-results">
+          <li v-for="post in results" :key="post.href">
+            <a :href="base + post.href" @click="searchOpen = false">
+              {{ post.title }}
+            </a>
+          </li>
+        </ul>
+        <p v-else-if="query.trim()" class="search-empty">没有找到相关文章</p>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -186,8 +191,10 @@ const closeMenuOnBackdrop = (event: MouseEvent) => {
   }
 }
 
-watch(menuOpen, (open) => {
-  document.body.style.overflow = open ? 'hidden' : ''
+const isMobileViewport = () => window.matchMedia('(max-width: 1100px)').matches
+
+watch([menuOpen, searchOpen], () => {
+  document.body.style.overflow = (menuOpen.value || (searchOpen.value && !isMobileViewport())) ? 'hidden' : ''
 })
 
 const toggleSearch = () => {
@@ -228,6 +235,10 @@ const handleFocusOut = (event: FocusEvent) => {
 }
 
 const handleGlobalKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && searchOpen.value) {
+    searchOpen.value = false
+    return
+  }
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
     event.preventDefault()
     toggleSearch()
@@ -363,24 +374,69 @@ header {
     }
   }
 
-  .search-panel {
+  .search-overlay {
     position: absolute;
-    top: 32px;
+    top: 64px;
     right: 0;
-    width: min(320px, calc(100vw - 16px));
-    padding: 10px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
-  }
+    left: 0;
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
+    z-index: 90;
+    overflow-y: auto;
+    background: rgba(10, 20, 40, 0.45);
+    animation: overlay-fade-in 0.18s ease;
 
-  .search-panel input {
-    width: 100%;
-    padding: 7px 8px;
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
-    background: var(--color-surface);
-    font: inherit;
+    .search-dialog {
+      max-width: 600px;
+      margin: 36px auto 0;
+      padding: 20px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.24);
+    }
+
+    .search-dialog-input {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      > i {
+        position: absolute;
+        left: 16px;
+        color: var(--color-gray);
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 16px 12px 42px;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        background: var(--color-surface-muted);
+        color: var(--color-text);
+        font: inherit;
+        font-size: 16px;
+
+        &:focus {
+          outline: none;
+          border-color: var(--color-accent);
+        }
+      }
+    }
+
+    .search-results {
+      margin-top: 16px;
+
+      a {
+        padding: 12px 4px;
+        font-size: 15px;
+      }
+    }
+
+    .search-empty {
+      margin-top: 16px;
+      font-size: 15px;
+    }
   }
 
   .search-results {
@@ -669,7 +725,10 @@ header {
       display: none;
     }
 
-    .search-panel,
+    .search-overlay {
+      display: none;
+    }
+
     .font-panel {
       top: 44px;
       right: -4px;
@@ -685,6 +744,15 @@ header {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>

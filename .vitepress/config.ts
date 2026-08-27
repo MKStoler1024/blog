@@ -148,6 +148,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     theme: 'github-light',
     lineNumbers: true,
     breaks: true,
+    headers: true,
     config: md => {
       md.block.ruler.before('paragraph', 'bilibili-video', bilibiliVideo)
       md.renderer.rules.bilibili_video = (tokens, index) => {

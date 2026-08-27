@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { type Header } from 'vitepress'
 type TocItem = Pick<Header, 'level' | 'title' | 'slug'>
 const props = withDefaults(defineProps<{
@@ -35,6 +35,8 @@ const scanning = ref(true)
 const visibleData = computed(() => fallbackData.value.length ? fallbackData.value : props.data)
 const activeSlug = ref(props.active)
 let contentObserver: MutationObserver | undefined
+let bodyObserver: MutationObserver | undefined
+let scanTimer: number | undefined
 const activeIndex = computed(() => {
   const index = visibleData.value.findIndex(item => item.slug === activeSlug.value)
   return index >= 0 ? index + 1 : visibleData.value.length ? 1 : 0
@@ -62,20 +64,48 @@ const updateFallbackData = () => {
   scanning.value = false
 }
 
-onMounted(() => {
-  nextTick(() => {
+// 文章正文可能在 SPA 路由切换后（Transition out-in / 异步 chunk）才挂载，
+// 因此需要先兜底观察 body，内容出现后再只观察 .article .content 子树，
+// 且每次扫描都重新绑定当前 content 节点（skeleton 被替换后 observer 会失效）。
+const scan = () => {
+  window.clearTimeout(scanTimer)
+  scanTimer = window.setTimeout(() => {
     updateFallbackData()
-    const content = document.querySelector('.article .content')
-    if (content) {
-      contentObserver = new MutationObserver(updateFallbackData)
-      contentObserver.observe(content, { childList: true, subtree: true })
+    if (!fallbackData.value.length && !props.data?.length) {
+      scanning.value = true
     }
-    window.addEventListener('scroll', updateActive, { passive: true })
-  })
+    ensureContentObserver()
+  }, 60)
+}
+
+const ensureContentObserver = () => {
+  const content = document.querySelector('.article .content')
+  if (content) {
+    bodyObserver?.disconnect()
+    bodyObserver = undefined
+    contentObserver?.disconnect()
+    contentObserver = new MutationObserver(scan)
+    contentObserver.observe(content, { childList: true, subtree: true })
+  } else {
+    contentObserver?.disconnect()
+    contentObserver = undefined
+    if (!bodyObserver) {
+      bodyObserver = new MutationObserver(scan)
+      bodyObserver.observe(document.body, { childList: true, subtree: true })
+    }
+  }
+}
+
+onMounted(() => {
+  ensureContentObserver()
+  scan()
+  window.addEventListener('scroll', updateActive, { passive: true })
 })
 
 onUnmounted(() => {
   contentObserver?.disconnect()
+  bodyObserver?.disconnect()
+  window.clearTimeout(scanTimer)
   window.removeEventListener('scroll', updateActive)
 })
 </script>
@@ -104,12 +134,13 @@ onUnmounted(() => {
     border-left: 1px solid var(--color-border);
     padding-left: 16px;
     scrollbar-width: thin;
+    font-family: var(--global-font);
   }
 
   .toc-title {
     margin-bottom: 0.85em;
     color: var(--color-gray);
-    font-size: 0.82em;
+    font-size: 0.85em;
     font-weight: bold;
     letter-spacing: 0.05em;
   }
@@ -131,6 +162,7 @@ onUnmounted(() => {
       padding: 0.25em 0.6em;
       text-overflow: ellipsis;
       white-space: nowrap;
+      font-size: 1em;
       transition: color 0.2s ease;
     }
 
@@ -240,7 +272,7 @@ onUnmounted(() => {
 
     .toc-progress {
       text-align: center;
-      font-size: 1.05em;
+      font-size: 1em;
       font-weight: 600;
       color: var(--color-gray);
     }
