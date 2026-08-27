@@ -65,27 +65,27 @@ const updateFallbackData = () => {
 }
 
 // 文章正文可能在 SPA 路由切换后（Transition out-in / 异步 chunk）才挂载，
-// 因此需要先兜底观察 body，内容出现后再只观察 .article .content 子树，
-// 且每次扫描都重新绑定当前 content 节点（skeleton 被替换后 observer 会失效）。
+// 因此先兜底观察 body，正文容器出现后改观察稳定的 .article 子树
+// （skeleton 被替换为真实内容时该节点自身不会触发 mutation，必须观察父容器）。
 const scan = () => {
   window.clearTimeout(scanTimer)
   scanTimer = window.setTimeout(() => {
     updateFallbackData()
-    if (!fallbackData.value.length && !props.data?.length) {
-      scanning.value = true
-    }
+    // 正文尚未渲染完成时才保留“加载目录”骨架；正文一旦出现，无论有没有标题都取消骨架，
+    // 没有标题的文章不再反复显示“加载目录”。
+    scanning.value = !document.querySelector('.article .content:not(.article-skeleton)')
     ensureContentObserver()
   }, 60)
 }
 
 const ensureContentObserver = () => {
-  const content = document.querySelector('.article .content')
-  if (content) {
+  const container = document.querySelector('.article')
+  if (container) {
     bodyObserver?.disconnect()
     bodyObserver = undefined
     contentObserver?.disconnect()
     contentObserver = new MutationObserver(scan)
-    contentObserver.observe(content, { childList: true, subtree: true })
+    contentObserver.observe(container, { childList: true, subtree: true })
   } else {
     contentObserver?.disconnect()
     contentObserver = undefined
