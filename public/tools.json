@@ -3,6 +3,12 @@
         "name": "课表软件 / ClassIsland",
         "tools": [
             {
+                "name": "ClassIsland",
+                "description": "适用于班级多媒体屏幕的课表信息显示工具",
+                "url": "https://forum.smart-teach.cn/d/2139",
+                "productUrl": "https://github.com/ClassIsland/ClassIsland"
+            },
+            {
                 "name": "ClassIslandInjector",
                 "description": "样式注入器",
                 "url": "https://forum.smart-teach.cn/d/2622",
@@ -87,6 +93,17 @@
     {
         "name": "课表软件 / 其他",
         "tools": [
+            {
+                "name": "Class Widgets",
+                "description": "桌面课表小组件",
+                "url": "https://forum.smart-teach.cn/d/84",
+                "productUrl": "https://github.com/Class-Widgets/Class-Widgets"
+            },
+            {
+                "name": "ECS 个人修改版",
+                "description": "ElectronClassSchedule 个人修改版",
+                "url": "https://forum.smart-teach.cn/d/600"
+            },
             {
                 "name": "Schedule-Vela",
                 "description": "腕上课程表",
@@ -329,6 +346,41 @@
                 "name": "InkCanvasForClass Native",
                 "url": "https://forum.smart-teach.cn/d/236",
                 "archived": true
+            },
+            {
+                "name": "Inkways",
+                "description": "集成式墨迹批注套件",
+                "url": "https://forum.smart-teach.cn/d/77",
+                "productUrl": "https://github.com/iNKORE-NET/Inkways"
+            },
+            {
+                "name": "智绘教 Inkeys",
+                "description": "Windows 屏幕批注工具",
+                "url": "https://forum.smart-teach.cn/d/51",
+                "productUrl": "https://github.com/Alan-CRL/Inkeys"
+            },
+            {
+                "name": "Ink-Canvas-Plus",
+                "description": "Windows 画板与批注软件",
+                "url": "https://forum.smart-teach.cn/d/445",
+                "productUrl": "https://github.com/clover-yan/Ink-Canvas-Plus"
+            },
+            {
+                "name": "ICC-CE",
+                "description": "InkCanvasForClass 社区版",
+                "url": "https://forum.smart-teach.cn/d/467",
+                "productUrl": "https://github.com/InkCanvasForClass/community"
+            },
+            {
+                "name": "Ink Canvas Artistry",
+                "description": "基于 WPF 的 InkCanvas 批注实现",
+                "url": "https://forum.smart-teach.cn/d/1132"
+            },
+            {
+                "name": "万演 Kazuha",
+                "description": "PPT 演示辅助工具",
+                "url": "https://forum.smart-teach.cn/d/1155",
+                "productUrl": "https://github.com/Yunofactory/Kazuha"
             }
         ]
     },
@@ -436,6 +488,12 @@
                 "description": "高中物化生学习大礼包",
                 "url": "https://forum.smart-teach.cn/d/2158",
                 "productUrl": "https://github.com/ClassTechStar/High-School-Physics-Chemistry-and-Biology-Study-Bundle"
+            },
+            {
+                "name": "OrbiBoard",
+                "description": "插件化大屏辅助工具",
+                "url": "https://forum.smart-teach.cn/d/12",
+                "productUrl": "https://github.com/OrbiBoard/OrbiBoard"
             }
         ]
     },
@@ -557,6 +615,12 @@
                 "description": "在线随机点名器",
                 "url": "https://forum.smart-teach.cn/d/2737",
                 "productUrl": "https://easyclass.zhrhello.top/"
+            },
+            {
+                "name": "SecRandom",
+                "description": "课堂点名 / 抽签软件",
+                "url": "https://forum.smart-teach.cn/d/265",
+                "productUrl": "https://github.com/SecRandom/SecRandom"
             }
         ]
     },
@@ -632,6 +696,17 @@
                 "name": "ClassManager",
                 "url": "https://forum.smart-teach.cn/d/1133",
                 "archived": true
+            },
+            {
+                "name": "全能班辅",
+                "description": "班级大屏班级管理与教学辅助软件",
+                "url": "https://forum.smart-teach.cn/d/510"
+            },
+            {
+                "name": "ICE 冰核智能教务",
+                "description": "智慧课堂生态与课程管理系统",
+                "url": "https://forum.smart-teach.cn/d/263",
+                "productUrl": "https://github.com/Intelligent-Class-Ecosystem/"
             }
         ]
     },
@@ -764,6 +839,18 @@
                 "description": "侧边栏程序",
                 "url": "https://forum.smart-teach.cn/d/1216",
                 "productUrl": "https://github.com/PANDAJSR/sidebar-for-class/"
+            },
+            {
+                "name": "课堂窗 ClassWindow",
+                "description": "桌面悬浮窗小组件",
+                "url": "https://forum.smart-teach.cn/d/1061",
+                "productUrl": "https://github.com/xinghai-smartedu/classwindow"
+            },
+            {
+                "name": "ClassScreenLock",
+                "description": "班级计算机屏幕锁与课堂纪律辅助",
+                "url": "https://forum.smart-teach.cn/d/1146",
+                "productUrl": "https://github.com/jiugulixiaoniu/ClassScreenLock"
             }
         ]
     },
@@ -816,6 +903,12 @@
                 "description": "TeamViewer 等 Windows 远控软件触摸屏支持",
                 "url": "https://forum.smart-teach.cn/d/2735",
                 "productUrl": "https://github.com/wangruoyuyuyu/WryRemoteTouchProject"
+            },
+            {
+                "name": "Dlass",
+                "description": "教师与白板即时通信平台",
+                "url": "https://forum.smart-teach.cn/d/810",
+                "productUrl": "https://github.com/Super-Yyt/Dynamic-Class"
             }
         ]
     },
@@ -921,6 +1014,12 @@
             },
             {
                 "name": "Classworks",
+                "description": "作业记录、展示与同步 + 考试看板",
+                "url": "https://forum.smart-teach.cn/d/266",
+                "productUrl": "https://github.com/zerocatdev/classworks"
+            },
+            {
+                "name": "Classworks",
                 "description": "修改版",
                 "url": "https://forum.smart-teach.cn/d/1665",
                 "productUrl": "https://github.com/doudou0720/Classworks"
@@ -973,6 +1072,36 @@
                 "name": "班级桌面背景系统",
                 "url": "https://forum.smart-teach.cn/d/2079",
                 "archived": true
+            },
+            {
+                "name": "ExamAware ExamSchedule",
+                "description": "考试信息展示与考场网页时钟",
+                "url": "https://forum.smart-teach.cn/d/179",
+                "productUrl": "https://github.com/ExamAware/ExamSchedule"
+            },
+            {
+                "name": "ZongziTEK 黑板贴",
+                "description": "白板一体机桌面部件（课程表 / 启动台 / 小黑板）",
+                "url": "https://forum.smart-teach.cn/d/995",
+                "productUrl": "https://zongzitek.top"
+            },
+            {
+                "name": "StickyHomeworks2",
+                "description": "桌面作业展示工具",
+                "url": "https://forum.smart-teach.cn/d/1553",
+                "productUrl": "https://github.com/StickyHomeworks2/StickyHomeworks2"
+            },
+            {
+                "name": "AssignSticker",
+                "description": "班级一体机桌面作业看板",
+                "url": "https://forum.smart-teach.cn/d/1366",
+                "productUrl": "https://github.com/SECTL/AssignSticker"
+            },
+            {
+                "name": "阑山桌面",
+                "description": "组件化桌面与信息看板",
+                "url": "https://forum.smart-teach.cn/d/1341",
+                "productUrl": "https://github.com/wwiinnddyy/LanMountainDesktop"
             }
         ]
     },
