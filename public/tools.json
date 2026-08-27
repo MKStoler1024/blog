@@ -481,6 +481,11 @@
                 "name": "RandomName",
                 "description": "命令行随机抽取",
                 "url": "https://forum.smart-teach.cn/d/2247"
+            },
+            {
+                "name": "Randamer",
+                "description": "在线随机点名器",
+                "url": "https://forum.smart-teach.cn/d/2737"
             }
         ]
     },
@@ -702,6 +707,11 @@
                 "name": "eGZ-GZTV",
                 "description": "校园电视台",
                 "url": "https://forum.smart-teach.cn/d/1301"
+            },
+            {
+                "name": "WryRemoteTouchProject",
+                "description": "TeamViewer 等 Windows 远控软件触摸屏支持",
+                "url": "https://forum.smart-teach.cn/d/2735"
             }
         ]
     },
