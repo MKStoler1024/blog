@@ -396,7 +396,9 @@
             },
             {
                 "name": "作业帮家长版",
-                "url": "https://forum.smart-teach.cn/d/2558"
+                "url": "https://forum.smart-teach.cn/d/2558",
+                "productUrl": "https://zyb.qwq.pics/",
+                "archived": true
             },
             {
                 "name": "Let us recite",
