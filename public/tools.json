@@ -142,7 +142,8 @@
             {
                 "name": "TimeNest",
                 "description": "智慧电子课程表",
-                "url": "https://forum.smart-teach.cn/d/607"
+                "url": "https://forum.smart-teach.cn/d/607",
+                "productUrl": "https://github.com/ziyi127/TimeNest"
             },
             {
                 "name": "LingYun Class Widgets",
