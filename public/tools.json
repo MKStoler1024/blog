@@ -1143,7 +1143,8 @@
             {
                 "name": "StarForum",
                 "description": "修改版",
-                "url": "https://forum.smart-teach.cn/d/781/43"
+                "url": "https://forum.smart-teach.cn/d/781/43",
+                "productUrl": "https://github.com/Jursin/StarForum"
             },
             {
                 "name": "SmartTeachCN",
