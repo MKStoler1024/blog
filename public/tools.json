@@ -409,7 +409,8 @@
             {
                 "name": "ChemViz3D",
                 "description": "化学结构可视化",
-                "url": "https://forum.smart-teach.cn/d/2381"
+                "url": "https://forum.smart-teach.cn/d/2381",
+                "productUrl": "https://github.com/Cmprssntl/ChemViz3D"
             },
             {
                 "name": "SignWave",
