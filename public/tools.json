@@ -940,7 +940,8 @@
             {
                 "name": "FakExam",
                 "description": "时钟软件",
-                "url": "https://forum.smart-teach.cn/d/1198"
+                "url": "https://forum.smart-teach.cn/d/1198",
+                "productUrl": "https://github.com/ColchicumCraft/FakExam"
             },
             {
                 "name": "ExamBroadcast",
