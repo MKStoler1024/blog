@@ -272,7 +272,8 @@
             {
                 "name": "QuickDictForICC",
                 "description": "ICC-CE 词典插件",
-                "url": "https://forum.smart-teach.cn/d/2532"
+                "url": "https://forum.smart-teach.cn/d/2532",
+                "productUrl": "https://github.com/2-2-3-trimethylpentane/QuickDictForICC"
             },
             {
                 "name": "PdfTeachAnnotator",
