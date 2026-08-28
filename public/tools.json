@@ -611,7 +611,8 @@
             {
                 "name": "RandomName",
                 "description": "命令行随机抽取",
-                "url": "https://forum.smart-teach.cn/d/2247"
+                "url": "https://forum.smart-teach.cn/d/2247",
+                "productUrl": "https://github.com/Zhao-Yidan1982/RandomName"
             },
             {
                 "name": "Randamer",
