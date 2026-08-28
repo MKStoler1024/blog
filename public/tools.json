@@ -1007,6 +1007,12 @@
                 "productUrl": "https://github.com/BearWhite-Z/Daily-Commission-Panel"
             },
             {
+                "name": "VHB",
+                "description": "作业展示",
+                "url": "https://forum.smart-teach.cn/d/419",
+                "archived": true
+            },
+            {
                 "name": "作业展板",
                 "description": "从 QQ 群自动获取",
                 "url": "https://forum.smart-teach.cn/d/2137",
