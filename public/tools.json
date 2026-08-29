@@ -1318,7 +1318,8 @@
             {
                 "name": "Bloret Launcher",
                 "description": "AI Minecraft 启动器",
-                "url": "https://forum.smart-teach.cn/d/2200"
+                "url": "https://forum.smart-teach.cn/d/2200",
+                "productUrl": "https://github.com/BloretCrew/Bloret-Launcher"
             }
         ]
     }
