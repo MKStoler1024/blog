@@ -1314,6 +1314,11 @@
                 "name": "Edutoolset",
                 "description": "教学环境工具集",
                 "url": "https://forum.smart-teach.cn/d/1785"
+            },
+            {
+                "name": "Bloret Launcher",
+                "description": "AI Minecraft 启动器",
+                "url": "https://forum.smart-teach.cn/d/2200"
             }
         ]
     }
