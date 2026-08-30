@@ -710,6 +710,12 @@
                 "description": "智慧课堂生态与课程管理系统",
                 "url": "https://forum.smart-teach.cn/d/263",
                 "productUrl": "https://github.com/Intelligent-Class-Ecosystem/"
+            },
+            {
+                "name": "ImNotJiahao",
+                "description": "隐身智能管控",
+                "url": "https://forum.smart-teach.cn/d/2762",
+                "productUrl": "https://github.com/DryIce-cc/ImNotJiahao"
             }
         ]
     },
