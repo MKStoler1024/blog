@@ -282,6 +282,12 @@
                 "productUrl": "https://github.com/2-2-3-trimethylpentane/QuickDictForICC"
             },
             {
+                "name": "SeewoAutoLogin",
+                "description": "ICC-CE 希沃白板自动登录插件",
+                "url": "https://forum.smart-teach.cn/d/2346",
+                "productUrl": "https://forum.smart-teach.cn/d/2346"
+            },
+            {
                 "name": "PdfTeachAnnotator",
                 "description": "PDF 批注软件",
                 "url": "https://forum.smart-teach.cn/d/1901",
