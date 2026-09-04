@@ -854,6 +854,12 @@
                 "url": "https://forum.smart-teach.cn/d/2769"
             },
             {
+                "name": "SecAgent",
+                "description": "智慧教育 AI Agent",
+                "url": "https://forum.smart-teach.cn/d/2765",
+                "productUrl": "https://github.com/SECTL/SecAgent"
+            },
+            {
                 "name": "DebianMakeInstallHelper",
                 "description": "Debian 系源代码编译打包安装",
                 "url": "https://forum.smart-teach.cn/d/1800",
