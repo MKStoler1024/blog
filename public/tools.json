@@ -860,6 +860,12 @@
                 "productUrl": "https://github.com/SECTL/SecAgent"
             },
             {
+                "name": "wxfilehelperclient",
+                "description": "微信文件传输助手桌面客户端",
+                "url": "https://forum.smart-teach.cn/d/2767",
+                "productUrl": "https://github.com/jin-ct/wxfilehelperclient"
+            },
+            {
                 "name": "DebianMakeInstallHelper",
                 "description": "Debian 系源代码编译打包安装",
                 "url": "https://forum.smart-teach.cn/d/1800",
