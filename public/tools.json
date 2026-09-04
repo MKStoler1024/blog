@@ -87,6 +87,12 @@
                 "description": "ClassIsland 点名器",
                 "url": "https://forum.smart-teach.cn/d/1336",
                 "productUrl": "https://github.com/HUSX100/IslandCaller"
+            },
+            {
+                "name": "ClassIsland-Theme-Next",
+                "description": "ClassIsland 1 第三方主题",
+                "url": "https://forum.smart-teach.cn/d/205",
+                "productUrl": "https://github.com/MKStoler1024/ClassIsland-Theme-Next"
             }
         ]
     },
