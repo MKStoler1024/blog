@@ -506,8 +506,8 @@ onUnmounted(() => {
     min-height: 48px;
     grid-row: 1 / -1;
     grid-column: 1;
-    background-color: rgba(232, 178, 27, 0.22);
-    color: #8a6200;
+    background-color: var(--color-surface-muted);
+    color: var(--color-featured-strong);
     font-family: "Font Awesome 6 Free";
     font-size: 18px;
     font-weight: 900;
@@ -574,12 +574,12 @@ onUnmounted(() => {
   }
 
   &.danger {
-    border-color: #963816;
+    border-color: #9c3f2a;
     color: var(--color-text);
     background-color: var(--color-surface-muted);
 
     .custom-block-title {
-      color: #7a2b0a;
+      color: #7a3324;
     }
   }
 }
@@ -620,7 +620,7 @@ onUnmounted(() => {
 }
 
 .markdown-alert-tip {
-  border-color: #3f8f8a;
+  border-color: var(--color-sky-strong);
   background: var(--color-surface-muted);
 }
 
@@ -635,7 +635,7 @@ onUnmounted(() => {
 }
 
 .markdown-alert-caution {
-  border-color: #963816;
+  border-color: #9c3f2a;
   background: var(--color-surface-muted);
 }
 
@@ -739,14 +739,14 @@ onUnmounted(() => {
   font-size: var(--code-font-size);
   border-radius: 4px;
   padding: 0.2em 0.4em;
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(74, 56, 38, 0.07);
   color: var(--color-accent-strong);
 }
 
 html[data-theme="dark"] .content :not(pre)>code {
   color: var(--color-sky);
-  background-color: #23262a;
-  box-shadow: inset 0 0 0 1px #383c41;
+  background-color: #26211c;
+  box-shadow: inset 0 0 0 1px #3d362e;
 }
 
 html {

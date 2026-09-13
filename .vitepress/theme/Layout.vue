@@ -45,28 +45,29 @@ html {
   scrollbar-color: var(--color-gray) transparent;
   --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
-  /* 配色：底色与大面积色块一律走中性黑白灰
-     橙（链接/强调）、柠檬黄（精华/提示）、青蓝（Note/行内代码）只出现在链接、边框、图标、角标等小面积处 */
-  --color-accent: #d9702a;
-  --color-accent-strong: #a94b12;
-  --color-accent-soft: #fdeee3;
-  --color-featured: #e8b21b;
-  --color-featured-strong: #b98600;
-  --color-featured-soft: #fff8dd;
-  --color-featured-ink: #3d2c00;
-  --color-sky: #1f86ad;
-  --color-sky-strong: #12658a;
-  --color-sky-soft: #e8f4f9;
-  --color-sky-ink: #07314a;
-  --color-gray: #6b7280;
-  --color-text: #1f2328;
-  --color-background: #ffffff;
-  --color-border: #e4e4e7;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f4f4f5;
-  --color-header: rgba(255, 255, 255, 0.76);
-  --color-code-header: #f4f4f5;
-  --color-shadow: rgba(0, 0, 0, 0.1);
+  /* 配色：底色与大面积色块走「偏暖的中性色」（暖纸），只轻微偏离黑白、不铺彩色
+     赭褐（链接/强调）、土金（精华/提示）、灰绿（Note/行内代码）只出现在链接、边框、图标、角标等小面积处 */
+  --color-accent: #a8714a;
+  --color-accent-strong: #7a4c2e;
+  --color-accent-soft: #f3ebe4;
+  --color-featured: #bf9c4e;
+  --color-featured-strong: #8a6f2c;
+  --color-featured-soft: #f6f0e0;
+  --color-featured-ink: #33280c;
+  --color-sky: #5c7f74;
+  --color-sky-strong: #3f5c53;
+  --color-sky-soft: #eef3f1;
+  --color-sky-ink: #17251f;
+  /* 中性面：暖纸（在黑白基础上偏一点赭） */
+  --color-gray: #756c63;
+  --color-text: #221e1a;
+  --color-background: #fbf8f4;
+  --color-border: #e6ded3;
+  --color-surface: #fffdfa;
+  --color-surface-muted: #f4efe8;
+  --color-header: rgba(251, 248, 244, 0.78);
+  --color-code-header: #f4efe8;
+  --color-shadow: rgba(76, 58, 40, 0.12);
   --code-line-height: 24px;
   --code-font-family: monospace;
   --code-font-size: 15px;
@@ -81,26 +82,27 @@ html[data-font="sans-serif"] {
 }
 
 html[data-theme="dark"] {
-  --color-gray: #9ca3af;
-  --color-text: #e8e8ea;
-  --color-background: #0f1113;
-  --color-border: #34383c;
-  --color-surface: #16181a;
-  --color-surface-muted: #1f2224;
-  --color-header: rgba(18, 20, 22, 0.8);
-  --color-code-header: #1f2224;
-  /* 夜色版：底同样保持中性黑灰，橙 / 青蓝 / 柠檬只用于小面积强调 */
-  --color-accent: #f2953f;
-  --color-accent-strong: #ffb877;
-  --color-accent-soft: #3a2415;
-  --color-featured: #f5cf5a;
-  --color-featured-strong: #f8dd8f;
-  --color-featured-soft: rgba(245, 207, 90, 0.16);
-  --color-featured-ink: #3a2c00;
-  --color-sky: #6fd7f2;
-  --color-sky-strong: #a5e8fa;
-  --color-sky-soft: #14262d;
-  --color-sky-ink: #04222e;
+  /* 中性面：暖炭（夜色版同样偏一点赭） */
+  --color-gray: #a49a90;
+  --color-text: #eae5df;
+  --color-background: #12100e;
+  --color-border: #3a342d;
+  --color-surface: #191614;
+  --color-surface-muted: #221e1a;
+  --color-header: rgba(18, 16, 14, 0.82);
+  --color-code-header: #221e1a;
+  /* 夜色版：底同样走偏暖的中性色，赭褐 / 灰绿 / 土金只用于小面积强调 */
+  --color-accent: #c99a72;
+  --color-accent-strong: #e3bd9b;
+  --color-accent-soft: #2a2018;
+  --color-featured: #d8bd7a;
+  --color-featured-strong: #e6d29b;
+  --color-featured-soft: rgba(216, 189, 122, 0.16);
+  --color-featured-ink: #33290d;
+  --color-sky: #93b0a5;
+  --color-sky-strong: #b6cfc5;
+  --color-sky-soft: #1a2422;
+  --color-sky-ink: #0d1a16;
   --color-shadow: rgba(0, 0, 0, 0.45);
   color-scheme: dark;
 }
@@ -166,7 +168,7 @@ hr {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background: var(--color-accent);
+  background: color-mix(in srgb, var(--color-gray) 55%, transparent);
 }
 
 html[data-theme="dark"] .content blockquote {
@@ -184,12 +186,12 @@ html[data-theme="dark"] .navbox {
 }
 
 html[data-theme="dark"] .navbox:before {
-  background-color: rgba(245, 207, 90, 0.16);
-  color: #f5cf5a;
+  background-color: var(--color-surface-muted);
+  color: var(--color-featured);
 }
 
 html[data-theme="dark"] .navbox a {
-  color: #f5cf5a;
+  color: var(--color-featured);
 }
 
 html[data-theme="dark"] .custom-block.tip,
@@ -201,7 +203,7 @@ html[data-theme="dark"] .markdown-alert {
 html[data-theme="dark"] .custom-block.warning,
 html[data-theme="dark"] .markdown-alert-warning {
   background: var(--color-surface-muted);
-  border-color: #f5b04a;
+  border-color: var(--color-accent);
 }
 
 html[data-theme="dark"] .custom-block.danger,
@@ -211,7 +213,7 @@ html[data-theme="dark"] .markdown-alert-caution {
 }
 
 html[data-theme="dark"] .custom-block.warning .custom-block-title {
-  color: #f5b04a;
+  color: var(--color-accent);
 }
 
 html[data-theme="dark"] .custom-block.danger {
@@ -223,19 +225,19 @@ html[data-theme="dark"] .custom-block.danger .custom-block-title {
 }
 
 html[data-theme="dark"] .markdown-alert-note .markdown-alert-title {
-  color: #8fd8f5;
+  color: var(--color-sky);
 }
 
 html[data-theme="dark"] .markdown-alert-tip .markdown-alert-title {
-  color: #7fd8d8;
+  color: var(--color-sky-strong);
 }
 
 html[data-theme="dark"] .markdown-alert-important .markdown-alert-title {
-  color: #f5cf5a;
+  color: var(--color-featured);
 }
 
 html[data-theme="dark"] .markdown-alert-warning .markdown-alert-title {
-  color: #f5b04a;
+  color: var(--color-accent);
 }
 
 html[data-theme="dark"] .markdown-alert-caution .markdown-alert-title {
@@ -243,7 +245,7 @@ html[data-theme="dark"] .markdown-alert-caution .markdown-alert-title {
 }
 
 html[data-theme="dark"] .markdown-annotation {
-  color: #8fd8f5;
+  color: var(--color-sky);
 }
 
 html[data-theme="dark"] .markdown-annotation .annotation-tooltip {

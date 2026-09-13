@@ -118,29 +118,29 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  // 亮色主题：灰阶星空（中性白灰渐层，星点与月亮均为灰阶）
-  --banner-star: rgba(0, 0, 0, 0.32);
-  --banner-star-cool: rgba(0, 0, 0, 0.24);
-  --banner-star-warm: rgba(0, 0, 0, 0.28);
-  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 255, 255, 0.85), transparent 68%);
-  --banner-nebula-orange: rgba(0, 0, 0, 0.035);
-  --banner-nebula-sky: rgba(0, 0, 0, 0.03);
-  --banner-nebula-lemon: rgba(0, 0, 0, 0.025);
-  --banner-shoot-bg: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #f2f2f3 60%, #d9d9dc 100%);
-  --banner-moon-shadow-from: rgba(0, 0, 0, 0.08);
-  --banner-moon-shadow-to: rgba(0, 0, 0, 0.16);
-  --banner-text: rgba(31, 35, 40, 0.86);
+  // 亮色主题：暖色薄暮（米白 → 淡赭的天光，星点与月亮同为暖色）
+  --banner-star: rgba(122, 76, 46, 0.34);
+  --banner-star-cool: rgba(92, 127, 116, 0.28);
+  --banner-star-warm: rgba(138, 111, 44, 0.36);
+  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 253, 245, 0.92), transparent 68%);
+  --banner-nebula-orange: rgba(191, 156, 78, 0.12);
+  --banner-nebula-sky: rgba(92, 127, 116, 0.09);
+  --banner-nebula-lemon: rgba(168, 113, 74, 0.08);
+  --banner-shoot-bg: linear-gradient(90deg, rgba(122, 76, 46, 0), rgba(122, 76, 46, 0.26));
+  --banner-moon-bg: radial-gradient(circle at 32% 32%, #fffdf6, #f8eeda 58%, #e7d4b4 100%);
+  --banner-moon-shadow-from: rgba(191, 156, 78, 0.20);
+  --banner-moon-shadow-to: rgba(191, 156, 78, 0.32);
+  --banner-text: rgba(34, 30, 26, 0.86);
   --banner-quote: var(--color-accent);
   --banner-border: var(--color-accent);
-  --banner-glitch-color: #1f2328;
-  --banner-glitch-shadow: rgba(255, 255, 255, 0.6) 4px 4px 8px;
-  --banner-title-shadow: rgba(255, 255, 255, 0.7) 2px 2px 10px;
+  --banner-glitch-color: #221e1a;
+  --banner-glitch-shadow: rgba(255, 253, 248, 0.7) 4px 4px 8px;
+  --banner-title-shadow: rgba(255, 253, 248, 0.75) 2px 2px 10px;
   background:
-    radial-gradient(ellipse at 84% 10%, rgba(0, 0, 0, 0.05), transparent 42%),
-    radial-gradient(ellipse at 16% 18%, rgba(0, 0, 0, 0.035), transparent 48%),
-    radial-gradient(ellipse at 88% 84%, rgba(0, 0, 0, 0.05), transparent 52%),
-    linear-gradient(180deg, #ffffff 0%, #f7f7f8 40%, #ececee 100%);
+    radial-gradient(ellipse at 84% 10%, rgba(191, 156, 78, 0.16), transparent 42%),
+    radial-gradient(ellipse at 16% 18%, rgba(168, 113, 74, 0.11), transparent 48%),
+    radial-gradient(ellipse at 88% 84%, rgba(92, 127, 116, 0.10), transparent 52%),
+    linear-gradient(180deg, #fdfaf5 0%, #f8f1e6 40%, #f1e7db 100%);
 
   // 底部渐变淡出，与正文背景平滑衔接
   &::after {
@@ -264,9 +264,9 @@ onUnmounted(() => {
     inset: 0;
     border-radius: 50%;
     background:
-      radial-gradient(circle at 30% 34%, rgba(0, 0, 0, 0.07), transparent 16%),
-      radial-gradient(circle at 62% 58%, rgba(0, 0, 0, 0.06), transparent 14%),
-      radial-gradient(circle at 80% 26%, rgba(0, 0, 0, 0.05), transparent 11%);
+      radial-gradient(circle at 30% 34%, rgba(138, 106, 68, 0.10), transparent 16%),
+      radial-gradient(circle at 62% 58%, rgba(138, 106, 68, 0.09), transparent 14%),
+      radial-gradient(circle at 80% 26%, rgba(138, 106, 68, 0.07), transparent 11%);
   }
 }
 
@@ -357,29 +357,29 @@ onUnmounted(() => {
   }
 }
 
-// 暗色主题：灰阶夜空（近黑底 + 白色星点 / 月亮）
+// 暗色主题：暖夜深空（暖近黑底 + 暖白星点 / 象牙月亮）
 html[data-theme="dark"] .banner {
-  --banner-star: rgba(255, 255, 255, 0.9);
-  --banner-star-cool: rgba(255, 255, 255, 0.6);
-  --banner-star-warm: rgba(255, 255, 255, 0.75);
-  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 255, 255, 0.07), transparent 70%);
-  --banner-nebula-orange: rgba(255, 255, 255, 0.055);
-  --banner-nebula-sky: rgba(255, 255, 255, 0.04);
-  --banner-nebula-lemon: rgba(255, 255, 255, 0.03);
-  --banner-shoot-bg: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff);
-  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #e9e9ec 55%, #b9bcc1 100%);
-  --banner-moon-shadow-from: rgba(255, 255, 255, 0.12);
-  --banner-moon-shadow-to: rgba(255, 255, 255, 0.22);
-  --banner-text: rgba(232, 232, 234, 0.9);
+  --banner-star: rgba(242, 233, 220, 0.92);
+  --banner-star-cool: rgba(182, 207, 197, 0.6);
+  --banner-star-warm: rgba(227, 189, 155, 0.78);
+  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(227, 189, 155, 0.07), transparent 70%);
+  --banner-nebula-orange: rgba(201, 154, 114, 0.065);
+  --banner-nebula-sky: rgba(147, 176, 165, 0.05);
+  --banner-nebula-lemon: rgba(216, 189, 122, 0.045);
+  --banner-shoot-bg: linear-gradient(90deg, rgba(242, 233, 220, 0), #f2e9dc);
+  --banner-moon-bg: radial-gradient(circle at 32% 32%, #fffdf7, #f2e6d2 55%, #cbb695 100%);
+  --banner-moon-shadow-from: rgba(227, 189, 155, 0.14);
+  --banner-moon-shadow-to: rgba(227, 189, 155, 0.26);
+  --banner-text: rgba(234, 229, 223, 0.9);
   --banner-quote: var(--color-accent);
-  --banner-border: rgba(255, 255, 255, 0.28);
+  --banner-border: rgba(227, 189, 155, 0.32);
   --banner-glitch-color: #fff;
   --banner-glitch-shadow: rgba(0, 0, 0, 0.35) 4px 4px 8px;
   --banner-title-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
   background:
-    radial-gradient(ellipse at 20% 14%, rgba(255, 255, 255, 0.05), transparent 46%),
-    radial-gradient(ellipse at 82% 88%, rgba(255, 255, 255, 0.06), transparent 54%),
-    linear-gradient(180deg, #000000 0%, #0b0c0d 40%, #141517 80%, #1a1c1e 100%);
+    radial-gradient(ellipse at 20% 14%, rgba(201, 154, 114, 0.08), transparent 46%),
+    radial-gradient(ellipse at 82% 88%, rgba(147, 176, 165, 0.07), transparent 54%),
+    linear-gradient(180deg, #0b0a09 0%, #131110 40%, #191614 80%, #1f1b17 100%);
 }
 
 // GlitchText / Article 标题默认是白色，在亮色主题下需覆盖为深色
