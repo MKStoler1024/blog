@@ -6,7 +6,8 @@
                 "name": "ClassIsland",
                 "description": "适用于班级多媒体屏幕的课表信息显示工具",
                 "url": "https://forum.smart-teach.cn/d/2139",
-                "productUrl": "https://github.com/ClassIsland/ClassIsland"
+                "productUrl": "https://github.com/ClassIsland/ClassIsland",
+                "featured": true
             },
             {
                 "name": "ClassIslandInjector",
