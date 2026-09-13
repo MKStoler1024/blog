@@ -112,19 +112,19 @@ const { posts, click = null } = defineProps<{
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+      border: 1px solid var(--color-border);
       border-radius: 4px;
       padding: 0.15rem 0.45rem;
-      color: var(--color-accent-strong);
-      background: var(--color-accent-soft);
+      color: var(--color-gray);
+      background: transparent;
       font-size: 12px;
       text-decoration: none;
       white-space: nowrap;
-      transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+      transition: border-color 0.2s ease, color 0.2s ease;
 
       &:hover {
-        border-color: var(--color-accent);
-        background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+        border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+        color: var(--color-accent-strong);
       }
     }
   }

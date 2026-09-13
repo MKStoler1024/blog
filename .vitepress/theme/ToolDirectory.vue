@@ -188,9 +188,9 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 }
 
 .category-tabs button.active {
-    border-color: var(--color-accent);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
     color: var(--color-accent-strong);
-    background: var(--color-accent-soft);
+    background: transparent;
 }
 
 .category-tabs button:focus-visible,
@@ -312,20 +312,20 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     display: inline-flex;
     align-items: center;
     pointer-events: auto;
-    border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     padding: .15rem .45rem;
-    color: var(--color-accent-strong);
-    background: var(--color-accent-soft);
+    color: var(--color-gray);
+    background: transparent;
     font-size: .7rem;
     text-decoration: none;
     white-space: nowrap;
-    transition: border-color .2s ease, background-color .2s ease;
+    transition: border-color .2s ease, color .2s ease;
 }
 
 .project-link:hover {
-    border-color: var(--color-accent);
-    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+    color: var(--color-accent-strong);
 }
 
 .arrow {
@@ -359,8 +359,7 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     width: 120px;
     padding: .06rem 0;
     transform: rotate(45deg);
-    background: linear-gradient(135deg, var(--color-featured-strong) 0%, var(--color-featured) 50%, var(--color-featured-strong) 100%);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    background: var(--color-featured);
     color: var(--color-featured-ink);
     font-size: .58rem;
     font-weight: 700;
@@ -368,7 +367,6 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     letter-spacing: .1em;
     text-align: center;
     text-indent: .1em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .28);
     white-space: nowrap;
     pointer-events: none;
 }
