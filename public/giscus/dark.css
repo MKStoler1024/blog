@@ -101,6 +101,10 @@ body {
   --color-accent-muted: rgba(201, 154, 114, 0.45);
   --color-accent-subtle: #221e1a;
 
+  /* 站点自定义色的本地副本：iframe 不继承父文档变量，
+     下方行内代码要用 --color-sky，必须在本文件里自行定义（同 Layout.vue 暗色 --color-sky） */
+  --color-sky: #93b0a5;
+
   /* 语义色：灰绿 = 成功，土金 = 注意，亮砖红 = 危险（与站点提示块同源） */
   --color-success-fg: #b6cfc5;
   --color-attention-fg: #d8bd7a;

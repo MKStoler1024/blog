@@ -10,8 +10,14 @@ const container = ref<HTMLDivElement>()
 let script: HTMLScriptElement | undefined
 
 const { site } = useData()
+// 主题文件版本号：public/giscus/*.css 改动后递增，避免浏览器复用已缓存的旧主题
+const themeVersion = '2'
 // giscus 跑在 giscus.app 的 iframe 里，主题只能是绝对地址，因此用站点 origin + base 拼出主题文件
-const themeFileUrl = (name: string) => new URL(`${site.value.base}giscus/${name}.css`, window.location.origin).href
+const themeFileUrl = (name: string) => {
+  const url = new URL(`${site.value.base}giscus/${name}.css`, window.location.origin)
+  url.searchParams.set('v', themeVersion)
+  return url.href
+}
 
 // 本地 http 预览时浏览器会拦截 giscus.app(https) 对 localhost 的请求（本地网络访问限制），
 // 此时改为本地取同一份 CSS、用 data: 地址交给 giscus，保证开发环境与线上观感一致
