@@ -118,7 +118,7 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  // 亮色主题：夏日集市黄昏（青蓝天空 → 奶黄霞光 → 落日橙，取自活动主视觉）
+  // 亮色主题：灰阶星空（中性白灰渐层，星点与月亮均为灰阶）
   --banner-star: rgba(0, 0, 0, 0.32);
   --banner-star-cool: rgba(0, 0, 0, 0.24);
   --banner-star-warm: rgba(0, 0, 0, 0.28);
@@ -357,7 +357,7 @@ onUnmounted(() => {
   }
 }
 
-// 暗色主题：入夜的夏日集市（暖橙灯火 + 青蓝夜空）
+// 暗色主题：灰阶夜空（近黑底 + 白色星点 / 月亮）
 html[data-theme="dark"] .banner {
   --banner-star: rgba(255, 255, 255, 0.9);
   --banner-star-cool: rgba(255, 255, 255, 0.6);

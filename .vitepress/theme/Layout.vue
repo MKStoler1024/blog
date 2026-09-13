@@ -45,8 +45,8 @@ html {
   scrollbar-color: var(--color-gray) transparent;
   --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
-  /* 夏日集市配色（参考 public/活动预告_夏活2026_02.jpg）
-     底色与大面积色块一律走中性黑白灰，橙/黄/青蓝只出现在链接、边框、图标等小面积处 */
+  /* 配色：底色与大面积色块一律走中性黑白灰
+     橙（链接/强调）、柠檬黄（精华/提示）、青蓝（Note/行内代码）只出现在链接、边框、图标、角标等小面积处 */
   --color-accent: #d9702a;
   --color-accent-strong: #a94b12;
   --color-accent-soft: #fdeee3;
