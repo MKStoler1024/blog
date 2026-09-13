@@ -127,8 +127,9 @@ h1 {
 .actions .primary,
 .actions a:hover,
 .actions button:hover {
-  color: white;
-  background: var(--color-accent);
+  color: #fffaf2;
+  border-color: var(--color-accent-strong);
+  background: var(--color-accent-strong);
 }
 
 @media (max-width: 600px) {

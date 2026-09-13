@@ -383,7 +383,7 @@ header {
     height: calc(100dvh - 64px);
     z-index: 90;
     overflow-y: auto;
-    background: rgba(10, 20, 40, 0.45);
+    background: rgba(60, 37, 21, 0.45);
     animation: overlay-fade-in 0.18s ease;
 
     .search-dialog {

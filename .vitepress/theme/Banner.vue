@@ -7,9 +7,9 @@
     <div class="stars stars-mid mid-b"></div>
     <div class="stars stars-near near-a"></div>
     <div class="stars stars-near near-b"></div>
-    <div class="nebula nebula-violet"></div>
-    <div class="nebula nebula-cyan"></div>
-    <div class="nebula nebula-pink"></div>
+    <div class="nebula nebula-orange"></div>
+    <div class="nebula nebula-sky"></div>
+    <div class="nebula nebula-lemon"></div>
     <div class="moon"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star shooting-star-2"></div>
@@ -118,29 +118,29 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  // 亮色主题：黎明星空（底色 + 元素配色均通过 CSS 变量控制，暗色主题在下方覆盖）
-  --banner-star: rgba(71, 85, 105, 0.5);
-  --banner-star-cool: rgba(59, 130, 246, 0.55);
+  // 亮色主题：夏日集市黄昏（青蓝天空 → 奶黄霞光 → 落日橙，取自活动主视觉）
+  --banner-star: rgba(107, 74, 45, 0.5);
+  --banner-star-cool: rgba(31, 134, 173, 0.55);
   --banner-star-warm: rgba(217, 119, 6, 0.5);
-  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(129, 140, 248, 0.18), transparent 68%);
-  --banner-nebula-violet: rgba(139, 92, 246, 0.12);
-  --banner-nebula-cyan: rgba(34, 211, 238, 0.1);
-  --banner-nebula-pink: rgba(244, 114, 182, 0.1);
-  --banner-shoot-bg: linear-gradient(90deg, rgba(51, 65, 85, 0), rgba(51, 65, 85, 0.6));
-  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #fef3c7 55%, #fcd34d 100%);
-  --banner-moon-shadow-from: rgba(251, 191, 36, 0.35);
-  --banner-moon-shadow-to: rgba(251, 191, 36, 0.6);
-  --banner-text: rgba(30, 41, 59, 0.88);
-  --banner-quote: #6366f1;
-  --banner-border: rgba(79, 70, 229, 0.5);
-  --banner-glitch-color: #1e293b;
-  --banner-glitch-shadow: rgba(255, 255, 255, 0.4) 4px 4px 8px;
-  --banner-title-shadow: rgba(255, 255, 255, 0.35) 2px 2px 10px;
+  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 236, 190, 0.55), transparent 68%);
+  --banner-nebula-orange: rgba(226, 118, 44, 0.16);
+  --banner-nebula-sky: rgba(143, 229, 252, 0.28);
+  --banner-nebula-lemon: rgba(250, 214, 116, 0.24);
+  --banner-shoot-bg: linear-gradient(90deg, rgba(31, 134, 173, 0), rgba(18, 101, 138, 0.55));
+  --banner-moon-bg: radial-gradient(circle at 32% 32%, #fffdf3, #ffe690 55%, #ffb02e 100%);
+  --banner-moon-shadow-from: rgba(255, 176, 46, 0.35);
+  --banner-moon-shadow-to: rgba(233, 138, 26, 0.6);
+  --banner-text: rgba(60, 37, 21, 0.88);
+  --banner-quote: #a94b12;
+  --banner-border: rgba(217, 112, 42, 0.5);
+  --banner-glitch-color: #3c2515;
+  --banner-glitch-shadow: rgba(255, 247, 224, 0.55) 4px 4px 8px;
+  --banner-title-shadow: rgba(255, 244, 214, 0.6) 2px 2px 10px;
   background:
-    radial-gradient(ellipse at 85% 8%, rgba(253, 186, 116, 0.28), transparent 38%),
-    radial-gradient(ellipse at 22% 16%, rgba(129, 140, 248, 0.18), transparent 46%),
-    radial-gradient(ellipse at 82% 80%, rgba(56, 189, 248, 0.16), transparent 50%),
-    linear-gradient(180deg, #dbeafe 0%, #c7d2fe 38%, #ddd6fe 72%, #f5f3ff 100%);
+    radial-gradient(ellipse at 84% 10%, rgba(255, 214, 92, 0.5), transparent 40%),
+    radial-gradient(ellipse at 16% 18%, rgba(143, 229, 252, 0.45), transparent 46%),
+    radial-gradient(ellipse at 88% 84%, rgba(226, 118, 44, 0.28), transparent 52%),
+    linear-gradient(180deg, #a9e4f7 0%, #cfeef2 28%, #ffe7b0 58%, #ffc188 80%, #fdf4e9 100%);
 
   // 底部渐变淡出，与正文背景平滑衔接
   &::after {
@@ -220,30 +220,30 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.nebula-violet {
+.nebula-orange {
   top: -18%;
   left: -12%;
   width: 60vw;
   aspect-ratio: 1;
-  background: radial-gradient(circle, var(--banner-nebula-violet), transparent 65%);
+  background: radial-gradient(circle, var(--banner-nebula-orange), transparent 65%);
   animation: nebula-drift 26s ease-in-out infinite alternate;
 }
 
-.nebula-cyan {
+.nebula-sky {
   bottom: -24%;
   right: -8%;
   width: 52vw;
   aspect-ratio: 1;
-  background: radial-gradient(circle, var(--banner-nebula-cyan), transparent 65%);
+  background: radial-gradient(circle, var(--banner-nebula-sky), transparent 65%);
   animation: nebula-drift 34s ease-in-out -8s infinite alternate-reverse;
 }
 
-.nebula-pink {
+.nebula-lemon {
   top: 32%;
   left: 44%;
   width: 44vw;
   aspect-ratio: 1;
-  background: radial-gradient(circle, var(--banner-nebula-pink), transparent 65%);
+  background: radial-gradient(circle, var(--banner-nebula-lemon), transparent 65%);
   animation: nebula-drift 40s ease-in-out -16s infinite alternate;
 }
 
@@ -357,29 +357,29 @@ onUnmounted(() => {
   }
 }
 
-// 暗色主题：经典深空（覆盖配色变量 + 底色）
+// 暗色主题：入夜的夏日集市（暖橙灯火 + 青蓝夜空）
 html[data-theme="dark"] .banner {
-  --banner-star: rgba(255, 255, 255, 0.9);
-  --banner-star-cool: rgba(147, 197, 253, 0.95);
-  --banner-star-warm: rgba(253, 230, 138, 0.9);
-  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 255, 255, 0.14), rgba(226, 232, 240, 0.04) 45%, transparent 70%);
-  --banner-nebula-violet: rgba(99, 102, 241, 0.28);
-  --banner-nebula-cyan: rgba(34, 211, 238, 0.16);
-  --banner-nebula-pink: rgba(244, 114, 182, 0.12);
-  --banner-shoot-bg: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
-  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #e0e7ff 55%, #a5b4fc 100%);
-  --banner-moon-shadow-from: rgba(165, 180, 252, 0.4);
-  --banner-moon-shadow-to: rgba(165, 180, 252, 0.6);
-  --banner-text: rgba(226, 232, 240, 0.92);
-  --banner-quote: #a5b4fc;
-  --banner-border: rgba(199, 210, 254, 0.7);
+  --banner-star: rgba(255, 244, 214, 0.9);
+  --banner-star-cool: rgba(143, 229, 252, 0.95);
+  --banner-star-warm: rgba(253, 205, 118, 0.9);
+  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 214, 150, 0.14), rgba(111, 215, 242, 0.05) 45%, transparent 70%);
+  --banner-nebula-orange: rgba(242, 149, 63, 0.3);
+  --banner-nebula-sky: rgba(111, 215, 242, 0.18);
+  --banner-nebula-lemon: rgba(245, 207, 90, 0.14);
+  --banner-shoot-bg: linear-gradient(90deg, rgba(255, 244, 214, 0), #ffd88a);
+  --banner-moon-bg: radial-gradient(circle at 32% 32%, #fffaf0, #ffd68a 55%, #ff9a3c 100%);
+  --banner-moon-shadow-from: rgba(242, 149, 63, 0.4);
+  --banner-moon-shadow-to: rgba(242, 149, 63, 0.6);
+  --banner-text: rgba(247, 234, 217, 0.92);
+  --banner-quote: #f5b04a;
+  --banner-border: rgba(242, 149, 63, 0.7);
   --banner-glitch-color: #fff;
-  --banner-glitch-shadow: rgba(0, 0, 0, 0.2) 4px 4px 8px;
-  --banner-title-shadow: 2px 2px 10px black;
+  --banner-glitch-shadow: rgba(0, 0, 0, 0.35) 4px 4px 8px;
+  --banner-title-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
   background:
-    radial-gradient(ellipse at 22% 16%, rgba(129, 140, 248, 0.22), transparent 46%),
-    radial-gradient(ellipse at 82% 80%, rgba(56, 189, 248, 0.16), transparent 50%),
-    linear-gradient(180deg, #020617 0%, #0b1035 42%, #1e1b4b 78%, #312e81 100%);
+    radial-gradient(ellipse at 20% 14%, rgba(111, 215, 242, 0.22), transparent 46%),
+    radial-gradient(ellipse at 82% 88%, rgba(242, 149, 63, 0.34), transparent 54%),
+    linear-gradient(180deg, #071c26 0%, #0d2c3a 40%, #3a2418 80%, #4a2a12 100%);
 }
 
 // GlitchText / Article 标题默认是白色，在亮色主题下需覆盖为深色

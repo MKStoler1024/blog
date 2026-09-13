@@ -24,20 +24,20 @@ const { text } = defineProps<{ text: string }>()
   &:before {
     @include glitch-common;
     left: -1px;
-    text-shadow: 1px 0 #67e8f9;
+    text-shadow: 1px 0 #6fd7f2;
   }
   &:after {
     @include glitch-common;
     left: 1px;
-    text-shadow: -1px 0 #00a7e0;
+    text-shadow: -1px 0 #12658a;
   }
   &:hover {
     &:before {
-      text-shadow: 4px 0 #67e8f9;
+      text-shadow: 4px 0 #6fd7f2;
       animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
     }
     &:after {
-      text-shadow: -4px 0 #00a7e0;
+      text-shadow: -4px 0 #12658a;
       animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
     }
   }

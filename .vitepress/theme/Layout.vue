@@ -45,18 +45,28 @@ html {
   scrollbar-color: var(--color-accent) transparent;
   --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
   --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
-  --color-accent: #0f9d9a;
-  --color-accent-strong: #087f7c;
-  --color-accent-soft: #e6fffb;
-  --color-gray: #666;
-  --color-text: #02111d;
-  --color-background: #eee;
-  --color-border: #d0d7de;
-  --color-surface: #fff;
-  --color-surface-muted: #f6f8fa;
-  --color-header: rgba(255, 255, 255, 0.72);
-  --color-code-header: #f6f8fa;
-  --color-shadow: rgba(0, 0, 0, 0.16);
+  /* 夏日集市配色（参考 public/活动预告_夏活2026_02.jpg）
+     主色 = 落日橙，辅色 = 柠檬黄，点缀 = 天空青蓝，底色 = 沙奶黄 / 深暖棕 */
+  --color-accent: #d9702a;
+  --color-accent-strong: #a94b12;
+  --color-accent-soft: #ffeee0;
+  --color-featured: #e8b21b;
+  --color-featured-strong: #c08f00;
+  --color-featured-soft: #fff7d9;
+  --color-featured-ink: #4a3600;
+  --color-sky: #1f86ad;
+  --color-sky-strong: #12658a;
+  --color-sky-soft: #e2f4fb;
+  --color-sky-ink: #07314a;
+  --color-gray: #7d6650;
+  --color-text: #3c2515;
+  --color-background: #fdf4e9;
+  --color-border: #e8d5bd;
+  --color-surface: #fffaf2;
+  --color-surface-muted: #f8ecdc;
+  --color-header: rgba(255, 250, 242, 0.72);
+  --color-code-header: #f8ecdc;
+  --color-shadow: rgba(74, 40, 20, 0.16);
   --code-line-height: 24px;
   --code-font-family: monospace;
   --code-font-size: 15px;
@@ -71,17 +81,26 @@ html[data-font="sans-serif"] {
 }
 
 html[data-theme="dark"] {
-  --color-gray: #aeb9c2;
-  --color-text: #e6edf3;
-  --color-background: #15191d;
-  --color-border: #39434d;
-  --color-surface: #20262c;
-  --color-surface-muted: #252d34;
-  --color-header: rgba(32, 38, 44, 0.78);
-  --color-code-header: #252d34;
-  --color-accent: #2dd4bf;
-  --color-accent-strong: #14b8a6;
-  --color-accent-soft: #134e4a;
+  --color-gray: #c4ae99;
+  --color-text: #f7ead9;
+  --color-background: #191110;
+  --color-border: #4a3427;
+  --color-surface: #231813;
+  --color-surface-muted: #2c1f18;
+  --color-header: rgba(35, 24, 19, 0.78);
+  --color-code-header: #2c1f18;
+  /* 夜色版：橙仍为主色，青蓝提亮成灯火，柠檬黄用于强调 */
+  --color-accent: #f2953f;
+  --color-accent-strong: #ffb877;
+  --color-accent-soft: #43260f;
+  --color-featured: #f5cf5a;
+  --color-featured-strong: #f8dd8f;
+  --color-featured-soft: rgba(245, 207, 90, 0.16);
+  --color-featured-ink: #3a2c00;
+  --color-sky: #6fd7f2;
+  --color-sky-strong: #a5e8fa;
+  --color-sky-soft: #10333f;
+  --color-sky-ink: #04222e;
   --color-shadow: rgba(0, 0, 0, 0.42);
   color-scheme: dark;
 }
@@ -151,26 +170,26 @@ hr {
 }
 
 html[data-theme="dark"] .content blockquote {
-  color: #99f6e4;
-  background: #134e4a;
+  color: #a5e8fa;
+  background: #10333f;
 }
 
 html[data-theme="dark"] .content th {
-  background: #134e4a;
+  background: #10333f;
 }
 
 html[data-theme="dark"] .navbox {
-  background: #203326;
-  border-color: #50633a;
+  background: #2a2113;
+  border-color: #5b4a22;
 }
 
 html[data-theme="dark"] .navbox:before {
-  background-color: #58733a;
-  color: #c3e68a;
+  background-color: #6b5518;
+  color: #f7dc8a;
 }
 
 html[data-theme="dark"] .navbox a {
-  color: #b9e66b;
+  color: #f5cf5a;
 }
 
 html[data-theme="dark"] .custom-block.tip,
@@ -181,36 +200,36 @@ html[data-theme="dark"] .markdown-alert {
 
 html[data-theme="dark"] .custom-block.warning,
 html[data-theme="dark"] .markdown-alert-warning {
-  background: #3b351d;
+  background: #3a2c12;
 }
 
 html[data-theme="dark"] .custom-block.danger,
 html[data-theme="dark"] .markdown-alert-caution {
-  background: #3d2527;
+  background: #3a211a;
 }
 
 html[data-theme="dark"] .markdown-alert-note .markdown-alert-title {
-  color: #79c0ff;
+  color: #8fd8f5;
 }
 
 html[data-theme="dark"] .markdown-alert-tip .markdown-alert-title {
-  color: #7ee787;
+  color: #7fd8d8;
 }
 
 html[data-theme="dark"] .markdown-alert-important .markdown-alert-title {
-  color: #d2a8ff;
+  color: #f5cf5a;
 }
 
 html[data-theme="dark"] .markdown-alert-warning .markdown-alert-title {
-  color: #e3b341;
+  color: #f5b04a;
 }
 
 html[data-theme="dark"] .markdown-alert-caution .markdown-alert-title {
-  color: #ff7b72;
+  color: #ff9a7a;
 }
 
 html[data-theme="dark"] .markdown-annotation {
-  color: #93c5fd;
+  color: #8fd8f5;
 }
 
 html[data-theme="dark"] .markdown-annotation .annotation-tooltip {
