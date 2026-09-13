@@ -28,11 +28,11 @@
   align-items: center;
   gap: 0.8rem;
   padding: 0.75rem 1.1rem;
-  border: 1px solid #e8b21b;
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
-  color: #8a4a0c !important;
-  background: #fffaea;
-  box-shadow: 0 2px 8px rgba(232, 178, 27, 0.18);
+  color: var(--color-text) !important;
+  background: var(--color-surface-muted);
+  box-shadow: 0 2px 8px var(--color-shadow);
   text-decoration: none !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -44,9 +44,10 @@
 }
 
 .rss-subscribe-button:hover {
-  color: #6b3607 !important;
-  background: #fff3c9;
-  box-shadow: 0 4px 14px rgba(232, 178, 27, 0.28);
+  color: var(--color-accent-strong) !important;
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 14px var(--color-shadow);
   transform: translateY(-2px);
 }
 
@@ -56,7 +57,7 @@
 }
 
 .rss-subscribe-button > i {
-  color: #d9702a;
+  color: var(--color-accent);
   font-size: 1.65rem;
 }
 
@@ -72,24 +73,25 @@
 }
 
 .rss-subscribe-button small {
-  color: #a9711a;
+  color: var(--color-gray);
   font-size: 0.8rem;
 }
 
 html[data-theme="dark"] .rss-subscribe-button {
-  border-color: #8a6a1c;
-  color: #f8dd8f !important;
-  background: #3a2c12;
+  border-color: var(--color-border);
+  color: var(--color-text) !important;
+  background: var(--color-surface-muted);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 html[data-theme="dark"] .rss-subscribe-button:hover {
-  color: #fff3c9 !important;
-  background: #4a3a18;
+  color: var(--color-featured) !important;
+  background: var(--color-surface);
+  border-color: var(--color-featured);
 }
 
 html[data-theme="dark"] .rss-subscribe-button small {
-  color: #f5cf5a;
+  color: var(--color-gray);
 }
 
 @media (prefers-reduced-motion: reduce) {

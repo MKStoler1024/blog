@@ -36,7 +36,7 @@ const goBack = () => history.back()
 .not-found-card {
   width: min(560px, 100%);
   padding: 40px 32px 36px;
-  border: 2px solid color-mix(in srgb, var(--color-accent) 42%, var(--color-border));
+  border: 2px solid var(--color-border);
   border-radius: 16px;
   text-align: center;
   background: color-mix(in srgb, var(--color-surface) 86%, transparent);
@@ -54,7 +54,7 @@ const goBack = () => history.back()
   border: 4px solid var(--color-accent);
   border-radius: 50% 50% 45% 45%;
   color: var(--color-accent-strong);
-  background: var(--color-accent-soft);
+  background: var(--color-surface-muted);
   transform: rotate(-2deg);
 }
 
@@ -70,7 +70,7 @@ const goBack = () => history.back()
   height: 34px;
   border: 4px solid var(--color-accent);
   border-bottom: 0;
-  background: var(--color-accent-soft);
+  background: var(--color-surface-muted);
 }
 
 .ear.left {
@@ -127,7 +127,7 @@ h1 {
 .actions .primary,
 .actions a:hover,
 .actions button:hover {
-  color: #fffaf2;
+  color: #fff;
   border-color: var(--color-accent-strong);
   background: var(--color-accent-strong);
 }

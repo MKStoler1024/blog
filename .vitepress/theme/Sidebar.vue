@@ -64,7 +64,7 @@ import { data } from '../side.data'
     height: 72px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--color-accent-soft);
+    border: 2px solid var(--color-border);
 
     img {
       display: block;

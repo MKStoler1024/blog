@@ -389,12 +389,12 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
 .tool-card.featured {
     border-color: color-mix(in srgb, var(--color-featured) 45%, var(--color-border));
-    background: var(--color-featured-soft);
+    background: var(--color-surface);
 }
 
 .tool-card.featured:hover {
     border-color: var(--color-featured);
-    background: color-mix(in srgb, var(--color-featured) 12%, var(--color-surface));
+    background: var(--color-surface-muted);
 }
 
 .empty {

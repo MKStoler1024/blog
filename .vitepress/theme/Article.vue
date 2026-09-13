@@ -318,8 +318,8 @@ onUnmounted(() => {
     margin: 1rem 0;
     padding: 0.1rem 1rem;
     border-left: 4px solid var(--color-accent);
-    color: var(--color-accent-strong);
-    background: var(--color-accent-soft);
+    color: var(--color-text);
+    background: var(--color-surface-muted);
 
     p {
       margin: 0.35em 0;
@@ -342,7 +342,8 @@ onUnmounted(() => {
   }
 
   th {
-    background: var(--color-accent-soft);
+    background: var(--color-surface-muted);
+    border-bottom: 2px solid var(--color-accent);
   }
 
   img {
@@ -491,10 +492,10 @@ onUnmounted(() => {
   margin: 12px 0;
   padding: 0;
   overflow: hidden;
-  background: #fffaea;
-  border: 1px solid #f2e0a8;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
   border-left: 0;
-  box-shadow: 0 1px 3px rgba(74, 40, 20, 0.12), 0 1px 2px rgba(74, 40, 20, 0.08);
+  box-shadow: 0 1px 3px var(--color-shadow);
 
   &:before {
     content: "\f35d";
@@ -505,8 +506,8 @@ onUnmounted(() => {
     min-height: 48px;
     grid-row: 1 / -1;
     grid-column: 1;
-    background-color: #f7cf4a;
-    color: #a97d00;
+    background-color: rgba(232, 178, 27, 0.22);
+    color: #8a6200;
     font-family: "Font Awesome 6 Free";
     font-size: 18px;
     font-weight: 900;
@@ -553,29 +554,29 @@ onUnmounted(() => {
   }
 
   &.tip {
-    background-color: #e9f6fb;
-    border-color: #1f86ad;
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-sky);
   }
 
   &.info {
-    background-color: #eef4f5;
-    border-color: #4b767d;
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-gray);
   }
 
   &.warning {
-    border-color: #e0a800;
-    color: #6b4a00;
-    background-color: #fff7d6;
+    border-color: var(--color-featured-strong);
+    color: var(--color-text);
+    background-color: var(--color-surface-muted);
 
     .custom-block-title {
-      color: #a97d00;
+      color: var(--color-featured-strong);
     }
   }
 
   &.danger {
     border-color: #963816;
-    color: #4d1c00;
-    background-color: #ffe9e0;
+    color: var(--color-text);
+    background-color: var(--color-surface-muted);
 
     .custom-block-title {
       color: #7a2b0a;
@@ -614,28 +615,28 @@ onUnmounted(() => {
 }
 
 .markdown-alert-note {
-  border-color: #1f86ad;
-  background: #e6f4fb;
+  border-color: var(--color-sky);
+  background: var(--color-surface-muted);
 }
 
 .markdown-alert-tip {
   border-color: #3f8f8a;
-  background: #eaf5f3;
+  background: var(--color-surface-muted);
 }
 
 .markdown-alert-important {
-  border-color: #c08f00;
-  background: #fff7d6;
+  border-color: var(--color-featured-strong);
+  background: var(--color-surface-muted);
 }
 
 .markdown-alert-warning {
-  border-color: #d9702a;
-  background: #ffeee0;
+  border-color: var(--color-accent);
+  background: var(--color-surface-muted);
 }
 
 .markdown-alert-caution {
   border-color: #963816;
-  background: #ffe9e0;
+  background: var(--color-surface-muted);
 }
 
 .markdown-annotation {
@@ -738,14 +739,14 @@ onUnmounted(() => {
   font-size: var(--code-font-size);
   border-radius: 4px;
   padding: 0.2em 0.4em;
-  background-color: rgba(60, 37, 21, 0.06);
+  background-color: rgba(0, 0, 0, 0.06);
   color: var(--color-accent-strong);
 }
 
 html[data-theme="dark"] .content :not(pre)>code {
-  color: #a5e8fa;
-  background-color: #3a2a21;
-  box-shadow: inset 0 0 0 1px #5b4436;
+  color: var(--color-sky);
+  background-color: #23262a;
+  box-shadow: inset 0 0 0 1px #383c41;
 }
 
 html {
