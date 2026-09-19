@@ -1486,7 +1486,8 @@
             },
             {
                 "name": "心理帮扶平台",
-                "url": "https://forum.smart-teach.cn/d/2921"
+                "url": "https://forum.smart-teach.cn/d/2921",
+                "productUrl": "https://github.com/jmj626000/MHOP-"
             },
             {
                 "name": "智教导航",
@@ -1549,6 +1550,11 @@
                 "name": "龙芯旧世界编译相关工具",
                 "url": "https://forum.smart-teach.cn/d/1774/5",
                 "productUrl": "https://github.com/YU322142/loongarch-oldworld-sysroot"
+            },
+            {
+                "name": "龙芯旧世界虚拟机快速安装脚本及指南",
+                "url": "https://forum.smart-teach.cn/d/1774/5",
+                "productUrl": "https://github.com/YU322142/loongarch-oldworld-qemu-vm"
             }
         ]
     }
