@@ -29,6 +29,17 @@ const stylesheetRace = (urls: string[]) => `
   })()
 `
 
+/* 首屏主题引导：站点配色全部挂在 html[data-theme] 上，而 data-theme 原本要等 Header.vue
+   挂载后才写入，暗色访客会先看到一帧亮色。这里在样式生效前就把解析结果写进根元素。
+   主题名与 localStorage 键必须和 .vitepress/theme/Header.vue 的 applyTheme() 保持一致 */
+const themeBootstrap = `
+  (() => {
+    const mode = localStorage.getItem('theme-mode')
+    const dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    document.documentElement.dataset.theme = mode === 'dark' || mode === 'light' ? mode : dark ? 'dark' : 'light'
+  })()
+`
+
 const uplImagePreview = (state: any, silent: boolean) => {
   const source = state.src.slice(state.pos)
   const match = source.match(/^\[upl-image-preview\s+([^\]]+)\]/)
@@ -130,6 +141,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
     ['meta', { name: 'referrer', content: 'strict-origin-when-cross-origin' }],
+    ['script', {}, themeBootstrap],
     ['script', { defer: true, src: 'https://vercount.one/js' }],
     ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' }],
     ['link', { rel: 'preconnect', href: 'https://s4.zstatic.net' }],

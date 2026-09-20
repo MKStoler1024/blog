@@ -1,5 +1,7 @@
 /*! giscus 主题 · 暗色 —— MKStoler1024's Blog
  * 变量名沿用 giscus 官方主题（Primer / github-dark）的命名，可直接用 data-theme 或 setConfig 指定。
+ * 维护须知：文件末尾「通用外观层」与 public/giscus/light.css 的同名区块逐条对应，
+ * 变量区也保持同一组键名，两份文件只允许调色板不同；只改其中一份会出现亮暗观感不一致。
  * 调色板与站点 .vitepress/theme/Layout.vue 暗色版对齐：
  *   底色 / 面 / 边框 = 中性近黑与深灰（#0f1113、#16181a、#1f2224、#34383c）
  *   赭褐 #e3bd9b / #c99a72 = 链接、悬停、主按钮，只落在文字与细边框上
@@ -107,6 +109,8 @@ body {
 
   /* 语义色：灰绿 = 成功，土金 = 注意，亮砖红 = 危险（与站点提示块同源） */
   --color-success-fg: #b6cfc5;
+  --color-success-muted: rgba(147, 176, 165, 0.4);
+  --color-success-subtle: rgba(147, 176, 165, 0.16);
   --color-attention-fg: #d8bd7a;
   --color-attention-muted: rgba(216, 189, 122, 0.4);
   --color-attention-subtle: rgba(216, 189, 122, 0.16);
@@ -119,6 +123,36 @@ body {
   --color-scale-gray-7: #221e1a;
   --color-scale-blue-1: #221e1a;
   --color-scale-blue-8: #221e1a;
+
+  /* ---- 文件级扩展：圆角、描边、阴影；数值与站点 Layout.vue / ToTop.vue / BlogList.vue 对齐 ----
+     变量必须落在 :root / html / main / body 这类 giscus 也会用到的宿主上，
+     写在 main, body 选择器里可以随「同一份主题文件被 setConfig 重复注入」而重复生效，不会互相覆盖 */
+  --gsc-radius-sm: 4px;
+  --gsc-radius-md: 6px;
+  --gsc-radius-lg: 10px;
+  --gsc-radius-pill: 999px;
+  --gsc-shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --gsc-shadow-card: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --gsc-shadow-focus: 0 0 0 3px rgba(201, 154, 114, 0.24);
+  --gsc-hairline: rgba(234, 229, 223, 0.09);
+
+  /* 输入控件：与站点输入框同规格（面 = 次级底，聚焦描边 = 链接赭褐） */
+  --color-input-bg: var(--color-canvas-default);
+  --color-input-contrast-bg: var(--color-canvas-subtle);
+  --color-input-border: var(--color-border-default);
+  --color-input-disabled-bg: var(--color-canvas-subtle);
+  --color-input-disabled-border: var(--color-border-muted);
+  --color-input-warning-border: var(--color-attention-fg);
+  --color-input-error-border: var(--color-danger-fg);
+  --color-input-tooltip-success-text: var(--color-fg-default);
+  --color-input-tooltip-success-bg: var(--color-success-subtle, var(--color-canvas-subtle));
+  --color-input-tooltip-success-border: var(--color-success-fg);
+  --color-input-tooltip-warning-text: var(--color-fg-default);
+  --color-input-tooltip-warning-bg: var(--color-attention-subtle);
+  --color-input-tooltip-warning-border: var(--color-attention-fg);
+  --color-input-tooltip-error-text: var(--color-fg-default);
+  --color-input-tooltip-error-bg: var(--color-danger-subtle);
+  --color-input-tooltip-error-border: var(--color-danger-fg);
 
   /*! Extensions from @primer/css/alerts/flash.scss */
   --color-social-reaction-bg-hover: var(--color-scale-gray-7);
@@ -371,3 +405,89 @@ main .markdown hr {
   border: none;
   border-bottom: 1px dashed var(--color-border-default);
 }
+
+/* ==== 通用外观层（与 public/giscus/light.css 逐条对应，只有调色板不同）====
+   站点没有给 iframe 传样式的能力，能得到的效果全都来自这份主题文件：
+   圆角、描边、阴影、悬停与聚焦反馈都取站点同一套数值
+   （卡片 10px+柔和阴影见 BlogList.vue，按钮/胶囊 21px 见 ToTop.vue，输入框聚焦描边见 Header.vue 搜索框） */
+
+/* 评论区入口按钮：中性描边 + 悬停转链接色，和站内标签胶囊同一手感 */
+main .gsc-comment-box-main button,
+main .gsc-comment-box-tabs button {
+  border-radius: var(--gsc-radius-md);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+main .gsc-comment-box-main button:hover:enabled {
+  border-color: var(--color-accent-muted);
+}
+
+/* 写评论的编辑器：独立成一张「卡片」，聚焦时整块亮起描边 */
+main .gsc-comment-box {
+  border-radius: var(--gsc-radius-lg);
+  box-shadow: var(--gsc-shadow-soft);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+main .gsc-comment-box:focus-within {
+  border-color: var(--color-accent-muted);
+  box-shadow: var(--gsc-shadow-focus);
+}
+
+main .gsc-comment-box-textarea,
+main .gsc-comment-box-textarea-extras {
+  border-radius: 0 0 var(--gsc-radius-md) var(--gsc-radius-md);
+}
+
+/* 「写评论 / 预览」页签：悬停给一层极淡的底，选中态交给上方的链接色规则 */
+main .gsc-comment-box-tabs button:hover {
+  background: var(--gsc-hairline);
+}
+
+/* 评论卡片：圆角与站点卡片一致，悬停时轻微抬起，边界更清楚 */
+main .gsc-comment {
+  border-radius: var(--gsc-radius-lg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+main .gsc-comment:hover {
+  border-color: var(--color-border-muted);
+  box-shadow: var(--gsc-shadow-soft);
+}
+
+/* 回复区：与主评论同一套圆角，避免一条时间线上出现两种拐角 */
+main .gsc-reply-box,
+main .gsc-replies,
+main .gsc-reply {
+  border-radius: var(--gsc-radius-md);
+}
+
+/* 表情回应：「添加回应」与回应胶囊统一中性描边，悬停才转链接色 */
+main .gsc-reactions-button,
+main .gsc-reaction {
+  border-radius: var(--gsc-radius-pill);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+main .gsc-reactions-button:hover {
+  border-color: var(--color-accent-muted);
+  background: var(--gsc-hairline);
+}
+
+/* 「展开更多」按钮：给一点厚度，不再是一块平贴的灰面 */
+main .gsc-pagination-button {
+  border-radius: var(--gsc-radius-md);
+  box-shadow: var(--gsc-shadow-soft);
+}
+
+/* 与站点一致：用户声明减少动态效果时，只保留静态样式 */
+@media (prefers-reduced-motion: reduce) {
+  main .gsc-comment-box-main button,
+  main .gsc-comment-box-tabs button,
+  main .gsc-comment-box,
+  main .gsc-comment,
+  main .gsc-reactions-button,
+  main .gsc-reaction {
+    transition: none;
+  }
+} 
