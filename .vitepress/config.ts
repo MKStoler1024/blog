@@ -157,7 +157,12 @@ export default defineConfigWithTheme<ThemeConfig>({
     ])],
   ],
   markdown: {
-    theme: 'github-light',
+    // 双主题高亮：shiki 会同时输出 --shiki-light / --shiki-dark 与明暗底色变量，
+    // 由下面的 CSS 按 html[data-theme] 切换（只用单主题时暗色下会拿亮色配色，代码块会花）
+    theme: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
     lineNumbers: true,
     breaks: true,
     headers: true,

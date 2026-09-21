@@ -106,21 +106,59 @@
   font-size: 0.9em;
 }
 
-/* 代码块容器（VitePress 1.6 结构：div.language-* > pre.shiki + .lang + .copy）
-   本站代码高亮是 github 亮 / 暗两套，因此用卡片底而不是固定深色块 */
+/* 代码块：沿用站点原来的「窗口标题栏」外观
+   （顶部 32px 标题栏 + 左侧红黄绿圆点 + 居中语言标签 + 悬停显示的复制按钮），
+   结构上是 div.language-* > button.copy + span.lang + pre.shiki + div.line-numbers-wrapper，
+   父级 row-reverse 让行号列落在左侧 */
 .vp-doc div[class*='language-'] {
   position: relative;
+  display: flex;
+  flex-direction: row-reverse;
   margin: 0 0 18px;
+  padding-top: 32px;
   border: 1px solid var(--kratos-border);
   border-radius: var(--kratos-radius);
   background: var(--kratos-code-bg);
+  font-family: var(--code-font-family, monospace);
+  font-size: var(--code-font-size, 15px);
+  line-height: var(--code-line-height, 24px);
   overflow: hidden;
+}
+
+/* 标题栏 */
+.vp-doc div[class*='language-']::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 32px;
+  background: var(--kratos-bg-muted);
+  border-bottom: 1px solid var(--kratos-border);
+}
+
+/* 标题栏左侧的三个「窗口按钮」 */
+.vp-doc div[class*='language-']::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
 }
 
 .vp-doc div[class*='language-'] pre {
   margin: 0;
-  padding: 18px 20px;
+  margin-left: 16px;
+  flex-grow: 1;
+  padding: 0 0 14px;
   background: transparent;
+  /* 显式钉住行高：VitePress 给 pre 的 line-height 是 1.7，会和行号列（按 24px 排）逐行错开 */
+  font-size: var(--code-font-size, 15px);
+  line-height: var(--code-line-height, 24px);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -142,25 +180,123 @@
   display: block;
   min-width: fit-content;
   padding: 0;
-  background: none;
+  background: transparent;
   color: var(--kratos-code-ink);
-  font-size: 14px;
-  line-height: 1.7;
-  font-family: var(--code-font-family, monospace);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-/* 语法高亮交给站点既有的 shiki 主题，这里不再覆盖 span 颜色 */
+/* 语法高亮：shiki 双主题输出 --shiki-light / --shiki-dark 与明暗底色，
+   这里按本站的 html[data-theme] 开关切换（配置见 .vitepress/config.ts 的 markdown.theme） */
+.vp-doc div[class*='language-'] code span {
+  color: var(--shiki-light);
+}
+
 .vp-doc div[class*='language-'] code span.line {
   display: inline-block;
   min-height: 1.7em;
 }
 
-/* 语言标签 */
+html[data-theme='dark'] .vp-doc div[class*='language-'] code span {
+  color: var(--shiki-dark);
+}
+
+/* 行号列：紧贴标题栏下方，随代码块滚动 */
+.vp-doc .line-numbers-wrapper {
+  flex: 0 0 auto;
+  padding: 0 0 14px 16px;
+  color: var(--kratos-text-light);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: right;
+  user-select: none;
+}
+
+.vp-doc .line-numbers-wrapper .line-number {
+  display: block;
+  min-height: var(--code-line-height, 24px);
+}
+
+/* ------------------------------------------------------------
+   navbox 容器（markdown-it-container 自定义块）
+   与站点其它提示块同一套观感：左侧图标条 + 次级底色
+   ------------------------------------------------------------ */
+.vp-doc .navbox {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  margin: 12px 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--kratos-border);
+  border-left: 0;
+  border-radius: var(--kratos-radius);
+  background: var(--kratos-bg-muted);
+  box-shadow: var(--kratos-shadow);
+}
+
+.vp-doc .navbox::before {
+  content: "\f35d";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 48px;
+  grid-row: 1 / -1;
+  grid-column: 1;
+  background-color: var(--kratos-bg-muted);
+  color: var(--color-featured-strong);
+  font-family: "Font Awesome 6 Free";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.vp-doc .navbox > .custom-block-title,
+.vp-doc .navbox > p {
+  margin: 0;
+  grid-column: 2;
+  padding: 12px 12px 0;
+}
+
+.vp-doc .navbox > .custom-block-title {
+  padding-right: 0;
+}
+
+.vp-doc .navbox > :last-child {
+  padding-bottom: 12px;
+}
+
+.vp-doc .navbox a {
+  color: var(--color-accent);
+}
+
+.vp-doc .navbox a:hover {
+  color: var(--color-accent-strong);
+}
+
+@media (max-width: 1100px) {
+  .vp-doc .navbox {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .vp-doc .navbox::before {
+    min-height: 44px;
+  }
+
+  .vp-doc .navbox > .custom-block-title,
+  .vp-doc .navbox > p {
+    padding: 10px;
+  }
+}
+
+/* 语言标签：标题栏正中（与站点原来的做法一致） */
 .vp-doc div[class*='language-'] .lang {
   position: absolute;
   z-index: 1;
-  top: 8px;
-  right: 44px;
+  top: 16px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
@@ -171,26 +307,31 @@
   user-select: none;
 }
 
-/* 复制按钮 */
+/* 复制按钮：标题栏右侧，悬停整块代码块时才显示 */
 .vp-doc div[class*='language-'] .copy {
   position: absolute;
   z-index: 1;
-  top: 8px;
-  right: 10px;
-  width: 28px;
-  height: 28px;
+  top: 4px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: none;
   border-radius: 4px;
-  background-color: var(--kratos-code-btn-bg);
+  background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='13' height='13' rx='2' ry='2'/%3E%3Cpath d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/svg%3E");
   color: var(--kratos-code-btn-icon);
   background-position: center;
   background-size: 14px;
   background-repeat: no-repeat;
   cursor: pointer;
-  opacity: 0.55;
-  transition: opacity 0.3s, background-color 0.3s;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.vp-doc div[class*='language-']:hover .copy,
+.vp-doc div[class*='language-'] .copy:focus-visible {
+  opacity: 0.75;
 }
 
 .vp-doc div[class*='language-'] .copy:hover {

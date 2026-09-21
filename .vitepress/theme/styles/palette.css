@@ -154,6 +154,11 @@ html[data-theme='light'] {
   --color-header: rgba(251, 248, 244, 0.78);
   --color-code-header: #f4efe8;
   --color-shadow: rgba(76, 58, 40, 0.12);
+
+  /* 代码块规格（沿用站点原来的数值） */
+  --code-font-family: monospace;
+  --code-font-size: 15px;
+  --code-line-height: 24px;
 }
 
 html[data-theme='dark'] {
