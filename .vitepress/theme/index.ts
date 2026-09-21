@@ -2,8 +2,11 @@ import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'
 import ToolDirectory from './ToolDirectory.vue'
 import RssSubscribe from './RssSubscribe.vue'
+import KIcon from './components/Icon.vue'
 import { nextTick } from 'vue'
 import { type EnhanceAppContext } from 'vitepress'
+// Kratos 主题样式（版式取自 OhMyIWB，配色为本站暖纸 / 赭褐体系）
+import './styles/index.css'
 
 const getPageUrl = () => `${window.location.origin}${window.location.pathname}${window.location.search}`
 
@@ -92,6 +95,8 @@ export default {
   enhanceApp({ app, router }: EnhanceAppContext) {
     app.component('ToolDirectory', ToolDirectory)
     app.component('RssSubscribe', RssSubscribe)
+    // Kratos 主题的全局图标组件
+    app.component('KIcon', KIcon)
     // 首屏也要同步一次：直接打开/刷新文章页时没有任何路由变化事件，
     // 只挂 onAfterRouteChange 会漏掉「第一次打开文章」这种最常见的情况
     let syncedPageUrl = ''

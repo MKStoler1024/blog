@@ -1,0 +1,123 @@
+/* ============================================================
+   Kratos 主题配色（本站版）
+   ------------------------------------------------------------
+   版式取自 OhMyIWB 的 Kratos for VitePress 主题，
+   配色改为本站既有的「暖纸 / 暖炭 + 赭褐」体系（原样式里的紫色主色已全部替换）。
+
+   说明：
+   - 亮暗切换沿用本站的 html[data-theme] 开关（不再用 VitePress 的 html.dark）；
+   - 变量名保持 --kratos-* 以便整套版式样式原样复用。
+   ============================================================ */
+
+:root,
+html[data-theme='light'] {
+  /* 主色（赭褐） */
+  --kratos-primary: #a8714a;
+  --kratos-primary-hover: #7a4c2e;
+  --kratos-primary-soft: rgba(168, 113, 74, 0.1);
+  --kratos-primary-soft-strong: rgba(168, 113, 74, 0.18);
+  --kratos-primary-glow: rgba(168, 113, 74, 0.35);
+  --kratos-primary-text: #ffffff;
+
+  /* 页脚/抽屉头的深色条：本站头部的暖黑 */
+  --kratos-dark: #221e1a;
+  --kratos-dark-ink: rgba(255, 255, 255, 0.62);
+  --kratos-dark-ink-strong: rgba(255, 255, 255, 0.85);
+  --kratos-dark-ink-faint: rgba(255, 255, 255, 0.3);
+  --kratos-dark-chip: rgba(255, 255, 255, 0.08);
+  --kratos-dark-chip-hover: rgba(255, 255, 255, 0.15);
+
+  /* 面 / 底（暖纸） */
+  --kratos-bg: #fbf8f4;
+  --kratos-card: #fffdfa;
+  --kratos-bg-soft: #f4efe8;
+  --kratos-bg-muted: #f4efe8;
+  --kratos-border: #e6ded3;
+  --kratos-border-strong: #d9cfc2;
+
+  /* 文字 */
+  --kratos-text: #221e1a;
+  --kratos-text-light: #756c63;
+  --kratos-text-strong: #000000;
+  --kratos-code-inline: #7a4c2e;
+
+  /* 圆角与阴影（与站点其它组件同规格） */
+  --kratos-radius: 10px;
+  --kratos-shadow: 0 1px 3px rgba(76, 58, 40, 0.08);
+  --kratos-shadow-hover: 0 6px 18px rgba(76, 58, 40, 0.14);
+  --kratos-shadow-panel: 0 10px 30px rgba(76, 58, 40, 0.18);
+
+  /* 导航栏（亮色：暖纸毛玻璃 + 深色字） */
+  --kratos-nav-bg: rgba(251, 248, 244, 0.78);
+  --kratos-nav-text: #221e1a;
+  --kratos-nav-text-muted: rgba(34, 30, 26, 0.72);
+  --kratos-nav-line: #221e1a;
+  --kratos-nav-border: rgba(34, 30, 26, 0.22);
+  --kratos-nav-input-bg: rgba(34, 30, 26, 0.06);
+  --kratos-nav-hover-bg: rgba(34, 30, 26, 0.08);
+  --kratos-nav-shadow: 0 2px 8px rgba(76, 58, 40, 0.1);
+  --kratos-nav-mobile-bg: rgba(251, 248, 244, 0.92);
+
+  /* 代码块沿用本站 github-light 高亮，因此用浅底卡片样式 */
+  --kratos-code-bg: #f4efe8;
+  --kratos-code-ink: #221e1a;
+  --kratos-code-lang: rgba(34, 30, 26, 0.45);
+  --kratos-code-btn-bg: rgba(34, 30, 26, 0.06);
+  --kratos-code-btn-bg-hover: rgba(34, 30, 26, 0.12);
+  --kratos-code-btn-icon: rgba(34, 30, 26, 0.6);
+
+  /* 正文字体：沿用站点默认（Noto Serif SC） */
+  --kratos-font-serif: "Noto Serif SC", "MicroSoft Yahei", serif;
+  --kratos-font-sans: "Noto Serif SC", "MicroSoft Yahei", serif;
+  --kratos-font: var(--kratos-font-serif);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --kratos-primary: #c99a72;
+  --kratos-primary-hover: #e3bd9b;
+  --kratos-primary-soft: rgba(201, 154, 114, 0.14);
+  --kratos-primary-soft-strong: rgba(201, 154, 114, 0.24);
+  --kratos-primary-glow: rgba(201, 154, 114, 0.4);
+  --kratos-primary-text: #14161a;
+
+  --kratos-dark: #12100e;
+  --kratos-dark-ink: rgba(234, 229, 223, 0.6);
+  --kratos-dark-ink-strong: rgba(234, 229, 223, 0.85);
+  --kratos-dark-ink-faint: rgba(234, 229, 223, 0.3);
+  --kratos-dark-chip: rgba(234, 229, 223, 0.08);
+  --kratos-dark-chip-hover: rgba(234, 229, 223, 0.16);
+
+  --kratos-bg: #12100e;
+  --kratos-card: #191614;
+  --kratos-bg-soft: #221e1a;
+  --kratos-bg-muted: #221e1a;
+  --kratos-border: #3a342d;
+  --kratos-border-strong: #4a423a;
+
+  --kratos-text: #eae5df;
+  --kratos-text-light: #a49a90;
+  --kratos-text-strong: #ffffff;
+  --kratos-code-inline: #c99a72;
+
+  --kratos-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  --kratos-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.55);
+  --kratos-shadow-panel: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  --kratos-nav-bg: rgba(18, 16, 14, 0.78);
+  --kratos-nav-text: #eae5df;
+  --kratos-nav-text-muted: rgba(234, 229, 223, 0.78);
+  --kratos-nav-line: #eae5df;
+  --kratos-nav-border: rgba(234, 229, 223, 0.3);
+  --kratos-nav-input-bg: rgba(234, 229, 223, 0.08);
+  --kratos-nav-hover-bg: rgba(234, 229, 223, 0.1);
+  --kratos-nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --kratos-nav-mobile-bg: rgba(18, 16, 14, 0.94);
+
+  --kratos-code-bg: #191614;
+  --kratos-code-ink: #e6edf3;
+  --kratos-code-lang: rgba(234, 229, 223, 0.45);
+  --kratos-code-btn-bg: rgba(234, 229, 223, 0.08);
+  --kratos-code-btn-bg-hover: rgba(234, 229, 223, 0.16);
+  --kratos-code-btn-icon: rgba(234, 229, 223, 0.7);
+}
