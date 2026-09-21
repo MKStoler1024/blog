@@ -3,8 +3,8 @@
     <div class="titlebox">
       <h1 v-if="pageReady" class="title">{{ title }}</h1>
       <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
-      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }}{{ readingInfo }} · <span id="busuanzi_container_page_pv"
-          class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }}{{ readingInfo }} · <span id="article_page_views"
+          class="page-views" style="display: none">本文总阅读量 <span id="article_page_views_value"></span> 次</span></div>
       <span v-else class="skeleton-block info-skeleton"></span>
     </div>
   </div>
@@ -12,8 +12,8 @@
     <div class="titlebox">
       <h1 v-if="pageReady" class="title">{{ title }}</h1>
       <span v-else class="skeleton-block title-skeleton" aria-label="正在加载文章标题" role="status"></span>
-      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }}{{ readingInfo }} · <span id="busuanzi_container_page_pv"
-          class="page-views" style="display: none">本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span></div>
+      <div v-if="pageReady" class="info">{{ author }} · 更新于 {{ date }}{{ readingInfo }} · <span id="article_page_views"
+          class="page-views" style="display: none">本文总阅读量 <span id="article_page_views_value"></span> 次</span></div>
       <span v-else class="skeleton-block info-skeleton"></span>
     </div>
   </Banner>
