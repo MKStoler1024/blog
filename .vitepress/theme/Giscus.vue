@@ -15,7 +15,7 @@ const { site } = useData()
 // postMessage 必须带 origin；giscus 的 iframe 固定由 https://giscus.app 提供
 const GISCUS_ORIGIN = 'https://giscus.app'
 // 主题文件版本号：public/giscus/*.css 改动后递增，避免浏览器复用已缓存的旧主题
-const themeVersion = '3'
+const themeVersion = '4'
 // 两份主题地址按需解析一次后缓存：来回切换不必等网络，也不会把主题停在旧的一份上
 const themeCache = new Map<string, string>()
 // 上一次真正下发给 giscus 的主题地址：resize 上报、根元素属性变化都会走到 syncTheme，

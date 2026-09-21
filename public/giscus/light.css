@@ -417,11 +417,30 @@ main .gsc-comment-box-main button:hover:enabled {
   border-color: var(--color-accent-muted);
 }
 
-/* 写评论的编辑器：独立成一张「卡片」，聚焦时整块亮起描边 */
-main .gsc-comment-box {
+/* 评论卡片与编辑器：都按站内卡片的做法给「面」色 + 10px 圆角 + 柔和描边，
+   这样在暖纸底色上边界和层次都能立起来。
+   注意 giscus 自带规则是 .gsc-comment-box:not(.gsc-comment-box-is-reply)（0,2,0），
+   权重高于 main .gsc-comment-box（0,1,1），所以两种形态都要写进选择器里才压得住 */
+main .gsc-comment-box,
+main .gsc-comment-box:not(.gsc-comment-box-is-reply),
+main .gsc-comment > .color-bg-primary:not(.gsc-comment-box) {
   border-radius: var(--gsc-radius-lg);
-  box-shadow: var(--gsc-shadow-soft);
+  border-color: var(--color-border-default);
+  background: var(--color-canvas-overlay);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 编辑器与卡片里的输入区交给外层的「面」，避免叠出第二层底色 */
+main .gsc-comment-box-textarea,
+main .gsc-comment-box-preview,
+main .gsc-comment .gsc-comment-box,
+main .gsc-comment .gsc-comment-box-textarea,
+main .gsc-comment .gsc-comment-box-preview {
+  background: transparent;
+}
+
+main .gsc-comment-box:not(.gsc-comment-box-is-reply) {
+  box-shadow: var(--gsc-shadow-soft);
 }
 
 main .gsc-comment-box:focus-within {
@@ -429,14 +448,47 @@ main .gsc-comment-box:focus-within {
   box-shadow: var(--gsc-shadow-focus);
 }
 
+/* 页签条内嵌在编辑器卡片里，上圆角跟着卡片走（giscus 自带 .25rem 的圆角更小） */
+main .gsc-comment-box-tabs,
+main .gsc-comment-box:not(.gsc-comment-box-is-reply) .gsc-comment-box-tabs {
+  border-start-start-radius: var(--gsc-radius-lg);
+  border-start-end-radius: var(--gsc-radius-lg);
+}
+
 main .gsc-comment-box-textarea,
 main .gsc-comment-box-textarea-extras {
   border-radius: 0 0 var(--gsc-radius-md) var(--gsc-radius-md);
 }
 
-/* 「写评论 / 预览」页签：悬停给一层极淡的底，选中态交给上方的链接色规则 */
+/* 「写评论 / 预览」页签：悬停给一层极淡的底，选中态的描边交给上面的页签规则 */
 main .gsc-comment-box-tabs button:hover {
   background: var(--gsc-hairline);
+}
+
+/* 正文与界面字号对齐站点：正文 16px / 行高 1.5（=24px），按钮与输入框 15px */
+main .gsc-comment {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main .gsc-comment-content {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main .gsc-comment-box {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+main .gsc-comment-box-textarea,
+main .gsc-comments-count,
+main .gsc-reactions-count,
+main .gsc-right-header .btn,
+main .gsc-comment-box-tabs button,
+main .gsc-comment-box-main button,
+main .gsc-comment-box-bottom .btn {
+  font-size: 15px;
 }
 
 /* 评论卡片：圆角与站点卡片一致，悬停时轻微抬起，边界更清楚 */
@@ -445,9 +497,28 @@ main .gsc-comment {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* 评论卡片内层壳：giscus 自己用 Tailwind 工具类 #__next .rounded-md（6px）给它上圆角，
+   ID 选择器权重高于本文档任何 main 前缀规则，只能用 !important 才盖得住 */
+main .gsc-comment > .color-bg-primary:not(.gsc-comment-box),
+main .gsc-comment > .color-bg-primary {
+  border-radius: var(--gsc-radius-lg) !important;
+}
+
 main .gsc-comment:hover {
   border-color: var(--color-border-muted);
   box-shadow: var(--gsc-shadow-soft);
+}
+
+/* 作者身份徽标（Owner / Contributor）：改成站点标签胶囊的样子（无填充、灰字、6px 圆角）。
+   giscus 自带 .gsc-comment-author .color-box-border-info（0,2,0），这里补足权重才压得住 */
+main .gsc-comment-author .color-box-border-info,
+main .gsc-reply-author .color-box-border-info,
+main .gsc-comment-header .gsc-comment-author .color-box-border-info {
+  border-color: var(--color-border-default);
+  border-radius: var(--gsc-radius-md);
+  padding: 0 6px;
+  color: var(--color-fg-muted);
+  background: transparent;
 }
 
 /* 回复区：与主评论同一套圆角，避免一条时间线上出现两种拐角 */
@@ -467,6 +538,13 @@ main .gsc-reaction {
 main .gsc-reactions-button:hover {
   border-color: var(--color-accent-muted);
   background: var(--gsc-hairline);
+}
+
+/* 表情胶囊：giscus 默认只有 26px 高，比站内标签胶囊还挤，这里放到站点标签的规格（约 32px） */
+main .gsc-reactions-button,
+main .gsc-reaction {
+  min-height: 32px;
+  padding: 0 12px;
 }
 
 /* 「展开更多」按钮：给一点厚度，不再是一块平贴的灰面 */
