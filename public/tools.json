@@ -358,7 +358,8 @@
             {
                 "name": "InkCanvasForClass-Remastered",
                 "url": "https://forum.smart-teach.cn/d/835",
-                "productUrl": "https://github.com/LiuYan-xwx/InkCanvasForClass-Remastered"
+                "productUrl": "https://github.com/LiuYan-xwx/InkCanvasForClass-Remastered",
+                "featured": true
             },
             {
                 "name": "Inkita.Gtk",
@@ -388,7 +389,8 @@
                 "name": "Luminalium 万演",
                 "description": "PPT 演示辅助工具",
                 "url": "https://forum.smart-teach.cn/d/2316",
-                "productUrl": "https://github.com/SECTL/Luminalium"
+                "productUrl": "https://github.com/SECTL/Luminalium",
+                "featured": true
             },
             {
                 "name": "PdfTeachAnnotator",
@@ -442,7 +444,8 @@
                 "name": "智绘教 Inkeys",
                 "description": "Windows 屏幕批注工具",
                 "url": "https://forum.smart-teach.cn/d/51",
-                "productUrl": "https://github.com/Alan-CRL/Inkeys"
+                "productUrl": "https://github.com/Alan-CRL/Inkeys",
+                "featured": true
             }
         ]
     },
@@ -611,7 +614,8 @@
                 "name": "NamePicker",
                 "description": "点名器",
                 "url": "https://forum.smart-teach.cn/d/209",
-                "productUrl": "https://github.com/NamePickerOrg/NamePicker"
+                "productUrl": "https://github.com/NamePickerOrg/NamePicker",
+                "featured": true
             },
             {
                 "name": "NamePickerPlus",
@@ -681,7 +685,8 @@
                 "name": "SecRandom",
                 "description": "课堂点名 / 抽签软件",
                 "url": "https://forum.smart-teach.cn/d/265",
-                "productUrl": "https://github.com/SecRandom/SecRandom"
+                "productUrl": "https://github.com/SecRandom/SecRandom",
+                "featured": true
             },
             {
                 "name": "YABVA",
@@ -784,7 +789,8 @@
                 "name": "SecScore",
                 "description": "教育积分管理",
                 "url": "https://forum.smart-teach.cn/d/1221",
-                "productUrl": "https://github.com/SECTL/SecScore"
+                "productUrl": "https://github.com/SECTL/SecScore",
+                "featured": true
             },
             {
                 "name": "全能班辅",
@@ -841,7 +847,8 @@
                 "name": "EasyTouch",
                 "description": "易触控",
                 "url": "https://forum.smart-teach.cn/d/1316",
-                "productUrl": "https://github.com/jin-ct/easytouch"
+                "productUrl": "https://github.com/jin-ct/easytouch",
+                "featured": true
             },
             {
                 "name": "Lock Screen for Class",
@@ -940,7 +947,8 @@
                 "name": "VoiceHub",
                 "description": "校园广播站点歌系统",
                 "url": "https://forum.smart-teach.cn/d/598",
-                "productUrl": "https://github.com/laoshuikaixue/VoiceHub"
+                "productUrl": "https://github.com/laoshuikaixue/VoiceHub",
+                "featured": true
             },
             {
                 "name": "WinNAS",
@@ -962,7 +970,8 @@
                 "name": "Classworks",
                 "description": "作业记录、展示与同步 + 考试看板",
                 "url": "https://forum.smart-teach.cn/d/266",
-                "productUrl": "https://github.com/zerocatdev/classworks"
+                "productUrl": "https://github.com/zerocatdev/classworks",
+                "featured": true
             },
             {
                 "name": "Classworks",
@@ -1113,7 +1122,8 @@
                 "name": "ZongziTEK 黑板贴",
                 "description": "白板一体机桌面部件（课程表 / 启动台 / 小黑板）",
                 "url": "https://forum.smart-teach.cn/d/995",
-                "productUrl": "https://zongzitek.top"
+                "productUrl": "https://zongzitek.top",
+                "featured": true
             },
             {
                 "name": "作业展板",
