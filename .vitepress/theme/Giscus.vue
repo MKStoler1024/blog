@@ -31,29 +31,27 @@ const themeFileUrl = (name: string) => {
   return url.href
 }
 
-// 本地 http 预览时浏览器会拦截 giscus.app(https) 对 localhost 的请求（本地网络访问限制），
-// 此时改为本地取同一份 CSS、用 data: 地址交给 giscus，保证开发环境与线上观感一致
+// giscus 侧是用 crossOrigin="anonymous" 去加载主题样式表的，所以主题文件的响应必须带
+// Access-Control-Allow-Origin，否则会被浏览器按 CORS 拒掉（网络面板表现为 200 + ERR_FAILED，
+// 控制台提示 No 'Access-Control-Allow-Origin' header）。GitHub Pages 会带这个头，
+// 但 Netlify / 自建反代等默认不带（本站 blog.edicdn.eu.org 就是这种），
+// 所以不能按 https 与否来猜：一律在父页面（同源、不受 CORS 限制）取回 CSS，
+// 换成 data: 地址交给 giscus，到哪儿都能用。
 const toBase64 = (text: string) => {
   let binary = ''
   for (const byte of new TextEncoder().encode(text)) binary += String.fromCharCode(byte)
   return btoa(binary)
 }
 
-/* 主题地址解析：
-   - https：站点自身的地址就是 giscus 能读到的地址，直接定下来；
-   - 其它（本地 http 预览）：取回 CSS 后换成 data: 地址再缓存；
-     取失败就只回报一个临时地址、不写缓存，下次用到时重试，
-     否则一次网络抖动会把主题永久钉死在 giscus 读不到的 http 地址上 */
+/* 主题地址解析：取回 CSS → data: 地址 → 缓存。
+   取失败就只回报一个临时地址、不写缓存，下次用到时重试，
+   否则一次网络抖动会把主题永久钉在 giscus 读不到的地址上 */
 const themeUrl = (name: string): Promise<string> => {
   const cached = themeCache.get(name)
   if (cached) return Promise.resolve(cached)
   const pending = resolving.get(name)
   if (pending) return pending
   const url = themeFileUrl(name)
-  if (window.location.protocol === 'https:') {
-    themeCache.set(name, url)
-    return Promise.resolve(url)
-  }
   const request = fetch(url)
     .then(async response => {
       if (!response.ok) return url
