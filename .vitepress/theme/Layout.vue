@@ -47,7 +47,7 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
   <div class="kratos-theme">
     <ProgressBar />
     <NavBar :is-post="isArticle" :banner-mode="isHome" :current-path="path" :widgets="widgets" />
-    <ToolBox />
+    <ToolBox :is-article="isArticle" />
 
     <Banner v-if="isHome" />
 
@@ -70,13 +70,17 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
               </div>
             </article>
 
-            <!-- 文章页：标题信息卡 + 正文卡 + 评论 -->
+            <!-- 文章页：标题信息卡 + 正文卡 + 评论卡
+                 评论必须是独立的卡片：放进 .vp-doc 会被正文的 Markdown 样式
+                 （链接虚线下划线、行内代码底、表格描边等）串到 iframe 里的评论区上 -->
             <template v-else-if="isArticle">
               <ArticleHeader />
               <article class="article-panel article-detail">
                 <div class="vp-doc">
                   <Content />
                 </div>
+              </article>
+              <article class="article-panel article-detail article-comments">
                 <Giscus :key="route.path" />
               </article>
             </template>

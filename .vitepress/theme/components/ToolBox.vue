@@ -1,9 +1,10 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData, useRouter } from 'vitepress'
 import { data as posts } from '../../posts.data.mjs'
 
-const base = useData().site.value.base
+const { site } = useData()
+const base = site.value.base
 const router = useRouter()
 
 const showTop = ref(false)
@@ -21,8 +22,40 @@ const results = computed(() => {
     .slice(0, 6)
 })
 
+// 文章页在工具箱里多给一个「跳到评论」入口（原来那个固定在右下角的按钮）
+const props = defineProps({
+  isArticle: { type: Boolean, default: false },
+})
+
+const COMMENT_OFFSET = 76
+const commentsVisible = ref(false)
+
+const updateCommentsEntry = () => {
+  if (!props.isArticle) {
+    commentsVisible.value = false
+    return
+  }
+  const comments = document.getElementById('comments')
+  if (!comments) {
+    commentsVisible.value = false
+    return
+  }
+  // 评论区已经滚进视口就不再显示这个入口
+  const top = comments.getBoundingClientRect().top
+  commentsVisible.value = top > window.innerHeight * 0.5 || top < -80
+}
+
+const toComments = () => {
+  const comments = document.getElementById('comments')
+  if (!comments) return
+  // 用 auto 而不是 smooth：平滑滚动要等动画结束才到位，读者点一下就该立刻看到评论区
+  window.scrollTo({ top: comments.getBoundingClientRect().top + window.scrollY - COMMENT_OFFSET, behavior: 'auto' })
+  updateCommentsEntry()
+}
+
 const onScroll = () => {
   showTop.value = window.scrollY > 300
+  updateCommentsEntry()
 }
 
 const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -39,10 +72,26 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+
+// 换页后评论区元素是新的（评论卡片在文章页才渲染），重新判断一次入口是否该显示
+watch(() => router.route.path, () => {
+  window.setTimeout(updateCommentsEntry, 0)
+})
 </script>
 
 <template>
   <div class="f-toolbox">
+    <div
+      v-if="props.isArticle && commentsVisible"
+      class="tool comment"
+      title="跳转到评论区"
+      role="button"
+      tabindex="0"
+      @click="toComments"
+      @keydown.enter="toComments"
+    >
+      <KIcon name="comments" />
+    </div>
     <div v-show="showTop" class="tool gotop" title="回到顶部" role="button" tabindex="0" @click="toTop"
       @keydown.enter="toTop">
       <KIcon name="arrow-up" />
