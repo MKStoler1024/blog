@@ -74,31 +74,70 @@ const currentTheme = () => {
   return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
 }
 
-const postTheme = (theme: string) => {
-  const iframe = container.value?.querySelector<HTMLIFrameElement>('iframe.giscus-frame')
+const giscusFrame = () => container.value?.querySelector<HTMLIFrameElement>('iframe.giscus-frame')
+
+// 真正把主题下发到 iframe。返回 false 表示这次没能发出（地址没解析完 / iframe 还没出现），
+// 调用方需要稍后重试，别把这次切换丢掉
+const postTheme = (theme = currentTheme()): boolean => {
   const url = themeCache.get(theme)
-  if (!iframe?.contentWindow || !url) return
-  // iframe 里已经是这份主题了（含首屏带在地址里的那份）就不必再发一次
-  if (url === postedTheme) return
+  if (!url) {
+    void themeUrl(theme)
+    return false
+  }
+  const iframe = giscusFrame()
+  if (!iframe?.contentWindow) return false
+  if (url === postedTheme) return true
   iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: url } } }, GISCUS_ORIGIN)
   postedTheme = url
+  return true
 }
 
-// 主题切换入口。iframe 还没出现、或主题地址还在解析时都不要丢掉这次切换：
-// 等地址就绪后补发一次（iframe 未就绪时 postTheme 会安静地跳过，由下面的 load 信号兜底）
-const syncTheme = (theme = currentTheme()) => {
-  if (!themeCache.has(theme)) {
-    void themeUrl(theme).then(() => postTheme(theme))
-    return
+/* giscus 只在 iframe 里那份 widget 挂好监听之后才认 setConfig，早发的消息会被直接丢掉，
+   所以主题切换不能只发一次：切换时立刻发一次，之后每隔一段时间强制重发一次，重发若干次为止。
+
+   两个坑都在这里踩过：
+   1. 不要用「收到 giscus 回执就不再重发」提前收尾——widget 在 hydration 阶段就会先发一条
+      resizeHeight/error 回执，而那时它自己的 setConfig 监听还没挂上，用回执判断「已经能收到」
+      会把刚切的主题永远丢在半路（刷新前后切主题正好落在这个窗口里）；
+   2. 重发必须强制发送——主题地址没变时 postTheme 会因「已下发」而跳过，那样重试等于没发。
+   重发本身是安全的：giscus 对重复的同一份主题不会重复注入样式。 */
+const THEME_RETRY_LIMIT = 12
+const THEME_RETRY_DELAY = 800
+let themeTimer: number | undefined
+let themeAttempts = 0
+
+const stopThemeRetry = () => {
+  if (themeTimer !== undefined) {
+    window.clearInterval(themeTimer)
+    themeTimer = undefined
   }
-  postTheme(theme)
+  themeAttempts = 0
 }
 
-const handleMessage = (event: MessageEvent) => {
-  if (event.origin !== GISCUS_ORIGIN) return
-  // giscus 只在 iframe 就绪后才处理 setConfig，早发的消息会被丢掉；
-  // 这里以「iframe load」这条带 url 的消息为准补发，避免每次高度上报都重发一遍
-  if (event.data?.giscus?.url) syncTheme()
+const startThemeRetry = () => {
+  if (themeTimer !== undefined) return
+  themeAttempts = 0
+  themeTimer = window.setInterval(() => {
+    // 每次重试都重新读一次根元素的主题（其间用户可能又切了一轮），并强制发一次
+    postedTheme = ''
+    postTheme()
+    if (++themeAttempts >= THEME_RETRY_LIMIT) stopThemeRetry()
+  }, THEME_RETRY_DELAY)
+}
+
+// 主题切换入口：推一次并开始重试；iframe 还没出现时 postTheme 返回 false，
+// 先不发，等 iframe 出现后有 load 回执再补
+const syncTheme = (theme = currentTheme()) => {
+  // 主题变了就重新下发一次：清掉「已下发」记录，不然同地址的守卫会把这次切换吞掉
+  postedTheme = ''
+  if (!postTheme(theme)) return
+  if (themeTimer === undefined) startThemeRetry()
+}
+
+const handleFrameLoad = (event: Event) => {
+  if (event.target !== giscusFrame()) return
+  // iframe 文档加载完成：此刻补一次，算是重试机制之外的即时通道
+  postTheme()
 }
 
 const handleThemeChange = (event: Event) => {
@@ -115,6 +154,8 @@ onMounted(async () => {
     themeUrl(initialTheme === 'dark' ? 'light' : 'dark'),
   ])
   const initialUrl = resolvedUrl || fallbackUrl
+  // 地址已经烘进下面的 script 标签、由 giscus 自己带进 iframe：重试逻辑不必再补发一次
+  postedTheme = initialUrl
 
   script = document.createElement('script')
   script.src = 'https://giscus.app/client.js'
@@ -136,19 +177,19 @@ onMounted(async () => {
   script.dataset.loading = 'lazy'
   if (!container.value) return
   container.value.appendChild(script)
-  // iframe 地址里已经带了这份主题，记下来，避免 iframe 就绪后又白发一次 setConfig
-  postedTheme = initialUrl
 
   // 站点切换主题时会派发 themechange；再监听根元素的两个主题标记，兜住其它改主题的入口
   window.addEventListener('themechange', handleThemeChange)
-  window.addEventListener('message', handleMessage)
+  // iframe 是 giscus 自己插进来的，用捕获阶段的 load 事件兜住它
+  document.addEventListener('load', handleFrameLoad, true)
   rootObserver = new MutationObserver(() => syncTheme())
   rootObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] })
 })
 
 onUnmounted(() => {
   window.removeEventListener('themechange', handleThemeChange)
-  window.removeEventListener('message', handleMessage)
+  document.removeEventListener('load', handleFrameLoad, true)
+  stopThemeRetry()
   rootObserver?.disconnect()
   container.value?.replaceChildren()
 })
