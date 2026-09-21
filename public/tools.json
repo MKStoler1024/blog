@@ -807,6 +807,17 @@
                 "name": "教培工具箱",
                 "url": "https://forum.smart-teach.cn/d/2945",
                 "productUrl": "https://edu.pbxt.cloud/"
+            },
+            {
+                "name": "电教委员指南",
+                "description": "面向电教委员的电子化文档知识库",
+                "url": "https://forum.smart-teach.cn/d/701",
+                "productUrl": "https://github.com/CN-E-Learning/CN-e-learning"
+            },
+            {
+                "name": "易考勤",
+                "description": "班级考勤异常记录（Wanderer）",
+                "url": "https://github.com/SECTL/Wanderer"
             }
         ]
     },
