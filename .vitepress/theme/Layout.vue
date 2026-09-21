@@ -70,9 +70,11 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
               </div>
             </article>
 
-            <!-- 文章页：标题信息卡 + 正文卡 + 评论卡
-                 评论必须是独立的卡片：放进 .vp-doc 会被正文的 Markdown 样式
-                 （链接虚线下划线、行内代码底、表格描边等）串到 iframe 里的评论区上 -->
+            <!-- 文章页：标题信息卡 + 正文卡 + 评论区
+                 评论不能放进 .vp-doc：正文的 Markdown 样式（链接虚线下划线、行内代码底、
+                 表格描边等）会串到 iframe 里的评论区上。
+                 也不再套第二张卡片：评论区直接坐在页面底色上，与 giscus 主题里的
+                 --color-canvas-default（= 站点底色）保持一致，避免出现两层底色 -->
             <template v-else-if="isArticle">
               <ArticleHeader />
               <article class="article-panel article-detail">
@@ -80,9 +82,9 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
                   <Content />
                 </div>
               </article>
-              <article class="article-panel article-detail article-comments">
+              <section class="article-comments">
                 <Giscus :key="route.path" />
-              </article>
+              </section>
             </template>
           </div>
 

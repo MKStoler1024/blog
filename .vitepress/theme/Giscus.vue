@@ -194,9 +194,16 @@ onUnmounted(() => {
 </script>
 
 <style>
+/* 评论区直接坐在页面底色上（外层 .article-comments 只负责分隔线与间距），
+   这样 iframe 里主题的 --color-canvas-default（= 站点底色）与父页面完全一致，不会出现两层底色 */
+.article-comments {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--kratos-border);
+}
+
 .giscus-container {
-  margin: 2rem 0;
-  /* 「跳转到评论」按 72px 的固定头高定位，这里补上锚点偏移，避免评论标题被头部压住 */
+  /* 「跳转到评论区」按钮按固定头高定位，这里补上锚点偏移，避免评论标题被头部压住 */
   scroll-margin-top: 88px;
 }
 </style>

@@ -27,10 +27,9 @@ const tocOpen = ref(false)
 
 const { headings, activeId, scrollTo } = useToc(computed(() => props.isPost))
 
-// 导航项沿用站点既有菜单（首页 / 标签 / 关于）
+// 导航项：首页 / 关于（标签页不再放进顶部导航，侧栏的「标签聚合」与文章标签链接仍可进入）
 const menu = [
   { icon: 'fa-home', text: '首页', link: '' },
-  { icon: 'fa-tag', text: '标签', link: 'tags/' },
   { icon: 'fa-leaf', text: '关于', link: 'readme.html' },
 ]
 
