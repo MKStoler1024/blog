@@ -514,3 +514,203 @@ html[data-theme='dark'] .vp-doc div[class*='language-'] code span {
   cursor: pointer;
   outline: none;
 }
+
+/* ============================================================
+   正文里的提示块与特殊行内语法
+   ------------------------------------------------------------
+   这些样式原先挂在旧主题的 Article.vue 里，随迁移一起丢了。
+   与旧版一致：左竖线 + 次级底色，颜色取站点调色板（--color-*）。
+   ============================================================ */
+
+/* VitePress 自定义容器（::: tip / info / warning / danger） */
+.vp-doc .custom-block.tip,
+.vp-doc .custom-block.info,
+.vp-doc .custom-block.warning,
+.vp-doc .custom-block.danger {
+  margin: 1rem 0;
+  border-left: 0.5rem solid;
+  border-radius: 0 var(--kratos-radius) var(--kratos-radius) 0;
+  padding: 0.1rem 1.5rem;
+  overflow-x: auto;
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.vp-doc .custom-block.tip {
+  border-color: var(--color-sky);
+}
+
+.vp-doc .custom-block.info {
+  border-color: var(--color-gray);
+}
+
+.vp-doc .custom-block.warning {
+  border-color: var(--color-featured-strong);
+}
+
+.vp-doc .custom-block.warning .custom-block-title {
+  color: var(--color-featured-strong);
+}
+
+.vp-doc .custom-block.danger {
+  border-color: #9c3f2a;
+}
+
+.vp-doc .custom-block.danger .custom-block-title {
+  color: #7a3324;
+}
+
+.vp-doc .custom-block-title {
+  font-weight: bold;
+}
+
+/* GitHub 风格提示块（markdown-it-github-alerts）—— 这就是「失效」的那一组 */
+.vp-doc .markdown-alert {
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 0.4rem solid;
+  border-radius: var(--kratos-radius);
+  color: var(--color-text);
+  background: var(--color-surface-muted);
+}
+
+.vp-doc .markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+}
+
+.vp-doc .markdown-alert-title .octicon {
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.vp-doc .markdown-alert > p:last-child {
+  margin: 0.5rem 0 0.2rem;
+}
+
+.vp-doc .markdown-alert-note {
+  border-color: var(--color-sky);
+}
+
+.vp-doc .markdown-alert-note .markdown-alert-title {
+  color: var(--color-sky-strong);
+}
+
+.vp-doc .markdown-alert-tip {
+  border-color: var(--color-sky-strong);
+}
+
+.vp-doc .markdown-alert-tip .markdown-alert-title {
+  color: var(--color-sky-strong);
+}
+
+.vp-doc .markdown-alert-important {
+  border-color: var(--color-featured-strong);
+}
+
+.vp-doc .markdown-alert-important .markdown-alert-title {
+  color: var(--color-featured-strong);
+}
+
+.vp-doc .markdown-alert-warning {
+  border-color: var(--color-accent);
+}
+
+.vp-doc .markdown-alert-warning .markdown-alert-title {
+  color: var(--color-accent);
+}
+
+.vp-doc .markdown-alert-caution {
+  border-color: #9c3f2a;
+}
+
+.vp-doc .markdown-alert-caution .markdown-alert-title {
+  color: #9c3f2a;
+}
+
+/* 行内悬浮注释：[正文]{补充说明} */
+.vp-doc .markdown-annotation {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: var(--color-accent-strong);
+  font-weight: 600;
+  text-decoration: underline dotted var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.vp-doc .markdown-annotation::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 6px;
+}
+
+.vp-doc .markdown-annotation .annotation-tooltip {
+  position: absolute;
+  z-index: 2;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  display: none;
+  width: max-content;
+  max-width: min(320px, 80vw);
+  padding: 6px 9px;
+  transform: translateX(-50%);
+  border: 1px solid var(--kratos-border);
+  border-radius: 6px;
+  color: var(--color-text);
+  background: var(--kratos-card);
+  box-shadow: var(--kratos-shadow-panel);
+  font-size: 0.85em;
+  font-weight: normal;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.vp-doc .markdown-annotation .annotation-tooltip a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.vp-doc .markdown-annotation:hover .annotation-tooltip,
+.vp-doc .markdown-annotation:focus .annotation-tooltip,
+.vp-doc .markdown-annotation:focus-within .annotation-tooltip {
+  display: block;
+}
+
+/* 外链图片预览：[upl-image-preview url=…] */
+.vp-doc img.upl-image-preview {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: var(--kratos-radius);
+}
+
+/* KaTeX（客户端渲染）：块级公式横向可滚，与正文分隔一致 */
+.vp-doc .katex-display {
+  margin: 1rem 0;
+  padding: 0.2rem 0;
+  overflow: auto hidden;
+}
+
+@media (max-width: 1100px) {
+  /* 窄屏下注释改为紧随其后的静态小面板，避免超出屏幕 */
+  .vp-doc .markdown-annotation .annotation-tooltip {
+    position: static;
+    width: auto;
+    max-width: none;
+    margin-top: 0.35em;
+    transform: none;
+  }
+}
+

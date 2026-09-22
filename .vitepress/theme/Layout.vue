@@ -10,6 +10,7 @@ import ArticleHeader from './components/ArticleHeader.vue'
 import SideBar from './components/SideBar.vue'
 import FooterBar from './components/FooterBar.vue'
 import ToolBox from './components/ToolBox.vue'
+import Katex from './components/Katex.vue'
 import Giscus from './Giscus.vue'
 
 const { site, theme, page } = useData()
@@ -48,6 +49,8 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
     <ProgressBar />
     <NavBar :is-post="isArticle" :banner-mode="isHome" :current-path="path" :widgets="widgets" />
     <ToolBox :is-article="isArticle" />
+    <!-- 数学公式：客户端按需加载 KaTeX 并渲染正文（纯逻辑，不产出 DOM） -->
+    <Katex />
 
     <Banner v-if="isHome" />
 
