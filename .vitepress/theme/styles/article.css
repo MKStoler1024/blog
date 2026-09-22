@@ -631,60 +631,31 @@ html[data-theme='dark'] .vp-doc div[class*='language-'] code span {
   color: #9c3f2a;
 }
 
-/* 行内悬浮注释：[正文]{补充说明} */
+/* 行内悬浮注释：[正文]{补充说明}
+   气泡由 components/InlineAnnotation.vue 以 fixed 浮层挂在 body 上（见文件末尾样式），
+   这里只负责锚点本身与给读屏保留的文本 */
 .vp-doc .markdown-annotation {
-  position: relative;
-  display: inline-block;
-  cursor: help;
   color: var(--color-accent-strong);
   font-weight: 600;
   text-decoration: underline dotted var(--color-accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  cursor: help;
 }
 
-.vp-doc .markdown-annotation::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-  left: 0;
-  height: 6px;
+/* 悬浮或聚焦时给一点底色反馈，明确「这里可以看注释」 */
+.vp-doc .markdown-annotation[data-annotation-active='1'],
+.vp-doc .markdown-annotation:hover,
+.vp-doc .markdown-annotation:focus-visible {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 3px;
+  outline: none;
 }
 
+/* 锚点里的文本保留给读屏，视觉上不出现（气泡是 body 上的浮层） */
 .vp-doc .markdown-annotation .annotation-tooltip {
-  position: absolute;
-  z-index: 2;
-  bottom: calc(100% + 6px);
-  left: 50%;
   display: none;
-  width: max-content;
-  max-width: min(320px, 80vw);
-  padding: 6px 9px;
-  transform: translateX(-50%);
-  border: 1px solid var(--kratos-border);
-  border-radius: 6px;
-  color: var(--color-text);
-  background: var(--kratos-card);
-  box-shadow: var(--kratos-shadow-panel);
-  font-size: 0.85em;
-  font-weight: normal;
-  line-height: 1.6;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  pointer-events: auto;
-  text-decoration: none;
-}
-
-.vp-doc .markdown-annotation .annotation-tooltip a {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-.vp-doc .markdown-annotation:hover .annotation-tooltip,
-.vp-doc .markdown-annotation:focus .annotation-tooltip,
-.vp-doc .markdown-annotation:focus-within .annotation-tooltip {
-  display: block;
 }
 
 /* 外链图片预览：[upl-image-preview url=…] */
@@ -703,14 +674,67 @@ html[data-theme='dark'] .vp-doc div[class*='language-'] code span {
   overflow: auto hidden;
 }
 
-@media (max-width: 1100px) {
-  /* 窄屏下注释改为紧随其后的静态小面板，避免超出屏幕 */
-  .vp-doc .markdown-annotation .annotation-tooltip {
-    position: static;
-    width: auto;
-    max-width: none;
-    margin-top: 0.35em;
-    transform: none;
-  }
+/* ============================================================
+   行内注释的悬浮气泡
+   ------------------------------------------------------------
+   浮层由 JS 创建并挂在 body 上（position: fixed + translate），
+   不参与正文布局，也不会被正文容器的 overflow 裁掉。
+   ============================================================ */
+.markdown-annotation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: 0 8px 24px var(--color-shadow);
+  font-family: var(--kratos-font);
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+  text-decoration: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.markdown-annotation-popup.is-visible {
+  opacity: 1;
+}
+
+.markdown-annotation-popup a {
+  color: var(--color-accent-strong);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 小三角：指向被注释的那段文字 */
+.markdown-annotation-arrow {
+  position: absolute;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transform: rotate(45deg);
+}
+
+/* 气泡翻到文字下方时，三角朝上 */
+.markdown-annotation-arrow.below {
+  bottom: auto;
+  top: -5px;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
 }
 

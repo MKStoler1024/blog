@@ -11,6 +11,7 @@ import SideBar from './components/SideBar.vue'
 import FooterBar from './components/FooterBar.vue'
 import ToolBox from './components/ToolBox.vue'
 import Katex from './components/Katex.vue'
+import InlineAnnotation from './components/InlineAnnotation.vue'
 import Giscus from './Giscus.vue'
 
 const { site, theme, page } = useData()
@@ -51,6 +52,8 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
     <ToolBox :is-article="isArticle" />
     <!-- 数学公式：客户端按需加载 KaTeX 并渲染正文（纯逻辑，不产出 DOM） -->
     <Katex />
+    <!-- 行内注释：[正文]{补充说明} 的悬浮气泡（浮层挂在 body 上） -->
+    <InlineAnnotation />
 
     <Banner v-if="isHome" />
 
