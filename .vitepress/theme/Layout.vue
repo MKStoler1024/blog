@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as posts } from '../posts.data.mjs'
 import ProgressBar from './components/ProgressBar.vue'
@@ -10,13 +10,20 @@ import ArticleHeader from './components/ArticleHeader.vue'
 import SideBar from './components/SideBar.vue'
 import FooterBar from './components/FooterBar.vue'
 import ToolBox from './components/ToolBox.vue'
-import Katex from './components/Katex.vue'
-import InlineAnnotation from './components/InlineAnnotation.vue'
+import { useKatex } from './composables/katex.js'
+import { useInlineAnnotation } from './composables/inlineAnnotation.js'
 import Giscus from './Giscus.vue'
 
 const { site, theme, page } = useData()
 const route = useRoute()
 const base = site.value.base
+
+/* 数学公式与行内注释都是纯逻辑（不产出 DOM），用组合式函数挂在 Layout 上。
+   不要写成组件：组件渲染 null 时客户端会留下 <!---->，而 SSR 会把相邻的注释
+   占位合并成一个，服务端 DOM 因此比客户端 vdom 少节点 → 水合失配 →
+   失配点之后的正文（生产环境来自 lean chunk 里的空静态节点）会被整块重渲染成空白。 */
+useKatex()
+useInlineAnnotation()
 
 // 侧栏小工具开关（可在 themeConfig.widgets 里关掉某一块）
 const widgets = computed(() => ({
@@ -28,12 +35,16 @@ const widgets = computed(() => ({
   ...(theme.value.widgets || {}),
 }))
 
-// 标签筛选：侧栏标签云与首页列表共用一份状态（首页即时筛选，不跳标签页）
+// 标签筛选：侧栏标签云与列表共用一份状态（首页/标签页即时筛选，不跳来跳去）
 const activeTag = ref('')
 const selectTag = (tag) => {
   activeTag.value = tag
-  // 不在首页时先回首页再筛选
-  if (route.path !== base) window.location.href = base
+  // 标签页自己就有列表，直接把筛选条件写进地址栏；其余页面先回首页再筛选
+  if (isTags.value) {
+    history.replaceState(null, '', tag ? `${base}tags/?q=${encodeURIComponent(tag)}` : `${base}tags/`)
+    return
+  }
+  if (!isHome.value) window.location.href = base
 }
 
 const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
@@ -43,6 +54,17 @@ const isArticle = computed(() => posts.some((post) => post.href === path.value))
 const isPlainPage = computed(() => !isHome.value && !isTags.value && !isArticle.value)
 // 首页正文（index.md）：只有写了正文才渲染那张卡片，避免出现一个空面板
 const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---/, '').trim())
+
+// 标签页的筛选条件放在地址栏里（文章页的标签链接就指向 /tags/?q=标签）。
+// 与主题同理：不能在 setup 里读 location（SSR 读不到），否则首帧与预渲染的 HTML 不一致
+const readTagQuery = () => new URLSearchParams(window.location.search).get('q') || ''
+onMounted(() => {
+  if (isTags.value) activeTag.value = readTagQuery()
+})
+watch(() => route.path, () => {
+  activeTag.value = isTags.value ? readTagQuery() : ''
+})
+
 </script>
 
 <template>
@@ -50,10 +72,6 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
     <ProgressBar />
     <NavBar :is-post="isArticle" :banner-mode="isHome" :current-path="path" :widgets="widgets" />
     <ToolBox :is-article="isArticle" />
-    <!-- 数学公式：客户端按需加载 KaTeX 并渲染正文（纯逻辑，不产出 DOM） -->
-    <Katex />
-    <!-- 行内注释：[正文]{补充说明} 的悬浮气泡（浮层挂在 body 上） -->
-    <InlineAnnotation />
 
     <Banner v-if="isHome" />
 
@@ -69,8 +87,12 @@ const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---
               <PostList :active-tag="activeTag" />
             </template>
 
-            <!-- 标签页 / 其它普通页：正文卡片 -->
-            <article v-else-if="isTags || isPlainPage" class="article-panel article-detail">
+            <!-- 标签页：正文通常是空的（tags/index.md 只有 frontmatter），
+                 这里直接给一份可筛选的文章列表，标签链接 /tags/?q=标签 也能落到对应筛选 -->
+            <PostList v-else-if="isTags" :active-tag="activeTag" />
+
+            <!-- 其它普通页：正文卡片 -->
+            <article v-else-if="isPlainPage" class="article-panel article-detail">
               <div class="vp-doc">
                 <Content />
               </div>

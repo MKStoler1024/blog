@@ -41,16 +41,20 @@ const navClass = computed(() => ({
 
 /* 主题三态：跟随系统 / 固定暗色 / 固定亮色。
    沿用站点既有的 localStorage 键 theme-mode 与 html[data-theme]，
-   这样首屏引导脚本、giscus 主题同步都继续有效。
-   注意：存储值在 setup 阶段就读取（SSR 时读到默认 auto），
-   否则「服务端按亮色渲染、客户端按暗色水合」会造成 hydration 失配 */
+   这样首屏引导脚本（head 里那段，负责首帧底色）、giscus 主题同步都继续有效。
+
+   注意：这里的初始状态必须「服务端和客户端首帧完全一致」——localStorage 与
+   matchMedia 在 SSR 阶段读不到，所以一律先按「跟随系统 + 亮色」渲染，
+   真实的存储值/系统偏好在 onMounted 里再同步。
+   否则服务端输出太阳图标、客户端输出月亮图标，SVG 子节点数量都不一样，
+   Vue 水合失配会把失配点之后的 DOM 全部重新渲染；而 lean chunk 里正文是空的
+   静态节点，重新渲染的结果就是正文整块变空白。 */
 const THEME_KEY = 'theme-mode'
 const readStoredMode = () => {
-  if (typeof window === 'undefined') return 'auto'
   const saved = localStorage.getItem(THEME_KEY)
   return saved === 'dark' || saved === 'light' || saved === 'auto' ? saved : 'auto'
 }
-const storedMode = ref(readStoredMode())
+const storedMode = ref('auto')
 const systemDark = ref(false)
 const resolvedDark = computed(() => (storedMode.value === 'auto' ? systemDark.value : storedMode.value === 'dark'))
 const themeLabel = computed(() =>
@@ -110,6 +114,8 @@ const onKeydown = (event) => {
 
 let mediaQuery
 onMounted(() => {
+  // 水合完成后再对齐真实主题（首帧与 SSR 保持一致，见上面的说明）
+  storedMode.value = readStoredMode()
   mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
   systemDark.value = mediaQuery.matches
   applyTheme()
