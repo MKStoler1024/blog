@@ -152,9 +152,12 @@
 
 .vp-doc div[class*='language-'] pre {
   margin: 0;
+  /* 行号列（24px 宽）与内容之间的距离 */
   margin-left: 16px;
-  flex-grow: 1;
-  padding: 0 0 14px;
+  /* 右侧留白：既让每行与卡片边缘有间距，也让长行有滚动余量 */
+  padding: 0 18px 14px 0;
+  flex: 1 1 auto;
+  min-width: 0;
   background: transparent;
   /* 显式钉住行高：VitePress 给 pre 的 line-height 是 1.7，会和行号列（按 24px 排）逐行错开 */
   font-size: var(--code-font-size, 15px);
@@ -193,30 +196,34 @@
   color: var(--shiki-light);
 }
 
+/* 每行保持 VitePress 默认的行内 span：行与行之间的换行由源码里的 \n 触发，
+   pre 已是 white-space: pre，每行恰好一个 24px 行盒。
+   注意不要改成 inline-block / block：前者会按行盒再排一次，后者会和 \n 叠成双倍行距 */
 .vp-doc div[class*='language-'] code span.line {
-  display: inline-block;
-  min-height: 1.7em;
+  line-height: var(--code-line-height, 24px);
 }
 
 html[data-theme='dark'] .vp-doc div[class*='language-'] code span {
   color: var(--shiki-dark);
 }
 
-/* 行号列：紧贴标题栏下方，随代码块滚动 */
+/* 行号列：紧贴标题栏下方，行高与代码行一致。
+   注意：VitePress 把每个行号渲染成 <span class="line-number">N</span><br>，
+   换行由 <br> 负责，所以 span 必须保持行内，否则每个行号会额外占一个 24px 行盒，
+   行号列就会以两倍行距往下跑，把代码块整体撑高一倍（长代码块尤其明显） */
 .vp-doc .line-numbers-wrapper {
   flex: 0 0 auto;
   padding: 0 0 14px 16px;
   color: var(--kratos-text-light);
   font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
+  line-height: var(--code-line-height, 24px);
   text-align: right;
   user-select: none;
 }
 
 .vp-doc .line-numbers-wrapper .line-number {
-  display: block;
-  min-height: var(--code-line-height, 24px);
+  line-height: var(--code-line-height, 24px);
 }
 
 /* ------------------------------------------------------------
