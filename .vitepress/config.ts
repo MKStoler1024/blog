@@ -179,6 +179,17 @@ export default defineConfigWithTheme<ThemeConfig>({
       md.use(githubAlerts)
       md.use(taskLists)
       md.use(fixKatex)
+
+      // 表格外面套一层滚动容器（样式见 article.css 的 .table-wrap）：
+      // 窄屏上宽表格自己横向滚动，而不是把整页撑宽；
+      // 也不能只给 table 加 overflow（table 的 display 一改，格子会被挤成一列一个字）
+      const renderToken = (tokens, index, options, env, self) => self.renderToken(tokens, index, options)
+      const tableOpen = md.renderer.rules.table_open || renderToken
+      const tableClose = md.renderer.rules.table_close || renderToken
+      md.renderer.rules.table_open = (tokens, index, options, env, self) =>
+        `<div class="table-wrap">${tableOpen(tokens, index, options, env, self)}`
+      md.renderer.rules.table_close = (tokens, index, options, env, self) =>
+        `${tableClose(tokens, index, options, env, self)}</div>`
     }
   },
   themeConfig: {
