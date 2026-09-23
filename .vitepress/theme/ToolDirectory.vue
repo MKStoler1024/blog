@@ -67,7 +67,7 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
                     type="button" role="tab" :aria-selected="activeSection === name"
                     @click="activeSection = name">{{ name }}</button>
             </div>
-            <div v-if="visibleSections.length" class="directory-sections">
+            <div v-if="visibleSections.length" class="directory-sections" :key="activeSection">
                 <section v-for="section in visibleSections" :key="section.name" class="directory-section">
                     <h2>{{ section.name }} <small>{{ section.tools.length }}</small></h2>
                     <div class="tool-grid">

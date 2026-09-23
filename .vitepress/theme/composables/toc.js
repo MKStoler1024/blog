@@ -7,9 +7,11 @@ import { useData } from 'vitepress'
  *
  * 说明：
  * - 正文是客户端渲染的（VitePress 的 Content 组件），所以这里在挂载后、
- *   以及路由或正文就绪后重新收集标题；
+ *   以及路由变化后重新收集标题；
  * - 目录收录 h1 / h2 / h3。文章里出现一个以上 h1 时（例如长文按「部分」分节），
- *   目录按 h1 分组、每组可折叠，避免目录长到没法看。
+ *   目录按 h1 分组、每组可折叠，避免目录长到没法看；
+ * - frontmatter 里写 `toc: false` 的页面不出目录（「工具索引」那种整页都是
+ *   客户端渲染组件的页面，它的 h2 是组件按分类生成的，不是文章章节）。
  */
 export function useToc(enabled) {
   const { page } = useData()
@@ -18,16 +20,15 @@ export function useToc(enabled) {
   const collapsed = reactive(new Set())
   const activeId = ref('')
   let observer = null
-  let contentObserver = null
-  let collectTimer = null
   let anchors = []
-  let signature = ''
+
+  const pageWantsToc = computed(() => page.value.frontmatter?.toc !== false)
 
   function collectHeadings() {
     headings.value = []
     anchors = []
-    signature = ''
     if (enabled && !enabled.value) return
+    if (!pageWantsToc.value) return
     // 正文容器：本站文章页的 .vp-doc 位于 article-detail 卡片内
     const doc = document.querySelector('.article-detail')
     if (!doc) return
@@ -45,31 +46,6 @@ export function useToc(enabled) {
       })
     })
     headings.value = list
-    signature = headingSignature()
-  }
-
-  function headingSignature() {
-    const doc = document.querySelector('.article-detail')
-    if (!doc) return ''
-    return [...doc.querySelectorAll('h1, h2, h3')]
-      .map((el) => `${el.tagName}:${el.id}`)
-      .join('|')
-  }
-
-  /* 正文里可能有客户端异步渲染的内容（例如工具目录，按分类生成一堆 h2），
-     挂载时它们还没出现，所以除了路由变化，再盯着正文本身的增删：
-     标题集合真的变了才重新收集，避免和自己的渲染互相触发 */
-  function setupContentObserver() {
-    contentObserver?.disconnect()
-    const doc = document.querySelector('.article-detail')
-    if (!doc) return
-    contentObserver = new MutationObserver(() => {
-      window.clearTimeout(collectTimer)
-      collectTimer = window.setTimeout(() => {
-        if (headingSignature() !== signature) refresh()
-      }, 200)
-    })
-    contentObserver.observe(doc, { childList: true, subtree: true })
   }
 
   function setupScrollSpy() {
@@ -92,7 +68,6 @@ export function useToc(enabled) {
     collectHeadings()
     anchors = headings.value.map((heading) => document.getElementById(heading.id)).filter(Boolean)
     setupScrollSpy()
-    setupContentObserver()
   }
 
   function scrollTo(id) {
@@ -142,8 +117,6 @@ export function useToc(enabled) {
   onMounted(refresh)
   onBeforeUnmount(() => {
     if (observer) observer.disconnect()
-    contentObserver?.disconnect()
-    window.clearTimeout(collectTimer)
   })
 
   return {

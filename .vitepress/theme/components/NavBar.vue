@@ -182,11 +182,12 @@ onBeforeUnmount(() => {
         <span class="widgets-text">侧栏</span>
       </button>
 
-      <button v-if="isPost" class="nav-toc-toggler" :class="{ open: tocOpen }" type="button" aria-label="文章目录"
+      <!-- 目录按钮只在真的有目录时出现（frontmatter 写 `toc: false` 的页面没有标题可列） -->
+      <button v-if="isPost && headings.length" class="nav-toc-toggler" :class="{ open: tocOpen }" type="button" aria-label="文章目录"
         @click="tocOpen = !tocOpen; menuOpen = false; widgetsOpen = false">
         <KIcon name="list" />
         <span class="toc-text">目录</span>
-        <span v-if="headings.length" class="toc-count">{{ headings.length }}</span>
+        <span class="toc-count">{{ headings.length }}</span>
       </button>
 
       <transition name="k-toc">
