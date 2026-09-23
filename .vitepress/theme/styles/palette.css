@@ -73,6 +73,32 @@ html[data-theme='light'] {
   --kratos-font-serif: "Noto Serif SC", "MicroSoft Yahei", serif;
   --kratos-font-sans: "Noto Serif SC", "MicroSoft Yahei", serif;
   --kratos-font: var(--kratos-font-serif);
+
+  /* 首页 Banner 的秋景：亮色主题 = 秋日黄昏
+     （顶部的暖赭要够深，透明导航栏的白字才压得住；越往下越亮，到地平线泛暖金；
+     远山要比天空亮一点、雾感重一点，才有空气透视的层次） */
+  --banner-sky-top: #7d4a28;
+  --banner-sky-mid: #b87a42;
+  --banner-sky-low: #e3b170;
+  --banner-sky-horizon: #f9e4b6;
+  --banner-sun: rgba(255, 244, 210, 0.95);
+  --banner-sun-glow: rgba(255, 206, 128, 0.5);
+  --banner-cloud: rgba(255, 238, 212, 0.5);
+  --banner-bird: rgba(58, 34, 18, 0.5);
+  --banner-hill-far: #c8936a;
+  --banner-hill-mid: #8d5c37;
+  --banner-hill-near: #5c3b25;
+  --banner-tree: #2c1b0e;
+  --banner-tree-far: #563a22;
+  --banner-ridge-edge: rgba(255, 240, 208, 0.42);
+  --banner-mist: rgba(255, 242, 216, 0.38);
+  --banner-leaf-1: #f0ca6c;
+  --banner-leaf-2: #dc9139;
+  --banner-leaf-3: #bf6128;
+  --banner-leaf-4: #d8a94f;
+  --banner-scrim-top: rgba(58, 34, 16, 0.36);
+  --banner-scrim-center: rgba(54, 30, 13, 0.4);
+  --banner-scrim-bottom: rgba(44, 25, 11, 0.56);
 }
 
 html[data-theme='dark'] {
@@ -123,6 +149,31 @@ html[data-theme='dark'] {
   --kratos-code-btn-bg: rgba(234, 229, 223, 0.08);
   --kratos-code-btn-bg-hover: rgba(234, 229, 223, 0.16);
   --kratos-code-btn-icon: rgba(234, 229, 223, 0.7);
+
+  /* 首页 Banner 的秋景：暗色主题 = 秋夜
+     （天光压到近黑，只在山脊处留一层暖赭余光；山、树更暗，叶子偏暖金） */
+  --banner-sky-top: #100c0a;
+  --banner-sky-mid: #221810;
+  --banner-sky-low: #3d2a1a;
+  --banner-sky-horizon: #6d4526;
+  --banner-sun: rgba(232, 190, 138, 0.55);
+  --banner-sun-glow: rgba(201, 154, 114, 0.22);
+  --banner-cloud: rgba(201, 154, 114, 0.16);
+  --banner-bird: rgba(201, 154, 114, 0.42);
+  --banner-hill-far: #33251a;
+  --banner-hill-mid: #211812;
+  --banner-hill-near: #130e0b;
+  --banner-tree: #080605;
+  --banner-tree-far: #1b1410;
+  --banner-ridge-edge: rgba(226, 183, 132, 0.24);
+  --banner-mist: rgba(201, 154, 114, 0.14);
+  --banner-leaf-1: #d8bd7a;
+  --banner-leaf-2: #c99a72;
+  --banner-leaf-3: #a8714a;
+  --banner-leaf-4: #8f6236;
+  --banner-scrim-top: rgba(6, 5, 4, 0.45);
+  --banner-scrim-center: rgba(4, 3, 3, 0.5);
+  --banner-scrim-bottom: rgba(4, 3, 3, 0.66);
 }
 
 /* ============================================================

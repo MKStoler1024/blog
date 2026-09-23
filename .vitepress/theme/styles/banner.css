@@ -1,0 +1,403 @@
+/* ------------------------------------------------------------
+   4. 首页 Banner：纯 CSS/SVG 的秋景（替掉原来那张外链图片）
+   ------------------------------------------------------------
+   分层从下到上：天空渐变 → 日晕 → 云 → 远/中/近三重山脊 → 树 → 雾带 → 落叶 → 文字。
+   配色全部走 palette.css 里的 --banner-* 变量，亮色是「秋日黄昏」、暗色是「秋夜」，
+   跟随 html[data-theme] 自动切换。
+   ------------------------------------------------------------ */
+.banner {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 底部往页面底色淡出，让山脚和下面的文章列表自然接上（亮暗各有自己的底色） */
+.banner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent, var(--kratos-bg));
+  pointer-events: none;
+}
+
+.banner .content {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 文字压暗层：上深（透明导航栏的白字压得住）、中浅（让秋色透出来）、下深（山脚压住），
+   再叠一圈中央暗角，保证居中标题在任何一段天色上都读得清 */
+.banner .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 54%, var(--banner-scrim-center), transparent 72%),
+    linear-gradient(
+      180deg,
+      var(--banner-scrim-top) 0%,
+      transparent 34%,
+      transparent 60%,
+      var(--banner-scrim-bottom) 100%
+    );
+}
+
+.banner .introduce {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #ffffff;
+  animation: kratos-fade-in-up 0.8s ease both;
+}
+
+.banner .introduce .title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.banner .introduce .mate {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes kratos-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 秋景本体 --------------------------------------------------- */
+.banner .scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 天空 */
+.banner .scene .sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--banner-sky-top) 0%,
+    var(--banner-sky-mid) 38%,
+    var(--banner-sky-low) 62%,
+    var(--banner-sky-horizon) 78%
+  );
+}
+
+/* 落日 / 月亮：缓慢呼吸 */
+.banner .scene .sun {
+  position: absolute;
+  top: 22%;
+  right: 16%;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--banner-sun) 0%, var(--banner-sun-glow) 42%, transparent 70%);
+  filter: blur(2px);
+  animation: banner-sun 9s ease-in-out infinite alternate;
+}
+
+@keyframes banner-sun {
+  from {
+    transform: translate3d(0, 4px, 0) scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: translate3d(0, -6px, 0) scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* 云：模糊的椭圆，横向慢慢飘 */
+.banner .scene .clouds {
+  position: absolute;
+  inset: 0;
+}
+
+.banner .scene .cloud {
+  position: absolute;
+  top: var(--top);
+  left: 0;
+  width: var(--w, 260px);
+  height: var(--h, 46px);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--banner-cloud), transparent);
+  filter: blur(14px);
+  opacity: var(--o, 0.5);
+  animation: banner-cloud var(--dur, 140s) linear var(--delay, 0s) infinite;
+}
+
+@keyframes banner-cloud {
+  from {
+    transform: translate3d(-30vw, 0, 0);
+  }
+  to {
+    transform: translate3d(115vw, 0, 0);
+  }
+}
+
+/* 三重山脊：SVG 填色 + 极慢的横向漂移（视差感）；远山加一道被夕阳照亮的山脊线 */
+.banner .scene .ridge {
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  bottom: 0;
+  height: var(--h, 46%);
+  animation: banner-ridge var(--dur, 60s) ease-in-out infinite alternate;
+}
+
+.banner .scene .ridge svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banner .scene .ridge-far {
+  --h: 52%;
+  --dur: 78s;
+  color: var(--banner-hill-far);
+  opacity: 0.92;
+}
+
+.banner .scene .ridge-far path {
+  stroke: var(--banner-ridge-edge);
+  stroke-width: 1.6px;
+  /* SVG 被拉伸铺满，加这个让描边粗细不被拉歪 */
+  vector-effect: non-scaling-stroke;
+}
+
+.banner .scene .ridge-mid {
+  --h: 40%;
+  --dur: 62s;
+  color: var(--banner-hill-mid);
+}
+
+.banner .scene .ridge-near {
+  --h: 28%;
+  --dur: 48s;
+  color: var(--banner-hill-near);
+}
+
+@keyframes banner-ridge {
+  from {
+    transform: translate3d(-1.4%, 0, 0);
+  }
+  to {
+    transform: translate3d(1.4%, 0, 0);
+  }
+}
+
+/* 树：风向摇摆；窄屏整体缩小，免得挡住标题 */
+.banner .scene .trees {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--bottom, 19%);
+  height: 0;
+  --tree-scale: 1;
+}
+
+.banner .scene .tree {
+  position: absolute;
+  bottom: 0;
+  left: var(--left);
+  width: calc(var(--w, 120px) * var(--tree-scale, 1));
+  height: auto;
+  color: var(--c, var(--banner-tree));
+  transform-origin: bottom center;
+  animation: banner-tree-sway var(--dur, 7s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+@keyframes banner-tree-sway {
+  from {
+    transform: rotate(-0.8deg);
+  }
+  to {
+    transform: rotate(1.1deg);
+  }
+}
+
+/* 雾带：山脚一层横向流动的暖雾 */
+.banner .scene .mist {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 16%;
+  height: 22%;
+  background: linear-gradient(180deg, transparent, var(--banner-mist) 45%, transparent);
+  filter: blur(10px);
+  animation: banner-mist 26s ease-in-out infinite alternate;
+}
+
+@keyframes banner-mist {
+  from {
+    transform: translate3d(-3%, 2%, 0) scaleX(1.02);
+    opacity: 0.7;
+  }
+  to {
+    transform: translate3d(3%, -2%, 0) scaleX(1.08);
+    opacity: 1;
+  }
+}
+
+/* 雁阵：慢慢横穿天空，翅膀轻轻扇动 */
+.banner .scene .birds {
+  position: absolute;
+  inset: 0;
+  color: var(--banner-bird);
+}
+
+.banner .scene .bird {
+  position: absolute;
+  top: var(--top, 20%);
+  left: 0;
+  width: var(--w, 26px);
+  animation: banner-bird var(--dur, 90s) linear var(--delay, 0s) infinite;
+}
+
+.banner .scene .bird svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: banner-bird-flap var(--flap, 1.5s) ease-in-out infinite alternate;
+}
+
+@keyframes banner-bird {
+  from {
+    transform: translate3d(-12vw, 6px, 0);
+  }
+  to {
+    transform: translate3d(112vw, -14px, 0);
+  }
+}
+
+@keyframes banner-bird-flap {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0.6);
+  }
+}
+
+/* 落叶：每片叶子由外层（下落 + 横移 + 自转）和内层（左右摇摆）叠出来 */
+.banner .scene .leaves {
+  position: absolute;
+  inset: 0;
+  /* 下落总距离：比 banner 高一点，保证从顶飘到底 */
+  --fall: 470px;
+}
+
+.banner .scene .leaf {
+  position: absolute;
+  top: -8%;
+  left: var(--x);
+  animation: banner-leaf-fall var(--dur, 12s) linear var(--delay, 0s) infinite;
+  will-change: transform;
+}
+
+.banner .scene .leaf i {
+  display: block;
+  width: var(--size, 11px);
+  height: var(--size, 11px);
+  /* 一端圆一端尖：就是一片叶子的形状 */
+  border-radius: 0 100% 0 100%;
+  background: var(--c, var(--banner-leaf-1));
+  opacity: 0.92;
+  animation: banner-leaf-sway var(--sway, 3s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+@keyframes banner-leaf-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.92;
+  }
+  88% {
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(var(--dx, 46px), var(--fall), 0) rotate(var(--rot, 320deg));
+    opacity: 0;
+  }
+}
+
+@keyframes banner-leaf-sway {
+  from {
+    transform: translate3d(-8px, 0, 0) rotate(-24deg);
+  }
+  to {
+    transform: translate3d(8px, 0, 0) rotate(26deg);
+  }
+}
+
+/* 系统开了「减少动态效果」：停下来，但保留秋景本身
+   （落叶的负延迟本来就让每片叶子停在下落途中的不同位置） */
+@media (prefers-reduced-motion: reduce) {
+  .banner .scene .leaf,
+  .banner .scene .leaf i,
+  .banner .scene .sun,
+  .banner .scene .cloud,
+  .banner .scene .bird,
+  .banner .scene .bird svg,
+  .banner .scene .ridge,
+  .banner .scene .tree,
+  .banner .scene .mist {
+    animation-play-state: paused;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .banner .scene .sun {
+    width: 108px;
+    height: 108px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .banner .content {
+    height: 300px;
+  }
+
+  .banner .introduce .title {
+    font-size: 1.9rem;
+  }
+
+  .banner .scene .leaves {
+    --fall: 340px;
+  }
+
+  .banner .scene .sun {
+    top: 18%;
+    right: 12%;
+    width: 92px;
+    height: 92px;
+  }
+
+  .banner .scene .trees {
+    --bottom: 15%;
+    --tree-scale: 0.6;
+  }
+}
