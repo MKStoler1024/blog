@@ -282,3 +282,90 @@
 .widget-toc .toc-link.level-3 {
   padding-left: 24px;
 }
+
+/* 文章里出现一个以上一级标题时，目录按一级标题分节、可折叠 */
+.widget-toc .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.widget-toc .toc-link.level-1 {
+  font-weight: 600;
+  color: var(--kratos-text);
+}
+
+.toc-group-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.toc-group-head .toc-link,
+.toc-group-head .nav-toc-link {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.toc-group-toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--kratos-text-light);
+  cursor: pointer;
+}
+
+.toc-group-toggle .kicon {
+  width: 12px;
+  height: 12px;
+  margin-right: 0;
+  transition: transform 0.2s;
+}
+
+.toc-group.collapsed .toc-group-toggle .kicon {
+  transform: rotate(-90deg);
+}
+
+.toc-group-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 8px;
+}
+
+/* 「折叠 / 展开」整卷开关：侧栏目录标题行与移动端目录面板共用 */
+.toc-fold-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex: 0 0 auto;
+  padding: 2px 8px 2px 6px;
+  border: 1px solid var(--kratos-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--kratos-text-light);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.toc-fold-all .kicon {
+  width: 12px;
+  height: 12px;
+  margin-right: 0;
+}
+
+.toc-fold-all:hover {
+  color: var(--kratos-primary);
+  border-color: var(--kratos-primary);
+  background: var(--kratos-primary-soft);
+}

@@ -518,6 +518,10 @@
 }
 
 .nav-toc-panel .nav-toc-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   padding: 0 10px 10px;
   font-size: 15px;
   font-weight: 600;
@@ -566,6 +570,11 @@
 
 .nav-toc-panel .nav-toc-link.level-3 {
   padding-left: 26px;
+}
+
+.nav-toc-panel .nav-toc-link.level-1 {
+  font-weight: 600;
+  color: var(--kratos-text);
 }
 
 /* 目录面板过渡动画 */

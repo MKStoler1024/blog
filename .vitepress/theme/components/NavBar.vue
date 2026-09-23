@@ -25,7 +25,17 @@ const menuOpen = ref(false)
 const widgetsOpen = ref(false)
 const tocOpen = ref(false)
 
-const { headings, activeId, scrollTo } = useToc(computed(() => props.isPost))
+const {
+  headings,
+  groups: tocGroups,
+  foldable: tocFoldable,
+  allCollapsed: tocAllCollapsed,
+  isCollapsed: isTocCollapsed,
+  toggleGroup: toggleTocGroup,
+  toggleAll: toggleTocAll,
+  activeId,
+  scrollTo,
+} = useToc(computed(() => props.isPost))
 
 // 导航项：首页 / 关于（标签页不再放进顶部导航，侧栏的「标签聚合」与文章标签链接仍可进入）
 const menu = [
@@ -181,11 +191,37 @@ onBeforeUnmount(() => {
 
       <transition name="k-toc">
         <div v-if="tocOpen && headings.length" class="nav-toc-panel" @click.stop>
-          <div class="nav-toc-title">文章目录</div>
+          <div class="nav-toc-title">
+            <span>文章目录</span>
+            <button v-if="tocFoldable" class="toc-fold-all" type="button"
+              :aria-expanded="tocAllCollapsed ? 'false' : 'true'"
+              :title="tocAllCollapsed ? '展开全部目录' : '折叠全部目录'" @click="toggleTocAll">
+              <KIcon :name="tocAllCollapsed ? 'chevron-down' : 'chevron-up'" />
+              <span>{{ tocAllCollapsed ? '展开' : '折叠' }}</span>
+            </button>
+          </div>
           <nav class="nav-toc-list">
-            <a v-for="heading in headings" :key="heading.id" class="nav-toc-link"
-              :class="[`level-${heading.level}`, { active: activeId === heading.id }]" href="javascript:;"
-              @click="goToHeading(heading.id)">{{ heading.text }}</a>
+            <template v-for="group in tocGroups" :key="group.id">
+              <div v-if="group.group" class="toc-group" :class="{ collapsed: isTocCollapsed(group.id) }">
+                <div class="toc-group-head">
+                  <button class="toc-group-toggle" type="button"
+                    :aria-expanded="isTocCollapsed(group.id) ? 'false' : 'true'"
+                    :aria-label="isTocCollapsed(group.id) ? '展开这一节' : '折叠这一节'"
+                    @click="toggleTocGroup(group.id)">
+                    <KIcon name="chevron-down" />
+                  </button>
+                  <a class="nav-toc-link level-1" :class="{ active: activeId === group.id }" href="javascript:;"
+                    @click="goToHeading(group.id)">{{ group.text }}</a>
+                </div>
+                <div v-show="!isTocCollapsed(group.id)" class="toc-group-body">
+                  <a v-for="heading in group.children" :key="heading.id" class="nav-toc-link"
+                    :class="[`level-${heading.level}`, { active: activeId === heading.id }]" href="javascript:;"
+                    @click="goToHeading(heading.id)">{{ heading.text }}</a>
+                </div>
+              </div>
+              <a v-else class="nav-toc-link" :class="[`level-${group.level}`, { active: activeId === group.id }]"
+                href="javascript:;" @click="goToHeading(group.id)">{{ group.text }}</a>
+            </template>
           </nav>
         </div>
       </transition>
