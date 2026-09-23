@@ -5,8 +5,14 @@ import { data as posts } from '../../posts.data.mjs'
 
 const { page, theme, site } = useData()
 
-// 文章数据以站点 posts.data 为准（frontmatter 里只有 title / date / tags / cover）
-const post = computed(() => posts.find((item) => item.href === page.value.relativePath?.replace(/index\.html$/, '')))
+// 文章数据以站点 posts.data 为准（frontmatter 里只有 title / date / tags / cover）。
+// 注意两边的路径写法不同：page.relativePath 是 markdown 路径（posts/intro.md），
+// posts.data 里给的是页面路径（posts/intro.html），这里要转一下再匹配，
+// 否则日期、阅读时长、标签、头图全都会落空。
+const post = computed(() => {
+  const href = (page.value.relativePath || '').replace(/\.md$/, '.html')
+  return posts.find((item) => item.href === href)
+})
 const title = computed(() => page.value.title || post.value?.title || '文章')
 const author = computed(() => theme.value.name || '')
 const date = computed(() => {
@@ -44,7 +50,7 @@ const showCover = computed(() => !!cover.value && !coverFailed.value)
         <span v-if="readingInfo" class="meta-item"><KIcon name="clock" />{{ readingInfo }}</span>
         <span id="article_page_views" class="meta-item page-views" style="display: none">本文总阅读量 <span
             id="article_page_views_value"></span> 次</span>
-        <a v-for="tag in tags" :key="tag" class="tag-link" :href="`${base}tags/?q=${encodeURIComponent(tag)}`">
+        <a v-for="tag in tags" :key="tag" class="tag-link" :href="`${base}?q=${encodeURIComponent(tag)}`">
           <KIcon name="tag" />{{ tag }}
         </a>
       </div>

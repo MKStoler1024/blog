@@ -10,7 +10,7 @@ cover: https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&
 ---
 
 ::: navbox
-你可以从 [首页](/)、[文章标签](/tags/) 或 [智教联盟工具索引](/posts/smart-teach-tools) 继续浏览。导航框适合放置相关文章、外部站点或重要提示。
+你可以从 [首页](/) 或 [智教联盟工具索引](/posts/smart-teach-tools) 继续浏览，也可以点侧栏「标签聚合」里的标签按标签筛选文章。导航框适合放置相关文章、外部站点或重要提示。
 :::
 
 ## 提示块

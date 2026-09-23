@@ -35,34 +35,31 @@ const widgets = computed(() => ({
   ...(theme.value.widgets || {}),
 }))
 
-// 标签筛选：侧栏标签云与列表共用一份状态（首页/标签页即时筛选，不跳来跳去）
+// 标签筛选：侧栏标签云与首页列表共用一份状态（首页就地筛选，筛选条件写进地址栏）
 const activeTag = ref('')
+const readTagQuery = () => new URLSearchParams(window.location.search).get('q') || ''
 const selectTag = (tag) => {
   activeTag.value = tag
-  // 标签页自己就有列表，直接把筛选条件写进地址栏；其余页面先回首页再筛选
-  if (isTags.value) {
-    history.replaceState(null, '', tag ? `${base}tags/?q=${encodeURIComponent(tag)}` : `${base}tags/`)
-    return
-  }
-  if (!isHome.value) window.location.href = base
+  const url = tag ? `${base}?q=${encodeURIComponent(tag)}` : base
+  // 首页自己就带列表：就地筛选；其它页面（文章页/关于页）先回首页再筛选
+  if (isHome.value) history.replaceState(null, '', url)
+  else window.location.href = url
 }
 
 const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
 const isHome = computed(() => path.value === '')
-const isTags = computed(() => path.value.startsWith('tags/'))
 const isArticle = computed(() => posts.some((post) => post.href === path.value))
-const isPlainPage = computed(() => !isHome.value && !isTags.value && !isArticle.value)
+const isPlainPage = computed(() => !isHome.value && !isArticle.value)
 // 首页正文（index.md）：只有写了正文才渲染那张卡片，避免出现一个空面板
 const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---/, '').trim())
 
-// 标签页的筛选条件放在地址栏里（文章页的标签链接就指向 /tags/?q=标签）。
+// 首页的筛选条件放在地址栏里（文章头部的标签链接指向 /?q=标签）。
 // 与主题同理：不能在 setup 里读 location（SSR 读不到），否则首帧与预渲染的 HTML 不一致
-const readTagQuery = () => new URLSearchParams(window.location.search).get('q') || ''
 onMounted(() => {
-  if (isTags.value) activeTag.value = readTagQuery()
+  activeTag.value = readTagQuery()
 })
 watch(() => route.path, () => {
-  activeTag.value = isTags.value ? readTagQuery() : ''
+  activeTag.value = readTagQuery()
 })
 
 </script>
@@ -86,10 +83,6 @@ watch(() => route.path, () => {
               </div>
               <PostList :active-tag="activeTag" />
             </template>
-
-            <!-- 标签页：正文通常是空的（tags/index.md 只有 frontmatter），
-                 这里直接给一份可筛选的文章列表，标签链接 /tags/?q=标签 也能落到对应筛选 -->
-            <PostList v-else-if="isTags" :active-tag="activeTag" />
 
             <!-- 其它普通页：正文卡片 -->
             <article v-else-if="isPlainPage" class="article-panel article-detail">
