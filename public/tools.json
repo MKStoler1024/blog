@@ -172,6 +172,12 @@
                 "productUrl": "https://github.com/Enigfrank/ElectronClassScheduleX"
             },
             {
+                "name": "ElectronClassSchedule",
+                "description": "带配置工具",
+                "url": "https://forum.smart-teach.cn/d/2858",
+                "productUrl": "https://github.com/TEG6129BEV15/ElectronClassScheduleWithEditor"
+            },
+            {
                 "name": "iClass",
                 "description": "电子课表",
                 "url": "https://forum.smart-teach.cn/d/197",
