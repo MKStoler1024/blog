@@ -1,15 +1,19 @@
 <template>
   <div :class="['banner', { 'article-banner': article }]">
     <div class="galaxy"></div>
+    <div class="clouds cloud-far"></div>
+    <div class="clouds cloud-mid"></div>
+    <div class="clouds cloud-near"></div>
     <div class="stars stars-far far-a"></div>
     <div class="stars stars-far far-b"></div>
     <div class="stars stars-mid mid-a"></div>
     <div class="stars stars-mid mid-b"></div>
     <div class="stars stars-near near-a"></div>
     <div class="stars stars-near near-b"></div>
-    <div class="nebula nebula-violet"></div>
-    <div class="nebula nebula-cyan"></div>
-    <div class="nebula nebula-pink"></div>
+    <div class="nebula nebula-orange"></div>
+    <div class="nebula nebula-sky"></div>
+    <div class="nebula nebula-lemon"></div>
+    <div class="nebula nebula-deep"></div>
     <div class="moon"></div>
     <div class="shooting-star"></div>
     <div class="shooting-star shooting-star-2"></div>
@@ -92,7 +96,8 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss">
-// 星空：深空渐变 + 三层随机星星 + 月亮 + 流星
+// 天幕：多色天光渐变 + 云层 + 三层随机星星 + 月亮 + 流星
+// 亮色取「白昼海港」（蔚蓝天空 → 雾蓝 → 暖纸地平线），暗色取「黄昏码头」（青灰暮空 → 橙橙辉光 → 焦赭地面）
 @use "sass:math";
 
 // 按比例挑星星颜色：主色 72%、冷色 14%、暖色 14%
@@ -118,29 +123,33 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  // 亮色主题：黎明星空（底色 + 元素配色均通过 CSS 变量控制，暗色主题在下方覆盖）
-  --banner-star: rgba(71, 85, 105, 0.5);
-  --banner-star-cool: rgba(59, 130, 246, 0.55);
-  --banner-star-warm: rgba(217, 119, 6, 0.5);
-  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(129, 140, 248, 0.18), transparent 68%);
-  --banner-nebula-violet: rgba(139, 92, 246, 0.12);
-  --banner-nebula-cyan: rgba(34, 211, 238, 0.1);
-  --banner-nebula-pink: rgba(244, 114, 182, 0.1);
-  --banner-shoot-bg: linear-gradient(90deg, rgba(51, 65, 85, 0), rgba(51, 65, 85, 0.6));
-  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #fef3c7 55%, #fcd34d 100%);
-  --banner-moon-shadow-from: rgba(251, 191, 36, 0.35);
-  --banner-moon-shadow-to: rgba(251, 191, 36, 0.6);
-  --banner-text: rgba(30, 41, 59, 0.88);
-  --banner-quote: #6366f1;
-  --banner-border: rgba(79, 70, 229, 0.5);
-  --banner-glitch-color: #1e293b;
-  --banner-glitch-shadow: rgba(255, 255, 255, 0.4) 4px 4px 8px;
-  --banner-title-shadow: rgba(255, 255, 255, 0.35) 2px 2px 10px;
+  // 亮色主题：白昼海港 —— 蔚蓝天空到暖纸地平线，云层被日光照亮，星点化作天空里的细微尘光
+  --banner-star: rgba(47, 95, 134, 0.30);
+  --banner-star-cool: rgba(74, 128, 130, 0.26);
+  --banner-star-warm: rgba(180, 122, 62, 0.30);
+  --banner-cloud-a: rgba(255, 255, 255, 0.95);
+  --banner-cloud-b: rgba(255, 255, 255, 0.72);
+  --banner-cloud-c: rgba(233, 244, 252, 0.82);
+  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 255, 255, 0.72), transparent 68%);
+  --banner-nebula-orange: rgba(214, 130, 62, 0.16);
+  --banner-nebula-sky: rgba(64, 140, 178, 0.16);
+  --banner-nebula-lemon: rgba(226, 178, 84, 0.14);
+  --banner-nebula-deep: rgba(60, 120, 150, 0.14);
+  --banner-shoot-bg: linear-gradient(90deg, rgba(206, 138, 66, 0), rgba(206, 138, 66, 0.34));
+  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #fbf3e4 58%, #e6d7bf 100%);
+  --banner-moon-shadow-from: rgba(255, 255, 255, 0.5);
+  --banner-moon-shadow-to: rgba(255, 248, 236, 0.72);
+  --banner-text: rgba(28, 34, 40, 0.88);
+  --banner-quote: var(--color-accent);
+  --banner-border: var(--color-accent);
+  --banner-glitch-color: #1c2830;
+  --banner-glitch-shadow: rgba(255, 255, 255, 0.72) 4px 4px 8px;
+  --banner-title-shadow: rgba(255, 255, 255, 0.75) 2px 2px 10px;
   background:
-    radial-gradient(ellipse at 85% 8%, rgba(253, 186, 116, 0.28), transparent 38%),
-    radial-gradient(ellipse at 22% 16%, rgba(129, 140, 248, 0.18), transparent 46%),
-    radial-gradient(ellipse at 82% 80%, rgba(56, 189, 248, 0.16), transparent 50%),
-    linear-gradient(180deg, #dbeafe 0%, #c7d2fe 38%, #ddd6fe 72%, #f5f3ff 100%);
+    radial-gradient(ellipse 58% 40% at 16% 2%, rgba(255, 255, 255, 0.9), transparent 62%),
+    radial-gradient(ellipse 52% 30% at 86% 52%, rgba(216, 128, 58, 0.34), transparent 66%),
+    radial-gradient(ellipse 56% 30% at 4% 58%, rgba(48, 124, 164, 0.34), transparent 68%),
+    linear-gradient(180deg, #3f86c2 0%, #5b9ecd 16%, #86b8dc 34%, #aecfe4 48%, #d8e3e6 62%, #f0ead9 78%, #fbf8f4 100%);
 
   // 底部渐变淡出，与正文背景平滑衔接
   &::after {
@@ -220,31 +229,76 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.nebula-violet {
+.nebula-orange {
   top: -18%;
   left: -12%;
   width: 60vw;
   aspect-ratio: 1;
-  background: radial-gradient(circle, var(--banner-nebula-violet), transparent 65%);
+  background: radial-gradient(circle, var(--banner-nebula-orange), transparent 65%);
   animation: nebula-drift 26s ease-in-out infinite alternate;
 }
 
-.nebula-cyan {
+.nebula-sky {
   bottom: -24%;
   right: -8%;
   width: 52vw;
   aspect-ratio: 1;
-  background: radial-gradient(circle, var(--banner-nebula-cyan), transparent 65%);
+  background: radial-gradient(circle, var(--banner-nebula-sky), transparent 65%);
   animation: nebula-drift 34s ease-in-out -8s infinite alternate-reverse;
 }
 
-.nebula-pink {
+.nebula-lemon {
   top: 32%;
   left: 44%;
   width: 44vw;
   aspect-ratio: 1;
-  background: radial-gradient(circle, var(--banner-nebula-pink), transparent 65%);
+  background: radial-gradient(circle, var(--banner-nebula-lemon), transparent 65%);
   animation: nebula-drift 40s ease-in-out -16s infinite alternate;
+}
+
+// 贴地的一层暖辉，模拟参考图里被夕照染红的地平线
+.nebula-deep {
+  bottom: 22%;
+  left: 18%;
+  width: 46vw;
+  aspect-ratio: 3;
+  background: radial-gradient(ellipse, var(--banner-nebula-deep), transparent 68%);
+  animation: nebula-drift 48s ease-in-out -24s infinite alternate-reverse;
+}
+
+// 云层：三层厚度不同的软云，错开相位缓慢漂移，云后仍有星点透出
+.clouds {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(24px);
+}
+
+.cloud-far {
+  top: 2%;
+  left: -10%;
+  width: 48vw;
+  height: 132px;
+  background: radial-gradient(closest-side, var(--banner-cloud-a), transparent 74%);
+  animation: cloud-drift 62s ease-in-out infinite alternate;
+}
+
+.cloud-mid {
+  top: 22%;
+  right: -4%;
+  width: 38vw;
+  height: 102px;
+  background: radial-gradient(closest-side, var(--banner-cloud-b), transparent 74%);
+  animation: cloud-drift 78s ease-in-out -20s infinite alternate-reverse;
+}
+
+.cloud-near {
+  bottom: 12%;
+  left: 14%;
+  width: 42vw;
+  height: 122px;
+  background: radial-gradient(closest-side, var(--banner-cloud-c), transparent 76%);
+  animation: cloud-drift 94s ease-in-out -46s infinite alternate;
 }
 
 .moon {
@@ -264,9 +318,9 @@ onUnmounted(() => {
     inset: 0;
     border-radius: 50%;
     background:
-      radial-gradient(circle at 30% 34%, rgba(0, 0, 0, 0.07), transparent 16%),
-      radial-gradient(circle at 62% 58%, rgba(0, 0, 0, 0.06), transparent 14%),
-      radial-gradient(circle at 80% 26%, rgba(0, 0, 0, 0.05), transparent 11%);
+      radial-gradient(circle at 30% 34%, rgba(138, 106, 68, 0.10), transparent 16%),
+      radial-gradient(circle at 62% 58%, rgba(138, 106, 68, 0.09), transparent 14%),
+      radial-gradient(circle at 80% 26%, rgba(138, 106, 68, 0.07), transparent 11%);
   }
 }
 
@@ -357,29 +411,33 @@ onUnmounted(() => {
   }
 }
 
-// 暗色主题：经典深空（覆盖配色变量 + 底色）
+// 暗色主题：黄昏码头 —— 青灰暮空压着橙橙辉光，地面沉入焦赭与暖黑
 html[data-theme="dark"] .banner {
-  --banner-star: rgba(255, 255, 255, 0.9);
-  --banner-star-cool: rgba(147, 197, 253, 0.95);
-  --banner-star-warm: rgba(253, 230, 138, 0.9);
-  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 42%, rgba(255, 255, 255, 0.14), rgba(226, 232, 240, 0.04) 45%, transparent 70%);
-  --banner-nebula-violet: rgba(99, 102, 241, 0.28);
-  --banner-nebula-cyan: rgba(34, 211, 238, 0.16);
-  --banner-nebula-pink: rgba(244, 114, 182, 0.12);
-  --banner-shoot-bg: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff);
-  --banner-moon-bg: radial-gradient(circle at 32% 32%, #ffffff, #e0e7ff 55%, #a5b4fc 100%);
-  --banner-moon-shadow-from: rgba(165, 180, 252, 0.4);
-  --banner-moon-shadow-to: rgba(165, 180, 252, 0.6);
-  --banner-text: rgba(226, 232, 240, 0.92);
-  --banner-quote: #a5b4fc;
-  --banner-border: rgba(199, 210, 254, 0.7);
+  --banner-star: rgba(246, 234, 217, 0.92);
+  --banner-star-cool: rgba(159, 208, 212, 0.62);
+  --banner-star-warm: rgba(240, 185, 138, 0.8);
+  --banner-cloud-a: rgba(214, 140, 92, 0.24);
+  --banner-cloud-b: rgba(120, 164, 172, 0.18);
+  --banner-cloud-c: rgba(178, 122, 82, 0.16);
+  --banner-galaxy: radial-gradient(ellipse 110% 34% at 46% 40%, rgba(224, 167, 84, 0.09), transparent 70%);
+  --banner-nebula-orange: rgba(216, 116, 60, 0.11);
+  --banner-nebula-sky: rgba(90, 150, 155, 0.08);
+  --banner-nebula-lemon: rgba(224, 167, 84, 0.07);
+  --banner-nebula-deep: rgba(148, 74, 42, 0.12);
+  --banner-shoot-bg: linear-gradient(90deg, rgba(246, 234, 217, 0), #f6ead9);
+  --banner-moon-bg: radial-gradient(circle at 32% 32%, #fffdf7, #f4e6cf 55%, #cbb08a 100%);
+  --banner-moon-shadow-from: rgba(232, 168, 104, 0.16);
+  --banner-moon-shadow-to: rgba(232, 168, 104, 0.30);
+  --banner-text: rgba(236, 230, 222, 0.9);
+  --banner-quote: var(--color-accent);
+  --banner-border: rgba(227, 189, 155, 0.32);
   --banner-glitch-color: #fff;
-  --banner-glitch-shadow: rgba(0, 0, 0, 0.2) 4px 4px 8px;
-  --banner-title-shadow: 2px 2px 10px black;
+  --banner-glitch-shadow: rgba(0, 0, 0, 0.35) 4px 4px 8px;
+  --banner-title-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
   background:
-    radial-gradient(ellipse at 22% 16%, rgba(129, 140, 248, 0.22), transparent 46%),
-    radial-gradient(ellipse at 82% 80%, rgba(56, 189, 248, 0.16), transparent 50%),
-    linear-gradient(180deg, #020617 0%, #0b1035 42%, #1e1b4b 78%, #312e81 100%);
+    radial-gradient(ellipse 60% 30% at 82% 52%, rgba(196, 92, 42, 0.30), transparent 66%),
+    radial-gradient(ellipse 68% 30% at 8% 8%, rgba(74, 136, 146, 0.22), transparent 68%),
+    linear-gradient(180deg, #0d1b21 0%, #16303a 12%, #27505c 26%, #3a5a5e 36%, #6d452a 48%, #a9542a 56%, #6b3418 68%, #2a160c 84%, #12100e 100%);
 }
 
 // GlitchText / Article 标题默认是白色，在亮色主题下需覆盖为深色
@@ -452,11 +510,17 @@ html[data-theme="dark"] .banner {
   to { transform: translate(3%, 3%) scale(1.08); }
 }
 
+@keyframes cloud-drift {
+  from { transform: translate3d(-3%, 0, 0) scale(0.98); }
+  to { transform: translate3d(3%, 1.5%, 0) scale(1.05); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .banner .stars,
   .banner .moon,
   .banner .shooting-star,
   .banner .nebula,
+  .banner .clouds,
   .banner .caret {
     animation: none;
   }

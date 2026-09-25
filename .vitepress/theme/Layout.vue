@@ -1,344 +1,121 @@
-<template>
-  <Header />
-  <aside />
-  <main>
-    <ToTop />
-    <CommentsButton v-if="isArticle" />
-    <Transition name="page" mode="out-in">
-      <div :key="path" class="page-wrap">
-        <template v-if="path === ''">
-          <Banner />
-          <div class="home-layout">
-            <BlogList :posts="posts" />
-            <Sidebar />
-          </div>
-        </template>
-        <Tag v-else-if="path === 'tags/'" />
-        <Article v-else />
-      </div>
-    </Transition>
-  </main>
-</template>
+<script setup>
+import { computed, onMounted, ref, watch } from 'vue'
+import { useData, useRoute } from 'vitepress'
+import { data as posts } from '../posts.data.mjs'
+import ProgressBar from './components/ProgressBar.vue'
+import NavBar from './components/NavBar.vue'
+import Banner from './components/Banner.vue'
+import PostList from './components/PostList.vue'
+import ArticleHeader from './components/ArticleHeader.vue'
+import SideBar from './components/SideBar.vue'
+import FooterBar from './components/FooterBar.vue'
+import ToolBox from './components/ToolBox.vue'
+import { useKatex } from './composables/katex.js'
+import { useInlineAnnotation } from './composables/inlineAnnotation.js'
+import Giscus from './Giscus.vue'
 
-<script setup lang="ts">
-import Header from './Header.vue'
-import Banner from './Banner.vue'
-import Article from './Article.vue'
-import BlogList from './BlogList.vue'
-import Sidebar from './Sidebar.vue'
-import Tag from './Tag.vue'
-import ToTop from './ToTop.vue'
-import CommentsButton from './CommentsButton.vue'
-import { computed } from 'vue'
-import { useRoute, useData } from 'vitepress'
-import { data as posts } from '../posts.data'
-const base = useData().site.value.base
+const { site, theme, page } = useData()
 const route = useRoute()
+const base = site.value.base
+
+/* 数学公式与行内注释都是纯逻辑（不产出 DOM），用组合式函数挂在 Layout 上。
+   不要写成组件：组件渲染 null 时客户端会留下 <!---->，而 SSR 会把相邻的注释
+   占位合并成一个，服务端 DOM 因此比客户端 vdom 少节点 → 水合失配 →
+   失配点之后的正文（生产环境来自 lean chunk 里的空静态节点）会被整块重渲染成空白。 */
+useKatex()
+useInlineAnnotation()
+
+// 侧栏小工具开关（可在 themeConfig.widgets 里关掉某一块）
+const widgets = computed(() => ({
+  toc: true,
+  search: true,
+  about: true,
+  tags: true,
+  posts: true,
+  ...(theme.value.widgets || {}),
+}))
+
+// 标签筛选：侧栏标签云与首页列表共用一份状态（首页就地筛选，筛选条件写进地址栏）
+const activeTag = ref('')
+const readTagQuery = () => new URLSearchParams(window.location.search).get('q') || ''
+const selectTag = (tag) => {
+  activeTag.value = tag
+  const url = tag ? `${base}?q=${encodeURIComponent(tag)}` : base
+  // 首页自己就带列表：就地筛选；其它页面（文章页/关于页）先回首页再筛选
+  if (isHome.value) history.replaceState(null, '', url)
+  else window.location.href = url
+}
+
 const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
-const isArticle = computed(() => posts.some(post => post.href === path.value))
+const isHome = computed(() => path.value === '')
+const isArticle = computed(() => posts.some((post) => post.href === path.value))
+const isPlainPage = computed(() => !isHome.value && !isArticle.value)
+// 首页正文（index.md）：只有写了正文才渲染那张卡片，避免出现一个空面板
+const homeIntro = computed(() => (page.value.raw || '').replace(/^---[\s\S]*?---/, '').trim())
+
+// 首页的筛选条件放在地址栏里（文章头部的标签链接指向 /?q=标签）。
+// 与主题同理：不能在 setup 里读 location（SSR 读不到），否则首帧与预渲染的 HTML 不一致
+onMounted(() => {
+  activeTag.value = readTagQuery()
+})
+watch(() => route.path, () => {
+  activeTag.value = readTagQuery()
+})
 
 </script>
 
-<style lang="scss">
-html {
-  scroll-behavior: smooth;
-  scrollbar-color: var(--color-accent) transparent;
-  --site-default-font: "Noto Serif SC", "MicroSoft Yahei", serif;
-  --global-font: "Noto Serif SC", "MicroSoft Yahei", serif;
-  --color-accent: #0f9d9a;
-  --color-accent-strong: #087f7c;
-  --color-accent-soft: #e6fffb;
-  --color-gray: #666;
-  --color-text: #02111d;
-  --color-background: #eee;
-  --color-border: #d0d7de;
-  --color-surface: #fff;
-  --color-surface-muted: #f6f8fa;
-  --color-header: rgba(255, 255, 255, 0.72);
-  --color-code-header: #f6f8fa;
-  --color-shadow: rgba(0, 0, 0, 0.16);
-  --code-line-height: 24px;
-  --code-font-family: monospace;
-  --code-font-size: 15px;
-}
+<template>
+  <div class="kratos-theme">
+    <ProgressBar />
+    <NavBar :is-post="isArticle" :banner-mode="isHome" :current-path="path" :widgets="widgets" />
+    <ToolBox :is-article="isArticle" />
 
-html[data-font="serif"] {
-  --global-font: serif;
-}
+    <Banner v-if="isHome" />
 
-html[data-font="sans-serif"] {
-  --global-font: sans-serif;
-}
+    <main class="k-main" :class="isHome ? 'has-banner' : 'no-banner'">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 board">
+            <!-- 首页：index.md 的说明（可选） + 文章卡片瀑布流 -->
+            <template v-if="isHome">
+              <div v-if="homeIntro" class="article-panel home-intro vp-doc">
+                <Content />
+              </div>
+              <PostList :active-tag="activeTag" />
+            </template>
 
-html[data-theme="dark"] {
-  --color-gray: #aeb9c2;
-  --color-text: #e6edf3;
-  --color-background: #15191d;
-  --color-border: #39434d;
-  --color-surface: #20262c;
-  --color-surface-muted: #252d34;
-  --color-header: rgba(32, 38, 44, 0.78);
-  --color-code-header: #252d34;
-  --color-accent: #2dd4bf;
-  --color-accent-strong: #14b8a6;
-  --color-accent-soft: #134e4a;
-  --color-shadow: rgba(0, 0, 0, 0.42);
-  color-scheme: dark;
-}
+            <!-- 其它普通页：正文卡片 -->
+            <article v-else-if="isPlainPage" class="article-panel article-detail">
+              <div class="vp-doc">
+                <Content />
+              </div>
+            </article>
 
-.skeleton-block {
-  display: block;
-  border-radius: 4px;
-  background: linear-gradient(100deg, var(--color-surface-muted) 35%, var(--color-accent-soft) 50%, var(--color-surface-muted) 65%);
-  background-size: 300% 100%;
-  animation: skeleton-shimmer 1.6s ease-in-out infinite;
-}
+            <!-- 文章页：标题信息卡 + 正文卡 + 评论区
+                 评论不能放进 .vp-doc：正文的 Markdown 样式（链接虚线下划线、行内代码底、
+                 表格描边等）会串到 iframe 里的评论区上。
+                 也不再套第二张卡片：评论区直接坐在页面底色上，与 giscus 主题里的
+                 --color-canvas-default（= 站点底色）保持一致，避免出现两层底色 -->
+            <template v-else-if="isArticle">
+              <ArticleHeader />
+              <article class="article-panel article-detail">
+                <div class="vp-doc">
+                  <Content />
+                </div>
+              </article>
+              <section class="article-comments">
+                <Giscus :key="route.path" />
+              </section>
+            </template>
+          </div>
 
-@keyframes skeleton-shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
+          <div class="col-lg-4 sidebar sticky-sidebar">
+            <SideBar :is-post="isArticle" :widgets="widgets" :active-tag="activeTag" @select-tag="selectTag" />
+          </div>
+        </div>
+      </div>
+    </main>
 
-@media (prefers-reduced-motion: reduce) {
-  .skeleton-block {
-    animation: none;
-  }
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--global-font);
-  font-size: 16px;
-  color: var(--color-text);
-  background: var(--color-background);
-  overflow-x: hidden;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-img.upl-image-preview {
-  display: block;
-  width: auto;
-  height: auto;
-  margin: 1rem auto;
-}
-
-hr {
-  border: none;
-  border-bottom: 1px dashed var(--color-border);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background: var(--color-accent);
-}
-
-html[data-theme="dark"] .content blockquote {
-  color: #99f6e4;
-  background: #134e4a;
-}
-
-html[data-theme="dark"] .content th {
-  background: #134e4a;
-}
-
-html[data-theme="dark"] .navbox {
-  background: #203326;
-  border-color: #50633a;
-}
-
-html[data-theme="dark"] .navbox:before {
-  background-color: #58733a;
-  color: #c3e68a;
-}
-
-html[data-theme="dark"] .navbox a {
-  color: #b9e66b;
-}
-
-html[data-theme="dark"] .custom-block.tip,
-html[data-theme="dark"] .custom-block.info,
-html[data-theme="dark"] .markdown-alert {
-  background: var(--color-surface-muted);
-}
-
-html[data-theme="dark"] .custom-block.warning,
-html[data-theme="dark"] .markdown-alert-warning {
-  background: #3b351d;
-}
-
-html[data-theme="dark"] .custom-block.danger,
-html[data-theme="dark"] .markdown-alert-caution {
-  background: #3d2527;
-}
-
-html[data-theme="dark"] .markdown-alert-note .markdown-alert-title {
-  color: #79c0ff;
-}
-
-html[data-theme="dark"] .markdown-alert-tip .markdown-alert-title {
-  color: #7ee787;
-}
-
-html[data-theme="dark"] .markdown-alert-important .markdown-alert-title {
-  color: #d2a8ff;
-}
-
-html[data-theme="dark"] .markdown-alert-warning .markdown-alert-title {
-  color: #e3b341;
-}
-
-html[data-theme="dark"] .markdown-alert-caution .markdown-alert-title {
-  color: #ff7b72;
-}
-
-html[data-theme="dark"] .markdown-annotation {
-  color: #93c5fd;
-}
-
-html[data-theme="dark"] .markdown-annotation .annotation-tooltip {
-  border-color: #596773;
-  color: var(--color-text);
-  background: var(--color-surface);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-}
-
-html[data-theme="dark"] div[class*="language-"] {
-  background: var(--color-surface);
-}
-
-html[data-theme="dark"] div[class*="language-"] pre,
-html[data-theme="dark"] div[class*="language-"] code {
-  color: #e6edf3 !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#D73A49"] {
-  color: #ff7b72 !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#032F62"] {
-  color: #a5d6ff !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#6F42C1"] {
-  color: #d2a8ff !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#005CC5"] {
-  color: #79c0ff !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#22863A"] {
-  color: #7ee787 !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#E36209"] {
-  color: #ffa657 !important;
-}
-
-html[data-theme="dark"] div[class*="language-"] code span[style*="color:#24292E"] {
-  color: #c9d1d9 !important;
-}
-
-html[data-theme="dark"] div[class*="language-"]:before {
-  background: var(--color-code-header);
-}
-
-/* header 背景已在 Header.vue 中通过 --color-header + backdrop-filter 实现毛玻璃 */
-
-html[data-theme="dark"] .search-panel,
-html[data-theme="dark"] .font-panel,
-html[data-theme="dark"] .font-panel select,
-html[data-theme="dark"] .search-panel input {
-  color: var(--color-text);
-  background: var(--color-surface);
-}
-
-html[data-theme="dark"] .bloglist .card {
-  background: var(--color-surface);
-}
-
-html[data-theme="dark"] .bloglist .title {
-  color: var(--color-text);
-}
-
-html[data-theme="dark"] .not-found {
-  color: var(--color-text);
-}
-
-.home-layout {
-  max-width: 800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
-  padding-bottom: 48px;
-
-  .bloglist {
-    min-width: 0;
-    max-width: none;
-  }
-
-  .sidebar {
-    order: -1;
-  }
-}
-
-@media (min-width: 1200px) {
-  .home-layout {
-    max-width: 1280px;
-    grid-template-columns: minmax(0, 1fr) 300px;
-    align-items: start;
-
-    .sidebar {
-      order: 0;
-      margin-top: 24px;
-    }
-  }
-}
-
-@media (min-width: 1600px) {
-  .home-layout {
-    max-width: 1560px;
-  }
-}
-
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-
-.page-enter-from {
-  opacity: 0;
-  transform: translateY(14px);
-}
-
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(-14px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-enter-active,
-  .page-leave-active {
-    transition: none;
-  }
-}
-</style>
+    <FooterBar />
+  </div>
+</template>

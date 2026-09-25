@@ -1,0 +1,758 @@
+/* ------------------------------------------------------------
+   6. 文章正文
+   ------------------------------------------------------------ */
+.article-detail {
+  padding: 32px 36px;
+}
+
+/* Giscus 评论区域 */
+.giscus-wrapper {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--kratos-border);
+}
+
+.giscus-container {
+  min-height: 24px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.giscus-container iframe {
+  width: 100%;
+  border: none;
+}
+
+.article-detail .vp-doc {
+  color: var(--kratos-text);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  position: relative;
+  color: var(--kratos-text);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 2em 0 0.8em;
+  padding-bottom: 0.4em;
+  scroll-margin-top: 80px;
+}
+
+.vp-doc h2 {
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--kratos-border);
+}
+
+.vp-doc h3 {
+  font-size: 1.2rem;
+}
+
+.vp-doc h4 {
+  font-size: 1.05rem;
+}
+
+.vp-doc p {
+  margin: 0 0 18px;
+}
+
+.vp-doc a {
+  color: var(--kratos-primary);
+  border-bottom: 1px dashed color-mix(in srgb, var(--kratos-primary) 50%, transparent);
+}
+
+.vp-doc a:hover {
+  color: var(--kratos-primary-hover);
+  border-bottom-style: solid;
+}
+
+.vp-doc strong {
+  font-weight: 600;
+  color: var(--kratos-text-strong);
+}
+
+.vp-doc ul,
+.vp-doc ol {
+  margin: 0 0 18px;
+  padding-left: 1.6em;
+}
+
+.vp-doc li {
+  margin: 4px 0;
+}
+
+.vp-doc blockquote {
+  margin: 0 0 18px;
+  padding: 12px 20px;
+  border-left: 4px solid var(--kratos-primary);
+  background: var(--kratos-primary-soft);
+  border-radius: 0 var(--kratos-radius) var(--kratos-radius) 0;
+}
+
+.vp-doc blockquote p {
+  margin: 0;
+  color: var(--kratos-text-light);
+}
+
+/* 行内代码 */
+.vp-doc :not(pre) > code {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--kratos-primary-soft);
+  color: var(--kratos-code-inline);
+  font-size: 0.9em;
+}
+
+/* 代码块：沿用站点原来的「窗口标题栏」外观
+   （顶部 32px 标题栏 + 左侧红黄绿圆点 + 居中语言标签 + 悬停显示的复制按钮），
+   结构上是 div.language-* > button.copy + span.lang + pre.shiki + div.line-numbers-wrapper，
+   父级 row-reverse 让行号列落在左侧 */
+.vp-doc div[class*='language-'] {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 0 18px;
+  padding-top: 32px;
+  border: 1px solid var(--kratos-border);
+  border-radius: var(--kratos-radius);
+  background: var(--kratos-code-bg);
+  font-family: var(--code-font-family, monospace);
+  font-size: var(--code-font-size, 15px);
+  line-height: var(--code-line-height, 24px);
+  overflow: hidden;
+}
+
+/* 标题栏 */
+.vp-doc div[class*='language-']::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 32px;
+  background: var(--kratos-bg-muted);
+  border-bottom: 1px solid var(--kratos-border);
+}
+
+/* 标题栏左侧的三个「窗口按钮」 */
+.vp-doc div[class*='language-']::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+}
+
+.vp-doc div[class*='language-'] pre {
+  margin: 0;
+  /* 行号列（24px 宽）与内容之间的距离 */
+  margin-left: 16px;
+  /* 右侧留白：既让每行与卡片边缘有间距，也让长行有滚动余量 */
+  padding: 0 18px 14px 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  background: transparent;
+  /* 显式钉住行高：VitePress 给 pre 的 line-height 是 1.7，会和行号列（按 24px 排）逐行错开 */
+  font-size: var(--code-font-size, 15px);
+  line-height: var(--code-line-height, 24px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar-thumb {
+  background: var(--kratos-border-strong);
+  border-radius: 4px;
+}
+
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vp-doc div[class*='language-'] pre code {
+  display: block;
+  min-width: fit-content;
+  padding: 0;
+  background: transparent;
+  color: var(--kratos-code-ink);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* 语法高亮：shiki 双主题输出 --shiki-light / --shiki-dark 与明暗底色，
+   这里按本站的 html[data-theme] 开关切换（配置见 .vitepress/config.ts 的 markdown.theme） */
+.vp-doc div[class*='language-'] code span {
+  color: var(--shiki-light);
+}
+
+/* 每行保持 VitePress 默认的行内 span：行与行之间的换行由源码里的 \n 触发，
+   pre 已是 white-space: pre，每行恰好一个 24px 行盒。
+   注意不要改成 inline-block / block：前者会按行盒再排一次，后者会和 \n 叠成双倍行距 */
+.vp-doc div[class*='language-'] code span.line {
+  line-height: var(--code-line-height, 24px);
+}
+
+html[data-theme='dark'] .vp-doc div[class*='language-'] code span {
+  color: var(--shiki-dark);
+}
+
+/* 行号列：紧贴标题栏下方，行高与代码行一致。
+   注意：VitePress 把每个行号渲染成 <span class="line-number">N</span><br>，
+   换行由 <br> 负责，所以 span 必须保持行内，否则每个行号会额外占一个 24px 行盒，
+   行号列就会以两倍行距往下跑，把代码块整体撑高一倍（长代码块尤其明显） */
+.vp-doc .line-numbers-wrapper {
+  flex: 0 0 auto;
+  padding: 0 0 14px 16px;
+  color: var(--kratos-text-light);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: var(--code-line-height, 24px);
+  text-align: right;
+  user-select: none;
+}
+
+.vp-doc .line-numbers-wrapper .line-number {
+  line-height: var(--code-line-height, 24px);
+}
+
+/* ------------------------------------------------------------
+   navbox 容器（markdown-it-container 自定义块）
+   与站点其它提示块同一套观感：左侧图标条 + 次级底色
+   ------------------------------------------------------------ */
+.vp-doc .navbox {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  margin: 12px 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--kratos-border);
+  border-left: 0;
+  border-radius: var(--kratos-radius);
+  background: var(--kratos-bg-muted);
+  box-shadow: var(--kratos-shadow);
+}
+
+.vp-doc .navbox::before {
+  content: "\f35d";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 48px;
+  grid-row: 1 / -1;
+  grid-column: 1;
+  background-color: var(--kratos-bg-muted);
+  color: var(--color-featured-strong);
+  font-family: "Font Awesome 6 Free";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.vp-doc .navbox > .custom-block-title,
+.vp-doc .navbox > p {
+  margin: 0;
+  grid-column: 2;
+  padding: 12px 12px 0;
+}
+
+.vp-doc .navbox > .custom-block-title {
+  padding-right: 0;
+}
+
+.vp-doc .navbox > :last-child {
+  padding-bottom: 12px;
+}
+
+.vp-doc .navbox a {
+  color: var(--color-accent);
+}
+
+.vp-doc .navbox a:hover {
+  color: var(--color-accent-strong);
+}
+
+@media (max-width: 1100px) {
+  .vp-doc .navbox {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .vp-doc .navbox::before {
+    min-height: 44px;
+  }
+
+  .vp-doc .navbox > .custom-block-title,
+  .vp-doc .navbox > p {
+    padding: 10px;
+  }
+}
+
+/* 语言标签：标题栏正中（与站点原来的做法一致） */
+.vp-doc div[class*='language-'] .lang {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--kratos-code-lang);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 复制按钮：标题栏右侧，悬停整块代码块时才显示 */
+.vp-doc div[class*='language-'] .copy {
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='13' height='13' rx='2' ry='2'/%3E%3Cpath d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/svg%3E");
+  color: var(--kratos-code-btn-icon);
+  background-position: center;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.vp-doc div[class*='language-']:hover .copy,
+.vp-doc div[class*='language-'] .copy:focus-visible {
+  opacity: 0.75;
+}
+
+.vp-doc div[class*='language-'] .copy:hover {
+  opacity: 1;
+  background-color: var(--kratos-code-btn-bg-hover);
+}
+
+/* 复制成功状态 */
+.vp-doc div[class*='language-'] .copy.copied {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2340c057' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+}
+
+/* 表格：外层滚动容器由 config.ts 的 table_open/table_close 生成，
+   宽表格（比如带长 URL 的说明列）在窄屏上自己横向滚动，不把整页撑宽 */
+.vp-doc .table-wrap {
+  margin: 0 0 18px;
+  overflow-x: auto;
+}
+
+.vp-doc .table-wrap table {
+  margin: 0;
+}
+
+.vp-doc table {
+  width: 100%;
+  margin: 0 0 18px;
+  border-collapse: collapse;
+  border: 1px solid var(--kratos-border);
+  font-size: 15px;
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 10px 14px;
+  border: 1px solid var(--kratos-border);
+  text-align: left;
+}
+
+.vp-doc th {
+  background: var(--kratos-bg-muted);
+  font-weight: 600;
+}
+
+.vp-doc tr:nth-child(even) td {
+  background: var(--kratos-bg-soft);
+}
+
+.vp-doc hr {
+  border: none;
+  border-top: 1px solid var(--kratos-border);
+  margin: 28px 0;
+}
+
+.vp-doc img {
+  border-radius: var(--kratos-radius);
+  margin: 8px 0;
+}
+
+.vp-doc .header-anchor {
+  border-bottom: none;
+  float: left;
+  margin-left: -1.2em;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.vp-doc h2:hover .header-anchor,
+.vp-doc h3:hover .header-anchor {
+  opacity: 1;
+}
+
+/* 任务列表（markdown-it-task-lists） */
+.vp-doc ul.contains-task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.vp-doc li.task-list-item {
+  position: relative;
+  list-style: none;
+  margin: 6px 0;
+  line-height: 1.8;
+}
+
+.vp-doc .task-list-item .task-list-item-checkbox {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 0;
+  vertical-align: -3px;
+  border: 1.5px solid var(--kratos-border-deep, var(--kratos-border));
+  border-radius: 4px;
+  background: var(--kratos-card);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.vp-doc .task-list-item .task-list-item-checkbox:hover {
+  border-color: var(--kratos-primary);
+}
+
+.vp-doc .task-list-item .task-list-item-checkbox:checked {
+  border-color: var(--kratos-primary);
+  background: var(--kratos-primary);
+}
+
+.vp-doc .task-list-item .task-list-item-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.vp-doc .task-list-item:has(.task-list-item-checkbox:checked) .task-list-item-label,
+.vp-doc .task-list-item:has(.task-list-item-checkbox:checked) p {
+  color: var(--kratos-text-light);
+  text-decoration: line-through;
+}
+
+/* 嵌套子任务列表缩进保持 */
+.vp-doc .task-list-item ul.contains-task-list {
+  padding-left: 24px;
+}
+
+
+/* ------------------------------------------------------------
+   7. 分页
+   ------------------------------------------------------------ */
+.pagelist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px 0 10px;
+}
+
+.pagelist a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  background: var(--kratos-card);
+  border-radius: var(--kratos-radius);
+  box-shadow: var(--kratos-shadow);
+  color: var(--kratos-text);
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.pagelist a:hover {
+  color: #ffffff;
+  background: var(--kratos-primary);
+}
+
+.pagelist a.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.pagelist a.prev,
+.pagelist a.next {
+  padding: 0;
+  width: 36px;
+}
+
+.pagelist a.prev .kicon,
+.pagelist a.next .kicon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 移动端分页：页码用下拉选择，避免多页时横排超宽 */
+.pagelist select.page-select {
+  height: 36px;
+  padding: 0 8px;
+  border: none;
+  border-radius: var(--kratos-radius);
+  background: var(--kratos-card);
+  box-shadow: var(--kratos-shadow);
+  color: var(--kratos-text);
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ============================================================
+   正文里的提示块与特殊行内语法
+   ------------------------------------------------------------
+   这些样式原先挂在旧主题的 Article.vue 里，随迁移一起丢了。
+   与旧版一致：左竖线 + 次级底色，颜色取站点调色板（--color-*）。
+   ============================================================ */
+
+/* VitePress 自定义容器（::: tip / info / warning / danger） */
+.vp-doc .custom-block.tip,
+.vp-doc .custom-block.info,
+.vp-doc .custom-block.warning,
+.vp-doc .custom-block.danger {
+  margin: 1rem 0;
+  border-left: 0.5rem solid;
+  border-radius: 0 var(--kratos-radius) var(--kratos-radius) 0;
+  padding: 0.1rem 1.5rem;
+  overflow-x: auto;
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.vp-doc .custom-block.tip {
+  border-color: var(--color-sky);
+}
+
+.vp-doc .custom-block.info {
+  border-color: var(--color-gray);
+}
+
+.vp-doc .custom-block.warning {
+  border-color: var(--color-featured-strong);
+}
+
+.vp-doc .custom-block.warning .custom-block-title {
+  color: var(--color-featured-strong);
+}
+
+.vp-doc .custom-block.danger {
+  border-color: #9c3f2a;
+}
+
+.vp-doc .custom-block.danger .custom-block-title {
+  color: #7a3324;
+}
+
+.vp-doc .custom-block-title {
+  font-weight: bold;
+}
+
+/* GitHub 风格提示块（markdown-it-github-alerts）—— 这就是「失效」的那一组 */
+.vp-doc .markdown-alert {
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 0.4rem solid;
+  border-radius: var(--kratos-radius);
+  color: var(--color-text);
+  background: var(--color-surface-muted);
+}
+
+.vp-doc .markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  font-weight: bold;
+}
+
+.vp-doc .markdown-alert-title .octicon {
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.vp-doc .markdown-alert > p:last-child {
+  margin: 0.5rem 0 0.2rem;
+}
+
+.vp-doc .markdown-alert-note {
+  border-color: var(--color-sky);
+}
+
+.vp-doc .markdown-alert-note .markdown-alert-title {
+  color: var(--color-sky-strong);
+}
+
+.vp-doc .markdown-alert-tip {
+  border-color: var(--color-sky-strong);
+}
+
+.vp-doc .markdown-alert-tip .markdown-alert-title {
+  color: var(--color-sky-strong);
+}
+
+.vp-doc .markdown-alert-important {
+  border-color: var(--color-featured-strong);
+}
+
+.vp-doc .markdown-alert-important .markdown-alert-title {
+  color: var(--color-featured-strong);
+}
+
+.vp-doc .markdown-alert-warning {
+  border-color: var(--color-accent);
+}
+
+.vp-doc .markdown-alert-warning .markdown-alert-title {
+  color: var(--color-accent);
+}
+
+.vp-doc .markdown-alert-caution {
+  border-color: #9c3f2a;
+}
+
+.vp-doc .markdown-alert-caution .markdown-alert-title {
+  color: #9c3f2a;
+}
+
+/* 行内悬浮注释：[正文]{补充说明}
+   气泡由 components/InlineAnnotation.vue 以 fixed 浮层挂在 body 上（见文件末尾样式），
+   这里只负责锚点本身与给读屏保留的文本 */
+.vp-doc .markdown-annotation {
+  color: var(--color-accent-strong);
+  font-weight: 600;
+  text-decoration: underline dotted var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/* 悬浮或聚焦时给一点底色反馈，明确「这里可以看注释」 */
+.vp-doc .markdown-annotation[data-annotation-active='1'],
+.vp-doc .markdown-annotation:hover,
+.vp-doc .markdown-annotation:focus-visible {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 3px;
+  outline: none;
+}
+
+/* 锚点里的文本保留给读屏，视觉上不出现（气泡是 body 上的浮层） */
+.vp-doc .markdown-annotation .annotation-tooltip {
+  display: none;
+}
+
+/* 外链图片预览：[upl-image-preview url=…] */
+.vp-doc img.upl-image-preview {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: var(--kratos-radius);
+}
+
+/* KaTeX（客户端渲染）：块级公式横向可滚，与正文分隔一致 */
+.vp-doc .katex-display {
+  margin: 1rem 0;
+  padding: 0.2rem 0;
+  overflow: auto hidden;
+}
+
+/* ============================================================
+   行内注释的悬浮气泡
+   ------------------------------------------------------------
+   浮层由 JS 创建并挂在 body 上（position: fixed + translate），
+   不参与正文布局，也不会被正文容器的 overflow 裁掉。
+   ============================================================ */
+.markdown-annotation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: 0 8px 24px var(--color-shadow);
+  font-family: var(--kratos-font);
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+  text-decoration: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.markdown-annotation-popup.is-visible {
+  opacity: 1;
+}
+
+.markdown-annotation-popup a {
+  color: var(--color-accent-strong);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 小三角：指向被注释的那段文字 */
+.markdown-annotation-arrow {
+  position: absolute;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transform: rotate(45deg);
+}
+
+/* 气泡翻到文字下方时，三角朝上 */
+.markdown-annotation-arrow.below {
+  bottom: auto;
+  top: -5px;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
+}
+

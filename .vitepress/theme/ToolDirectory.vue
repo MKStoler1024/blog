@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 
-type Tool = { name: string, description?: string, url: string | null, productUrl?: string, archived?: boolean }
+type Tool = { name: string, description?: string, url: string | null, productUrl?: string, archived?: boolean, featured?: boolean }
 type Section = { name: string, tools: Tool[] }
 
 const query = ref('')
@@ -67,12 +67,21 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
                     type="button" role="tab" :aria-selected="activeSection === name"
                     @click="activeSection = name">{{ name }}</button>
             </div>
-            <div v-if="visibleSections.length" class="directory-sections">
+            <div v-if="visibleSections.length" class="directory-sections" :key="activeSection">
                 <section v-for="section in visibleSections" :key="section.name" class="directory-section">
                     <h2>{{ section.name }} <small>{{ section.tools.length }}</small></h2>
                     <div class="tool-grid">
                             <template v-for="tool in section.tools" :key="tool.name">
-                                <div class="tool-card" :class="{ archived: tool.archived, unavailable: !tool.url }">
+                                <div class="tool-card" :class="{ archived: tool.archived, featured: tool.featured, unavailable: !tool.url }">
+                                    <span v-if="tool.featured" class="ribbon" title="精华推荐">
+                                        <i class="fa fa-star" aria-hidden="true"></i>精华
+                                    </span>
+                                    <!-- 整卡点击热区：铺满卡片，让右侧箭头、卡片留白处点击也能跳转；
+                                         它只是热区，对读屏与 Tab 隐藏，真正的链接仍是下面的 tool-copy -->
+                                    <a v-if="tool.url" class="tool-hit" :href="tool.url" target="_blank" rel="noreferrer"
+                                        aria-hidden="true" tabindex="-1"></a>
+                                    <button v-else class="tool-hit" type="button" aria-hidden="true" tabindex="-1"
+                                        @click="handleMissingUrl(tool)"></button>
                                     <a v-if="tool.url" class="tool-copy" :href="tool.url" target="_blank" rel="noreferrer">
                                         <strong>{{ tool.name }}</strong><span>{{ tool.description || '查看原帖' }}</span>
                                     </a>
@@ -179,9 +188,9 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 }
 
 .category-tabs button.active {
-    border-color: var(--color-accent);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
     color: var(--color-accent-strong);
-    background: var(--color-accent-soft);
+    background: transparent;
 }
 
 .category-tabs button:focus-visible,
@@ -224,25 +233,26 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 }
 
 .tool-card {
+    position: relative;
     display: flex;
     min-height: 72px;
     align-items: center;
     gap: .7rem;
+    overflow: hidden;
     border: 1px solid var(--color-border);
     border-radius: 7px;
     padding: .8rem;
     background: var(--color-surface);
     color: inherit;
+    /* 建立层叠上下文，让 .tool-hit 热区正好落在卡片背景之上、正文之下
+       （正文仍可拖选，留白处点击也能触发跳转） */
+    isolation: isolate;
     transition: border-color .2s ease, background-color .2s ease;
 }
 
 .tool-card:hover {
     border-color: var(--color-accent);
     background: var(--color-surface-muted);
-}
-
-.tool-card.unavailable {
-    cursor: default;
 }
 
 .tool-copy {
@@ -258,6 +268,18 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     text-align: left;
     font: inherit;
     text-decoration: none;
+    cursor: pointer;
+}
+
+/* 整卡点击热区：铺满卡片，使箭头、卡片留白等非文字区域点击也能跳转
+   （窄屏换行后右侧同样是可点区域），与「整卡可点」的视觉预期一致 */
+.tool-hit {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 0;
+    padding: 0;
+    background: none;
     cursor: pointer;
 }
 
@@ -282,30 +304,39 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     flex: 0 0 auto;
     align-items: center;
     gap: .5rem;
+    /* 装饰性元素不拦截点击，让点击落到整卡热区上；仅「项目地址」例外 */
+    pointer-events: none;
 }
 
 .project-link {
     display: inline-flex;
     align-items: center;
-    border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    pointer-events: auto;
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     padding: .15rem .45rem;
-    color: var(--color-accent-strong);
-    background: var(--color-accent-soft);
+    color: var(--color-gray);
+    background: transparent;
     font-size: .7rem;
     text-decoration: none;
     white-space: nowrap;
-    transition: border-color .2s ease, background-color .2s ease;
+    transition: border-color .2s ease, color .2s ease;
 }
 
 .project-link:hover {
-    border-color: var(--color-accent);
-    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+    color: var(--color-accent-strong);
 }
 
 .arrow {
     color: var(--color-accent);
     font: 1.1rem sans-serif;
+    transition: transform .2s ease;
+}
+
+/* 整卡可点，hover 时箭头轻微外推，强化「点哪儿都能打开」的反馈 */
+.tool-card:hover .arrow {
+    transform: translate(2px, -2px);
 }
 
 .status {
@@ -317,6 +348,34 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     white-space: nowrap;
 }
 
+/* 精华彩带：斜跨卡片右上角，由卡片圆角裁切，形成缎带效果
+   尺寸与位置经过像素采样校准：彩带内沿必须落在右上角空白区（徽章/箭头之上），
+   这样卡片无需额外 padding，同排卡片的盒高与文字基线才能完全一致 */
+.ribbon {
+    position: absolute;
+    top: 5px;
+    right: -46px;
+    z-index: 1;
+    width: 120px;
+    padding: .06rem 0;
+    transform: rotate(45deg);
+    background: var(--color-featured);
+    color: var(--color-featured-ink);
+    font-size: .58rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: .1em;
+    text-align: center;
+    text-indent: .1em;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.ribbon i {
+    margin-right: .12rem;
+    font-size: .52rem;
+}
+
 .tool-card.archived {
     background: var(--color-surface-muted);
     opacity: .8;
@@ -324,6 +383,16 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
 .tool-card.archived:hover {
     opacity: 1;
+}
+
+.tool-card.featured {
+    border-color: color-mix(in srgb, var(--color-featured) 45%, var(--color-border));
+    background: var(--color-surface);
+}
+
+.tool-card.featured:hover {
+    border-color: var(--color-featured);
+    background: var(--color-surface-muted);
 }
 
 .empty {
@@ -451,6 +520,11 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
     .tool-card {
         flex-wrap: wrap;
+    }
+
+    /* 窄屏换行后 tool-copy 会占满整行，长名称可能伸到右上角彩带之下 */
+    .tool-card.featured .tool-copy {
+        padding-right: 2.9rem;
     }
 
     .skeleton-toolbar {

@@ -15,7 +15,6 @@ export default {
   async load(asFeed = false) {
     const md = await createMarkdownRenderer(cwd)
     const postDir = path.join(cwd, 'posts')
-    checkTags()
     return fs
       .readdirSync(postDir)
       .filter((file) => file.endsWith('.md'))
@@ -63,15 +62,6 @@ function getPost(md, file, postDir, asFeed = false) {
     post
   })
   return post
-}
-
-function checkTags() {
-  const dir = path.join(cwd, 'tags')
-  if (!fs.existsSync(dir)) {
-    console.log('Creating page: /tags')
-    fs.mkdirSync(dir)
-    fs.writeFileSync('tags/index.md', '---\ntitle: 标签\n---\n')
-  }
 }
 
 // Reading-time estimation based on body word count.

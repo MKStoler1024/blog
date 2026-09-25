@@ -1,0 +1,171 @@
+/* ============================================================
+   Kratos 主题基础（本站版）
+   ------------------------------------------------------------
+   版式取自 OhMyIWB 的 Kratos for VitePress；配色与字体使用本站
+   既有的暖纸 / 暖炭 + 赭褐体系（见 palette.css）。
+   保留 --kratos-* 变量名，使整套版式样式可以原样复用。
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. 全局
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--kratos-border-strong) transparent;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--kratos-bg);
+  color: var(--kratos-text);
+  font-weight: normal;
+  font-size: 16px;
+  font-family: var(--kratos-font);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.banner .introduce .title,
+.article-head .article-title,
+.list-head .search-title,
+.post-list .masonry .a-post .title,
+.sidebar .widget .title,
+.widget-posts .post-title,
+.nav-toc-title,
+.drawer-title,
+.navbar-brand .brand-name {
+  font-family: var(--kratos-font-sans);
+}
+
+a {
+  color: var(--kratos-primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--kratos-primary-hover);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 16px;
+  color: var(--kratos-text);
+  font-size: 16px;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+.kratos-theme {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 图标基础 */
+.kicon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: -3px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ------------------------------------------------------------
+   2. 栅格与容器
+   ------------------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.row > [class^="col-"] {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* 两栏栅格（桌面端）。用 .row > 提高权重：
+   responsive.css 里 @media (max-width) 的同名规则会覆盖单类选择器，
+   而这份基础样式在入口里排在响应式之后加载 */
+.row > .col-lg-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+.row > .col-lg-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+@media (max-width: 991.98px) {
+  .row > .col-lg-8,
+  .row > .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   3. 减少动态效果
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .article-panel,
+  .f-toolbox .tool,
+  .nav-theme-toggler,
+  .post-list .masonry .a-thumb img {
+    transition: none;
+  }
+}
