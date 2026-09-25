@@ -1266,6 +1266,12 @@
                 "productUrl": "https://github.com/BloretCrew/CrewRouter"
             },
             {
+                "name": "cseslib4py",
+                "description": "Python 端 CSES 解析库",
+                "url": "https://forum.smart-teach.cn/d/800",
+                "productUrl": "https://github.com/MacroMeng/cseslib4py"
+            },
+            {
                 "name": "CyQuote",
                 "description": "昔言",
                 "url": "https://forum.smart-teach.cn/d/2909",
