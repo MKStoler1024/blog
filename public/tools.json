@@ -57,7 +57,8 @@
             {
                 "name": "ClassIsland.Plugin.FaceLate",
                 "description": "人脸考勤插件",
-                "url": "https://forum.smart-teach.cn/d/2970"
+                "url": "https://forum.smart-teach.cn/d/2970",
+                "productUrl": "https://github.com/YSA887/ClassIsland.Plugin.FaceLate"
             },
             {
                 "name": "ClassIslandInjector",
