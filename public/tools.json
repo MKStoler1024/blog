@@ -349,6 +349,11 @@
             },
             {
                 "name": "icc-0610fix",
+                "url": "https://forum.smart-teach.cn/d/886/5",
+                "productUrl": "https://www.123865.com/s/ICnzVv-aRNgh"
+            },
+            {
+                "name": "icc-0610fix",
                 "description": "修改版",
                 "url": "https://forum.smart-teach.cn/d/886/4",
                 "productUrl": "https://github.com/LiuYan-xwx/icc-0610fix"
