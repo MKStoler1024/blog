@@ -1600,6 +1600,12 @@
                 "productUrl": "https://github.com/jin-ct/wxfilehelperclient"
             },
             {
+                "name": "xidio",
+                "description": "西安电子科技大学校园网诊断工具",
+                "url": "https://forum.smart-teach.cn/d/1839/21",
+                "productUrl": "https://github.com/LyCecilion/xidio"
+            },
+            {
                 "name": "Your-Missing-Phone-Class",
                 "description": "你缺失的那门手机课",
                 "url": "https://forum.smart-teach.cn/d/900/10",
