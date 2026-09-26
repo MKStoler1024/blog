@@ -186,16 +186,16 @@
                 "productUrl": "https://github.com/233laoliu/csespusher"
             },
             {
-                "name": "ElectronClassScheduleX",
-                "description": "个人修改版",
-                "url": "https://forum.smart-teach.cn/d/600",
-                "productUrl": "https://github.com/Enigfrank/ElectronClassScheduleX"
-            },
-            {
                 "name": "ElectronClassSchedule",
                 "description": "带配置工具",
                 "url": "https://forum.smart-teach.cn/d/2858",
                 "productUrl": "https://github.com/TEG6129BEV15/ElectronClassScheduleWithEditor"
+            },
+            {
+                "name": "ElectronClassScheduleX",
+                "description": "个人修改版",
+                "url": "https://forum.smart-teach.cn/d/600",
+                "productUrl": "https://github.com/Enigfrank/ElectronClassScheduleX"
             },
             {
                 "name": "iClass",
@@ -860,15 +860,15 @@
                 "productUrl": "https://edu.pbxt.cloud/"
             },
             {
+                "name": "易考勤",
+                "description": "班级考勤异常记录（Wanderer）",
+                "url": "https://github.com/SECTL/Wanderer"
+            },
+            {
                 "name": "电教委员指南",
                 "description": "面向电教委员的电子化文档知识库",
                 "url": "https://forum.smart-teach.cn/d/701",
                 "productUrl": "https://github.com/CN-E-Learning/CN-e-learning"
-            },
-            {
-                "name": "易考勤",
-                "description": "班级考勤异常记录（Wanderer）",
-                "url": "https://github.com/SECTL/Wanderer"
             }
         ]
     },
@@ -1232,6 +1232,12 @@
                 "productUrl": "https://github.com/BSOD-MEMZ/360-Class-Guard"
             },
             {
+                "name": "astrbot_plugin_scam_sweeper",
+                "description": "QQ 自动撤回大学班级群诈骗信息",
+                "url": "https://forum.smart-teach.cn/d/2975",
+                "productUrl": "https://github.com/Makitoid/astrbot_plugin_scam_sweeper"
+            },
+            {
                 "name": "Auto Photo Sweeper",
                 "description": "摄影筛选器",
                 "url": "https://forum.smart-teach.cn/d/2415",
@@ -1422,11 +1428,6 @@
                 "archived": true
             },
             {
-                "name": "pptmon",
-                "description": "PPT 互操作 SDK",
-                "url": "https://forum.smart-teach.cn/d/3033"
-            },
-            {
                 "name": "KillUser-SmartTeach",
                 "description": "屏蔽指定 STCN 用户",
                 "url": "https://forum.smart-teach.cn/d/1143",
@@ -1461,6 +1462,12 @@
                 "productUrl": "https://github.com/wangruoyuyuyu/maiRotator"
             },
             {
+                "name": "MHOP",
+                "description": "心理帮扶平台",
+                "url": "https://forum.smart-teach.cn/d/2982",
+                "productUrl": "https://github.com/jmj626000/MHOP-"
+            },
+            {
                 "name": "MusicLite",
                 "description": "音乐播放器",
                 "url": "https://forum.smart-teach.cn/d/2635",
@@ -1471,10 +1478,9 @@
                 "url": "https://forum.smart-teach.cn/d/2831"
             },
             {
-                "name": "astrbot_plugin_scam_sweeper",
-                "description": "QQ 自动撤回大学班级群诈骗信息",
-                "url": "https://forum.smart-teach.cn/d/2975",
-                "productUrl": "https://github.com/Makitoid/astrbot_plugin_scam_sweeper"
+                "name": "pptmon",
+                "description": "PPT 互操作 SDK",
+                "url": "https://forum.smart-teach.cn/d/3033"
             },
             {
                 "name": "PptxVideoProcessing",
@@ -1610,10 +1616,9 @@
                 "productUrl": "https://nav-cses.netlify.app/"
             },
             {
-                "name": "MHOP",
-                "description": "心理帮扶平台",
-                "url": "https://forum.smart-teach.cn/d/2982",
-                "productUrl": "https://github.com/jmj626000/MHOP-"
+                "name": "希沃折腾手册",
+                "url": "https://forum.smart-teach.cn/d/230",
+                "productUrl": "https://kdocs.cn/l/coHT3CUcoQDV"
             },
             {
                 "name": "智教导航",
@@ -1642,11 +1647,6 @@
                 "name": "电教委员交接手册",
                 "url": "https://forum.smart-teach.cn/d/2757",
                 "productUrl": "https://1845171774.share.123pan.cn/123pan/hXEzTd-A0EjH"
-            },
-            {
-                "name": "希沃折腾手册",
-                "url": "https://forum.smart-teach.cn/d/230",
-                "productUrl": "https://kdocs.cn/l/coHT3CUcoQDV"
             },
             {
                 "name": "白板迁移工具",
