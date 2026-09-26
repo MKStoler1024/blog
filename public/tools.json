@@ -672,6 +672,11 @@
                 "productUrl": "https://github.com/Macrohard0001/Random_Choice_Plus_3"
             },
             {
+                "name": "random_draw",
+                "description": "命令行随机点名",
+                "url": "https://forum.smart-teach.cn/d/1959/9"
+            },
+            {
                 "name": "Randomer",
                 "description": "易点名",
                 "url": "https://forum.smart-teach.cn/d/1283",
