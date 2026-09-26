@@ -937,6 +937,12 @@
                 "productUrl": "https://github.com/Honglin114514/LockScreenforClass"
             },
             {
+                "name": "PPT 触屏辅助",
+                "description": "在 PowerPoint 中单击翻页",
+                "url": "https://forum.smart-teach.cn/d/3045/12",
+                "productUrl": "https://github.com/RinLit-233-shiroko/PowerPoint-Touch-Assist"
+            },
+            {
                 "name": "SingleStart",
                 "description": "防重复启动",
                 "url": "https://forum.smart-teach.cn/d/2713-singlestart-zhen-dui-bu-fen-lao-shi-shi-yong-xi-guan-jin-xing-hong-kong-you-hua-de-gong-ju",
