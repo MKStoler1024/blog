@@ -1387,6 +1387,11 @@
                 "archived": true
             },
             {
+                "name": "pptmon",
+                "description": "PPT 互操作 SDK",
+                "url": "https://forum.smart-teach.cn/d/3033"
+            },
+            {
                 "name": "KillUser-SmartTeach",
                 "description": "屏蔽指定 STCN 用户",
                 "url": "https://forum.smart-teach.cn/d/1143",
