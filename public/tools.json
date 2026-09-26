@@ -1566,8 +1566,9 @@
                 "productUrl": "https://nav-cses.netlify.app/"
             },
             {
-                "name": "心理帮扶平台",
-                "url": "https://forum.smart-teach.cn/d/2921",
+                "name": "MHOP",
+                "description": "心理帮扶平台",
+                "url": "https://forum.smart-teach.cn/d/2982",
                 "productUrl": "https://github.com/jmj626000/MHOP-"
             },
             {
