@@ -510,7 +510,8 @@
             {
                 "name": "FlyEduDownloader",
                 "description": "飞翔教学资源助手",
-                "url": "https://forum.smart-teach.cn/d/120"
+                "url": "https://forum.smart-teach.cn/d/120",
+                "productUrl": "https://github.com/cjhdevact/FlyEduDownloader"
             },
             {
                 "name": "Hazelita",
