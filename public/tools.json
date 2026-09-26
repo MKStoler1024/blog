@@ -1008,6 +1008,12 @@
                 "productUrl": "https://github.com/SECTL/AssignSticker"
             },
             {
+                "name": "ClassWindow 课堂窗",
+                "description": "桌面悬浮窗小组件",
+                "url": "https://forum.smart-teach.cn/d/1061",
+                "productUrl": "https://github.com/xinghai-smartedu/classwindow"
+            },
+            {
                 "name": "Classworks",
                 "description": "作业记录、展示与同步 + 考试看板",
                 "url": "https://forum.smart-teach.cn/d/266",
@@ -1096,12 +1102,6 @@
                 "description": "沉浸式时钟",
                 "url": "https://forum.smart-teach.cn/d/959",
                 "productUrl": "https://github.com/Qziky/Immersive-clock"
-            },
-            {
-                "name": "ClassWindow 课堂窗",
-                "description": "桌面悬浮窗小组件",
-                "url": "https://forum.smart-teach.cn/d/1061",
-                "productUrl": "https://github.com/xinghai-smartedu/classwindow"
             },
             {
                 "name": "NCEECountDown",
