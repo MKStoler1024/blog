@@ -180,6 +180,12 @@
                 "productUrl": "https://github.com/kuailiaojie/classtable"
             },
             {
+                "name": "ClassTopLand",
+                "description": "轻量、简单的桌面课表",
+                "url": "https://forum.smart-teach.cn/d/1783/498",
+                "productUrl": "https://github.com/Aero8m/ClassTopLand"
+            },
+            {
                 "name": "csespusher",
                 "description": "在线课表分发",
                 "url": "https://forum.smart-teach.cn/d/2815",
