@@ -333,7 +333,8 @@
                 "archived": true
             },
             {
-                "name": "SmartSideBAR 常驻侧边快捷键工具",
+                "name": "SmartSideBAR",
+                "description": "常驻侧边快捷键工具",
                 "url": "https://forum.smart-teach.cn/d/2730",
                 "productUrl": "https://github.com/ClassTechStar/SmartSideBAR"
             }
