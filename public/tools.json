@@ -1485,6 +1485,12 @@
                 "url": "https://forum.smart-teach.cn/d/2831"
             },
             {
+                "name": "OpenClass-Box",
+                "description": "Windows 桌面工具箱",
+                "url": "https://forum.smart-teach.cn/d/3058",
+                "productUrl": "https://github.com/HMUG12/OpenClass-Box"
+            },
+            {
                 "name": "pptmon",
                 "description": "PPT 互操作 SDK",
                 "url": "https://forum.smart-teach.cn/d/3033"
