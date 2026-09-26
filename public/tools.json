@@ -1359,6 +1359,11 @@
                 "archived": true
             },
             {
+                "name": "HugoWidget",
+                "url": "https://forum.smart-teach.cn/d/3044/4",
+                "productUrl": "https://github.com/HugoWidget/HugoWidget"
+            },
+            {
                 "name": "ImmersingLinker",
                 "description": "智教软件信息整合平台",
                 "url": "https://forum.smart-teach.cn/d/2446",
