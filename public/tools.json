@@ -260,6 +260,12 @@
                 "productUrl": "https://github.com/JerryZeng20142/Fuck-EasiNote5"
             },
             {
+                "name": "HugoWndRec",
+                "description": "希沃管家窗口拦截",
+                "url": "https://forum.smart-teach.cn/d/2852/22",
+                "productUrl": "https://github.com/HugoWidget/HugoProgs/blob/master/docs/HugoWndRec.md"
+            },
+            {
                 "name": "NoMoreMonitor",
                 "description": "防摄像头监控",
                 "url": "https://forum.smart-teach.cn/d/2054",
