@@ -118,6 +118,12 @@
                 "url": "https://forum.smart-teach.cn/d/1424"
             },
             {
+                "name": "ZongziTEK 黑板贴连接器",
+                "description": "与 ClassIsland 进行连接与交互",
+                "url": "https://forum.smart-teach.cn/d/3048/16",
+                "productUrl": "https://github.com/ZongziTEK/ZongziTEK-Blackboard-Sticker-Connector-for-ClassIsland"
+            },
+            {
                 "name": "新闻获取推送程序",
                 "url": "https://forum.smart-teach.cn/d/1944"
             }
