@@ -217,7 +217,8 @@
             },
             {
                 "name": "Island",
-                "url": "https://forum.smart-teach.cn/d/2283/9"
+                "url": "https://forum.smart-teach.cn/d/2283/9",
+                "productUrl": "https://1816324438.share.123pan.cn/123pan/PyAqVv-PCg8v"
             },
             {
                 "name": "LingYun Class Widgets",
@@ -1546,6 +1547,10 @@
                 "name": "ReMessyDesktop 桌面不凌乱",
                 "url": "https://forum.smart-teach.cn/d/732/30",
                 "productUrl": "https://github.com/unnuTechnology/ReMessyDesktop"
+            },
+            {
+                "name": "Rin-UI",
+                "description": ""
             },
             {
                 "name": "SecAgent",
