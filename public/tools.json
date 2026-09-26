@@ -1539,6 +1539,12 @@
                 "url": "https://forum.smart-teach.cn/d/546"
             },
             {
+                "name": "wipeout-ms-account",
+                "description": "Microsoft 账户自动退登",
+                "url": "https://forum.smart-teach.cn/d/483/31",
+                "productUrl": "https://github.com/Jack-tendy-538/wipeout-ms-account"
+            },
+            {
                 "name": "wxfilehelperclient",
                 "description": "微信文件传输助手桌面客户端",
                 "url": "https://forum.smart-teach.cn/d/2767",
