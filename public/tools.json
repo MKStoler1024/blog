@@ -1441,7 +1441,8 @@
             },
             {
                 "name": "LoongArch 旧世界 ABI1.0 QEMU X11 测试环境",
-                "url": "https://forum.smart-teach.cn/d/1774/5"
+                "url": "https://forum.smart-teach.cn/d/1774/5",
+                "productUrl": "https://github.com/YU322142/loongarch-oldworld-qemu-vm"
             },
             {
                 "name": "LXMusicHelper",
