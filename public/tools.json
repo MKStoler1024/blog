@@ -1313,6 +1313,12 @@
                 "productUrl": "https://github.com/square-235/DebianMakeInstallHelper"
             },
             {
+                "name": "DeviceTrayMgr",
+                "description": "Windows “安全删除硬件并弹出媒体” 托盘菜单部分选项禁用器",
+                "url": "https://forum.smart-teach.cn/d/2655/64",
+                "productUrl": "https://github.com/howdy213/DeviceTrayMgr"
+            },
+            {
                 "name": "Duilib2Qt",
                 "description": "Duilib UI 转 .ui",
                 "url": "https://forum.smart-teach.cn/d/2609",
