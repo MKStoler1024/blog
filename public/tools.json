@@ -1423,6 +1423,12 @@
                 "productUrl": "https://github.com/ImmersingEducation/ImmersingLinker"
             },
             {
+                "name": "iNKORE.UI.WPF.Modern",
+                "description": "WPF 应用程序的 Fluent 2 样式与控件",
+                "url": "https://forum.smart-teach.cn/d/620/2",
+                "productUrl": "https://github.com/iNKORE-NET/UI.WPF.Modern"
+            },
+            {
                 "name": "IwbIcons",
                 "url": "https://forum.smart-teach.cn/d/735",
                 "archived": true
