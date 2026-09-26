@@ -729,7 +729,6 @@
             {
                 "name": "YABVA",
                 "description": "傻瓜投票软件",
-                "archived": true,
                 "url": "https://forum.smart-teach.cn/d/2708",
                 "productUrl": "https://github.com/unnuTechnology/YABVA"
             },
