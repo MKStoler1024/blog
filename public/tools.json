@@ -27,6 +27,12 @@
                 "featured": true
             },
             {
+                "name": "ClassIsland",
+                "description": "InnoSetup 安装程序",
+                "url": "https://forum.smart-teach.cn/d/3046/5",
+                "productUrl": "https://github.com/1312333/ClassIsland/releases"
+            },
+            {
                 "name": "ClassIsland Guardian",
                 "description": "ClassIsland 守护工具",
                 "url": "https://forum.smart-teach.cn/d/2601",
