@@ -863,6 +863,12 @@
         "name": "系统增强与辅助",
         "tools": [
             {
+                "name": "BlackScreensaver",
+                "description": "假熄屏工具",
+                "url": "https://forum.smart-teach.cn/d/1718",
+                "productUrl": "https://wwbeo.lanzouv.com/iMQtJ3o0eb8b"
+            },
+            {
                 "name": "ClassBar",
                 "description": "插件化班辅悬浮球",
                 "url": "https://forum.smart-teach.cn/d/2706",
@@ -922,11 +928,6 @@
                 "description": "Win 远控 Win 支持触屏",
                 "url": "https://forum.smart-teach.cn/d/2735",
                 "productUrl": "https://github.com/wangruoyuyuyu/WryRemoteTouchProject"
-            },
-            {
-                "name": "假息屏脚本",
-                "description": "Python 版本",
-                "url": "https://forum.smart-teach.cn/d/1718"
             },
             {
                 "name": "假熄屏工具",
