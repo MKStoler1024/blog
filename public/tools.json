@@ -1565,7 +1565,8 @@
             {
                 "name": "Unlock Music",
                 "description": "解锁加密音乐文件",
-                "url": "https://forum.smart-teach.cn/d/546"
+                "url": "https://forum.smart-teach.cn/d/546",
+                "productUrl": "https://git.unlock-music.dev/um"
             },
             {
                 "name": "wipeout-ms-account",
