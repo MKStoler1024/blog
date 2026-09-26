@@ -1080,6 +1080,12 @@
                 "productUrl": "https://github.com/BearWhite-Z/Daily-Commission-Panel"
             },
             {
+                "name": "Desktop-Lesson-List",
+                "description": "在桌面显示当日课程表、未来倒计时、公告板等组件",
+                "url": "https://forum.smart-teach.cn/d/1783/498",
+                "productUrl": "https://github.com/Wudji/Desktop-Lesson-List"
+            },
+            {
                 "name": "Education Clock",
                 "description": "桌面信息看板",
                 "url": "https://forum.smart-teach.cn/d/619",
