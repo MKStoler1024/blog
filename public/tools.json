@@ -1087,7 +1087,8 @@
             {
                 "name": "ExitBoard",
                 "description": "放学倒计时",
-                "url": "https://forum.smart-teach.cn/d/748"
+                "url": "https://forum.smart-teach.cn/d/748",
+                "archived": true
             },
             {
                 "name": "FakExam",
