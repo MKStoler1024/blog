@@ -436,6 +436,12 @@
                 "productUrl": "https://github.com/wwcrdrvf6u/ShowWrite"
             },
             {
+                "name": "Sidera",
+                "description": "Linux 教室屏幕批注",
+                "url": "https://forum.smart-teach.cn/d/3049",
+                "productUrl": "https://github.com/offduckling4825/Sidera--screen-annotate-for-linux"
+            },
+            {
                 "name": "Steady-Ink",
                 "description": "稳墨",
                 "url": "https://forum.smart-teach.cn/d/2482",
