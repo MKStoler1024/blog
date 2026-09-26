@@ -187,6 +187,12 @@
             },
             {
                 "name": "ElectronClassSchedule",
+                "description": "电子桌面课程表",
+                "url": "https://forum.smart-teach.cn/d/1783/498",
+                "productUrl": "https://github.com/EnderWolf006/ElectronClassSchedule"                
+            },
+            {
+                "name": "ElectronClassSchedule",
                 "description": "带配置工具",
                 "url": "https://forum.smart-teach.cn/d/2858",
                 "productUrl": "https://github.com/TEG6129BEV15/ElectronClassScheduleWithEditor"
