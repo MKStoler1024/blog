@@ -1167,6 +1167,12 @@
                 "featured": true
             },
             {
+                "name": "ZongziTEK 黑板贴 Lite",
+                "description": "只有小黑板",
+                "url": "https://forum.smart-teach.cn/d/3048/14",
+                "productUrl": "https://github.com/ZongziTEK/ZongziTEK-Blackboard-Sticker-Lite"
+            },
+            {
                 "name": "作业展板",
                 "description": "从 QQ 群自动获取",
                 "url": "https://forum.smart-teach.cn/d/2137",
