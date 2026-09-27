@@ -1097,7 +1097,8 @@
                 "name": "Education Clock",
                 "description": "桌面信息看板",
                 "url": "https://forum.smart-teach.cn/d/619",
-                "productUrl": "https://github.com/Return-Log/Education-Clock"
+                "productUrl": "https://github.com/Return-Log/Education-Clock",
+                "featured": true
             },
             {
                 "name": "eGZ-board",
