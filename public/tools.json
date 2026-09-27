@@ -1290,8 +1290,10 @@
             },
             {
                 "name": "Awesome IWB",
+                "description": "软件推荐清单和实用知识手册",
                 "url": "https://forum.smart-teach.cn/d/1837",
-                "productUrl": "https://aiwb.smart-teach.cn"
+                "productUrl": "https://aiwb.smart-teach.cn",
+                "featured": true
             },
             {
                 "name": "Awesome-Class-Softwares",
