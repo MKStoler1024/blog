@@ -384,7 +384,8 @@
                 "name": "ICC-CE",
                 "description": "InkCanvasForClass 社区版",
                 "url": "https://forum.smart-teach.cn/d/467",
-                "productUrl": "https://github.com/InkCanvasForClass/community"
+                "productUrl": "https://github.com/InkCanvasForClass/community",
+                "featured": true
             },
             {
                 "name": "Ink Canvas Artistry",
