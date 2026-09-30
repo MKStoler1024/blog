@@ -1617,6 +1617,11 @@
                 "archived": true
             },
             {
+                "name": "StatusInsights",
+                "description": "个人视奸页面",
+                "url": "https://forum.smart-teach.cn/d/1772"
+            },
+            {
                 "name": "SoundEquilibrium",
                 "description": "统一音量控制器",
                 "url": "https://forum.smart-teach.cn/d/2055",
