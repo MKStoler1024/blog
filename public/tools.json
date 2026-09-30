@@ -213,7 +213,7 @@
             },
             {
                 "name": "iClass",
-                "description": "电子课表",
+                "description": "ElectronClassSchedule 增强版",
                 "url": "https://forum.smart-teach.cn/d/197",
                 "productUrl": "https://github.com/gpuawa/iClass"
             },
