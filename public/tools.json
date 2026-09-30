@@ -200,7 +200,7 @@
                 "featured": true
             },
             {
-                "name": "ElectronClassSchedule",
+                "name": "ElectronClassScheduleWithEditor",
                 "description": "带配置工具",
                 "url": "https://forum.smart-teach.cn/d/2858",
                 "productUrl": "https://github.com/TEG6129BEV15/ElectronClassScheduleWithEditor"
