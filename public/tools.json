@@ -1385,6 +1385,12 @@
                 "productUrl": "https://github.com/MacroMeng/cseslib4py"
             },
             {
+                "name": "CsesWebEditor",
+                "description": "CSES 课程表编辑器",
+                "url": "https://forum.smart-teach.cn/d/25",
+                "productUrl": "https://github.com/SmartTeachCN/CsesWebEditor"
+            },
+            {
                 "name": "CyQuote",
                 "description": "昔言",
                 "url": "https://forum.smart-teach.cn/d/2909",
