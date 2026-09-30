@@ -1563,7 +1563,9 @@
             },
             {
                 "name": "Rin-UI",
-                "description": ""
+                "description": "Qt Quick (QML) 类 Fluent Design UI 库",
+                "url": "https://forum.smart-teach.cn/d/1897",
+                "productUrl": "https://github.com/RinLit-233-shiroko/Rin-UI"
             },
             {
                 "name": "SecAgent",
