@@ -283,7 +283,7 @@
             },
             {
                 "name": "ENAL-rs",
-                "description": "希沃白板单点登录",
+                "description": "基于 Rust 的希沃白板单点登录代理服务",
                 "url": "https://forum.smart-teach.cn/d/2422",
                 "productUrl": "https://github.com/xiaofeiTM233/ENAL"
             },
