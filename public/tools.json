@@ -223,12 +223,6 @@
                 "productUrl": "https://1816324438.share.123pan.cn/123pan/PyAqVv-PCg8v"
             },
             {
-                "name": "LingYun Class Widgets",
-                "description": "凌云班级组件",
-                "url": "https://forum.smart-teach.cn/d/391",
-                "productUrl": "https://github.com/Yamikani-Flipped/LingYun-Class-Widgets"
-            },
-            {
                 "name": "NEO-ClassBoard",
                 "description": "桌面课表小组件",
                 "url": "https://forum.smart-teach.cn/d/2123",
@@ -245,7 +239,13 @@
                 "description": "智慧电子课程表",
                 "url": "https://forum.smart-teach.cn/d/607",
                 "productUrl": "https://github.com/ziyi127/TimeNest"
-            }
+            },
+            {
+                "name": "凌云班级组件 1",
+                "description": "开源版",
+                "url": "https://forum.smart-teach.cn/d/391",
+                "productUrl": "https://github.com/Yamikani-Flipped/LingYun-Class-Widgets"
+            },
         ]
     },
     {
