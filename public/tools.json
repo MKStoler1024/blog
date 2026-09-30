@@ -1163,6 +1163,12 @@
                 "productUrl": "https://github.com/Qziky/Immersive-clock"
             },
             {
+                "name": "ImmersingHomework",
+                "description": "班级大屏作业板",
+                "url": "https://forum.smart-teach.cn/d/3066",
+                "productUrl": "https://github.com/ImmersingEducation/ImmersingHomework"
+            },
+            {
                 "name": "NCEECountDown",
                 "description": "高考倒计日",
                 "url": "https://forum.smart-teach.cn/d/2072",
