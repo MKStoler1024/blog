@@ -289,7 +289,7 @@
             },
             {
                 "name": "ENAnalyzer",
-                "description": "希沃白板课件提取 / 自动转存",
+                "description": "希沃白板课件自动打包与管理",
                 "url": "https://forum.smart-teach.cn/d/2033",
                 "productUrl": "https://github.com/howdy213/ENAnalyzer"
             },
