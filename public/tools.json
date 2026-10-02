@@ -67,6 +67,12 @@
                 "productUrl": "https://github.com/BSOD-MEMZ/ClassIslandInjector"
             },
             {
+                "name": "ClassIslandToolbox",
+                "description": "悬浮岛插件",
+                "url": "https://forum.smart-teach.cn/d/3114",
+                "productUrl": "https://github.com/QiuXiYueShiJiu/ClassIslandToolbox"
+            },
+            {
                 "name": "ClassIslandUniversalTime-PowerShell",
                 "description": "设置系统时间为 CI 偏移时间",
                 "url": "https://forum.smart-teach.cn/d/1980",
@@ -77,6 +83,12 @@
                 "description": "上课前自动运行软件",
                 "url": "https://forum.smart-teach.cn/d/2179",
                 "productUrl": "https://github.com/mathfosh/ClassLauncher"
+            },
+            {
+                "name": "DubiIsland",
+                "description": "支持 Windows 7 的 ClassIsland .NET 6 移植",
+                "url": "https://forum.smart-teach.cn/d/3117/3",
+                "productUrl": "https://gitlab.com/dubi906w/dubiisland"
             },
             {
                 "name": "DutyForPutisland",
@@ -223,6 +235,18 @@
                 "productUrl": "https://1816324438.share.123pan.cn/123pan/PyAqVv-PCg8v"
             },
             {
+                "name": "LingYun Class Widgets 1",
+                "description": "开源版",
+                "url": "https://forum.smart-teach.cn/d/391",
+                "productUrl": "https://github.com/Yamikani-Flipped/LingYun-Class-Widgets"
+            },
+            {
+                "name": "LingYun Class Widgets 2",
+                "description": "闭源版",
+                "url": "https://forum.smart-teach.cn/d/2998",
+                "productUrl": "https://www.yamikani.cn/"
+            },
+            {
                 "name": "NEO-ClassBoard",
                 "description": "桌面课表小组件",
                 "url": "https://forum.smart-teach.cn/d/2123",
@@ -239,18 +263,6 @@
                 "description": "智慧电子课程表",
                 "url": "https://forum.smart-teach.cn/d/607",
                 "productUrl": "https://github.com/ziyi127/TimeNest"
-            },
-            {
-                "name": "凌云班级组件 1",
-                "description": "开源版",
-                "url": "https://forum.smart-teach.cn/d/391",
-                "productUrl": "https://github.com/Yamikani-Flipped/LingYun-Class-Widgets"
-            },
-            {
-                "name": "凌云班级组件 2",
-                "description": "闭源版",
-                "url": "https://forum.smart-teach.cn/d/2998",
-                "productUrl": "https://www.yamikani.cn/"
             }
         ]
     },
@@ -364,6 +376,11 @@
                 "description": "常驻侧边快捷键工具",
                 "url": "https://forum.smart-teach.cn/d/2730",
                 "productUrl": "https://github.com/ClassTechStar/SmartSideBAR"
+            },
+            {
+                "name": "seewo-MT61A-OpenCore",
+                "description": "Seewo 黑苹果 OpenCore EFI 引导文件",
+                "url": "https://forum.smart-teach.cn/d/1313"
             }
         ]
     },
@@ -565,6 +582,12 @@
                 "description": "噪音监测",
                 "url": "https://forum.smart-teach.cn/d/1263",
                 "productUrl": "https://github.com/QQHKX/Immersive-clock-monitor"
+            },
+            {
+                "name": "Intensive Listening 2 Resonance",
+                "description": "英语精听",
+                "url": "https://forum.smart-teach.cn/d/3110",
+                "archived": true
             },
             {
                 "name": "Lanqiao_embedded_provincial",
@@ -811,10 +834,22 @@
                 "archived": true
             },
             {
+                "name": "ClassWebSite",
+                "description": "班级网站模板",
+                "url": "https://forum.smart-teach.cn/d/966",
+                "productUrl": "https://github.com/jiugulixiaoniu/CWBS-ClassWebsite"
+            },
+            {
                 "name": "duty_reminder",
                 "description": "值日提醒",
                 "url": "https://forum.smart-teach.cn/d/1896",
                 "productUrl": "https://github.com/temingyu/duty_reminder"
+            },
+            {
+                "name": "EasySeats",
+                "description": "易排座",
+                "url": "https://forum.smart-teach.cn/d/3078",
+                "productUrl": "https://easyclass.zhrhello.top/easycore/?tab=seats"
             },
             {
                 "name": "ICE 冰核智能教务",
@@ -987,6 +1022,12 @@
         "name": "网络通信",
         "tools": [
             {
+                "name": "Campux",
+                "description": "校园墙运营系统",
+                "url": "https://forum.smart-teach.cn/d/3126",
+                "productUrl": "https://app.campux.top"
+            },
+            {
                 "name": "Dlass",
                 "description": "教师与白板即时通信平台",
                 "url": "https://forum.smart-teach.cn/d/810",
@@ -1029,10 +1070,9 @@
                 "productUrl": "https://github.com/pyTeachConnect/TeachConnect"
             },
             {
-                "name": "Twikoo-Magic",
-                "description": "异校互联",
+                "name": "异校互联",
                 "url": "https://forum.smart-teach.cn/d/424",
-                "productUrl": "https://github.com/noionion/Twikoo-Magic"
+                "archived": true
             },
             {
                 "name": "VoiceHub",
@@ -1240,6 +1280,11 @@
                 "productUrl": "https://github.com/ZongziTEK/ZongziTEK-Blackboard-Sticker-Lite"
             },
             {
+                "name": "作业版",
+                "url": "https://forum.smart-teach.cn/d/3048/42",
+                "productUrl": "https://cik07-cos.7moor-fs2.com/im/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/d44cf7f1ef6b3157/%E4%BD%9C%E4%B8%9A%E6%9D%BF.zip"
+            },
+            {
                 "name": "作业展板",
                 "description": "从 QQ 群自动获取",
                 "url": "https://forum.smart-teach.cn/d/2137",
@@ -1401,6 +1446,18 @@
                 "description": "Debian 系源代码编译打包安装",
                 "url": "https://forum.smart-teach.cn/d/1800",
                 "productUrl": "https://github.com/square-235/DebianMakeInstallHelper"
+            },
+            {
+                "name": "DesktopDrawpadBlocker",
+                "description": "同类批注软件悬浮窗拦截",
+                "url": "https://forum.smart-teach.cn/d/118",
+                "productUrl": "https://github.com/Alan-CRL/DesktopDrawpadBlocker"
+            },
+            {
+                "name": "DeviceKeeper",
+                "description": "“安全删除硬件并弹出媒体”托盘菜单部分选项隐藏并持续守护",
+                "url": "https://forum.smart-teach.cn/d/3095",
+                "productUrl": "https://github.com/Levent628/DeviceKeeper"
             },
             {
                 "name": "DeviceTrayMgr",
@@ -1663,6 +1720,11 @@
                 "productUrl": "https://git.unlock-music.dev/um"
             },
             {
+                "name": "USBCopyer",
+                "description": "插上 U 盘自动按需复制文件",
+                "url": "https://forum.smart-teach.cn/d/3075"
+            },
+            {
                 "name": "wipeout-ms-account",
                 "description": "Microsoft 账户自动退登",
                 "url": "https://forum.smart-teach.cn/d/483/31",
@@ -1768,6 +1830,11 @@
                 "name": "龙芯旧世界虚拟机快速安装脚本及指南",
                 "url": "https://forum.smart-teach.cn/d/1774/5",
                 "productUrl": "https://github.com/YU322142/loongarch-oldworld-qemu-vm"
+            },
+            {
+                "name": "星海助手",
+                "description": "安卓多网盘解析与下载管理",
+                "url": "https://forum.smart-teach.cn/d/3131"
             }
         ]
     }
