@@ -989,6 +989,12 @@
                 "productUrl": "https://github.com/Honglin114514/LockScreenforClass"
             },
             {
+                "name": "MikaDesktop",
+                "description": "为 Windows 一体机设计的桌面",
+                "url": "https://forum.smart-teach.cn/d/3149",
+                "productUrl": "https://github.com/Ri-Kazuma/MikaDesktop"
+            },
+            {
                 "name": "PPT 触屏辅助",
                 "description": "在 PowerPoint 中单击翻页",
                 "url": "https://forum.smart-teach.cn/d/3045/12",
