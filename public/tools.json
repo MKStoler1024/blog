@@ -411,12 +411,6 @@
                 "featured": true
             },
             {
-                "name": "Ink Canvas Artistry",
-                "description": "基于 WPF 的 InkCanvas 批注实现",
-                "url": "https://forum.smart-teach.cn/d/1132",
-                "productUrl": "https://github.com/InkCanvas/Ink-Canvas-Artistry"
-            },
-            {
                 "name": "Ink Canvas Better",
                 "url": "https://forum.smart-teach.cn/d/552",
                 "productUrl": "https://github.com/BaiYang2238/Ink-Canvas-Better"
