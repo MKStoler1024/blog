@@ -422,6 +422,12 @@
                 "productUrl": "https://github.com/clover-yan/Ink-Canvas-Plus"
             },
             {
+                "name": "Ink Canvas Ultra",
+                "description": "Ink-Canvas-Artistry 的二次发行版",
+                "url": "https://forum.smart-teach.cn/d/3142",
+                "productUrl": "https://github.com/muqiu-pika/Ink-Canvas-Ultra/"
+            },
+            {
                 "name": "InkCanvasForClass Native",
                 "url": "https://forum.smart-teach.cn/d/236",
                 "archived": true
