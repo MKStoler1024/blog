@@ -1576,6 +1576,12 @@
                 "productUrl": "https://github.com/YU322142/loongarch-oldworld-qemu-vm"
             },
             {
+                "name": "lx-ikun-music-sources",
+                "description": "LX_music & IKUN_music 音源收集",
+                "url": "https://forum.smart-teach.cn/u/Macrohard0001-Ryn",
+                "productUrl": "https://github.com/Macrohard0001/lx-ikun-music-sources"
+            },
+            {
                 "name": "LXMusicHelper",
                 "description": "第三方平台跳转 LXMusic 工具",
                 "url": "https://forum.smart-teach.cn/d/1358/5",
