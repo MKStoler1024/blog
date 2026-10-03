@@ -1426,7 +1426,6 @@
             },
             {
                 "name": "CuckooInterface",
-                 
                 "description": "下一代电教插件平台",
                 "url": "https://forum.smart-teach.cn/d/3137",
                 "productUrl": "https://github.com/LobbyChen/CuckooInterface"
