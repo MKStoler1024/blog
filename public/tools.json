@@ -461,7 +461,7 @@
                 "description": "集成式墨迹批注套件",
                 "url": "https://forum.smart-teach.cn/d/77",
                 "productUrl": "https://github.com/iNKORE-NET/Inkways",
-                "archived": "true"
+                "archived": true
             },
             {
                 "name": "LanStartWrite",
