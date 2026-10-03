@@ -1606,7 +1606,8 @@
             {
                 "name": "Qt-Py-to-UI",
                 "description": "PySide6 代码回转 UI",
-                "url": "https://forum.smart-teach.cn/d/2721"
+                "url": "https://forum.smart-teach.cn/d/2721",
+                "productUrl": "https://github.com/wangruoyuyuyu/Qt-Py-to-UI"
             },
             {
                 "name": "Qt2PECMD",
