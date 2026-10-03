@@ -660,11 +660,6 @@
                 "description": "已跑路",
                 "url": "https://forum.smart-teach.cn/d/2591",
                 "archived": true
-            },
-            {
-                "name": "智慧教育平台书本下载",
-                "url": "https://forum.smart-teach.cn/d/120",
-                "productUrl": "https://github.com/TapXWorld/ChinaTextbook"
             }
         ]
     },
