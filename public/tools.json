@@ -1712,7 +1712,8 @@
             {
                 "name": "USBCopyer",
                 "description": "插上 U 盘自动按需复制文件",
-                "url": "https://forum.smart-teach.cn/d/3075"
+                "url": "https://forum.smart-teach.cn/d/3075",
+                "productUrl": "https://github.com/kenvix/USBCopyer"
             },
             {
                 "name": "wipeout-ms-account",
