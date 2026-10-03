@@ -127,6 +127,11 @@
                 "productUrl": "https://github.com/doudou0720/IslandMQ"
             },
             {
+                "name": "LegacyIsland",
+                "description": "基于 .NET 472 的 ClassIsland 1.7 重度魔改版",
+                "url": "https://forum.smart-teach.cn/d/3148"
+            },
+            {
                 "name": "MornheIsland",
                 "description": "ClassIsland 第三方集控",
                 "url": "https://forum.smart-teach.cn/d/2267",
