@@ -67,6 +67,12 @@
                 "productUrl": "https://github.com/BSOD-MEMZ/ClassIslandInjector"
             },
             {
+                "name": "ClassIslandPromethium",
+                "description": "综合增强插件",
+                "url": "https://forum.smart-teach.cn/d/3144",
+                "productUrl": "https://github.com/QiuXiYueShiJiu/ClassIslandPromethium"
+            },
+            {
                 "name": "ClassIslandToolbox",
                 "description": "悬浮岛插件",
                 "url": "https://forum.smart-teach.cn/d/3114",
