@@ -386,7 +386,8 @@
             {
                 "name": "seewo-MT61A-OpenCore",
                 "description": "Seewo 黑苹果 OpenCore EFI 引导文件",
-                "url": "https://forum.smart-teach.cn/d/1313"
+                "url": "https://forum.smart-teach.cn/d/1313",
+                "productUrl": "https://github.com/NextPoXiao/seewo-MT61A-OpenCore"
             }
         ]
     },
