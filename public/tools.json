@@ -61,6 +61,12 @@
                 "productUrl": "https://github.com/YSA887/ClassIsland.Plugin.FaceLate"
             },
             {
+                "name": "ClassislandControlHub",
+                "description": "第三方集控",
+                "url": "https://forum.smart-teach.cn/d/3150",
+                "productUrl": "https://github.com/1sIancl/ClassislandControlHub"
+            },
+            {
                 "name": "ClassIslandInjector",
                 "description": "样式注入器",
                 "url": "https://forum.smart-teach.cn/d/2622",
