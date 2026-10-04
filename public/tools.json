@@ -1107,6 +1107,12 @@
                 "productUrl": "https://github.com/SECTL/AssignSticker"
             },
             {
+                "name": "Class Hot Search",
+                "description": "班级热搜排行",
+                "url": "https://forum.smart-teach.cn/d/386/4",
+                "productUrl": "https://github.com/SRInternet-Studio/Class_Hot_Search"
+            },
+            {
                 "name": "ClassWindow 课堂窗",
                 "description": "桌面悬浮窗小组件",
                 "url": "https://forum.smart-teach.cn/d/1061",
