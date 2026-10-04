@@ -33,6 +33,12 @@
                 "productUrl": "https://github.com/1312333/ClassIsland/releases"
             },
             {
+                "name": "ClasIsland",
+                "description": "IOS 端",
+                "url": "https://forum.smart-teach.cn/d/3162",
+                "productUrl": "https://github.com/LouisLu010/ClassIsland2/tree/develop/v2/ios"
+            },
+            {
                 "name": "ClassIsland Guardian",
                 "description": "ClassIsland 守护工具",
                 "url": "https://forum.smart-teach.cn/d/2601",
