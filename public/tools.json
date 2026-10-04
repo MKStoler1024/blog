@@ -1257,6 +1257,12 @@
                 "productUrl": "https://github.com/StickyHomeworks2/StickyHomeworks2"
             },
             {
+                "name": "timemium_timer",
+                "description": "基于 Flutter 的计时器",
+                "url": "https://forum.smart-teach.cn/d/2592",
+                "productUrl": "https://github.com/HelloCHLdev/timemium_timer"
+            },
+            {
                 "name": "VHB",
                 "description": "作业展示",
                 "url": "https://forum.smart-teach.cn/d/419",
