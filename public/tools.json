@@ -1205,6 +1205,12 @@
                 "productUrl": "https://github.com/Zpcin/HomeworkApp"
             },
             {
+                "name": "HomeWorkAttention",
+                "description": "跨平台作业信息显示",
+                "url": "https://forum.smart-teach.cn/d/3151",
+                "productUrl": "https://github.com/Mike-Luo-Leap/HomeworkAttention"
+            },
+            {
                 "name": "Immersive-clock",
                 "description": "沉浸式时钟",
                 "url": "https://forum.smart-teach.cn/d/959",
