@@ -1263,6 +1263,12 @@
                 "productUrl": "https://github.com/HelloCHLdev/timemium_timer"
             },
             {
+                "name": "TimemiumTimerNext",
+                "description": "基于 Electron 的计时器",
+                "url": "https://forum.smart-teach.cn/d/2592",
+                "productUrl": "https://github.com/FireflyOpenSourceLab/TimemiumTimerNext"
+            },
+            {
                 "name": "VHB",
                 "description": "作业展示",
                 "url": "https://forum.smart-teach.cn/d/419",
