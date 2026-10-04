@@ -91,12 +91,6 @@
                 "productUrl": "https://github.com/mathfosh/ClassLauncher"
             },
             {
-                "name": "DubiIsland",
-                "description": "支持 Windows 7 的 ClassIsland .NET 6 移植",
-                "url": "https://forum.smart-teach.cn/d/3117/3",
-                "productUrl": "https://gitlab.com/dubi906w/dubiisland"
-            },
-            {
                 "name": "DutyForPutisland",
                 "description": "值日安排自动发送",
                 "url": "https://forum.smart-teach.cn/d/2557",
