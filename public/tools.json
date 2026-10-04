@@ -1706,6 +1706,12 @@
                 "url": "https://forum.smart-teach.cn/d/1772"
             },
             {
+                "name": "STCN_rebuild",
+                "description": "从零重建的智教联盟论坛",
+                "url": "https://forum.smart-teach.cn/d/3118/53",
+                "productUrl": "https://github.com/Macrohard0001/STCN_rebuild"
+            },
+            {
                 "name": "SoundEquilibrium",
                 "description": "统一音量控制器",
                 "url": "https://forum.smart-teach.cn/d/2055",
