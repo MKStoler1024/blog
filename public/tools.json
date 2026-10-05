@@ -717,8 +717,7 @@
                 "name": "NamePicker",
                 "description": "点名器",
                 "url": "https://forum.smart-teach.cn/d/209",
-                "productUrl": "https://github.com/NamePickerOrg/NamePicker",
-                "featured": true
+                "productUrl": "https://github.com/NamePickerOrg/NamePicker"
             },
             {
                 "name": "NamePickerPlus",
