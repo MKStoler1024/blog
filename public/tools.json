@@ -1792,6 +1792,12 @@
                 "productUrl": "https://github.com/kenvix/USBCopyer"
             },
             {
+                "name": "vigil",
+                "description": "Linux 服务器防御",
+                "url": "https://forum.smart-teach.cn/d/3146",
+                "productUrl": "https://github.com/QiuXiYueShiJiu/vigil-guard"
+            },
+            {
                 "name": "wipeout-ms-account",
                 "description": "Microsoft 账户自动退登",
                 "url": "https://forum.smart-teach.cn/d/483/31",
