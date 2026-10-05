@@ -977,8 +977,7 @@
                 "name": "EasyTouch",
                 "description": "易触控",
                 "url": "https://forum.smart-teach.cn/d/1316",
-                "productUrl": "https://github.com/jin-ct/easytouch",
-                "featured": true
+                "productUrl": "https://github.com/jin-ct/easytouch"
             },
             {
                 "name": "Lock Screen for Class",
