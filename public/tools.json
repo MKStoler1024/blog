@@ -485,8 +485,7 @@
                 "name": "Luminalium 万演",
                 "description": "PPT 演示辅助工具",
                 "url": "https://forum.smart-teach.cn/d/2316",
-                "productUrl": "https://github.com/SECTL/Luminalium",
-                "featured": true
+                "productUrl": "https://github.com/SECTL/Luminalium"
             },
             {
                 "name": "PdfTeachAnnotator",
