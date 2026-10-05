@@ -205,6 +205,12 @@
                 "archived": true
             },
             {
+                "name": "ClassNEX",
+                "description": "课表信息显示",
+                "url": "https://forum.smart-teach.cn/d/3170",
+                "productUrl": "https://github.com/ClassNex/ClassNEX"
+            },
+            {
                 "name": "Classtable",
                 "description": "Android 课程表",
                 "url": "https://forum.smart-teach.cn/d/3021",
