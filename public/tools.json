@@ -908,8 +908,7 @@
                 "name": "SecScore",
                 "description": "教育积分管理",
                 "url": "https://forum.smart-teach.cn/d/1221",
-                "productUrl": "https://github.com/SECTL/SecScore",
-                "featured": true
+                "productUrl": "https://github.com/SECTL/SecScore"
             },
             {
                 "name": "全能班辅",
