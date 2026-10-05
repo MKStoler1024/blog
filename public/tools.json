@@ -506,6 +506,12 @@
                 "productUrl": "https://github.com/2-2-3-trimethylpentane/QuickDictForICC"
             },
             {
+                "name": "RimePPT",
+                "description": "雾凇 PPT 助手",
+                "url": "https://forum.smart-teach.cn/d/3178",
+                "productUrl": "https://rimeppt.myxmjy.top/"
+            },
+            {
                 "name": "screen-annotator",
                 "description": "Linux 屏幕批注",
                 "url": "https://forum.smart-teach.cn/d/2227",
