@@ -413,11 +413,6 @@
         "name": "教学辅助 / 批注",
         "tools": [
             {
-                "name": "FluttiBoard",
-                "url": "https://forum.smart-teach.cn/d/1196",
-                "archived": true
-            },
-            {
                 "name": "icc-0610fix",
                 "url": "https://forum.smart-teach.cn/d/886/5",
                 "productUrl": "https://www.123865.com/s/ICnzVv-aRNgh"
