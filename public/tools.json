@@ -1572,11 +1572,6 @@
                 "featured": true
             },
             {
-                "name": "IwbIcons",
-                "url": "https://forum.smart-teach.cn/d/735",
-                "archived": true
-            },
-            {
                 "name": "KillUser-SmartTeach",
                 "description": "屏蔽指定 STCN 用户",
                 "url": "https://forum.smart-teach.cn/d/1143",
