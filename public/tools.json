@@ -448,12 +448,6 @@
                 "productUrl": "https://github.com/LiuYan-xwx/InkCanvasForClass-Remastered"
             },
             {
-                "name": "Inkita.Gtk",
-                "description": "Linux Wayland 触摸屏友好屏幕批注",
-                "url": "https://forum.smart-teach.cn/d/470",
-                "archived": true
-            },
-            {
                 "name": "Inkways",
                 "description": "集成式墨迹批注套件",
                 "url": "https://forum.smart-teach.cn/d/77",
