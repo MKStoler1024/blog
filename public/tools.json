@@ -348,6 +348,12 @@
                 "productUrl": "https://github.com/howdy213/ENAnalyzer"
             },
             {
+                "name": "Fast-EasiLogin",
+                "description": "希沃本地 SSO 模拟",
+                "url": "https://forum.smart-teach.cn/d/1039/7",
+                "productUrl": "https://github.com/baiyao105/Fast-EasiLogin"
+            },
+            {
                 "name": "Fuck-EasiNote5",
                 "description": "希沃白板音频替换",
                 "url": "https://forum.smart-teach.cn/d/1240",
