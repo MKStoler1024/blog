@@ -138,12 +138,6 @@
                 "url": "https://forum.smart-teach.cn/d/3148"
             },
             {
-                "name": "MornheIsland",
-                "description": "ClassIsland 第三方集控",
-                "url": "https://forum.smart-teach.cn/d/2267",
-                "productUrl": "https://github.com/HeyCrab3/MornheIsland"
-            },
-            {
                 "name": "RSS 获取器",
                 "url": "https://forum.smart-teach.cn/d/1424"
             },
@@ -281,6 +275,12 @@
                 "description": "闭源版",
                 "url": "https://forum.smart-teach.cn/d/2998",
                 "productUrl": "https://www.yamikani.cn/"
+            },
+            {
+                "name": "MornheIsland",
+                "description": "ClassIsland / Class Widgets 2 第三方集控",
+                "url": "https://forum.smart-teach.cn/d/2267",
+                "productUrl": "https://github.com/HeyCrab3/MornheIsland"
             },
             {
                 "name": "NEO-ClassBoard",
