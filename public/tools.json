@@ -20,6 +20,12 @@
                 "productUrl": "https://github.com/HZYANG-2486/CIPacker-Core"
             },
             {
+                "name": "ClasIsland",
+                "description": "IOS 端",
+                "url": "https://forum.smart-teach.cn/d/3162",
+                "productUrl": "https://github.com/LouisLu010/ClassIsland2/tree/develop/v2/ios"
+            },
+            {
                 "name": "ClassIsland",
                 "description": "适用于班级多媒体屏幕的课表信息显示工具",
                 "url": "https://forum.smart-teach.cn/d/2139",
@@ -31,12 +37,6 @@
                 "description": "InnoSetup 安装程序",
                 "url": "https://forum.smart-teach.cn/d/3046/5",
                 "productUrl": "https://github.com/1312333/ClassIsland/releases"
-            },
-            {
-                "name": "ClasIsland",
-                "description": "IOS 端",
-                "url": "https://forum.smart-teach.cn/d/3162",
-                "productUrl": "https://github.com/LouisLu010/ClassIsland2/tree/develop/v2/ios"
             },
             {
                 "name": "ClassIsland Guardian",
@@ -148,6 +148,12 @@
                 "url": "https://forum.smart-teach.cn/d/1424"
             },
             {
+                "name": "UIAccessX",
+                "description": "ClassIsland 2 UIAccess 插件",
+                "url": "https://forum.smart-teach.cn/d/3192",
+                "productUrl": "https://github.com/segf4ultk1nger/dubiisland/tree/main/ClassIsland2-Plugins/org.sifware.uiaccessx"
+            },
+            {
                 "name": "ZongziTEK 黑板贴连接器",
                 "description": "与 ClassIsland 进行连接与交互",
                 "url": "https://forum.smart-teach.cn/d/3048/16",
@@ -187,6 +193,12 @@
                 "description": "Class Widgets 1 修复版",
                 "url": "https://forum.smart-teach.cn/d/1367",
                 "productUrl": "https://github.com/YU322142/Class-Widgets-1_plus"
+            },
+            {
+                "name": "class_form",
+                "description": "灵动课表",
+                "url": "https://forum.smart-teach.cn/d/1886",
+                "productUrl": "https://github.com/DuguSand/class_form"
             },
             {
                 "name": "ClassBounce",
@@ -306,6 +318,12 @@
                 "productUrl": "https://github.com/hxabcd/EasiAuto"
             },
             {
+                "name": "EasiCameraHook",
+                "description": "希沃视频展台劫持",
+                "url": "https://forum.smart-teach.cn/d/2865/150",
+                "productUrl": "https://github.com/PrefacedCorg/EasiCameraHook"
+            },
+            {
                 "name": "EasiNote Theme Patcher",
                 "description": "希沃白板资源替换",
                 "url": "https://forum.smart-teach.cn/d/1252",
@@ -360,6 +378,12 @@
                 "productUrl": "https://github.com/EmerMine/Seewo-DesktopAnnotation-Replacement"
             },
             {
+                "name": "seewo-MT61A-OpenCore",
+                "description": "Seewo 黑苹果 OpenCore EFI 引导文件",
+                "url": "https://forum.smart-teach.cn/d/1313",
+                "productUrl": "https://github.com/NextPoXiao/seewo-MT61A-OpenCore"
+            },
+            {
                 "name": "Seewo-SC06-light-to-photo",
                 "description": "SC06 展台单人拍照辅助",
                 "url": "https://forum.smart-teach.cn/d/60",
@@ -384,6 +408,12 @@
                 "productUrl": "https://github.com/PANDAJSR/SeewoPan"
             },
             {
+                "name": "SeewoPatchTool",
+                "description": "希沃课堂助手翻页按钮移动至屏幕下侧",
+                "url": "https://forum.smart-teach.cn/d/3211",
+                "productUrl": "https://github.com/LuoYunXi0407/SeewoPatchTool"
+            },
+            {
                 "name": "SeewoPenTweaker",
                 "description": "希沃翻页笔增强",
                 "url": "https://forum.smart-teach.cn/d/2671",
@@ -400,12 +430,6 @@
                 "description": "常驻侧边快捷键工具",
                 "url": "https://forum.smart-teach.cn/d/2730",
                 "productUrl": "https://github.com/ClassTechStar/SmartSideBAR"
-            },
-            {
-                "name": "seewo-MT61A-OpenCore",
-                "description": "Seewo 黑苹果 OpenCore EFI 引导文件",
-                "url": "https://forum.smart-teach.cn/d/1313",
-                "productUrl": "https://github.com/NextPoXiao/seewo-MT61A-OpenCore"
             }
         ]
     },
@@ -431,16 +455,16 @@
                 "productUrl": "https://github.com/BaiYang2238/Ink-Canvas-Better"
             },
             {
-                "name": "Ink-Canvas-Plus",
-                "description": "Windows 画板与批注软件",
-                "url": "https://forum.smart-teach.cn/d/445",
-                "productUrl": "https://github.com/clover-yan/Ink-Canvas-Plus"
-            },
-            {
                 "name": "Ink Canvas Ultra",
                 "description": "Ink-Canvas-Artistry 的二次发行版",
                 "url": "https://forum.smart-teach.cn/d/3142",
                 "productUrl": "https://github.com/muqiu-pika/Ink-Canvas-Ultra/"
+            },
+            {
+                "name": "Ink-Canvas-Plus",
+                "description": "Windows 画板与批注软件",
+                "url": "https://forum.smart-teach.cn/d/445",
+                "productUrl": "https://github.com/clover-yan/Ink-Canvas-Plus"
             },
             {
                 "name": "InkCanvasForClass-Remastered",
@@ -467,10 +491,16 @@
                 "productUrl": "https://github.com/lh11117/LemonxNote"
             },
             {
-                "name": "Luminalium 万演",
+                "name": "Luminalium 1",
                 "description": "PPT 演示辅助工具",
                 "url": "https://forum.smart-teach.cn/d/2316",
                 "productUrl": "https://github.com/SECTL/Luminalium"
+            },
+            {
+                "name": "Luminalium 2",
+                "description": "PPT 演示辅助工具",
+                "url": "https://forum.smart-teach.cn/d/3185",
+                "productUrl": "https://github.com/SECTL/Luminalium-2"
             },
             {
                 "name": "PdfTeachAnnotator",
@@ -531,6 +561,11 @@
                 "description": "展台与演示批注",
                 "url": "https://forum.smart-teach.cn/d/1973",
                 "productUrl": "https://github.com/SECTL/ViewStage"
+            },
+            {
+                "name": "ZiggyDraw",
+                "description": "PPT 批注",
+                "url": "https://forum.smart-teach.cn/d/3193"
             },
             {
                 "name": "智绘教 Inkeys",
@@ -995,6 +1030,12 @@
                 "productUrl": "https://github.com/HelaRoro0625/SingleStart"
             },
             {
+                "name": "TouchSuite",
+                "description": "安卓平板作为 Windows 触摸屏",
+                "url": "https://forum.smart-teach.cn/d/3186",
+                "productUrl": "https://github.com/PrefacedCorg/TouchSuite"
+            },
+            {
                 "name": "WebsiteBlocker",
                 "description": "网页屏蔽脚本",
                 "url": "https://forum.smart-teach.cn/d/2503",
@@ -1071,11 +1112,6 @@
                 "productUrl": "https://github.com/pyTeachConnect/TeachConnect"
             },
             {
-                "name": "异校互联",
-                "url": "https://forum.smart-teach.cn/d/424",
-                "archived": true
-            },
-            {
                 "name": "VoiceHub",
                 "description": "校园广播站点歌系统",
                 "url": "https://forum.smart-teach.cn/d/598",
@@ -1087,6 +1123,11 @@
                 "description": "局域网文件共享与协作系统",
                 "url": "https://forum.smart-teach.cn/d/1697",
                 "productUrl": "https://pan.quark.cn/s/4066f5551975"
+            },
+            {
+                "name": "异校互联",
+                "url": "https://forum.smart-teach.cn/d/424",
+                "archived": true
             }
         ]
     },
@@ -1123,6 +1164,12 @@
                 "description": "修改版",
                 "url": "https://forum.smart-teach.cn/d/1665",
                 "productUrl": "https://github.com/doudou0720/Classworks"
+            },
+            {
+                "name": "Corkboard",
+                "description": "作业板",
+                "url": "https://forum.smart-teach.cn/d/3221",
+                "productUrl": "https://github.com/SECTL/Corkboard"
             },
             {
                 "name": "CountdownFree",
@@ -1210,16 +1257,16 @@
                 "productUrl": "https://github.com/Mike-Luo-Leap/HomeworkAttention"
             },
             {
-                "name": "Immersive-clock",
-                "description": "沉浸式时钟",
-                "url": "https://forum.smart-teach.cn/d/959",
-                "productUrl": "https://github.com/Qziky/Immersive-clock"
-            },
-            {
                 "name": "ImmersingHomework",
                 "description": "班级大屏作业板",
                 "url": "https://forum.smart-teach.cn/d/3066",
                 "productUrl": "https://github.com/ImmersingEducation/ImmersingHomework"
+            },
+            {
+                "name": "Immersive-clock",
+                "description": "沉浸式时钟",
+                "url": "https://forum.smart-teach.cn/d/959",
+                "productUrl": "https://github.com/Qziky/Immersive-clock"
             },
             {
                 "name": "NCEECountDown",
@@ -1260,6 +1307,12 @@
                 "description": "桌面作业展示工具",
                 "url": "https://forum.smart-teach.cn/d/1553",
                 "productUrl": "https://github.com/StickyHomeworks2/StickyHomeworks2"
+            },
+            {
+                "name": "StickyHomeworks2-tauri",
+                "description": "跨平台作业看板",
+                "url": "https://forum.smart-teach.cn/d/3048/45",
+                "productUrl": "https://github.com/belugaQAQ/StickyHomeworks2-tauri"
             },
             {
                 "name": "timemium_timer",
@@ -1305,15 +1358,15 @@
                 "productUrl": "https://github.com/ZongziTEK/ZongziTEK-Blackboard-Sticker-Lite"
             },
             {
-                "name": "作业版",
-                "url": "https://forum.smart-teach.cn/d/3048/42",
-                "productUrl": "https://cik07-cos.7moor-fs2.com/im/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/d44cf7f1ef6b3157/%E4%BD%9C%E4%B8%9A%E6%9D%BF.zip"
-            },
-            {
                 "name": "作业展板",
                 "description": "从 QQ 群自动获取",
                 "url": "https://forum.smart-teach.cn/d/2137",
                 "archived": true
+            },
+            {
+                "name": "作业版",
+                "url": "https://forum.smart-teach.cn/d/3048/42",
+                "productUrl": "https://cik07-cos.7moor-fs2.com/im/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/d44cf7f1ef6b3157/%E4%BD%9C%E4%B8%9A%E6%9D%BF.zip"
             },
             {
                 "name": "班级桌面背景系统",
@@ -1714,17 +1767,6 @@
                 "archived": true
             },
             {
-                "name": "StatusInsights",
-                "description": "个人视奸页面",
-                "url": "https://forum.smart-teach.cn/d/1772"
-            },
-            {
-                "name": "STCN_rebuild",
-                "description": "从零重建的智教联盟论坛",
-                "url": "https://forum.smart-teach.cn/d/3118/53",
-                "productUrl": "https://github.com/Macrohard0001/STCN_rebuild"
-            },
-            {
                 "name": "SoundEquilibrium",
                 "description": "统一音量控制器",
                 "url": "https://forum.smart-teach.cn/d/2055",
@@ -1743,6 +1785,11 @@
                 "productUrl": "https://wwbeo.lanzouv.com/iXHgo3ueovqj"
             },
             {
+                "name": "StatusInsights",
+                "description": "个人视奸页面",
+                "url": "https://forum.smart-teach.cn/d/1772"
+            },
+            {
                 "name": "STCN 安卓 App",
                 "url": "https://forum.smart-teach.cn/d/1125",
                 "archived": true
@@ -1752,6 +1799,18 @@
                 "description": "智教联盟安卓客户端",
                 "url": "https://forum.smart-teach.cn/d/626",
                 "productUrl": "https://github.com/SHANFENG5302/STCN-Android"
+            },
+            {
+                "name": "STCN_rebuild",
+                "description": "从零重建的智教联盟论坛",
+                "url": "https://forum.smart-teach.cn/d/3118/53",
+                "productUrl": "https://github.com/Macrohard0001/STCN_rebuild"
+            },
+            {
+                "name": "TinadecOffice",
+                "description": "AI 智能体工作台",
+                "url": "https://forum.smart-teach.cn/d/3187",
+                "productUrl": "https://github.com/Tinadec/TinadecOffice"
             },
             {
                 "name": "TrafficMonitorPlugin_AIBalance",
