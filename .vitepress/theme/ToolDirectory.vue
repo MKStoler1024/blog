@@ -62,11 +62,12 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
                         placeholder="搜索软件名称或用途" aria-label="搜索工具" /></label>
                 <span class="result-count">{{ visibleCount }} / {{ totalCount }} 项</span>
             </div>
-            <div class="category-tabs" role="tablist" aria-label="工具分类">
-                <button v-for="name in sectionNames" :key="name" :class="{ active: activeSection === name }"
-                    type="button" role="tab" :aria-selected="activeSection === name"
-                    @click="activeSection = name">{{ name }}</button>
-            </div>
+            <label class="category-filter">
+                <span>分类</span>
+                <select v-model="activeSection" aria-label="按分类筛选工具">
+                    <option v-for="name in sectionNames" :key="name" :value="name">{{ name }}</option>
+                </select>
+            </label>
             <div v-if="visibleSections.length" class="directory-sections" :key="activeSection">
                 <section v-for="section in visibleSections" :key="section.name" class="directory-section">
                     <h2>{{ section.name }} <small>{{ section.tools.length }}</small></h2>
@@ -163,37 +164,29 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
     font-size: .85rem;
 }
 
-.category-tabs {
+.category-filter {
     display: flex;
-    flex-wrap: wrap;
-    gap: .4rem;
+    align-items: center;
+    gap: .65rem;
     margin-bottom: 1.75rem;
+    color: var(--color-gray);
+    font-size: .85rem;
 }
 
-.category-tabs button {
-    border: 1px solid transparent;
+.category-filter select {
+    width: min(100%, 360px);
+    min-width: 0;
+    border: 1px solid var(--color-border);
     border-radius: 5px;
-    padding: .4rem .7rem;
-    background: transparent;
-    color: var(--color-gray);
+    padding: .55rem .7rem;
+    background: var(--color-surface);
+    color: var(--color-text);
     cursor: pointer;
     font: inherit;
-    font-size: .82rem;
-    transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+    transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-.category-tabs button:hover {
-    color: var(--color-accent-strong);
-    background: var(--color-surface-muted);
-}
-
-.category-tabs button.active {
-    border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
-    color: var(--color-accent-strong);
-    background: transparent;
-}
-
-.category-tabs button:focus-visible,
+.category-filter select:focus-visible,
 .tool-card .tool-copy:focus-visible,
 .project-link:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
@@ -500,18 +493,6 @@ const visibleCount = computed(() => visibleSections.value.reduce((total, section
 
     .result-count {
         align-self: flex-end;
-    }
-
-    .category-tabs {
-        flex-wrap: nowrap;
-        padding-bottom: 6px;
-        overflow-x: auto;
-        scrollbar-width: thin;
-    }
-
-    .category-tabs button {
-        flex: 0 0 auto;
-        min-height: 40px;
     }
 
     .tool-grid {
