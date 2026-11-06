@@ -22,7 +22,8 @@
       {
         "name": "CITwinkler",
         "description": "组件描边闪烁",
-        "url": "https://forum.smart-teach.cn/d/3241"
+        "url": "https://forum.smart-teach.cn/d/3241",
+        "productUrl": "https://github.com/FonyMC/CITwinkler"
       },
       {
         "name": "ClassIsland",
@@ -147,7 +148,8 @@
       {
         "name": "LegacyIsland",
         "description": "基于 .NET 472 的 ClassIsland 1.7 重度魔改版",
-        "url": "https://forum.smart-teach.cn/d/3148"
+        "url": "https://forum.smart-teach.cn/d/3148",
+        "productUrl": "https://gitlab.com/dubi906w/dubiisland"
       },
       {
         "name": "RSS 获取器", 
@@ -156,7 +158,8 @@
       {
         "name": "simpleduty",
         "description": "值日表解决方案",
-        "url": "https://forum.smart-teach.cn/d/3424"
+        "url": "https://forum.smart-teach.cn/d/3424",
+        "productUrl": "https://github.com/morninghu2026/classisland-simpleduty"
       },
       {
         "name": "UIAccessX",
@@ -331,7 +334,8 @@
       {
         "name": "AntiHugoKanBan",
         "description": "希沃掌上看班预警及反制",
-        "url": "https://forum.smart-teach.cn/d/2291"
+        "url": "https://forum.smart-teach.cn/d/2291",
+        "productUrl": "https://pan.huang1111.cn/s/oXOO9S8"
       },
       {
         "name": "EasiAuto",
@@ -479,12 +483,14 @@
       {
         "name": "ICC-CE",
         "description": ".NET Framework 462 版本",
-        "url": "https://forum.smart-teach.cn/d/2067"
+        "url": "https://forum.smart-teach.cn/d/2067",
+        "productUrl": "https://github.com/InkCanvasForClass/community-net462"
       },
       {
         "name": "ICCCE-Pure",
         "description": "ICC-CE 精简版",
-        "url": "https://forum.smart-teach.cn/d/3436"
+        "url": "https://forum.smart-teach.cn/d/3436",
+        "productUrl": "https://github.com/MF-Dust/ICCCE-Pure"
       },
       {
         "name": "Ink Canvas Better", 
@@ -558,7 +564,8 @@
       {
         "name": "QX-PDFreader",
         "description": "PDF 阅读批注",
-        "url": "https://forum.smart-teach.cn/d/3280"
+        "url": "https://forum.smart-teach.cn/d/3280",
+        "productUrl": "https://github.com/QiuXiYueShiJiu/QX-PDFreader"
       },
       {
         "name": "RimePPT",
@@ -611,7 +618,8 @@
       {
         "name": "ZiggyDraw",
         "description": "屏幕批注与白板",
-        "url": "https://forum.smart-teach.cn/d/3193"
+        "url": "https://forum.smart-teach.cn/d/3193",
+        "productUrl": "https://dubi906w.itch.io/ziggydraw"
       },
       {
         "name": "智绘教 Inkeys",
@@ -704,7 +712,8 @@
       {
         "name": "Libra",
         "description": "教材站",
-        "url": "https://forum.smart-teach.cn/d/3230"
+        "url": "https://forum.smart-teach.cn/d/3230",
+        "productUrl": "https://edu.c0ffee.space"
       },
       {
         "name": "listem-mia",
@@ -721,7 +730,8 @@
       {
         "name": "Knowledge-Debt-Astral-Path",
         "description": "跨课程知识债诊断与修复智能体",
-        "url": "https://forum.smart-teach.cn/d/3330"
+        "url": "https://forum.smart-teach.cn/d/3330",
+        "productUrl": "https://github.com/ClassTechStar/Knowledge-Debt-Astral-Path"
       },
       {
         "name": "ReciteHelper",
@@ -767,7 +777,8 @@
       {
         "name": "BetterRNP",
         "description": "多功能随机抽取器",
-        "url": "https://forum.smart-teach.cn/d/3344"
+        "url": "https://forum.smart-teach.cn/d/3344",
+        "productUrl": "https://github.com/TakaHoshino/BetterRandomNamePicker"
       },
       {
         "name": "CyreneNameRoller",
@@ -890,7 +901,8 @@
       {
         "name": "VeriRandom",
         "description": "可验证性及密码学可靠性抽取应用",
-        "url": "https://forum.smart-teach.cn/d/3305"
+        "url": "https://forum.smart-teach.cn/d/3305",
+        "productUrl": "https://github.com/WinFunan/VeriRandom"
       },
       {
         "name": "YABVA",
@@ -1172,7 +1184,8 @@
       {
         "name": "RimeNotice",
         "description": "QQ 通知",
-        "url": "https://forum.smart-teach.cn/d/3346"
+        "url": "https://forum.smart-teach.cn/d/3346",
+        "productUrl": "https://github.com/WRMYX/RimeNotice"
       },
       {
         "name": "SMS Code Sync",
@@ -1429,7 +1442,8 @@
       {
         "name": "FClassPal",
         "description": "启动器小部件",
-        "url": "https://forum.smart-teach.cn/d/3362"
+        "url": "https://forum.smart-teach.cn/d/3362",
+        "productUrl": "https://github.com/fangyugit/FClassPal"
       },
       {
         "name": "Education Clock",
@@ -1603,7 +1617,8 @@
       {
         "name": "ClassDesktopManager",
         "description": "桌面文件管理及科目分类",
-        "url": "https://forum.smart-teach.cn/d/3293"
+        "url": "https://forum.smart-teach.cn/d/3293",
+        "productUrl": "https://github.com/olykin/classDesktopManager"
       },
       {
         "name": "CppSekai",
@@ -1614,7 +1629,8 @@
       {
         "name": "CppSekai-droid",
         "description": "Android Project Sekai 模拟器",
-        "url": "https://forum.smart-teach.cn/d/3037/29"
+        "url": "https://forum.smart-teach.cn/d/3037/29",
+        "productUrl": "https://github.com/arcwolf1/CppSekai-droid"
       },
       {
         "name": "CuckooInterface",
@@ -2025,7 +2041,8 @@
       {
         "name": "human-led-ppt",
         "description": "PPT 生成 skill",
-        "url": "https://forum.smart-teach.cn/d/3442"
+        "url": "https://forum.smart-teach.cn/d/3442",
+        "productUrl": "https://codeberg.org/Makitoid/human-led-ppt"
       },
       {
         "name": "iNKORE.UI.WPF.Modern",
@@ -2037,7 +2054,8 @@
       {
         "name": "Jiangti26Q3",
         "description": "数学演示视频制作",
-        "url": "https://forum.smart-teach.cn/d/1783/528"
+        "url": "https://forum.smart-teach.cn/d/1783/528",
+        "productUrl": "https://github.com/MacroMeng/Jiangti26Q3"
       },
       {
         "name": "lx-ikun-music-sources",
@@ -2053,7 +2071,8 @@
       {
         "name": "OhMyIWB",
         "description": "博客",
-        "url": "https://forum.smart-teach.cn/d/1783"
+        "url": "https://forum.smart-teach.cn/d/1783",
+        "productUrl": "https://github.com/MacroMeng/OhMyIWB"
       },
       {
         "name": "pptmon",
@@ -2075,7 +2094,8 @@
       {
         "name": "UIA-UF",
         "description": "统一 UIAccess 权限获取途径",
-        "url": "https://forum.smart-teach.cn/d/3409"
+        "url": "https://forum.smart-teach.cn/d/3409",
+        "productUrl": "https://github.com/love-code-yeyixiao/UIA-UF"
       },
       {
         "name": "vigil",
@@ -2086,7 +2106,8 @@
       {
         "name": "WhaleMind-Hub",
         "description": "辩论赛全流程管理",
-        "url": "https://forum.smart-teach.cn/d/3229"
+        "url": "https://forum.smart-teach.cn/d/3229",
+        "productUrl": "https://github.com/WhaleMind-Debate/WhaleMind-Hub"
       },
       {
         "name": "WJX Auto Submitter",
