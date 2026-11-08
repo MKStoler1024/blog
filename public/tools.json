@@ -231,7 +231,13 @@
         "description": "灵动课表",
         "url": "https://forum.smart-teach.cn/d/1886",
         "productUrl": "https://github.com/DuguSand/class_form"
-    },
+      },
+      {
+        "name": "CourseSchedule_EveryWhere",
+        "description": "拉起课表软件并全局置顶到系统任何界面",
+        "url": "https://forum.smart-teach.cn/d/3526",
+        "archived": true
+      },
       {
         "name": "ClassBounce", 
         "url": "https://forum.smart-teach.cn/d/653",
