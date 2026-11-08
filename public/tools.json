@@ -152,6 +152,18 @@
         "productUrl": "https://gitlab.com/dubi906w/dubiisland"
       },
       {
+        "name": "MINI ClassIsland",
+        "description": "ClassIsland 云集控",
+        "url": "https://forum.smart-teach.cn/d/3503",
+        "productUrl": "https://github.com/miniclassisland"
+      },
+      {
+        "name": "RemoteCI",
+        "description": "集控 / 教务 / 日程一体插件",
+        "url": "https://forum.smart-teach.cn/d/3536",
+        "productUrl": "https://github.com/Edge-HH/RemoteCI"
+      },
+      {
         "name": "RSS 获取器", 
         "url": "https://forum.smart-teach.cn/d/1424"
       },
@@ -166,6 +178,12 @@
         "description": "ClassIsland 2 UIAccess 插件",
         "url": "https://forum.smart-teach.cn/d/3192",
         "productUrl": "https://github.com/segf4ultk1nger/dubiisland/tree/main/ClassIsland2-Plugins/org.sifware.uiaccessx"
+      },
+      {
+        "name": "YRAND",
+        "description": "课堂随机点名插件",
+        "url": "https://forum.smart-teach.cn/d/3495",
+        "productUrl": "https://ade236ccde4e195c4.app.workbuddy.host/?sharecode=UV5IFW4S3E"
       },
       {
         "name": "ZongziTEK 黑板贴连接器",
@@ -403,6 +421,12 @@
         "productUrl": "https://github.com/HelloGaoo/SeevvoDownloader"
       },
       {
+        "name": "seewo-MT61A-OpenCore",
+        "description": "Seewo 黑苹果 OpenCore EFI 引导文件",
+        "url": "https://forum.smart-teach.cn/d/1313",
+        "productUrl": "https://github.com/NextPoXiao/seewo-MT61A-OpenCore"
+      },
+      {
         "name": "Seewo-DesktopAnnotation-Replacement",
         "description": "希沃批注替换",
         "url": "https://forum.smart-teach.cn/d/2542",
@@ -457,16 +481,22 @@
         "productUrl": "https://github.com/ClassTechStar/SmartSideBAR"
       },
       {
-        "name": "seewo-MT61A-OpenCore",
-        "description": "Seewo 黑苹果 OpenCore EFI 引导文件",
-        "url": "https://forum.smart-teach.cn/d/1313",
-        "productUrl": "https://github.com/NextPoXiao/seewo-MT61A-OpenCore"
+        "name": "sw_UDI",
+        "description": "希沃 / MAXHUB 一体机 UDI 控制",
+        "url": "https://forum.smart-teach.cn/d/3520",
+        "productUrl": "https://github.com/kxc299/sw_UDI"
       }
     ]
   },
   {
     "name": "教学辅助 / 批注",
     "tools": [
+      {
+        "name": "BoardMark",
+        "description": "白板板书自动记录",
+        "url": "https://forum.smart-teach.cn/d/3477",
+        "productUrl": "https://github.com/caitoUSB/BoardMark"
+      },
       {
         "name": "icc-0610fix",
         "description": "修改版",
@@ -512,6 +542,12 @@
         "name": "InkCanvasForClass-Remastered", 
         "url": "https://forum.smart-teach.cn/d/835",
         "productUrl": "https://github.com/LiuYan-xwx/InkCanvasForClass-Remastered"
+      },
+      {
+        "name": "InkCanvasForPDF",
+        "description": "基于 ICA 修改的 PDF 阅读器",
+        "url": "https://forum.smart-teach.cn/d/3499",
+        "productUrl": "https://github.com/Eason-2012/InkCanvasForPDF"
       },
       {
         "name": "InkPoem", 
@@ -811,6 +847,12 @@
         "archived": true
       },
       {
+        "name": "HideSecRandom",
+        "description": "绕过弹窗拦截 SecRandom 3 插件",
+        "url": "https://forum.smart-teach.cn/d/3451",
+        "productUrl": "https://github.com/CreeperAWA/SecRandomPlugin-HideSecRandom/tree/main/SecRandom.Plugin.HideSecRandom"
+      },
+      {
         "name": "JJPicker",
         "description": "蒹葭抽选器",
         "url": "https://forum.smart-teach.cn/d/2813",
@@ -1018,6 +1060,12 @@
         "description": "教育积分管理",
         "url": "https://forum.smart-teach.cn/d/1221",
         "productUrl": "https://github.com/SECTL/SecScore"
+      },
+      {
+        "name": "班晓播",
+        "description": "智能喊话",
+        "url": "https://forum.smart-teach.cn/d/3488",
+        "productUrl": "https://my.feishu.cn/docx/Jh9tdj7IXokyETxrSztcenoZn0b"
       },
       {
         "name": "全能班辅",
@@ -1395,6 +1443,12 @@
         "productUrl": "https://github.com/ImmersingEducation/ImmersingHomework"
       },
       {
+        "name": "Pancake",
+        "description": "多功能时钟作业板",
+        "url": "https://forum.smart-teach.cn/d/3459/12",
+        "productUrl": "https://github.com/Edge-HH/Pancake"
+      },
+      {
         "name": "StickyHomeworks2",
         "description": "桌面作业展示工具",
         "url": "https://forum.smart-teach.cn/d/1553",
@@ -1621,6 +1675,24 @@
         "productUrl": "https://github.com/olykin/classDesktopManager"
       },
       {
+        "name": "ClassSoftwareHub-Desktop",
+        "description": "工具箱 (Win10+)",
+        "url": "https://forum.smart-teach.cn/d/3515",
+        "productUrl": "https://github.com/c1201y/ClassSoftwareHub-Desktop"
+      },
+      {
+        "name": "ClassSoftwareHub-windows7",
+        "description": "工具箱 (Win7 SP1+)",
+        "url": "https://forum.smart-teach.cn/d/3515",
+        "productUrl": "https://github.com/c1201y/ClassSoftwareHub-windows7"
+      },
+      {
+        "name": "ClassSoftwareHub-Android",
+        "description": "工具箱 (Android)",
+        "url": "https://forum.smart-teach.cn/d/3515",
+        "productUrl": "https://github.com/c1201y/ClassSoftwareHub-Android"
+      },
+      {
         "name": "CppSekai",
         "description": "Project Sekai 模拟器",
         "url": "https://forum.smart-teach.cn/d/3037",
@@ -1708,6 +1780,18 @@
         "name": "Github 仓库信息获取器", 
         "url": "https://forum.smart-teach.cn/d/1247",
         "archived": true
+      },
+      {
+        "name": "Hiassistant",
+        "description": "海信一体机 RS232 控制",
+        "url": "https://forum.smart-teach.cn/d/3445",
+        "productUrl": "https://github.com/kxc299/Hiassistant"
+      },
+      {
+        "name": "IceMelt",
+        "description": "冰点还原破防",
+        "url": "https://forum.smart-teach.cn/d/1783/591",
+        "productUrl": "https://github.com/chenjintang-shrimp/IceMelt"
       },
       {
         "name": "ImmersingLinker",
@@ -1960,6 +2044,12 @@
         "productUrl": "https://wwbeo.lanzouv.com/iXHgo3ueovqj"
       },
       {
+        "name": "M33EBlog",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/3446",
+        "productUrl": "https://github.com/unnuTechnology/M33EBlog"
+      },
+      {
         "name": "MHOP",
         "description": "心理帮扶平台",
         "url": "https://forum.smart-teach.cn/d/2982",
@@ -2039,6 +2129,12 @@
         "url": "https://forum.smart-teach.cn/d/1785"
       },
       {
+        "name": "HubQueue",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/663",
+        "productUrl": "https://forum.smart-teach.cn/d/663"
+      },
+      {
         "name": "human-led-ppt",
         "description": "PPT 生成 skill",
         "url": "https://forum.smart-teach.cn/d/3467",
@@ -2081,6 +2177,12 @@
         "productUrl": "https://sfkgr.me/a/pptmon"
       },
       {
+        "name": "rica-server",
+        "description": "大型语言模型的多线程推理框架",
+        "url": "https://forum.smart-teach.cn/d/632",
+        "productUrl": "https://github.com/rica-team/rica-server"
+      },
+      {
         "name": "Rin-UI",
         "description": "Qt Quick (QML) 类 Fluent Design UI 库",
         "url": "https://forum.smart-teach.cn/d/1897",
@@ -2096,6 +2198,12 @@
         "description": "统一 UIAccess 权限获取途径",
         "url": "https://forum.smart-teach.cn/d/3409",
         "productUrl": "https://github.com/love-code-yeyixiao/UIA-UF"
+      },
+      {
+        "name": "UnifiedAssignmentFormat",
+        "description": "统一作业展示与交换格式",
+        "url": "https://forum.smart-teach.cn/d/2342",
+        "productUrl": "https://github.com/wwiinnddyy/UnifiedAssignmentFormat"
       },
       {
         "name": "vigil",
@@ -2119,6 +2227,11 @@
         "description": "西安电子科技大学校园网诊断工具",
         "url": "https://forum.smart-teach.cn/d/1839/21",
         "productUrl": "https://github.com/LyCecilion/xidio"
+      },
+      {
+        "name": "Zhixue MCP",
+        "description": "Agent 连接智学网",
+        "url": "https://forum.smart-teach.cn/d/3450"
       }
     ]
   }
