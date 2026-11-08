@@ -1360,7 +1360,7 @@
       },
       {
         "name": "Corkboard",
-        "description": "作业板",
+        "description": "作业板 / 考试看板",
         "url": "https://forum.smart-teach.cn/d/3221",
         "productUrl": "https://github.com/SECTL/Corkboard"
       },
@@ -2041,7 +2041,7 @@
       {
         "name": "human-led-ppt",
         "description": "PPT 生成 skill",
-        "url": "https://forum.smart-teach.cn/d/3442",
+        "url": "https://forum.smart-teach.cn/d/3467",
         "productUrl": "https://codeberg.org/Makitoid/human-led-ppt"
       },
       {
