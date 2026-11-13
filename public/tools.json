@@ -9,6 +9,12 @@
         "productUrl": "https://github.com/inf2147483647/AdvancedTimeIsland"
       },
       {
+        "name": "CI-Memory-Optimizer",
+        "description": "更好的内存优化",
+        "url": "https://forum.smart-teach.cn/d/2665/30",
+        "productUrl": "https://github.com/YangZilChris/CI-Memory-Optimizer"
+      },
+      {
         "name": "CIGProfessional", 
         "url": "https://forum.smart-teach.cn/d/2965/18",
         "archived": true
@@ -85,6 +91,12 @@
         "productUrl": "https://github.com/1sIancl/ClassislandControlHub"
       },
       {
+        "name": "ClassIslandEdgeTtsFixPlugin",
+        "description": "EdgeTTS 语音修复插件",
+        "url": "https://forum.smart-teach.cn/d/2046/21",
+        "productUrl": "https://github.com/YU322142/ClassIslandEdgeTtsFixPlugin"
+      },
+      {
         "name": "ClassIslandInjector",
         "description": "样式注入器",
         "url": "https://forum.smart-teach.cn/d/2622",
@@ -116,6 +128,12 @@
         "productUrl": "https://github.com/mathfosh/ClassLauncher"
       },
       {
+        "name": "ClassSlideSync",
+        "description": "课件续页",
+        "url": "https://forum.smart-teach.cn/d/2665/30",
+        "productUrl": "https://github.com/kkt446/ClassSlideSync"
+      },
+      {
         "name": "DutyForPutisland",
         "description": "值日安排自动发送",
         "url": "https://forum.smart-teach.cn/d/2557",
@@ -126,6 +144,12 @@
         "description": "娱乐插件",
         "url": "https://forum.smart-teach.cn/d/2042",
         "productUrl": "https://github.com/BSOD-MEMZ/EntertainingIsland"
+      },
+      {
+        "name": "FanPlugin",
+        "description": "风扇控制",
+        "url": "https://forum.smart-teach.cn/d/3539",
+        "productUrl": "https://github.com/MMCKB/FanPlugin"
       },
       {
         "name": "HolidayCountdown",
@@ -152,10 +176,34 @@
         "productUrl": "https://gitlab.com/dubi906w/dubiisland"
       },
       {
-        "name": "MINI ClassIsland",
-        "description": "ClassIsland 云集控",
-        "url": "https://forum.smart-teach.cn/d/3503",
-        "productUrl": "https://github.com/miniclassisland"
+        "name": "miniclassisland/core",
+        "description": "MINI ClassIsland 集控核心",
+        "url": "https://forum.smart-teach.cn/d/3572",
+        "productUrl": "https://github.com/miniclassisland/core"
+      },
+      {
+        "name": "miniclassisland/web",
+        "description": "MINI ClassIsland 集控网页版控制台",
+        "url": "https://forum.smart-teach.cn/d/3572",
+        "productUrl": "https://github.com/miniclassisland/web"
+      },
+      {
+        "name": "miniclassisland/admin",
+        "description": "MINI ClassIsland 集控网页版管理控制台",
+        "url": "https://forum.smart-teach.cn/d/3572",
+        "productUrl": "https://github.com/miniclassisland/admin"
+      },
+      {
+        "name": "miniclassisland/ste",
+        "description": "MINI ClassIsland 集控 STE 单租户版本",
+        "url": "https://forum.smart-teach.cn/d/3572",
+        "productUrl": "https://github.com/miniclassisland/ste"
+      },
+      {
+        "name": "miniclassisland/plugin",
+        "description": "MINI ClassIsland 集控增强引擎",
+        "url": "https://forum.smart-teach.cn/d/3572",
+        "productUrl": "https://github.com/miniclassisland/plugin"
       },
       {
         "name": "RemoteCI",
@@ -180,16 +228,28 @@
         "productUrl": "https://github.com/segf4ultk1nger/dubiisland/tree/main/ClassIsland2-Plugins/org.sifware.uiaccessx"
       },
       {
+        "name": "VideoPlugin",
+        "description": "主界面显示视频",
+        "url": "https://forum.smart-teach.cn/d/3539",
+        "productUrl": "https://github.com/MMCKB/VideoPlugin"
+      },
+      {
         "name": "YRAND",
         "description": "课堂随机点名插件",
-        "url": "https://forum.smart-teach.cn/d/3495",
-        "productUrl": "https://ade236ccde4e195c4.app.workbuddy.host/?sharecode=UV5IFW4S3E"
+        "url": "https://forum.smart-teach.cn/d/3581",
+        "productUrl": "https://github.com/Ycj1026/YRAND"
       },
       {
         "name": "ZongziTEK 黑板贴连接器",
         "description": "与 ClassIsland 进行连接与交互",
         "url": "https://forum.smart-teach.cn/d/3048/16",
         "productUrl": "https://github.com/ZongziTEK/ZongziTEK-Blackboard-Sticker-Connector-for-ClassIsland"
+      },
+      {
+        "name": "墨水屏显示课表",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/482",
+        "archived": true
       },
       {
         "name": "新闻获取推送程序", 
@@ -693,6 +753,12 @@
         "productUrl": "https://github.com/TapXWorld/ChinaTextbook"
       },
       {
+        "name": "ChinaTextbook-",
+        "description": "所有小初高、大学 PDF 教材",
+        "url": "https://forum.smart-teach.cn/d/3230/18",
+        "productUrl": "https://github.com/Chiowe/ChinaTextbook-"
+      },
+      {
         "name": "ComboWord",
         "description": "单词放映与管理系统",
         "url": "https://forum.smart-teach.cn/d/1148",
@@ -934,6 +1000,12 @@
         "productUrl": "https://github.com/shdh377/RandomPick"
       },
       {
+        "name": "RandomPicker",
+        "description": "桌面抽人小圆钮",
+        "url": "https://forum.smart-teach.cn/d/3581",
+        "productUrl": "https://github.com/Gordonynh/RandomPicker"
+      },
+      {
         "name": "Sankteco",
         "description": "祈福",
         "url": "https://forum.smart-teach.cn/d/1888",
@@ -1042,6 +1114,12 @@
         "description": "不想排座位",
         "url": "https://forum.smart-teach.cn/d/3135",
         "productUrl": "https://github.com/laosan577622/open_fuckseats"
+      },
+      {
+        "name": "PointManager",
+        "description": "学生积分管理",
+        "url": "https://forum.smart-teach.cn/d/3589",
+        "productUrl": "https://github.com/XPSoftware/PointManager"
       },
       {
         "name": "QuantifyPlugin",
@@ -1193,6 +1271,11 @@
         "name": "假熄屏工具", 
         "url": "https://forum.smart-teach.cn/d/2475",
         "productUrl": "https://1854463478.share.123pan.cn/123pan/p0Q2vd-YJxuH"
+      },
+      {
+        "name": "网页屏蔽脚本",
+        "description": "https://forum.smart-teach.cn/d/1036",
+        "archived": true
       }
     ]
   },
@@ -1628,6 +1711,12 @@
     "name": "杂项 / 软件",
     "tools": [
       {
+        "name": "11a4008bbs-ios-app",
+        "description": "iOS Flarum APP",
+        "url": "https://forum.smart-teach.cn/d/777",
+        "productUrl": "https://github.com/leonmmcoset/11a4008bbs-ios-app"
+      },
+      {
         "name": "360-Class-Guard",
         "description": "360 拖堂卫士",
         "url": "https://forum.smart-teach.cn/d/740",
@@ -1650,6 +1739,12 @@
         "description": "自动关机助手",
         "url": "https://forum.smart-teach.cn/d/2872",
         "productUrl": "https://github.com/chuyue136/AutoShutdown"
+      },
+      {
+        "name": "AutoShutdownPlanner",
+        "description": "自动关机",
+        "url": "https://forum.smart-teach.cn/d/215/33",
+        "productUrl": "https://github.com/Michaelshenmo/AutoShutdownPlanner"
       },
       {
         "name": "AutoSlideShow_VSTO",
@@ -1877,22 +1972,10 @@
         "productUrl": "https://github.com/unnuTechnology/ReMessyDesktop"
       },
       {
-        "name": "SecAgent",
-        "description": "智慧教育 AI Agent",
-        "url": "https://forum.smart-teach.cn/d/2765",
-        "productUrl": "https://github.com/SECTL/SecAgent"
-      },
-      {
         "name": "SectionIstool",
         "description": "教学辅助软件下载器",
         "url": "https://forum.smart-teach.cn/d/74",
         "productUrl": "https://github.com/SectionIstool/SectionIstool"
-      },
-      {
-        "name": "ShaDiaoAgent",
-        "description": "沙雕智能体",
-        "url": "https://forum.smart-teach.cn/d/2839",
-        "productUrl": "https://shadiao.online"
       },
       {
         "name": "Sidebar for Class",
@@ -1907,22 +1990,16 @@
         "productUrl": "https://github.com/wangruoyuyuyu/Simple-Logon-UI-replacement"
       },
       {
+        "name": "StealthBrowser",
+        "description": "防截屏隐身浏览器",
+        "url": "https://forum.smart-teach.cn/d/190/31",
+        "productUrl": "https://github.com/123456Zhe/StealthBrowser"
+      },
+      {
         "name": "SoundEquilibrium",
         "description": "统一音量控制器",
         "url": "https://forum.smart-teach.cn/d/2055",
         "productUrl": "https://github.com/SECTL/SoundEquilibrium"
-      },
-      {
-        "name": "TinadecOffice",
-        "description": "AI 智能体工作台",
-        "url": "https://forum.smart-teach.cn/d/3187",
-        "productUrl": "https://github.com/Tinadec/TinadecOffice"
-      },
-      {
-        "name": "TrafficMonitorPlugin_AIBalance",
-        "description": "AI 账单余额 TrafficMonitor 插件",
-        "url": "https://forum.smart-teach.cn/d/2159",
-        "productUrl": "https://github.com/Jursin/TrafficMonitorPlugin_AIBalance"
       },
       {
         "name": "Unlock Music",
@@ -1935,6 +2012,12 @@
         "description": "插上 U 盘自动按需复制文件",
         "url": "https://forum.smart-teach.cn/d/3075",
         "productUrl": "https://github.com/kenvix/USBCopyer"
+      },
+      {
+        "name": "UsbPulse",
+        "description": "U 盘助手",
+        "url": "https://forum.smart-teach.cn/d/3569",
+        "productUrl": "https://github.com/YU322142/UsbPulse"
       },
       {
         "name": "wipeout-ms-account",
@@ -2044,6 +2127,12 @@
         "productUrl": "https://github.com/HugoWidget/HugoWidget"
       },
       {
+        "name": "school_tools",
+        "description": "教学工具索引",
+        "url": "https://forum.smart-teach.cn/d/3557",
+        "productUrl": "https://github.com/me13354091017/school_tools"
+      },
+      {
         "name": "StartPageForEdgeHTML",
         "description": "仿旧版 Bing 搜索页",
         "url": "https://forum.smart-teach.cn/d/2309",
@@ -2097,6 +2186,64 @@
     ]
   },
   {
+    "name": "杂项 / AI",
+    "tools": [
+      {
+        "name": "CrewRouter",
+        "description": "团队级 AI 模型网关",
+        "url": "https://forum.smart-teach.cn/d/2753",
+        "productUrl": "https://github.com/BloretCrew/CrewRouter"
+      },
+      {
+        "name": "human-led-ppt",
+        "description": "PPT 生成 skill",
+        "url": "https://forum.smart-teach.cn/d/3467",
+        "productUrl": "https://codeberg.org/Makitoid/human-led-ppt"
+      },
+      {
+        "name": "magpie-android-13",
+        "description": "Magpie 安卓版",
+        "url": "https://forum.smart-teach.cn/d/3562",
+        "productUrl": "https://github.com/square-235/magpie-android-13"
+      },
+      {
+        "name": "rica-server",
+        "description": "大型语言模型的多线程推理框架",
+        "url": "https://forum.smart-teach.cn/d/632",
+        "productUrl": "https://github.com/rica-team/rica-server"
+      },
+      {
+        "name": "SecAgent",
+        "description": "智慧教育 AI Agent",
+        "url": "https://forum.smart-teach.cn/d/2765",
+        "productUrl": "https://github.com/SECTL/SecAgent"
+      },
+      {
+        "name": "ShaDiaoAgent",
+        "description": "沙雕智能体",
+        "url": "https://forum.smart-teach.cn/d/2839",
+        "productUrl": "https://shadiao.online"
+      },
+      {
+        "name": "TrafficMonitorPlugin_AIBalance",
+        "description": "AI 账单余额 TrafficMonitor 插件",
+        "url": "https://forum.smart-teach.cn/d/2159",
+        "productUrl": "https://github.com/Jursin/TrafficMonitorPlugin_AIBalance"
+      },
+      {
+        "name": "TinadecOffice",
+        "description": "AI 智能体工作台",
+        "url": "https://forum.smart-teach.cn/d/3187",
+        "productUrl": "https://github.com/Tinadec/TinadecOffice"
+      },
+      {
+        "name": "Zhixue MCP",
+        "description": "Agent 连接智学网",
+        "url": "https://forum.smart-teach.cn/d/3450"
+      }
+    ]
+  },
+  {
     "name": "杂项 / 杂项",
     "tools": [
       {
@@ -2118,12 +2265,6 @@
         "productUrl": "https://github.com/XINGHAI183/BSMS"
       },
       {
-        "name": "CrewRouter",
-        "description": "团队级 AI 模型网关",
-        "url": "https://forum.smart-teach.cn/d/2753",
-        "productUrl": "https://github.com/BloretCrew/CrewRouter"
-      },
-      {
         "name": "CyQuote",
         "description": "昔言",
         "url": "https://forum.smart-teach.cn/d/2909",
@@ -2139,12 +2280,6 @@
         "description": "",
         "url": "https://forum.smart-teach.cn/d/663",
         "productUrl": "https://forum.smart-teach.cn/d/663"
-      },
-      {
-        "name": "human-led-ppt",
-        "description": "PPT 生成 skill",
-        "url": "https://forum.smart-teach.cn/d/3467",
-        "productUrl": "https://codeberg.org/Makitoid/human-led-ppt"
       },
       {
         "name": "iNKORE.UI.WPF.Modern",
@@ -2181,12 +2316,6 @@
         "description": "PPT 互操作 SDK",
         "url": "https://forum.smart-teach.cn/d/3033",
         "productUrl": "https://sfkgr.me/a/pptmon"
-      },
-      {
-        "name": "rica-server",
-        "description": "大型语言模型的多线程推理框架",
-        "url": "https://forum.smart-teach.cn/d/632",
-        "productUrl": "https://github.com/rica-team/rica-server"
       },
       {
         "name": "Rin-UI",
@@ -2233,11 +2362,6 @@
         "description": "西安电子科技大学校园网诊断工具",
         "url": "https://forum.smart-teach.cn/d/1839/21",
         "productUrl": "https://github.com/LyCecilion/xidio"
-      },
-      {
-        "name": "Zhixue MCP",
-        "description": "Agent 连接智学网",
-        "url": "https://forum.smart-teach.cn/d/3450"
       }
     ]
   }
