@@ -68,6 +68,12 @@
         "productUrl": "https://github.com/YU322142/ClassIsland"
       },
       {
+        "name": "ClassIsland 档案编辑器",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/3640",
+        "productUrl": "https://setsex.rth1.xyz/ClassIsland%E6%A1%A3%E6%A1%88%E7%BC%96%E8%BE%91%E5%99%A8.html"
+      },
+      {
         "name": "ClassIsland 液态玻璃 & 磨砂亚克力主题",
         "description": "主题",
         "url": "https://forum.smart-teach.cn/d/2653"
@@ -565,6 +571,21 @@
         "productUrl": "https://github.com/kxc299/sw_UDI"
       },
       {
+        "name": "白板书写增强",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/3664"
+      },
+      {
+        "name": "声卡修复",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/3664"
+      },
+      {
+        "name": "希沃视频展台修复",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/3664"
+      },
+      {
         "name": "希沃实体机录制按钮触发 OBS 录制",
         "description": "",
         "url": "https://forum.smart-teach.cn/d/2665/14",
@@ -586,6 +607,12 @@
         "description": "修改版",
         "url": "https://forum.smart-teach.cn/d/886/4",
         "productUrl": "https://github.com/LiuYan-xwx/icc-0610fix"
+      },
+      {
+        "name": "ICC CE Lite",
+        "description": "稳定性修复与改进",
+        "url": "https://forum.smart-teach.cn/d/3653",
+        "productUrl": "https://github.com/Baimacao/community-ltsc"
       },
       {
         "name": "ICC-CE",
@@ -630,7 +657,7 @@
       {
         "name": "InkCanvasForPDF",
         "description": "基于 ICA 修改的 PDF 阅读器",
-        "url": "https://forum.smart-teach.cn/d/3499",
+        "url": "https://forum.smart-teach.cn/d/3654",
         "productUrl": "https://github.com/Eason-2012/InkCanvasForPDF"
       },
       {
@@ -694,6 +721,12 @@
         "productUrl": "https://rimeppt.myxmjy.top"
       },
       {
+        "name": "SCHOOL_TOOLS_PDF",
+        "description": "Windows PDF 阅读与批注",
+        "url": "https://forum.smart-teach.cn/d/3604",
+        "productUrl": "https://github.com/me13354091017/SCHOOL_TOOLS_PDF"
+      },
+      {
         "name": "screen-annotator",
         "description": "Linux 屏幕批注",
         "url": "https://forum.smart-teach.cn/d/2227",
@@ -714,7 +747,7 @@
       {
         "name": "Sidera",
         "description": "Linux 教室屏幕批注",
-        "url": "https://forum.smart-teach.cn/d/3049",
+        "url": "https://forum.smart-teach.cn/d/3661",
         "productUrl": "https://github.com/offduckling4825/Sidera--screen-annotate-for-linux"
       },
       {
@@ -1104,10 +1137,22 @@
         "productUrl": "https://github.com/temingyu/duty_reminder"
       },
       {
+        "name": "EasyScore",
+        "description": "易积分",
+        "url": "https://forum.smart-teach.cn/d/3630",
+        "productUrl": "https://easyclass.zhrhello.top/easyscore"
+      },
+      {
         "name": "EasySeats",
         "description": "易排座",
         "url": "https://forum.smart-teach.cn/d/3078",
         "productUrl": "https://easyclass.zhrhello.top/easycore/?tab=seats"
+      },
+      {
+        "name": "EasyTasks",
+        "description": "易任务",
+        "url": "https://forum.smart-teach.cn/d/3615",
+        "productUrl": "https://easyclass.zhrhello.top/easytasks"
       },
       {
         "name": "ICE 冰核智能教务",
@@ -1136,7 +1181,7 @@
       {
         "name": "PointManager",
         "description": "学生积分管理",
-        "url": "https://forum.smart-teach.cn/d/3589",
+        "url": "https://forum.smart-teach.cn/d/3617",
         "productUrl": "https://github.com/XPSoftware/PointManager"
       },
       {
@@ -1199,7 +1244,7 @@
       {
         "name": "ClassSun",
         "description": "桌面悬浮球",
-        "url": "https://forum.smart-teach.cn/d/1645",
+        "url": "https://forum.smart-teach.cn/d/3608",
         "productUrl": "https://github.com/WuguMowaInc/ClassSun"
       },
       {
@@ -1526,6 +1571,17 @@
         "productUrl": "https://github.com/BearWhite-Z/Daily-Commission-Panel"
       },
       {
+        "name": "ENC",
+        "description": "大屏作业版",
+        "url": "https://forum.smart-teach.cn/d/3627",
+        "productUrl": "https://github.com/kausmi/ENcwork"
+      },
+      {
+        "name": "ExamDisplayScreen",
+        "description": "局域网集控的考试大屏",
+        "url": "https://forum.smart-teach.cn/d/3601"
+      },
+      {
         "name": "FullScreenNotice",
         "description": "全屏公示",
         "url": "https://forum.smart-teach.cn/d/774",
@@ -1600,6 +1656,12 @@
   {
     "name": "信息展示与时钟 / 桌面皮肤或小部件",
     "tools": [
+      {
+        "name": "-Desktop",
+        "description": "有心 Desktop",
+        "url": "https://forum.smart-teach.cn/d/3610",
+        "productUrl": "https://github.com/TFC-xin/-Desktop"
+      },
       {
         "name": "FClassPal",
         "description": "启动器小部件",
@@ -1739,6 +1801,12 @@
         "description": "360 拖堂卫士",
         "url": "https://forum.smart-teach.cn/d/740",
         "productUrl": "https://github.com/BSOD-MEMZ/360-Class-Guard"
+      },
+      {
+        "name": "AntiCaptureBrowser",
+        "description": "防截屏浏览器",
+        "url": "https://forum.smart-teach.cn/d/3634",
+        "productUrl": "https://github.com/CreeperAWA/AntiCaptureBrowser"
       },
       {
         "name": "AutoFilledIn",
@@ -1890,6 +1958,12 @@
         "productUrl": "https://github.com/WSXYT/feishu-opencode-bridge"
       },
       {
+        "name": "FileAgent",
+        "description": "打开指定类型文件时自动创建备份副本",
+        "url": "https://forum.smart-teach.cn/d/3619",
+        "productUrl": "https://github.com/howdy213/FileAgent"
+      },
+      {
         "name": "fox-hunter",
         "description": "银狐猎手",
         "url": "https://forum.smart-teach.cn/d/2595",
@@ -2008,12 +2082,6 @@
         "productUrl": "https://github.com/wangruoyuyuyu/Simple-Logon-UI-replacement"
       },
       {
-        "name": "StealthBrowser",
-        "description": "防截屏隐身浏览器",
-        "url": "https://forum.smart-teach.cn/d/190/31",
-        "productUrl": "https://github.com/123456Zhe/StealthBrowser"
-      },
-      {
         "name": "SoundEquilibrium",
         "description": "统一音量控制器",
         "url": "https://forum.smart-teach.cn/d/2055",
@@ -2026,16 +2094,34 @@
         "productUrl": "https://git.unlock-music.dev/um"
       },
       {
+        "name": "usb_popup",
+        "description": "U 盘弹窗助手",
+        "url": "https://forum.smart-teach.cn/d/3660",
+        "productUrl": "https://1831999516.share.123pan.cn/123pan/a7zVjv-5nEvv"
+      },
+      {
         "name": "USBCopyer",
         "description": "插上 U 盘自动按需复制文件",
         "url": "https://forum.smart-teach.cn/d/3075",
         "productUrl": "https://github.com/kenvix/USBCopyer"
       },
       {
+        "name": "USBDriveMgr",
+        "description": "USB 设备管理器",
+        "url": "https://forum.smart-teach.cn/d/3619",
+        "productUrl": "https://github.com/howdy213/USBDriveMgr"
+      },
+      {
         "name": "UsbPulse",
         "description": "U 盘助手",
         "url": "https://forum.smart-teach.cn/d/3569",
         "productUrl": "https://github.com/YU322142/UsbPulse"
+      },
+      {
+        "name": "WinTools",
+        "description": "实用工具集合",
+        "url": "https://forum.smart-teach.cn/d/3619",
+        "productUrl": "https://github.com/howdy213/WinUtils"
       },
       {
         "name": "wipeout-ms-account",
@@ -2053,6 +2139,11 @@
         "name": "白板迁移工具", 
         "url": "https://forum.smart-teach.cn/d/1358/2",
         "archived": true
+      },
+      {
+        "name": "哔哩哔哩热搜获取器",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/934"
       },
       {
         "name": "哈希计算器", 
@@ -2083,6 +2174,11 @@
         "name": "龙芯旧世界虚拟机快速安装脚本及指南", 
         "url": "https://forum.smart-teach.cn/d/1774/5",
         "productUrl": "https://github.com/YU322142/loongarch-oldworld-qemu-vm"
+      },
+      {
+        "name": "驱动检测与更新",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/3664"
       },
       {
         "name": "网页倍速快捷键脚本", 
@@ -2372,10 +2468,22 @@
         "productUrl": "https://github.com/QiuXiYueShiJiu/vigil-guard"
       },
       {
+        "name": "WECore",
+        "description": "Qt 插件框架",
+        "url": "https://forum.smart-teach.cn/d/3619",
+        "productUrl": "https://github.com/howdy213/WECore"
+      },
+      {
         "name": "WhaleMind-Hub",
         "description": "辩论赛全流程管理",
         "url": "https://forum.smart-teach.cn/d/3229",
         "productUrl": "https://github.com/WhaleMind-Debate/WhaleMind-Hub"
+      },
+      {
+        "name": "WinUtils",
+        "description": "Windows 平台封装库",
+        "url": "https://forum.smart-teach.cn/d/3619",
+        "productUrl": "https://github.com/howdy213/WinUtils"
       },
       {
         "name": "WJX Auto Submitter",
