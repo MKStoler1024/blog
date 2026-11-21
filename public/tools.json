@@ -2156,7 +2156,8 @@
         "productUrl": "https://wwbqs.lanzouq.com/i6i6g3k10vzg"
       },
       {
-        "name": "黑曜石 MC 启动器 ObsMCLauncher", 
+        "name": "ObsMCLauncher",
+        "description": "黑曜石 MC 启动器", 
         "url": "https://forum.smart-teach.cn/d/1716/15",
         "productUrl": "https://github.com/mcobs/ObsMCLauncher"
       },
