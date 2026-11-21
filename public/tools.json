@@ -2268,6 +2268,24 @@
         "description": "心理帮扶平台",
         "url": "https://forum.smart-teach.cn/d/2982",
         "productUrl": "https://github.com/jmj626000/MHOP-"
+      },
+      {
+        "name": "导航站",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/801",
+        "productUrl": "https://nav-cses.netlify.app"
+      },
+      {
+        "name": "软件分享网站",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/2307",
+        "achived": true
+      },
+      {
+        "name": "智教导航",
+        "description": "",
+        "url": "https://forum.smart-teach.cn/d/1041",
+        "productUrl": "http://djdn.cc.cd"
       }
     ]
   },
